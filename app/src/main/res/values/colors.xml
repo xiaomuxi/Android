@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<color name="colorPrimary">#3F51B5</color>
+<color name="colorPrimaryDark">#303F9F</color>
+<color name="colorAccent">#FF4081</color>
+
+<!--<color name="bg_main_yellow">#f6d85f</color> //导航栏背景、提交按钮、确定相关按钮文字信息-->
+<color name="bg_main_yellow">#F6D85F</color> //导航栏背景、提交按钮、确定相关按钮文字信息
+<color name="bg_main_white">#f5f5f5</color> //背景色
+<color name="text_main_brownness">#ffffff</color> //导航栏名称、按钮文字信息
+<color name="text_main_orange">#fe9026</color> //强调突出按钮切换状态的文字
+<color name="text_main_black">#381d03</color>  //重要文字的信息、内容标题
+<color name="text_main_gray">#999999</color>
+<color name="text_main_yellow">#f6d85f</color> //导航栏名称、按钮文字信息
+<color name="divide_main_gray">#dddddd</color> //分割线及描边
+<color name="text_prompt_gray">#b4afac</color>   //辅助次要文字（提示性文字）
+<color name="text_main_brown">#744C22</color>   //字体棕色
+<color name="text_blue">#267cfc</color>
+<color name="text_gray">#999999</color>
+<color name="text_gray_6">#666666</color>
+<color name="text_gray_5">#555555</color>
+<color name="text_black">#333333</color>
+<color name="bg_black">#000000</color>
+<color name="bg_white">#ffffff</color>
+<color name="line_gray">#f5f5f5</color>
+<color name="bg_transparent">#00000000</color>
+<!--<color name="bg_gray">#b4b1ae</color>-->
+<color name="bg_gray">#b4afac</color>
+<color name="bg_gray_b">#BBBBBB</color>
+<color name="bg_blue">#4c90f9</color>
+<color name="circle_blue">#1BA0FA</color>
+<color name="item_bg">#F3F4F9</color>
+<color name="white">#FFFFFF</color>
+
+<color name="text_white">#ffffff</color>
+
+<color name="yunda_text_black">#333333</color>
+<color name="yunda_line_new">#DDDDDD</color>
+<color name="yunda_text_red">#EC310C</color>
+<color name="text_green_status">#62A323</color>
+<color name="text_gray_b">#BBBBBB</color>
+
+<!--扫描-->
+<color name="result_view">#b0000000</color>
+<color name="viewfinder_mask">#60000000</color>
+<color name="viewfinder_frame">#00cc00</color>
+<color name="viewfinder_laser">#ffcc0000</color>
+
+<!-- sweetalert-->
+<color name="float_transparent">#66000000</color>
+<color name="error_stroke_color">#F27474</color>
+<color name="success_stroke_color">#A5DC86</color>
+<color name="trans_success_stroke_color">#33A5DC86</color>
+<color name="warning_stroke_color">#F8BB86</color>
+
+<color name="gray">#BFBFBF</color>
+<color name="red">#f00</color>
+
+<!--通知记录-->
+<color name="bg_btn_delete">#F81C1C</color>
+
+<color name="yunda_text_gray">#999999</color>   //辅助次要文字（提示性文字）
+<color name="a21">#704a21</color>
+<color name="yunda_orange_pwd">#fdd000</color>
+<color name="gray_c">#cccccc</color>
+</resources>
+

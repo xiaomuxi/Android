@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/drawable-hdpi/star.png",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/drawable-hdpi/star.png"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/drawable-hdpi/ic_launcher.png",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/drawable-hdpi/ic_launcher_round.png",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/drawable-hdpi/ic_launcher_round.png"
+    }
+]

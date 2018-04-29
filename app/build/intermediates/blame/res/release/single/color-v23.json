@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_tint_default.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/design_tint_password_toggle.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_tint_switch_thumb.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/color-v23/abc_tint_edittext.xml"
+    }
+]

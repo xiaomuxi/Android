@@ -1,6 +1,8 @@
 # Build folder
 build/
 
+app/build/
+
 gradlew
 
 # OSX

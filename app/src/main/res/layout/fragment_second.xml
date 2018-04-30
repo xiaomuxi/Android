@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <com.jayfang.dropdownmenu.DropDownMenu
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -15,10 +16,135 @@
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:background="@color/divide_main_gray" />
-    <ListView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list_view"
-        >
-    </ListView>
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimen_10"
+        android:paddingRight="@dimen/dimen_10"
+        android:gravity="center"
+        android:background="@color/bg_gray_e"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_15"
+            android:editable="false"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请选择开始时间"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/text_black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dimen_20"
+            android:paddingRight="@dimen/dimen_20"
+            android:text="--"
+            android:textSize="@dimen/dimen_25"
+            android:textColor="@color/text_black"/>
+
+        <EditText
+            android:id="@+id/et_end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_15"
+            android:gravity="center"
+            android:editable="false"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请选择结束时间"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/text_black" />
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_new_pressed"
+            android:gravity="center"
+            android:text="重置时间"
+            android:textColor="@color/text_main_brownness"
+            android:textSize="@dimen/sp_16"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+
+    <TextView
+        android:id="@+id/tv_chufen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/common_rightarrowbutton"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="@dimen/dimen_15"
+        android:text="处分类 总人数为：--"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/text_black" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+
+    <TextView
+        android:id="@+id/tv_chubuheshi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/common_rightarrowbutton"
+        android:padding="@dimen/dimen_15"
+        android:text="初步核实类 总人数为：--"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/text_black" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+
+    <TextView
+        android:id="@+id/tv_tanhuahanxun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/common_rightarrowbutton"
+        android:padding="@dimen/dimen_15"
+        android:text="谈话函询类 总人数为：--"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/text_black" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+
+    <TextView
+        android:id="@+id/tv_liaojie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/common_rightarrowbutton"
+        android:padding="@dimen/dimen_15"
+        android:text="了结类 总人数为：--"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/text_black" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+
+    <TextView
+        android:id="@+id/tv_zancun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/common_rightarrowbutton"
+        android:padding="@dimen/dimen_15"
+        android:text="暂存类 总人数为：--"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/text_black" />
+
 </LinearLayout>

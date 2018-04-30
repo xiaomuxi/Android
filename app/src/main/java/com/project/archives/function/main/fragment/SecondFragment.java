@@ -1,42 +1,51 @@
 package com.project.archives.function.main.fragment;
 
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 import com.jayfang.dropdownmenu.DropDownMenu;
 import com.jayfang.dropdownmenu.OnMenuSelectedListener;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
+import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.adapter.PersonAdapter;
-import com.project.archives.function.main.bean.PersonModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by inrokei on 2018/4/25.
  */
 
-public class SecondFragment extends BaseActivityFragment {
+public class SecondFragment extends BaseActivityFragment implements OnMenuSelectedListener, View.OnClickListener {
 
-//    private DropDownMenu mMenu;
-    private ListView mList;
-
-    private int city_index;
-    private int sex_index;
-    private int age_index;
-    private List<PersonModel> data;
+    private int company_type_index;
+    private int compay_index;
     final String[] arr1=new String[]{"全部单位类型","党群部门","行政部门","区管企业","区管事业单位", "人大政协办法"};
     final String[] arr3=new String[]{"全部单位","闵行区1单位","松江区1单位","徐汇区2单位"};
     final String[] strings=new String[]{"选择单位类型","选择单位"};
     private DropDownMenu mMenu;
 
-    private ListView listView;
-    private PersonAdapter mAdapter;
+    private EditText et_start;
+    private EditText et_end;
+    private Button btn_reset;
+
+    private Calendar mCalendar;
+    private DatePickerDialog startDatePickerDialog;
+    private int startYear, startMonth, startDay;
+    private DatePickerDialog endDatePickerDialog;
+    private int endYear, endMonth, endDay;
+    private String startDate, endDate;
+    private DatePicker startDatePicker, endDatePicker;
 
     @Override
     protected View setContentView() {
@@ -51,15 +60,70 @@ public class SecondFragment extends BaseActivityFragment {
     @Override
     protected void initView(View view) {
 
-        data = new ArrayList<>();
-        initData();
-        listView = (ListView) view.findViewById(R.id.list_view);
-        mAdapter = new PersonAdapter(mContext);
-        listView.setAdapter(mAdapter);
-        mAdapter.setData(data);
+        mMenu = (DropDownMenu) view.findViewById(R.id.menu);
+        et_start = (EditText) view.findViewById(R.id.et_start);
+        et_end = (EditText) view.findViewById(R.id.et_end);
+        btn_reset = (Button) view.findViewById(R.id.btn_reset);
 
-        mMenu=(DropDownMenu) view.findViewById(R.id.menu);
+        et_start.setOnClickListener(this);
+        et_end.setOnClickListener(this);
+        btn_reset.setOnClickListener(this);
 
+        initSelectMenu();
+        initDatePickerAndDialog();
+    }
+
+    @Override
+    protected void initCreated(Bundle savedInstanceState) {
+
+    }
+
+
+    private void initDatePickerAndDialog() {
+        mCalendar = Calendar.getInstance();
+        startYear = mCalendar.get(Calendar.YEAR);
+        startMonth = mCalendar.get(Calendar.MONTH);
+        startDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+
+        endYear = mCalendar.get(Calendar.YEAR);
+        endMonth = mCalendar.get(Calendar.MONTH);
+        endDay = mCalendar.get(Calendar.DAY_OF_MONTH);
+
+        startDatePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                startDate = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                if (!checkStartAndEndTimeRight()) {
+                    UIUtils.showToastSafe("起始时间不能小于结束时间！");
+                    return;
+                }
+
+                et_start.setText(startDate);
+            }
+        }, startYear, startMonth, startDay);
+
+        endDatePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                endDate = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                if (!checkStartAndEndTimeRight()) {
+                    UIUtils.showToastSafe("结束时间不能小于起始时间！");
+                    return;
+                }
+
+                et_end.setText(endDate);
+            }
+        }, startYear, startMonth, startDay);
+
+
+        startDatePicker = startDatePickerDialog.getDatePicker();
+        endDatePicker = endDatePickerDialog.getDatePicker();
+
+        startDatePicker.setMaxDate(new Date().getTime());
+        endDatePicker.setMaxDate(new Date().getTime());
+    }
+
+    public void initSelectMenu() {
         mMenu.setmMenuCount(2);
         mMenu.setmShowCount(6);
         mMenu.setShowCheck(true);
@@ -84,21 +148,7 @@ public class SecondFragment extends BaseActivityFragment {
         mMenu.setmMenuListSelectorRes(R.color.white);
         mMenu.setmArrowMarginTitle(20);
 
-        mMenu.setMenuSelectedListener(new OnMenuSelectedListener() {
-            @Override
-            public void onSelected(View listview, int RowIndex, int ColumnIndex) {
-                Log.i("MainActivity", "select " + ColumnIndex + " column and " + RowIndex + " row");
-                if (ColumnIndex == 0) {
-                    city_index = RowIndex;
-                } else if (ColumnIndex == 1) {
-                    sex_index = RowIndex;
-                } else {
-                    age_index = RowIndex;
-                }
-                //过滤筛选
-//                setFilter();
-            }
-        });
+        mMenu.setMenuSelectedListener(this);
         List<String[]> items = new ArrayList<>();
         items.add(arr1);
         items.add(arr3);
@@ -106,23 +156,53 @@ public class SecondFragment extends BaseActivityFragment {
         mMenu.setIsDebug(false);
     }
 
-    @Override
-    protected void initCreated(Bundle savedInstanceState) {
 
+    @Override
+    public void onSelected(View view, int RowIndex, int ColumnIndex) {
+        if (ColumnIndex == 0) {
+            company_type_index = RowIndex;
+        } else {
+            compay_index = RowIndex;
+        }
+
+        //过滤筛选
+//                setFilter();
     }
 
-    public void initData() {
-        for (int i = 0; i < 30; i ++) {
-            PersonModel model = new PersonModel();
-            model.setName("李四" + i + "号");
-            model.setAge(20 + i + "");
-            model.setCode(30002+i+"");
-            model.setCompany(i%2 == 0 ? "闵行区单位2" : "闵行区单位1");
-            model.setJob("闵行区区党支部书记");
-            model.setLevel(i%2 == 0 ?"正处级": "副部级");
-            model.setSex("男");
-            data.add(model);
+    public void resetDate() {
+        startDate = "";
+        endDate = "";
+        startDatePickerDialog.getDatePicker();
+        et_start.setText(startDate);
+        et_end.setText(endDate);
+    }
+
+    public boolean checkStartAndEndTimeRight() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        try {
+            Date startCurrentDate = format.parse(startDate);
+            Date endCurrentDate = format.parse(endDate);
+
+            return startCurrentDate.getTime() <= endCurrentDate.getTime();
+        }
+        catch (Exception e) {
+            LogUtils.i(TAG, e.toString());
+        }
+        return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.et_start:
+                startDatePickerDialog.show();
+                break;
+            case R.id.et_end:
+                endDatePickerDialog.show();
+                break;
+            case R.id.btn_reset:
+                resetDate();
+                break;
         }
     }
-
 }

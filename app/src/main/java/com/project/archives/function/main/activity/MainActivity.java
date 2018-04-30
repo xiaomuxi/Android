@@ -199,6 +199,12 @@ public class MainActivity extends AppCompatActivity
         if (null != thirdFragment) {
             transaction.hide(thirdFragment);
         }
+        if (null != forthFragment) {
+            transaction.hide(forthFragment);
+        }
+        if (null != fifthFragment) {
+            transaction.hide(fifthFragment);
+        }
 
     }
 

@@ -30,4 +30,5 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     compile 'com.github.JayFang1993:DropDownMenu:v0.9'
     testCompile 'junit:junit:4.12'
+    compile 'org.greenrobot:greendao:3.2.2'
 }

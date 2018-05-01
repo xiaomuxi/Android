@@ -81,4 +81,30 @@ public abstract class BaseActivityFragment extends Fragment {
     protected abstract void initView(View view);
 
     protected abstract void initCreated(Bundle savedInstanceState);
+
+    public void createPresent() {
+    }
+
+    /**
+     * 该方法在fragment create之前调用 , 在和ViewPager使用才会调用
+     * @param isVisibleToUser 可见
+     */
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        LogUtils.i(TAG, "set user visible : " + String.valueOf(isVisibleToUser));
+        if(isVisibleToUser){
+            mIsVisible = true;
+            onVisible();
+        }else {
+            mIsVisible = false;
+            onInVisible();
+        }
+    }
+
+    protected void onVisible(){
+    }
+
+    protected void onInVisible(){
+    }
 }

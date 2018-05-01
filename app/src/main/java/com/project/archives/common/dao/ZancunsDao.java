@@ -30,10 +30,10 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
         public final static Property Rank = new Property(5, Integer.class, "Rank", false, "Rank");
         public final static Property IdCard = new Property(6, String.class, "IdCard", false, "IdCard");
         public final static Property Number = new Property(7, String.class, "Number", false, "Number");
-        public final static Property EndingTime = new Property(8, java.util.Date.class, "EndingTime", false, "EndingTime");
+        public final static Property ZancunTime = new Property(8, java.util.Date.class, "ZancunTime", false, "ZancunTime");
         public final static Property KeyWord = new Property(9, String.class, "KeyWord", false, "KeyWord");
         public final static Property Problem = new Property(10, byte[].class, "Problem", false, "Problem");
-        public final static Property EndingContent = new Property(11, String.class, "EndingContent", false, "EndingContent");
+        public final static Property EndingContent = new Property(11, String.class, "ZancunContent", false, "ZancunContent");
         public final static Property SurveyContent = new Property(12, String.class, "SurveyContent", false, "SurveyContent");
         public final static Property TrueDegree = new Property(13, Integer.class, "TrueDegree", false, "TrueDegree");
         public final static Property Result = new Property(14, String.class, "Result", false, "Result");
@@ -69,10 +69,10 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
                 "\"Rank\" INTEGER," + // 5: Rank
                 "\"IdCard\" TEXT," + // 6: IdCard
                 "\"Number\" TEXT," + // 7: Number
-                "\"EndingTime\" INTEGER," + // 8: EndingTime
+                "\"ZancunTime\" Date," + // 8: ZancunTime
                 "\"KeyWord\" TEXT," + // 9: KeyWord
                 "\"Problem\" BLOB," + // 10: Problem
-                "\"EndingContent\" TEXT," + // 11: EndingContent
+                "\"ZancunContent\" TEXT," + // 11: ZancunContent
                 "\"SurveyContent\" TEXT," + // 12: SurveyContent
                 "\"TrueDegree\" INTEGER," + // 13: TrueDegree
                 "\"Result\" TEXT," + // 14: Result
@@ -137,9 +137,9 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
             stmt.bindString(8, Number);
         }
  
-        java.util.Date EndingTime = entity.getEndingTime();
-        if (EndingTime != null) {
-            stmt.bindLong(9, EndingTime.getTime());
+        java.util.Date ZancunTime = entity.getZancunTime();
+        if (ZancunTime != null) {
+            stmt.bindLong(9, ZancunTime.getTime());
         }
  
         String KeyWord = entity.getKeyWord();
@@ -152,9 +152,9 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
             stmt.bindBlob(11, Problem);
         }
  
-        String EndingContent = entity.getEndingContent();
-        if (EndingContent != null) {
-            stmt.bindString(12, EndingContent);
+        String ZancunContent = entity.getZancunContent();
+        if (ZancunContent != null) {
+            stmt.bindString(12, ZancunContent);
         }
  
         String SurveyContent = entity.getSurveyContent();
@@ -191,7 +191,7 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
         if (isDelete != null) {
             stmt.bindLong(19, isDelete);
         }
- 
+
         java.util.Date AddDate = entity.getAddDate();
         if (AddDate != null) {
             stmt.bindLong(20, AddDate.getTime());
@@ -262,9 +262,9 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
             stmt.bindString(8, Number);
         }
  
-        java.util.Date EndingTime = entity.getEndingTime();
-        if (EndingTime != null) {
-            stmt.bindLong(9, EndingTime.getTime());
+        java.util.Date ZancunTime = entity.getZancunTime();
+        if (ZancunTime != null) {
+            stmt.bindLong(9, ZancunTime.getTime());
         }
  
         String KeyWord = entity.getKeyWord();
@@ -277,9 +277,9 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
             stmt.bindBlob(11, Problem);
         }
  
-        String EndingContent = entity.getEndingContent();
-        if (EndingContent != null) {
-            stmt.bindString(12, EndingContent);
+        String ZancunContent = entity.getZancunContent();
+        if (ZancunContent != null) {
+            stmt.bindString(12, ZancunContent);
         }
  
         String SurveyContent = entity.getSurveyContent();
@@ -359,10 +359,10 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
             cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // Rank
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // IdCard
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // Number
-            cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)), // EndingTime
+            cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)), // ZancunTime
             cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // KeyWord
             cursor.isNull(offset + 10) ? null : cursor.getBlob(offset + 10), // Problem
-            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // EndingContent
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // ZancunContent
             cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), // SurveyContent
             cursor.isNull(offset + 13) ? null : cursor.getInt(offset + 13), // TrueDegree
             cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14), // Result
@@ -389,10 +389,10 @@ public class ZancunsDao extends AbstractDao<Zancuns, byte[]> {
         entity.setRank(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
         entity.setIdCard(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setNumber(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setEndingTime(cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)));
+        entity.setZancunTime(cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)));
         entity.setKeyWord(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
         entity.setProblem(cursor.isNull(offset + 10) ? null : cursor.getBlob(offset + 10));
-        entity.setEndingContent(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
+        entity.setZancunContent(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
         entity.setSurveyContent(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
         entity.setTrueDegree(cursor.isNull(offset + 13) ? null : cursor.getInt(offset + 13));
         entity.setResult(cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14));

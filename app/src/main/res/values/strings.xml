@@ -16,4 +16,21 @@
     <string name="txt_username_can_not_empty">用户名不能为空</string>
     <string name="txt_password_can_not_empty">密码不能为空</string>
     <string name="invalid_username_password">用户名或密码不正确</string>
+
+    <string name="not_find_search_result">没有找到结果</string>
+    <string name="click_reload">点击重新加载</string>
+
+    <string name="txt_caseinves">处分类</string>
+
+    <string name="list_caseinves_title">处分(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_verifications_title">核实(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_letters_title">函询(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_endings_title">了结(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_zancuns_title">暂存(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+
+    <!--<string name="list_caseinves_title">处分类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_verifications_title">初步核实类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_letters_title">谈话函询类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_endings_title">了结类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_zancuns_title">暂存类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
 </resources>

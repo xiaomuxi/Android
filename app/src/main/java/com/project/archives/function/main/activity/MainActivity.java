@@ -15,21 +15,19 @@ import android.view.MenuItem;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.fragment.FifthFragment;
-import com.project.archives.function.main.fragment.FirstFragment;
-import com.project.archives.function.main.fragment.ForthFragment;
-import com.project.archives.function.main.fragment.SecondFragment;
-import com.project.archives.function.main.fragment.ThirdFragment;
+import com.project.archives.function.main.fragment.CompanyFragment;
+import com.project.archives.function.main.fragment.HomeFragment;
+import com.project.archives.function.main.fragment.PersonFragment;
+import com.project.archives.function.main.fragment.TypeFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private long exitTime = 0;
     private FragmentManager fragmentManager;
-    private FirstFragment firstFragment;
-    private SecondFragment secondFragment;
-    private ThirdFragment thirdFragment;
-    private ForthFragment forthFragment;
-    private FifthFragment fifthFragment;
+    private HomeFragment homeFragment;
+    private PersonFragment personFragment;
+    private CompanyFragment companyFragment;
+    private TypeFragment typeFragment;
     private String currentFragment;
 
     @Override
@@ -48,9 +46,8 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setCheckedItem(R.id.nav_camera);
+        navigationView.setCheckedItem(R.id.nav_home);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override
@@ -59,7 +56,14 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                UIUtils.showToastSafe("再按一次退出程序");
+                exitTime = System.currentTimeMillis();
+            } else {
+                super.onBackPressed();
+                System.exit(0);
+            }
+
         }
     }
 
@@ -91,47 +95,39 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            if (!"FIRST".equals(currentFragment)) {
+        if (id == R.id.nav_home) {
+            if (!"HOME".equals(currentFragment)) {
                 fragmentManager.beginTransaction()
-                        .replace(R.id.frame_home_content, getFragment("FIRST"))
+                        .replace(R.id.frame_home_content, getFragment("HOME"))
                         .commit();
-                currentFragment = "FIRST";
+                currentFragment = "HOME";
             }
-        } else if (id == R.id.nav_gallery) {
-            if (!"THIRD".equals(currentFragment)) {
+        } else if (id == R.id.nav_person) {
+            if (!"PERSON".equals(currentFragment)) {
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.frame_home_content, getFragment("THIRD"))
+                        .replace(R.id.frame_home_content, getFragment("PERSON"))
                         .commit();
-                currentFragment = "THIRD";
+                currentFragment = "PERSON";
             }
 
-        } else if (id == R.id.nav_slideshow) {
-            if (!"SECOND".equals(currentFragment)) {
+        } else if (id == R.id.nav_company) {
+            if (!"COMPANY".equals(currentFragment)) {
                 fragmentManager.beginTransaction()
-                        .replace(R.id.frame_home_content, getFragment("SECOND"))
+                        .replace(R.id.frame_home_content, getFragment("COMPANY"))
                         .commit();
-                currentFragment = "SECOND";
+                currentFragment = "COMPANY";
             }
 
-        } else if (id == R.id.nav_manage) {
-            if (!"FORTH".equals(currentFragment)) {
+        } else if (id == R.id.nav_type) {
+            if (!"TYPE".equals(currentFragment)) {
                 fragmentManager.beginTransaction()
-                        .replace(R.id.frame_home_content, getFragment("FORTH"))
+                        .replace(R.id.frame_home_content, getFragment("TYPE"))
                         .commit();
-                currentFragment = "FORTH";
+                currentFragment = "TYPE";
             }
 
-        } else if (id == R.id.nav_age) {
-            if (!"FIFTH".equals(currentFragment)) {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.frame_home_content, getFragment("FIFTH"))
-                        .commit();
-                currentFragment = "FORTH";
-            }
-        }
-        else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_setting) {
             UIUtils.showToastSafe("功能正在开发中...");
             return false;
         }
@@ -144,66 +140,58 @@ public class MainActivity extends AppCompatActivity
     private void initFragment() {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         hideFragments(transaction);
-        if (null == firstFragment) {
-            firstFragment = new FirstFragment();
-            transaction.add(R.id.frame_home_content, firstFragment);
+        if (null == homeFragment) {
+            homeFragment = new HomeFragment();
+            transaction.add(R.id.frame_home_content, homeFragment);
         } else {
-            transaction.show(firstFragment);
+            transaction.show(homeFragment);
         }
-        currentFragment = "FIRST";
+        currentFragment = "HOME";
         transaction.commitAllowingStateLoss();
     }
 
     private BaseActivityFragment getFragment(String type) {
         switch (type) {
-            case "FIRST":
-                if (null == firstFragment) {
-                    firstFragment = new FirstFragment();
+            case "HOME":
+                if (null == homeFragment) {
+                    homeFragment = new HomeFragment();
                 }
-                return firstFragment;
-            case "SECOND":
-                if (null == secondFragment) {
-                    secondFragment = new SecondFragment();
+                return homeFragment;
+            case "PERSON":
+                if (null == personFragment) {
+                    personFragment = new PersonFragment();
                 }
-                return secondFragment;
-            case "THIRD":
-                if (null == thirdFragment) {
-                    thirdFragment = new ThirdFragment();
+                return personFragment;
+            case "COMPANY":
+                if (null == companyFragment) {
+                    companyFragment = new CompanyFragment();
                 }
-                return thirdFragment;
-            case "FORTH":
-                if (null == forthFragment) {
-                    forthFragment = new ForthFragment();
+                return companyFragment;
+            case "TYPE":
+                if (null == typeFragment) {
+                    typeFragment = new TypeFragment();
                 }
-                return forthFragment;
-            case "FIFTH":
-                if (null == fifthFragment) {
-                    fifthFragment = new FifthFragment();
-                }
-                return fifthFragment;
+                return typeFragment;
             default:
-                if (null == firstFragment) {
-                    firstFragment = new FirstFragment();
+                if (null == homeFragment) {
+                    homeFragment = new HomeFragment();
                 }
-                return firstFragment;
+                return homeFragment;
         }
     }
 
     private void hideFragments(FragmentTransaction transaction) {
-        if (null != firstFragment) {
-            transaction.hide(firstFragment);
+        if (null != homeFragment) {
+            transaction.hide(homeFragment);
         }
-        if (null != secondFragment) {
-            transaction.hide(secondFragment);
+        if (null != personFragment) {
+            transaction.hide(personFragment);
         }
-        if (null != thirdFragment) {
-            transaction.hide(thirdFragment);
+        if (null != companyFragment) {
+            transaction.hide(companyFragment);
         }
-        if (null != forthFragment) {
-            transaction.hide(forthFragment);
-        }
-        if (null != fifthFragment) {
-            transaction.hide(fifthFragment);
+        if (null != typeFragment) {
+            transaction.hide(typeFragment);
         }
 
     }
@@ -211,8 +199,22 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        if (null != fragmentManager) {
-//            fragmentManager.beginTransaction().remove();
-//        }
+        if (null != fragmentManager) {
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            if (homeFragment != null) {
+                transaction.remove(homeFragment);
+            }
+            if (companyFragment != null) {
+                transaction.remove(companyFragment);
+            }
+            if (personFragment != null) {
+                transaction.remove(personFragment);
+            }
+            if (typeFragment != null) {
+                transaction.remove(typeFragment);
+            }
+
+            transaction.commit();
+        }
     }
 }

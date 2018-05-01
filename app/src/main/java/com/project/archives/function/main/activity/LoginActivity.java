@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.project.archives.R;
+import com.project.archives.common.utils.UIUtils;
 
 /**
  * A login screen that offers login via username/password.
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
-
+    private long exitTime = 0;
     private EditText mUserNameView;
     private EditText mPasswordView;
     private View mProgressView;
@@ -200,6 +201,20 @@ public class LoginActivity extends AppCompatActivity {
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                UIUtils.showToastSafe("再按一次退出程序");
+                exitTime = System.currentTimeMillis();
+            } else {
+                this.finish();
+                System.exit(0);
+            }
+        }
+        return false;
     }
 }
 

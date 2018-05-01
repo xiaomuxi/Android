@@ -37,6 +37,13 @@ public class CaseInvesManager {
         return caseInvesDao.count();
     }
 
+    public long getCountByQuery(Date startTime, Date endTime) {
+        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
+        queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(startTime), CaseInvesDao.Properties.AddDate.le(endTime));
+
+        return queryBuilder.buildCount().count();
+    }
+
     public List<CaseInves> getCaseInvesList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
@@ -63,7 +70,7 @@ public class CaseInvesManager {
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(CaseInvesDao.Properties.AddDate.between(start, end));
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(start), CaseInvesDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
             queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(start));

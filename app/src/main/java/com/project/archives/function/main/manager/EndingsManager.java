@@ -37,6 +37,13 @@ public class EndingsManager {
         return endingsDao.count();
     }
 
+    public long getCountByQuery(Date startTime, Date endTime) {
+        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
+        queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime), EndingsDao.Properties.AddDate.le(endTime));
+
+        return queryBuilder.buildCount().count();
+    }
+
     public List<Endings> getEndingList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
@@ -63,7 +70,7 @@ public class EndingsManager {
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(EndingsDao.Properties.AddDate.between(start, end));
+            queryBuilder.where(EndingsDao.Properties.AddDate.ge(start), EndingsDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
             queryBuilder.where(EndingsDao.Properties.AddDate.ge(start));

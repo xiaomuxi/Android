@@ -37,6 +37,13 @@ public class LettersManager {
         return lettersDao.count();
     }
 
+    public long getCountByQuery(Date startTime, Date endTime) {
+        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
+        queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
+
+        return queryBuilder.buildCount().count();
+    }
+
     public List<Letters> getLetterList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
@@ -63,7 +70,7 @@ public class LettersManager {
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(LettersDao.Properties.AddDate.between(start, end));
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(start), LettersDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
             queryBuilder.where(LettersDao.Properties.AddDate.ge(start));

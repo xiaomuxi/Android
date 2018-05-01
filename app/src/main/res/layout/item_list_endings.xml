@@ -5,7 +5,7 @@
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:id="@+id/ll_has_send"
+    android:id="@+id/ll_item"
     android:orientation="vertical">
 
     <LinearLayout
@@ -18,12 +18,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/dimen_15"
-            android:text="编号"
+            android:text="时间"
             android:textColor="@color/text_black"
             android:textSize="@dimen/sp_15" />
 
         <TextView
-            android:id="@+id/tv_no"
+            android:id="@+id/tv_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|right"

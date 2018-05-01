@@ -5,11 +5,28 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10"
+        android:text="近3个月各案件审理量"
+        android:textSize="@dimen/dimen_15"
+        android:textColor="@color/text_black"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/white"/>
+
+    <TextView
         android:id="@+id/tv_title1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_10"
-        android:text="半年内谈话函询、初核、案件审理量"
+        android:text="半年内各类案件审理量"
         android:textSize="@dimen/dimen_15"
         android:textColor="@color/text_black"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -21,21 +38,7 @@
         android:background="@android:color/white"
         android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/tv_title2"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_10"
-        android:text="一月内去年同比"
-        android:textSize="@dimen/dimen_15"
-        android:textColor="@color/text_black"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <com.github.mikephil.charting.charts.HorizontalBarChart
-        android:id="@+id/chart2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/white"/>
-
+        android:layout_height="@dimen/dimen_10"/>
 </LinearLayout>

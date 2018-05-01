@@ -38,17 +38,31 @@ public class ZancunsManager {
         return zancunsDao.count();
     }
 
+    public long getCountByQuery(Date startTime, Date endTime) {
+        QueryBuilder<Zancuns> queryBuilder = zancunsDao.queryBuilder();
+        queryBuilder.where(ZancunsDao.Properties.AddDate.ge(startTime), ZancunsDao.Properties.AddDate.le(endTime));
+
+        return queryBuilder.buildCount().count();
+    }
+
     public List<Zancuns> getZancunList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
         try {
             if (!StringUtils.isEmpty(startTime)) {
                 start = format.parse(startTime);
+                System.out.println("时间-------");
+                System.out.println(start);
+                System.out.println(start.toString());
             }
             if (!StringUtils.isEmpty(endTime)) {
                 end = format.parse(startTime);
+                System.out.println("时间-------");
+                System.out.println(end);
+                System.out.println(end.toString());
             }
+
         }
         catch (Exception e) {
             LogUtils.e(CaseInvesManager.class.getName(), e);
@@ -64,7 +78,7 @@ public class ZancunsManager {
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(ZancunsDao.Properties.AddDate.between(start, end));
+            queryBuilder.where(ZancunsDao.Properties.AddDate.ge(start), ZancunsDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
             queryBuilder.where(ZancunsDao.Properties.AddDate.ge(start));
@@ -74,7 +88,6 @@ public class ZancunsManager {
         }
 
         queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
-
-        return queryBuilder.list();
+        return queryBuilder.build().list();
     }
 }

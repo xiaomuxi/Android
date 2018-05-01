@@ -15,6 +15,11 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+
+        <activity
+            android:name=".function.main.activity.UserDetailActivity"
+            android:label="信息详情"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".function.main.activity.LoginActivity">
             <intent-filter>

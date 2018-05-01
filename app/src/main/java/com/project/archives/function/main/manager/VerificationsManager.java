@@ -37,6 +37,13 @@ public class VerificationsManager {
         return verificationsDao.count();
     }
 
+    public long getCountByQuery(Date startTime, Date endTime) {
+        QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
+        queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
+
+        return queryBuilder.buildCount().count();
+    }
+
     public List<Verifications> getVerificationList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
@@ -63,7 +70,7 @@ public class VerificationsManager {
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(VerificationsDao.Properties.AddDate.between(start, end));
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(start), VerificationsDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
             queryBuilder.where(VerificationsDao.Properties.AddDate.ge(start));

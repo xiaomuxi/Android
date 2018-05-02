@@ -27,7 +27,7 @@ public class Endings implements Serializable {
     private Integer Rank;
     private String IdCard;
     private String Number;
-    private java.util.Date EndingTime;
+    private String EndingTime;
     private String KeyWord;
     private byte[] Problem;
     private String EndingContent;
@@ -38,9 +38,9 @@ public class Endings implements Serializable {
     private String Note;
     private byte[] AnnexIDStr;
     private Integer isDelete;
-    private java.util.Date AddDate;
+    private String AddDate;
     private String AddUser;
-    private java.util.Date UpdateDate;
+    private String UpdateDate;
     private String UpdateUser;
     private Integer objectSource;
 
@@ -56,7 +56,7 @@ public class Endings implements Serializable {
     }
 
     @Generated(hash = 1829529868)
-    public Endings(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, String IdCard, String Number, java.util.Date EndingTime, String KeyWord, byte[] Problem, String EndingContent, String SurveyContent, Integer TrueDegree, String Result, byte[] ResultSituation, String Note, byte[] AnnexIDStr, Integer isDelete, java.util.Date AddDate, String AddUser, java.util.Date UpdateDate, String UpdateUser, Integer objectSource) {
+    public Endings(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, String IdCard, String Number, String EndingTime, String KeyWord, byte[] Problem, String EndingContent, String SurveyContent, Integer TrueDegree, String Result, byte[] ResultSituation, String Note, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, Integer objectSource) {
         this.ID = ID;
         this.UserID = UserID;
         this.Name = Name;
@@ -147,11 +147,11 @@ public class Endings implements Serializable {
         this.Number = Number;
     }
 
-    public java.util.Date getEndingTime() {
+    public String getEndingTime() {
         return EndingTime;
     }
 
-    public void setEndingTime(java.util.Date EndingTime) {
+    public void setEndingTime(String EndingTime) {
         this.EndingTime = EndingTime;
     }
 
@@ -235,11 +235,11 @@ public class Endings implements Serializable {
         this.isDelete = isDelete;
     }
 
-    public java.util.Date getAddDate() {
+    public String getAddDate() {
         return AddDate;
     }
 
-    public void setAddDate(java.util.Date AddDate) {
+    public void setAddDate(String AddDate) {
         this.AddDate = AddDate;
     }
 
@@ -251,11 +251,11 @@ public class Endings implements Serializable {
         this.AddUser = AddUser;
     }
 
-    public java.util.Date getUpdateDate() {
+    public String getUpdateDate() {
         return UpdateDate;
     }
 
-    public void setUpdateDate(java.util.Date UpdateDate) {
+    public void setUpdateDate(String UpdateDate) {
         this.UpdateDate = UpdateDate;
     }
 

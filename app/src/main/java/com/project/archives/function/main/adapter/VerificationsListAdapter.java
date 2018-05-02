@@ -39,7 +39,7 @@ public class VerificationsListAdapter extends MyBaseAdapter<Verifications> {
         TextView tv_job = (TextView) convertView.findViewById(R.id.tv_address);
         TextView tv_company = (TextView) convertView.findViewById(R.id.tv_money);
 
-        tv_time.setText("2018-01-01");
+        tv_time.setText(item.getAddDate());
         tv_name.setText(item.getName());
         tv_level.setText("正处");
         String init = item.getInit().length() > 13 ? item.getInit().substring(0,12) + "..." : item.getInit();

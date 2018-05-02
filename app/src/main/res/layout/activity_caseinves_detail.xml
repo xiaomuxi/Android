@@ -23,39 +23,47 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="处分类问题线索情况表"
+                android:textSize="@dimen/sp_18"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:textColor="@color/text_black"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/tv_name"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
-                    android:text="姓名："
+                    android:text="@string/txt_name"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/sex"
+                    android:id="@+id/tv_zhiji"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
-                    android:text="性别："
+                    android:text="@string/txt_zhiji"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -68,33 +76,27 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/age"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:singleLine="true"
-                    android:text="年龄："
-                    android:textColor="@android:color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/danwei"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
                     android:text="单位："
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
+                <TextView
+                    android:id="@+id/tv_danwei"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="--"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
             </LinearLayout>
 
             <View
@@ -104,30 +106,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/zhiwu"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
                     android:text="职务："
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/zhiji"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:id="@+id/tv_zhiwu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:singleLine="true"
-                    android:text="职级："
+                    android:text="--"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -144,29 +140,94 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/dang_dai_biao"
+                    android:id="@+id/tv_dang"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
-                    android:text="党代表："
+                    android:text="@string/txt_dang"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/renda_daibiao"
+                    android:id="@+id/tv_renda"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
-                    android:text="人大代表："
+                    android:text="@string/txt_renda"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray_b" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_zzmm"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/txt_zzmm"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
+                <TextView
+                    android:id="@+id/tv_jcdx"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/txt_jcdx"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray_b" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_xsly"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/txt_xsly"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_slsj"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/txt_slsj"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -181,26 +242,24 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/zhengzhi_mianmao"
+                    android:id="@+id/tv_chsj"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
-                    android:text="政治面貌："
+                    android:text="@string/txt_chsj"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/jiancha_duixiang"
+                    android:id="@+id/tv_ljsj"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
                     android:singleLine="true"
-                    android:text="监察对象："
+                    android:text="@string/txt_ljsj"
                     android:textColor="@android:color/black"
                     android:textSize="15sp" />
 
@@ -211,127 +270,55 @@
                 android:layout_height="1dp"
                 android:background="@color/bg_gray_b" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:text="违纪行为：666"
-                android:textColor="@color/bg_black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="违纪行为："
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_wjxw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="--"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray_b" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp">
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_bljg"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center_vertical"
-                    android:text="线索来源："
+                    android:text="@string/txt_bljg"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_zzcl"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center_vertical"
-                    android:text="初核时间：2018-04-29"
-                    android:textColor="@color/bg_black"
-                    android:textSize="15sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="受理时间："
-                        android:textColor="@color/bg_black"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/start_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2018-04-30"
-                        android:textColor="@color/bg_black"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:text="——" />
-
-                    <TextView
-                        android:id="@+id/end_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2018-05-30"
-                        android:textColor="@color/bg_black"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="立案时间："
-                        android:textColor="@color/bg_black"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/lian_start_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2018-04-30"
-                        android:textColor="@color/bg_black"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:text="——" />
-
-                    <TextView
-                        android:id="@+id/lian_end_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2018-05-30"
-                        android:textColor="@color/bg_black"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:text="办理机关：第一纪检监察室"
-                    android:textColor="@color/bg_black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:text="组织处理：解聘"
+                    android:text="@string/txt_zzcl"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 
@@ -342,18 +329,20 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tv_dncf"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="处分种类：党内处分"
+                        android:text="@string/txt_dncf"
                         android:textColor="@color/bg_black"
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/tv_xzcf"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="行政处分：警告"
+                        android:text="@string/txt_xzcf"
                         android:textColor="@color/bg_black"
                         android:textSize="15sp" />
 
@@ -361,23 +350,21 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:text="线索概述:"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_xsgs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
                     android:lineSpacingExtra="3dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="5dp"
+                    android:padding="@dimen/dimen_5"
                     android:singleLine="false"
-                    android:text="666"
+                    android:text="--"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 
@@ -390,16 +377,14 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_wtxsms"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
                     android:lineSpacingExtra="3dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="5dp"
+                    android:padding="@dimen/dimen_5"
                     android:singleLine="false"
-                    android:text="666"
+                    android:text="--"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 
@@ -412,16 +397,14 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_wjss"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
                     android:lineSpacingExtra="3dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="5dp"
+                    android:padding="@dimen/dimen_5"
                     android:singleLine="false"
-                    android:text="666"
+                    android:text="--"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 
@@ -434,16 +417,14 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_dxclyj"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
                     android:lineSpacingExtra="3dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="5dp"
+                    android:padding="@dimen/dimen_5"
                     android:singleLine="false"
-                    android:text="666"
+                    android:text="--"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 
@@ -456,17 +437,15 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_note"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/btn_new_normal"
                     android:lineSpacingExtra="3dp"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="5dp"
+                    android:padding="@dimen/dimen_5"
                     android:singleLine="false"
-                    android:text="666"
+                    android:text="--"
                     android:textColor="@color/bg_black"
                     android:textSize="15sp" />
 

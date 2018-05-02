@@ -30,8 +30,8 @@ public class Verifications implements Serializable {
     private Integer IsOfficer;
     private byte[] Discipline;
     private Integer Organ;
-    private java.util.Date VerificTime;
-    private java.util.Date TakingTime;
+    private String VerificTime;
+    private String TakingTime;
     private String Clues;
     private String VerificResult;
     private Integer TakingResult;
@@ -39,12 +39,12 @@ public class Verifications implements Serializable {
     private String Note;
     private byte[] AnnexIDStr;
     private Integer isDelete;
-    private java.util.Date AddDate;
+    private String AddDate;
     private String AddUser;
-    private java.util.Date UpdateDate;
+    private String UpdateDate;
     private String UpdateUser;
     private Integer objectSource;
-    private java.util.Date ProcessTime;
+    private String ProcessTime;
     private String Trail;
 
     // KEEP FIELDS - put your custom fields here
@@ -59,7 +59,7 @@ public class Verifications implements Serializable {
     }
 
     @Generated(hash = 1184866260)
-    public Verifications(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, Integer Coding, Integer IsObject, Integer IsOfficer, byte[] Discipline, Integer Organ, java.util.Date VerificTime, java.util.Date TakingTime, String Clues, String VerificResult, Integer TakingResult, Integer ResultSituation, String Note, byte[] AnnexIDStr, Integer isDelete, java.util.Date AddDate, String AddUser, java.util.Date UpdateDate, String UpdateUser, Integer objectSource, java.util.Date ProcessTime, String Trail) {
+    public Verifications(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, Integer Coding, Integer IsObject, Integer IsOfficer, byte[] Discipline, Integer Organ, String VerificTime, String TakingTime, String Clues, String VerificResult, Integer TakingResult, Integer ResultSituation, String Note, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, Integer objectSource, String ProcessTime, String Trail) {
         this.ID = ID;
         this.UserID = UserID;
         this.Name = Name;
@@ -177,19 +177,19 @@ public class Verifications implements Serializable {
         this.Organ = Organ;
     }
 
-    public java.util.Date getVerificTime() {
+    public String getVerificTime() {
         return VerificTime;
     }
 
-    public void setVerificTime(java.util.Date VerificTime) {
+    public void setVerificTime(String VerificTime) {
         this.VerificTime = VerificTime;
     }
 
-    public java.util.Date getTakingTime() {
+    public String getTakingTime() {
         return TakingTime;
     }
 
-    public void setTakingTime(java.util.Date TakingTime) {
+    public void setTakingTime(String TakingTime) {
         this.TakingTime = TakingTime;
     }
 
@@ -249,11 +249,11 @@ public class Verifications implements Serializable {
         this.isDelete = isDelete;
     }
 
-    public java.util.Date getAddDate() {
+    public String getAddDate() {
         return AddDate;
     }
 
-    public void setAddDate(java.util.Date AddDate) {
+    public void setAddDate(String AddDate) {
         this.AddDate = AddDate;
     }
 
@@ -265,11 +265,11 @@ public class Verifications implements Serializable {
         this.AddUser = AddUser;
     }
 
-    public java.util.Date getUpdateDate() {
+    public String getUpdateDate() {
         return UpdateDate;
     }
 
-    public void setUpdateDate(java.util.Date UpdateDate) {
+    public void setUpdateDate(String UpdateDate) {
         this.UpdateDate = UpdateDate;
     }
 
@@ -289,11 +289,11 @@ public class Verifications implements Serializable {
         this.objectSource = objectSource;
     }
 
-    public java.util.Date getProcessTime() {
+    public String getProcessTime() {
         return ProcessTime;
     }
 
-    public void setProcessTime(java.util.Date ProcessTime) {
+    public void setProcessTime(String ProcessTime) {
         this.ProcessTime = ProcessTime;
     }
 

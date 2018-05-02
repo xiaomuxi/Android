@@ -6,9 +6,7 @@ import android.os.Looper;
 
 import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.utils.FileUtils;
-import com.project.archives.common.utils.LogUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -57,17 +55,6 @@ public class App extends Application{
         mInstance = this;
 
         DB_PATH = this.getDatabasePath("jw.db").getParent() + "/";
-//        String[] list = this.getFilesDir(DB_PATH).list();
-        File file = new File(DB_PATH);
-        String[] list = file.list();
-        for (int i = 0; i < list.length; i++) {
-            LogUtils.i("TEST---", list[i]);
-        }
-
-
-//        File file = new File(DB_PATH);
-//        file.list();
-        LogUtils.i("TEST--", DB_PATH);
 
         try {
             InputStream dbInputStream = this.getAssets().open("jw.db");

@@ -23,9 +23,9 @@ public class MultiDictionaries implements Serializable {
     private Integer Type;
     private Integer Sort;
     private Integer IsDelete;
-    private java.util.Date AddDate;
+    private String AddDate;
     private String AddUser;
-    private java.util.Date UpdateDate;
+    private String UpdateDate;
     private String UpdateUser;
 
     // KEEP FIELDS - put your custom fields here
@@ -40,7 +40,7 @@ public class MultiDictionaries implements Serializable {
     }
 
     @Generated(hash = 1017756176)
-    public MultiDictionaries(byte[] ID, String OptionsName, Integer Type, Integer Sort, Integer IsDelete, java.util.Date AddDate, String AddUser, java.util.Date UpdateDate, String UpdateUser) {
+    public MultiDictionaries(byte[] ID, String OptionsName, Integer Type, Integer Sort, Integer IsDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser) {
         this.ID = ID;
         this.OptionsName = OptionsName;
         this.Type = Type;
@@ -92,11 +92,11 @@ public class MultiDictionaries implements Serializable {
         this.IsDelete = IsDelete;
     }
 
-    public java.util.Date getAddDate() {
+    public String getAddDate() {
         return AddDate;
     }
 
-    public void setAddDate(java.util.Date AddDate) {
+    public void setAddDate(String AddDate) {
         this.AddDate = AddDate;
     }
 
@@ -108,11 +108,11 @@ public class MultiDictionaries implements Serializable {
         this.AddUser = AddUser;
     }
 
-    public java.util.Date getUpdateDate() {
+    public String getUpdateDate() {
         return UpdateDate;
     }
 
-    public void setUpdateDate(java.util.Date UpdateDate) {
+    public void setUpdateDate(String UpdateDate) {
         this.UpdateDate = UpdateDate;
     }
 

@@ -7,6 +7,7 @@ import android.widget.ListView;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.dao.CaseInves;
+import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.CaseInvesListAdapter;
 import com.project.archives.function.main.manager.CaseInvesManager;
@@ -49,10 +50,11 @@ public class CaseInvesFragment extends BaseActivityFragment{
 
     private void initData() {
 
-        List<CaseInves> result = CaseInvesManager.getInstance().getCaseInvesList(null, null, null, null);
-        for (int i = 0; i < result.size(); i++) {
-            list.add(result.get(i));
-        }
+        list = CaseInvesManager.getInstance().getCaseInvesList(null, null, null, null);
         adapter.setData(list);
+
+        for (int i = 0; i < list.size(); i++) {
+            LogUtils.i(TAG, list.get(i).toString());
+        }
     }
 }

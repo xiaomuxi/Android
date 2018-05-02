@@ -30,7 +30,7 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         public final static Property Rank = new Property(5, Integer.class, "Rank", false, "Rank");
         public final static Property IdCard = new Property(6, String.class, "IdCard", false, "IdCard");
         public final static Property Number = new Property(7, String.class, "Number", false, "Number");
-        public final static Property EndingTime = new Property(8, java.util.Date.class, "EndingTime", false, "EndingTime");
+        public final static Property EndingTime = new Property(8, String.class, "EndingTime", false, "EndingTime");
         public final static Property KeyWord = new Property(9, String.class, "KeyWord", false, "KeyWord");
         public final static Property Problem = new Property(10, byte[].class, "Problem", false, "Problem");
         public final static Property EndingContent = new Property(11, String.class, "EndingContent", false, "EndingContent");
@@ -41,9 +41,9 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         public final static Property Note = new Property(16, String.class, "Note", false, "Note");
         public final static Property AnnexIDStr = new Property(17, byte[].class, "AnnexIDStr", false, "AnnexIDStr");
         public final static Property IsDelete = new Property(18, Integer.class, "isDelete", false, "isDelete");
-        public final static Property AddDate = new Property(19, java.util.Date.class, "AddDate", false, "AddDate");
+        public final static Property AddDate = new Property(19, String.class, "AddDate", false, "AddDate");
         public final static Property AddUser = new Property(20, String.class, "AddUser", false, "AddUser");
-        public final static Property UpdateDate = new Property(21, java.util.Date.class, "UpdateDate", false, "UpdateDate");
+        public final static Property UpdateDate = new Property(21, String.class, "UpdateDate", false, "UpdateDate");
         public final static Property UpdateUser = new Property(22, String.class, "UpdateUser", false, "UpdateUser");
         public final static Property ObjectSource = new Property(23, Integer.class, "objectSource", false, "objectSource");
     }
@@ -136,10 +136,10 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         if (Number != null) {
             stmt.bindString(8, Number);
         }
- 
-        java.util.Date EndingTime = entity.getEndingTime();
+
+        String EndingTime = entity.getEndingTime();
         if (EndingTime != null) {
-            stmt.bindLong(9, EndingTime.getTime());
+            stmt.bindString(9, EndingTime);
         }
  
         String KeyWord = entity.getKeyWord();
@@ -191,20 +191,20 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         if (isDelete != null) {
             stmt.bindLong(19, isDelete);
         }
- 
-        java.util.Date AddDate = entity.getAddDate();
+
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(20, AddDate.getTime());
+            stmt.bindString(20, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(21, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(22, UpdateDate.getTime());
+            stmt.bindString(22, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -261,10 +261,10 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         if (Number != null) {
             stmt.bindString(8, Number);
         }
- 
-        java.util.Date EndingTime = entity.getEndingTime();
+
+        String EndingTime = entity.getEndingTime();
         if (EndingTime != null) {
-            stmt.bindLong(9, EndingTime.getTime());
+            stmt.bindString(9, EndingTime);
         }
  
         String KeyWord = entity.getKeyWord();
@@ -316,20 +316,20 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         if (isDelete != null) {
             stmt.bindLong(19, isDelete);
         }
- 
-        java.util.Date AddDate = entity.getAddDate();
+
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(20, AddDate.getTime());
+            stmt.bindString(20, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(21, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(22, UpdateDate.getTime());
+            stmt.bindString(22, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -359,7 +359,7 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
             cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // Rank
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // IdCard
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // Number
-            cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)), // EndingTime
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // EndingTime
             cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // KeyWord
             cursor.isNull(offset + 10) ? null : cursor.getBlob(offset + 10), // Problem
             cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // EndingContent
@@ -370,9 +370,9 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
             cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16), // Note
             cursor.isNull(offset + 17) ? null : cursor.getBlob(offset + 17), // AnnexIDStr
             cursor.isNull(offset + 18) ? null : cursor.getInt(offset + 18), // isDelete
-            cursor.isNull(offset + 19) ? null : new java.util.Date(cursor.getLong(offset + 19)), // AddDate
+            cursor.isNull(offset + 19) ? null : cursor.getString(offset + 19), // AddDate
             cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20), // AddUser
-            cursor.isNull(offset + 21) ? null : new java.util.Date(cursor.getLong(offset + 21)), // UpdateDate
+            cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21), // UpdateDate
             cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22), // UpdateUser
             cursor.isNull(offset + 23) ? null : cursor.getInt(offset + 23) // objectSource
         );
@@ -389,7 +389,7 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         entity.setRank(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
         entity.setIdCard(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setNumber(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setEndingTime(cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)));
+        entity.setEndingTime(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
         entity.setKeyWord(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
         entity.setProblem(cursor.isNull(offset + 10) ? null : cursor.getBlob(offset + 10));
         entity.setEndingContent(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
@@ -400,9 +400,9 @@ public class EndingsDao extends AbstractDao<Endings, byte[]> {
         entity.setNote(cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16));
         entity.setAnnexIDStr(cursor.isNull(offset + 17) ? null : cursor.getBlob(offset + 17));
         entity.setIsDelete(cursor.isNull(offset + 18) ? null : cursor.getInt(offset + 18));
-        entity.setAddDate(cursor.isNull(offset + 19) ? null : new java.util.Date(cursor.getLong(offset + 19)));
+        entity.setAddDate(cursor.isNull(offset + 19) ? null : cursor.getString(offset + 19));
         entity.setAddUser(cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20));
-        entity.setUpdateDate(cursor.isNull(offset + 21) ? null : new java.util.Date(cursor.getLong(offset + 21)));
+        entity.setUpdateDate(cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21));
         entity.setUpdateUser(cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22));
         entity.setObjectSource(cursor.isNull(offset + 23) ? null : cursor.getInt(offset + 23));
      }

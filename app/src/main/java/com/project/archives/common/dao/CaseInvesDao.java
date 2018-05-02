@@ -37,25 +37,25 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         public final static Property Facts = new Property(12, String.class, "Facts", false, "Facts");
         public final static Property Discipline = new Property(13, byte[].class, "Discipline", false, "Discipline");
         public final static Property Organ = new Property(14, Integer.class, "Organ", false, "Organ");
-        public final static Property PutTime = new Property(15, java.util.Date.class, "PutTime", false, "PutTime");
-        public final static Property OutTime = new Property(16, java.util.Date.class, "OutTime", false, "OutTime");
+        public final static Property PutTime = new Property(15, String.class, "PutTime", false, "PutTime");
+        public final static Property OutTime = new Property(16, String.class, "OutTime", false, "OutTime");
         public final static Property SurveyContent = new Property(17, String.class, "SurveyContent", false, "SurveyContent");
         public final static Property DisTypeD = new Property(18, Integer.class, "DisTypeD", false, "DisTypeD");
         public final static Property Note = new Property(19, String.class, "Note", false, "Note");
         public final static Property AnnexIDStr = new Property(20, byte[].class, "AnnexIDStr", false, "AnnexIDStr");
         public final static Property IsDelete = new Property(21, Integer.class, "isDelete", false, "isDelete");
-        public final static Property AddDate = new Property(22, java.util.Date.class, "AddDate", false, "AddDate");
+        public final static Property AddDate = new Property(22, String.class, "AddDate", false, "AddDate");
         public final static Property AddUser = new Property(23, String.class, "AddUser", false, "AddUser");
-        public final static Property UpdateDate = new Property(24, java.util.Date.class, "UpdateDate", false, "UpdateDate");
+        public final static Property UpdateDate = new Property(24, String.class, "UpdateDate", false, "UpdateDate");
         public final static Property UpdateUser = new Property(25, String.class, "UpdateUser", false, "UpdateUser");
         public final static Property PoliticsStatus = new Property(26, String.class, "PoliticsStatus", false, "PoliticsStatus");
         public final static Property Organization = new Property(27, Integer.class, "Organization", false, "Organization");
         public final static Property Xiansou = new Property(28, Integer.class, "Xiansou", false, "Xiansou");
-        public final static Property ShouTime = new Property(29, java.util.Date.class, "ShouTime", false, "ShouTime");
+        public final static Property ShouTime = new Property(29, String.class, "ShouTime", false, "ShouTime");
         public final static Property Trail = new Property(30, String.class, "Trail", false, "Trail");
         public final static Property Description = new Property(31, String.class, "Description", false, "Description");
-        public final static Property ChuheTime = new Property(32, java.util.Date.class, "ChuheTime", false, "ChuheTime");
-        public final static Property LiaojieTime = new Property(33, java.util.Date.class, "LiaojieTime", false, "LiaojieTime");
+        public final static Property ChuheTime = new Property(32, String.class, "ChuheTime", false, "ChuheTime");
+        public final static Property LiaojieTime = new Property(33, String.class, "LiaojieTime", false, "LiaojieTime");
     }
 
 
@@ -191,15 +191,15 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (Organ != null) {
             stmt.bindLong(15, Organ);
         }
- 
-        java.util.Date PutTime = entity.getPutTime();
+
+        String PutTime = entity.getPutTime();
         if (PutTime != null) {
-            stmt.bindLong(16, PutTime.getTime());
+            stmt.bindString(16, PutTime);
         }
- 
-        java.util.Date OutTime = entity.getOutTime();
+
+        String OutTime = entity.getOutTime();
         if (OutTime != null) {
-            stmt.bindLong(17, OutTime.getTime());
+            stmt.bindString(17, OutTime);
         }
  
         String SurveyContent = entity.getSurveyContent();
@@ -227,19 +227,19 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
             stmt.bindLong(22, isDelete);
         }
  
-        java.util.Date AddDate = entity.getAddDate();
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(23, AddDate.getTime());
+            stmt.bindString(23, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(24, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(25, UpdateDate.getTime());
+            stmt.bindString(25, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -261,10 +261,10 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (Xiansou != null) {
             stmt.bindLong(29, Xiansou);
         }
- 
-        java.util.Date ShouTime = entity.getShouTime();
+
+        String ShouTime = entity.getShouTime();
         if (ShouTime != null) {
-            stmt.bindLong(30, ShouTime.getTime());
+            stmt.bindString(30, ShouTime);
         }
  
         String Trail = entity.getTrail();
@@ -276,15 +276,15 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (Description != null) {
             stmt.bindString(32, Description);
         }
- 
-        java.util.Date ChuheTime = entity.getChuheTime();
+
+        String ChuheTime = entity.getChuheTime();
         if (ChuheTime != null) {
-            stmt.bindLong(33, ChuheTime.getTime());
+            stmt.bindString(33, ChuheTime);
         }
- 
-        java.util.Date LiaojieTime = entity.getLiaojieTime();
+
+        String LiaojieTime = entity.getLiaojieTime();
         if (LiaojieTime != null) {
-            stmt.bindLong(34, LiaojieTime.getTime());
+            stmt.bindString(34, LiaojieTime);
         }
     }
 
@@ -366,15 +366,15 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (Organ != null) {
             stmt.bindLong(15, Organ);
         }
- 
-        java.util.Date PutTime = entity.getPutTime();
+
+        String PutTime = entity.getPutTime();
         if (PutTime != null) {
-            stmt.bindLong(16, PutTime.getTime());
+            stmt.bindString(16, PutTime);
         }
- 
-        java.util.Date OutTime = entity.getOutTime();
+
+        String OutTime = entity.getOutTime();
         if (OutTime != null) {
-            stmt.bindLong(17, OutTime.getTime());
+            stmt.bindString(17, OutTime);
         }
  
         String SurveyContent = entity.getSurveyContent();
@@ -402,19 +402,19 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
             stmt.bindLong(22, isDelete);
         }
  
-        java.util.Date AddDate = entity.getAddDate();
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(23, AddDate.getTime());
+            stmt.bindString(23, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(24, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(25, UpdateDate.getTime());
+            stmt.bindString(25, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -436,10 +436,10 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (Xiansou != null) {
             stmt.bindLong(29, Xiansou);
         }
- 
-        java.util.Date ShouTime = entity.getShouTime();
+
+        String ShouTime = entity.getShouTime();
         if (ShouTime != null) {
-            stmt.bindLong(30, ShouTime.getTime());
+            stmt.bindString(30, ShouTime);
         }
  
         String Trail = entity.getTrail();
@@ -451,15 +451,15 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (Description != null) {
             stmt.bindString(32, Description);
         }
- 
-        java.util.Date ChuheTime = entity.getChuheTime();
+
+        String ChuheTime = entity.getChuheTime();
         if (ChuheTime != null) {
-            stmt.bindLong(33, ChuheTime.getTime());
+            stmt.bindString(33, ChuheTime);
         }
- 
-        java.util.Date LiaojieTime = entity.getLiaojieTime();
+
+        String LiaojieTime = entity.getLiaojieTime();
         if (LiaojieTime != null) {
-            stmt.bindLong(34, LiaojieTime.getTime());
+            stmt.bindString(34, LiaojieTime);
         }
     }
 
@@ -486,25 +486,25 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
             cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), // Facts
             cursor.isNull(offset + 13) ? null : cursor.getBlob(offset + 13), // Discipline
             cursor.isNull(offset + 14) ? null : cursor.getInt(offset + 14), // Organ
-            cursor.isNull(offset + 15) ? null : new java.util.Date(cursor.getLong(offset + 15)), // PutTime
-            cursor.isNull(offset + 16) ? null : new java.util.Date(cursor.getLong(offset + 16)), // OutTime
+            cursor.isNull(offset + 15) ? null : cursor.getString(offset + 15), // PutTime
+            cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16), // OutTime
             cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17), // SurveyContent
             cursor.isNull(offset + 18) ? null : cursor.getInt(offset + 18), // DisTypeD
             cursor.isNull(offset + 19) ? null : cursor.getString(offset + 19), // Note
             cursor.isNull(offset + 20) ? null : cursor.getBlob(offset + 20), // AnnexIDStr
             cursor.isNull(offset + 21) ? null : cursor.getInt(offset + 21), // isDelete
-            cursor.isNull(offset + 22) ? null : new java.util.Date(cursor.getLong(offset + 22)), // AddDate
+            cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22), // AddDate
             cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23), // AddUser
-            cursor.isNull(offset + 24) ? null : new java.util.Date(cursor.getLong(offset + 24)), // UpdateDate
+            cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24), // UpdateDate
             cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25), // UpdateUser
             cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26), // PoliticsStatus
             cursor.isNull(offset + 27) ? null : cursor.getInt(offset + 27), // Organization
             cursor.isNull(offset + 28) ? null : cursor.getInt(offset + 28), // Xiansou
-            cursor.isNull(offset + 29) ? null : new java.util.Date(cursor.getLong(offset + 29)), // ShouTime
+            cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // ShouTime
             cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30), // Trail
             cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31), // Description
-            cursor.isNull(offset + 32) ? null : new java.util.Date(cursor.getLong(offset + 32)), // ChuheTime
-            cursor.isNull(offset + 33) ? null : new java.util.Date(cursor.getLong(offset + 33)) // LiaojieTime
+            cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32), // ChuheTime
+            cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33) // LiaojieTime
         );
         return entity;
     }
@@ -526,25 +526,25 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         entity.setFacts(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
         entity.setDiscipline(cursor.isNull(offset + 13) ? null : cursor.getBlob(offset + 13));
         entity.setOrgan(cursor.isNull(offset + 14) ? null : cursor.getInt(offset + 14));
-        entity.setPutTime(cursor.isNull(offset + 15) ? null : new java.util.Date(cursor.getLong(offset + 15)));
-        entity.setOutTime(cursor.isNull(offset + 16) ? null : new java.util.Date(cursor.getLong(offset + 16)));
+        entity.setPutTime(cursor.isNull(offset + 15) ? null : cursor.getString(offset + 15));
+        entity.setOutTime(cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16));
         entity.setSurveyContent(cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17));
         entity.setDisTypeD(cursor.isNull(offset + 18) ? null : cursor.getInt(offset + 18));
         entity.setNote(cursor.isNull(offset + 19) ? null : cursor.getString(offset + 19));
         entity.setAnnexIDStr(cursor.isNull(offset + 20) ? null : cursor.getBlob(offset + 20));
         entity.setIsDelete(cursor.isNull(offset + 21) ? null : cursor.getInt(offset + 21));
-        entity.setAddDate(cursor.isNull(offset + 22) ? null : new java.util.Date(cursor.getLong(offset + 22)));
+        entity.setAddDate(cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22));
         entity.setAddUser(cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23));
-        entity.setUpdateDate(cursor.isNull(offset + 24) ? null : new java.util.Date(cursor.getLong(offset + 24)));
+        entity.setUpdateDate(cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24));
         entity.setUpdateUser(cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25));
         entity.setPoliticsStatus(cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26));
         entity.setOrganization(cursor.isNull(offset + 27) ? null : cursor.getInt(offset + 27));
         entity.setXiansou(cursor.isNull(offset + 28) ? null : cursor.getInt(offset + 28));
-        entity.setShouTime(cursor.isNull(offset + 29) ? null : new java.util.Date(cursor.getLong(offset + 29)));
+        entity.setShouTime(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
         entity.setTrail(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
         entity.setDescription(cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31));
-        entity.setChuheTime(cursor.isNull(offset + 32) ? null : new java.util.Date(cursor.getLong(offset + 32)));
-        entity.setLiaojieTime(cursor.isNull(offset + 33) ? null : new java.util.Date(cursor.getLong(offset + 33)));
+        entity.setChuheTime(cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32));
+        entity.setLiaojieTime(cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33));
      }
     
     @Override

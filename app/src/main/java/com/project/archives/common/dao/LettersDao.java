@@ -30,7 +30,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         public final static Property Rank = new Property(5, Integer.class, "Rank", false, "Rank");
         public final static Property IdCard = new Property(6, String.class, "IdCard", false, "IdCard");
         public final static Property Number = new Property(7, String.class, "Number", false, "Number");
-        public final static Property LetterTime = new Property(8, java.util.Date.class, "LetterTime", false, "LetterTime");
+        public final static Property LetterTime = new Property(8, String.class, "LetterTime", false, "LetterTime");
         public final static Property KeyWord = new Property(9, String.class, "KeyWord", false, "KeyWord");
         public final static Property Problem = new Property(10, byte[].class, "Problem", false, "Problem");
         public final static Property LetterContent = new Property(11, String.class, "LetterContent", false, "LetterContent");
@@ -42,9 +42,9 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         public final static Property Organ = new Property(17, Integer.class, "Organ", false, "Organ");
         public final static Property AnnexIDStr = new Property(18, byte[].class, "AnnexIDStr", false, "AnnexIDStr");
         public final static Property IsDelete = new Property(19, Integer.class, "isDelete", false, "isDelete");
-        public final static Property AddDate = new Property(20, java.util.Date.class, "AddDate", false, "AddDate");
+        public final static Property AddDate = new Property(20, String.class, "AddDate", false, "AddDate");
         public final static Property AddUser = new Property(21, String.class, "AddUser", false, "AddUser");
-        public final static Property UpdateDate = new Property(22, java.util.Date.class, "UpdateDate", false, "UpdateDate");
+        public final static Property UpdateDate = new Property(22, String.class, "UpdateDate", false, "UpdateDate");
         public final static Property UpdateUser = new Property(23, String.class, "UpdateUser", false, "UpdateUser");
         public final static Property ObjectSource = new Property(24, Integer.class, "objectSource", false, "objectSource");
     }
@@ -70,7 +70,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
                 "\"Rank\" INTEGER," + // 5: Rank
                 "\"IdCard\" TEXT," + // 6: IdCard
                 "\"Number\" TEXT," + // 7: Number
-                "\"LetterTime\" INTEGER," + // 8: LetterTime
+                "\"LetterTime\" TEXT," + // 8: LetterTime
                 "\"KeyWord\" TEXT," + // 9: KeyWord
                 "\"Problem\" BLOB," + // 10: Problem
                 "\"LetterContent\" TEXT," + // 11: LetterContent
@@ -82,9 +82,9 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
                 "\"Organ\" INTEGER," + // 17: Organ
                 "\"AnnexIDStr\" BLOB," + // 18: AnnexIDStr
                 "\"isDelete\" INTEGER," + // 19: isDelete
-                "\"AddDate\" INTEGER," + // 20: AddDate
+                "\"AddDate\" TEXT," + // 20: AddDate
                 "\"AddUser\" TEXT," + // 21: AddUser
-                "\"UpdateDate\" INTEGER," + // 22: UpdateDate
+                "\"UpdateDate\" TEXT," + // 22: UpdateDate
                 "\"UpdateUser\" TEXT," + // 23: UpdateUser
                 "\"objectSource\" INTEGER);"); // 24: objectSource
     }
@@ -138,10 +138,10 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         if (Number != null) {
             stmt.bindString(8, Number);
         }
- 
-        java.util.Date LetterTime = entity.getLetterTime();
+
+        String LetterTime = entity.getLetterTime();
         if (LetterTime != null) {
-            stmt.bindLong(9, LetterTime.getTime());
+            stmt.bindString(9, LetterTime);
         }
  
         String KeyWord = entity.getKeyWord();
@@ -198,20 +198,20 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         if (isDelete != null) {
             stmt.bindLong(20, isDelete);
         }
- 
-        java.util.Date AddDate = entity.getAddDate();
+
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(21, AddDate.getTime());
+            stmt.bindString(21, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(22, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(23, UpdateDate.getTime());
+            stmt.bindString(23, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -268,10 +268,10 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         if (Number != null) {
             stmt.bindString(8, Number);
         }
- 
-        java.util.Date LetterTime = entity.getLetterTime();
+
+        String LetterTime = entity.getLetterTime();
         if (LetterTime != null) {
-            stmt.bindLong(9, LetterTime.getTime());
+            stmt.bindString(9, LetterTime);
         }
  
         String KeyWord = entity.getKeyWord();
@@ -328,20 +328,20 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         if (isDelete != null) {
             stmt.bindLong(20, isDelete);
         }
- 
-        java.util.Date AddDate = entity.getAddDate();
+
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(21, AddDate.getTime());
+            stmt.bindString(21, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(22, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(23, UpdateDate.getTime());
+            stmt.bindString(23, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -371,7 +371,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
             cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // Rank
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // IdCard
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // Number
-            cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)), // LetterTime
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // LetterTime
             cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // KeyWord
             cursor.isNull(offset + 10) ? null : cursor.getBlob(offset + 10), // Problem
             cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // LetterContent
@@ -383,9 +383,9 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
             cursor.isNull(offset + 17) ? null : cursor.getInt(offset + 17), // Organ
             cursor.isNull(offset + 18) ? null : cursor.getBlob(offset + 18), // AnnexIDStr
             cursor.isNull(offset + 19) ? null : cursor.getInt(offset + 19), // isDelete
-            cursor.isNull(offset + 20) ? null : new java.util.Date(cursor.getLong(offset + 20)), // AddDate
+            cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20), // AddDate
             cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21), // AddUser
-            cursor.isNull(offset + 22) ? null : new java.util.Date(cursor.getLong(offset + 22)), // UpdateDate
+            cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22), // UpdateDate
             cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23), // UpdateUser
             cursor.isNull(offset + 24) ? null : cursor.getInt(offset + 24) // objectSource
         );
@@ -402,7 +402,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         entity.setRank(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
         entity.setIdCard(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setNumber(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setLetterTime(cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)));
+        entity.setLetterTime(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
         entity.setKeyWord(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
         entity.setProblem(cursor.isNull(offset + 10) ? null : cursor.getBlob(offset + 10));
         entity.setLetterContent(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
@@ -414,9 +414,9 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         entity.setOrgan(cursor.isNull(offset + 17) ? null : cursor.getInt(offset + 17));
         entity.setAnnexIDStr(cursor.isNull(offset + 18) ? null : cursor.getBlob(offset + 18));
         entity.setIsDelete(cursor.isNull(offset + 19) ? null : cursor.getInt(offset + 19));
-        entity.setAddDate(cursor.isNull(offset + 20) ? null : new java.util.Date(cursor.getLong(offset + 20)));
+        entity.setAddDate(cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20));
         entity.setAddUser(cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21));
-        entity.setUpdateDate(cursor.isNull(offset + 22) ? null : new java.util.Date(cursor.getLong(offset + 22)));
+        entity.setUpdateDate(cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22));
         entity.setUpdateUser(cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23));
         entity.setObjectSource(cursor.isNull(offset + 24) ? null : cursor.getInt(offset + 24));
      }

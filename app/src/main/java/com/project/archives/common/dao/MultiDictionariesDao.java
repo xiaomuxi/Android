@@ -27,9 +27,9 @@ public class MultiDictionariesDao extends AbstractDao<MultiDictionaries, byte[]>
         public final static Property Type = new Property(2, Integer.class, "Type", false, "Type");
         public final static Property Sort = new Property(3, Integer.class, "Sort", false, "Sort");
         public final static Property IsDelete = new Property(4, Integer.class, "IsDelete", false, "IsDelete");
-        public final static Property AddDate = new Property(5, java.util.Date.class, "AddDate", false, "AddDate");
+        public final static Property AddDate = new Property(5, String.class, "AddDate", false, "AddDate");
         public final static Property AddUser = new Property(6, String.class, "AddUser", false, "AddUser");
-        public final static Property UpdateDate = new Property(7, java.util.Date.class, "UpdateDate", false, "UpdateDate");
+        public final static Property UpdateDate = new Property(7, String.class, "UpdateDate", false, "UpdateDate");
         public final static Property UpdateUser = new Property(8, String.class, "UpdateUser", false, "UpdateUser");
     }
 
@@ -51,9 +51,9 @@ public class MultiDictionariesDao extends AbstractDao<MultiDictionaries, byte[]>
                 "\"Type\" INTEGER," + // 2: Type
                 "\"Sort\" INTEGER," + // 3: Sort
                 "\"IsDelete\" INTEGER," + // 4: IsDelete
-                "\"AddDate\" INTEGER," + // 5: AddDate
+                "\"AddDate\" TEXT," + // 5: AddDate
                 "\"AddUser\" TEXT," + // 6: AddUser
-                "\"UpdateDate\" INTEGER," + // 7: UpdateDate
+                "\"UpdateDate\" TEXT," + // 7: UpdateDate
                 "\"UpdateUser\" TEXT);"); // 8: UpdateUser
     }
 
@@ -91,20 +91,20 @@ public class MultiDictionariesDao extends AbstractDao<MultiDictionaries, byte[]>
         if (IsDelete != null) {
             stmt.bindLong(5, IsDelete);
         }
- 
-        java.util.Date AddDate = entity.getAddDate();
+
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(6, AddDate.getTime());
+            stmt.bindString(6, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(7, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(8, UpdateDate.getTime());
+            stmt.bindString(8, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -141,20 +141,20 @@ public class MultiDictionariesDao extends AbstractDao<MultiDictionaries, byte[]>
         if (IsDelete != null) {
             stmt.bindLong(5, IsDelete);
         }
- 
-        java.util.Date AddDate = entity.getAddDate();
+
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(6, AddDate.getTime());
+            stmt.bindString(6, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(7, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(8, UpdateDate.getTime());
+            stmt.bindString(8, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -176,9 +176,9 @@ public class MultiDictionariesDao extends AbstractDao<MultiDictionaries, byte[]>
             cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2), // Type
             cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // Sort
             cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // IsDelete
-            cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)), // AddDate
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // AddDate
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // AddUser
-            cursor.isNull(offset + 7) ? null : new java.util.Date(cursor.getLong(offset + 7)), // UpdateDate
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // UpdateDate
             cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8) // UpdateUser
         );
         return entity;
@@ -191,9 +191,9 @@ public class MultiDictionariesDao extends AbstractDao<MultiDictionaries, byte[]>
         entity.setType(cursor.isNull(offset + 2) ? null : cursor.getInt(offset + 2));
         entity.setSort(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
         entity.setIsDelete(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
-        entity.setAddDate(cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)));
+        entity.setAddDate(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setAddUser(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setUpdateDate(cursor.isNull(offset + 7) ? null : new java.util.Date(cursor.getLong(offset + 7)));
+        entity.setUpdateDate(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
         entity.setUpdateUser(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
      }
     

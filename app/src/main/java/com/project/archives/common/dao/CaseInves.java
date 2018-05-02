@@ -34,25 +34,25 @@ public class CaseInves implements Serializable {
     private String Facts;
     private byte[] Discipline;
     private Integer Organ;
-    private java.util.Date PutTime;
-    private java.util.Date OutTime;
+    private String PutTime;
+    private String OutTime;
     private String SurveyContent;
     private Integer DisTypeD;
     private String Note;
     private byte[] AnnexIDStr;
     private Integer isDelete;
-    private java.util.Date AddDate;
+    private String AddDate;
     private String AddUser;
-    private java.util.Date UpdateDate;
+    private String UpdateDate;
     private String UpdateUser;
     private String PoliticsStatus;
     private Integer Organization;
     private Integer Xiansou;
-    private java.util.Date ShouTime;
+    private String ShouTime;
     private String Trail;
     private String Description;
-    private java.util.Date ChuheTime;
-    private java.util.Date LiaojieTime;
+    private String ChuheTime;
+    private String LiaojieTime;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -66,7 +66,7 @@ public class CaseInves implements Serializable {
     }
 
     @Generated(hash = 24587135)
-    public CaseInves(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, Integer Coding, Integer IsPcongress, Integer IsMember, Integer IsObject, Integer IsOfficer, Integer IsPartyMember, String Facts, byte[] Discipline, Integer Organ, java.util.Date PutTime, java.util.Date OutTime, String SurveyContent, Integer DisTypeD, String Note, byte[] AnnexIDStr, Integer isDelete, java.util.Date AddDate, String AddUser, java.util.Date UpdateDate, String UpdateUser, String PoliticsStatus, Integer Organization, Integer Xiansou, java.util.Date ShouTime, String Trail, String Description, java.util.Date ChuheTime, java.util.Date LiaojieTime) {
+    public CaseInves(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, Integer Coding, Integer IsPcongress, Integer IsMember, Integer IsObject, Integer IsOfficer, Integer IsPartyMember, String Facts, byte[] Discipline, Integer Organ, String PutTime, String OutTime, String SurveyContent, Integer DisTypeD, String Note, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, String PoliticsStatus, Integer Organization, Integer Xiansou, String ShouTime, String Trail, String Description, String ChuheTime, String LiaojieTime) {
         this.ID = ID;
         this.UserID = UserID;
         this.Name = Name;
@@ -223,19 +223,19 @@ public class CaseInves implements Serializable {
         this.Organ = Organ;
     }
 
-    public java.util.Date getPutTime() {
+    public String getPutTime() {
         return PutTime;
     }
 
-    public void setPutTime(java.util.Date PutTime) {
+    public void setPutTime(String PutTime) {
         this.PutTime = PutTime;
     }
 
-    public java.util.Date getOutTime() {
+    public String getOutTime() {
         return OutTime;
     }
 
-    public void setOutTime(java.util.Date OutTime) {
+    public void setOutTime(String OutTime) {
         this.OutTime = OutTime;
     }
 
@@ -279,11 +279,11 @@ public class CaseInves implements Serializable {
         this.isDelete = isDelete;
     }
 
-    public java.util.Date getAddDate() {
+    public String getAddDate() {
         return AddDate;
     }
 
-    public void setAddDate(java.util.Date AddDate) {
+    public void setAddDate(String AddDate) {
         this.AddDate = AddDate;
     }
 
@@ -295,11 +295,11 @@ public class CaseInves implements Serializable {
         this.AddUser = AddUser;
     }
 
-    public java.util.Date getUpdateDate() {
+    public String getUpdateDate() {
         return UpdateDate;
     }
 
-    public void setUpdateDate(java.util.Date UpdateDate) {
+    public void setUpdateDate(String UpdateDate) {
         this.UpdateDate = UpdateDate;
     }
 
@@ -335,11 +335,11 @@ public class CaseInves implements Serializable {
         this.Xiansou = Xiansou;
     }
 
-    public java.util.Date getShouTime() {
+    public String getShouTime() {
         return ShouTime;
     }
 
-    public void setShouTime(java.util.Date ShouTime) {
+    public void setShouTime(String ShouTime) {
         this.ShouTime = ShouTime;
     }
 
@@ -359,19 +359,19 @@ public class CaseInves implements Serializable {
         this.Description = Description;
     }
 
-    public java.util.Date getChuheTime() {
+    public String getChuheTime() {
         return ChuheTime;
     }
 
-    public void setChuheTime(java.util.Date ChuheTime) {
+    public void setChuheTime(String ChuheTime) {
         this.ChuheTime = ChuheTime;
     }
 
-    public java.util.Date getLiaojieTime() {
+    public String getLiaojieTime() {
         return LiaojieTime;
     }
 
-    public void setLiaojieTime(java.util.Date LiaojieTime) {
+    public void setLiaojieTime(String LiaojieTime) {
         this.LiaojieTime = LiaojieTime;
     }
 

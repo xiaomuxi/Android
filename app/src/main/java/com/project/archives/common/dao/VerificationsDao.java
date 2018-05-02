@@ -33,8 +33,8 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         public final static Property IsOfficer = new Property(8, Integer.class, "IsOfficer", false, "IsOfficer");
         public final static Property Discipline = new Property(9, byte[].class, "Discipline", false, "Discipline");
         public final static Property Organ = new Property(10, Integer.class, "Organ", false, "Organ");
-        public final static Property VerificTime = new Property(11, java.util.Date.class, "VerificTime", false, "VerificTime");
-        public final static Property TakingTime = new Property(12, java.util.Date.class, "TakingTime", false, "TakingTime");
+        public final static Property VerificTime = new Property(11, String.class, "VerificTime", false, "VerificTime");
+        public final static Property TakingTime = new Property(12, String.class, "TakingTime", false, "TakingTime");
         public final static Property Clues = new Property(13, String.class, "Clues", false, "Clues");
         public final static Property VerificResult = new Property(14, String.class, "VerificResult", false, "VerificResult");
         public final static Property TakingResult = new Property(15, Integer.class, "TakingResult", false, "TakingResult");
@@ -42,12 +42,12 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         public final static Property Note = new Property(17, String.class, "Note", false, "Note");
         public final static Property AnnexIDStr = new Property(18, byte[].class, "AnnexIDStr", false, "AnnexIDStr");
         public final static Property IsDelete = new Property(19, Integer.class, "isDelete", false, "isDelete");
-        public final static Property AddDate = new Property(20, java.util.Date.class, "AddDate", false, "AddDate");
+        public final static Property AddDate = new Property(20, String.class, "AddDate", false, "AddDate");
         public final static Property AddUser = new Property(21, String.class, "AddUser", false, "AddUser");
-        public final static Property UpdateDate = new Property(22, java.util.Date.class, "UpdateDate", false, "UpdateDate");
+        public final static Property UpdateDate = new Property(22, String.class, "UpdateDate", false, "UpdateDate");
         public final static Property UpdateUser = new Property(23, String.class, "UpdateUser", false, "UpdateUser");
         public final static Property ObjectSource = new Property(24, Integer.class, "objectSource", false, "objectSource");
-        public final static Property ProcessTime = new Property(25, java.util.Date.class, "ProcessTime", false, "ProcessTime");
+        public final static Property ProcessTime = new Property(25, String.class, "ProcessTime", false, "ProcessTime");
         public final static Property Trail = new Property(26, String.class, "Trail", false, "Trail");
     }
 
@@ -75,8 +75,8 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
                 "\"IsOfficer\" INTEGER," + // 8: IsOfficer
                 "\"Discipline\" BLOB," + // 9: Discipline
                 "\"Organ\" INTEGER," + // 10: Organ
-                "\"VerificTime\" INTEGER," + // 11: VerificTime
-                "\"TakingTime\" INTEGER," + // 12: TakingTime
+                "\"VerificTime\" TEXT," + // 11: VerificTime
+                "\"TakingTime\" TEXT," + // 12: TakingTime
                 "\"Clues\" TEXT," + // 13: Clues
                 "\"VerificResult\" TEXT," + // 14: VerificResult
                 "\"TakingResult\" INTEGER," + // 15: TakingResult
@@ -84,12 +84,12 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
                 "\"Note\" TEXT," + // 17: Note
                 "\"AnnexIDStr\" BLOB," + // 18: AnnexIDStr
                 "\"isDelete\" INTEGER," + // 19: isDelete
-                "\"AddDate\" INTEGER," + // 20: AddDate
+                "\"AddDate\" TEXT," + // 20: AddDate
                 "\"AddUser\" TEXT," + // 21: AddUser
-                "\"UpdateDate\" INTEGER," + // 22: UpdateDate
+                "\"UpdateDate\" TEXT," + // 22: UpdateDate
                 "\"UpdateUser\" TEXT," + // 23: UpdateUser
                 "\"objectSource\" INTEGER," + // 24: objectSource
-                "\"ProcessTime\" INTEGER," + // 25: ProcessTime
+                "\"ProcessTime\" TEXT," + // 25: ProcessTime
                 "\"Trail\" TEXT);"); // 26: Trail
     }
 
@@ -157,15 +157,15 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         if (Organ != null) {
             stmt.bindLong(11, Organ);
         }
- 
-        java.util.Date VerificTime = entity.getVerificTime();
+
+        String VerificTime = entity.getVerificTime();
         if (VerificTime != null) {
-            stmt.bindLong(12, VerificTime.getTime());
+            stmt.bindString(12, VerificTime);
         }
- 
-        java.util.Date TakingTime = entity.getTakingTime();
+
+        String TakingTime = entity.getTakingTime();
         if (TakingTime != null) {
-            stmt.bindLong(13, TakingTime.getTime());
+            stmt.bindString(13, TakingTime);
         }
  
         String Clues = entity.getClues();
@@ -202,20 +202,20 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         if (isDelete != null) {
             stmt.bindLong(20, isDelete);
         }
- 
-        java.util.Date AddDate = entity.getAddDate();
+
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(21, AddDate.getTime());
+            stmt.bindString(21, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(22, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(23, UpdateDate.getTime());
+            stmt.bindString(23, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -227,10 +227,10 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         if (objectSource != null) {
             stmt.bindLong(25, objectSource);
         }
- 
-        java.util.Date ProcessTime = entity.getProcessTime();
+
+        String ProcessTime = entity.getProcessTime();
         if (ProcessTime != null) {
-            stmt.bindLong(26, ProcessTime.getTime());
+            stmt.bindString(26, ProcessTime);
         }
  
         String Trail = entity.getTrail();
@@ -298,14 +298,14 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
             stmt.bindLong(11, Organ);
         }
  
-        java.util.Date VerificTime = entity.getVerificTime();
+        String VerificTime = entity.getVerificTime();
         if (VerificTime != null) {
-            stmt.bindLong(12, VerificTime.getTime());
+            stmt.bindString(12, VerificTime);
         }
- 
-        java.util.Date TakingTime = entity.getTakingTime();
+
+        String TakingTime = entity.getTakingTime();
         if (TakingTime != null) {
-            stmt.bindLong(13, TakingTime.getTime());
+            stmt.bindString(13, TakingTime);
         }
  
         String Clues = entity.getClues();
@@ -343,19 +343,19 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
             stmt.bindLong(20, isDelete);
         }
  
-        java.util.Date AddDate = entity.getAddDate();
+        String AddDate = entity.getAddDate();
         if (AddDate != null) {
-            stmt.bindLong(21, AddDate.getTime());
+            stmt.bindString(21, AddDate);
         }
  
         String AddUser = entity.getAddUser();
         if (AddUser != null) {
             stmt.bindString(22, AddUser);
         }
- 
-        java.util.Date UpdateDate = entity.getUpdateDate();
+
+        String UpdateDate = entity.getUpdateDate();
         if (UpdateDate != null) {
-            stmt.bindLong(23, UpdateDate.getTime());
+            stmt.bindString(23, UpdateDate);
         }
  
         String UpdateUser = entity.getUpdateUser();
@@ -367,10 +367,10 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         if (objectSource != null) {
             stmt.bindLong(25, objectSource);
         }
- 
-        java.util.Date ProcessTime = entity.getProcessTime();
+
+        String ProcessTime = entity.getProcessTime();
         if (ProcessTime != null) {
-            stmt.bindLong(26, ProcessTime.getTime());
+            stmt.bindString(26, ProcessTime);
         }
  
         String Trail = entity.getTrail();
@@ -398,8 +398,8 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
             cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8), // IsOfficer
             cursor.isNull(offset + 9) ? null : cursor.getBlob(offset + 9), // Discipline
             cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10), // Organ
-            cursor.isNull(offset + 11) ? null : new java.util.Date(cursor.getLong(offset + 11)), // VerificTime
-            cursor.isNull(offset + 12) ? null : new java.util.Date(cursor.getLong(offset + 12)), // TakingTime
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), // VerificTime
+            cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), // TakingTime
             cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13), // Clues
             cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14), // VerificResult
             cursor.isNull(offset + 15) ? null : cursor.getInt(offset + 15), // TakingResult
@@ -407,12 +407,12 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
             cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17), // Note
             cursor.isNull(offset + 18) ? null : cursor.getBlob(offset + 18), // AnnexIDStr
             cursor.isNull(offset + 19) ? null : cursor.getInt(offset + 19), // isDelete
-            cursor.isNull(offset + 20) ? null : new java.util.Date(cursor.getLong(offset + 20)), // AddDate
+            cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20), // AddDate
             cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21), // AddUser
-            cursor.isNull(offset + 22) ? null : new java.util.Date(cursor.getLong(offset + 22)), // UpdateDate
+            cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22), // UpdateDate
             cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23), // UpdateUser
             cursor.isNull(offset + 24) ? null : cursor.getInt(offset + 24), // objectSource
-            cursor.isNull(offset + 25) ? null : new java.util.Date(cursor.getLong(offset + 25)), // ProcessTime
+            cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25), // ProcessTime
             cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26) // Trail
         );
         return entity;
@@ -431,8 +431,8 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         entity.setIsOfficer(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
         entity.setDiscipline(cursor.isNull(offset + 9) ? null : cursor.getBlob(offset + 9));
         entity.setOrgan(cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10));
-        entity.setVerificTime(cursor.isNull(offset + 11) ? null : new java.util.Date(cursor.getLong(offset + 11)));
-        entity.setTakingTime(cursor.isNull(offset + 12) ? null : new java.util.Date(cursor.getLong(offset + 12)));
+        entity.setVerificTime(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
+        entity.setTakingTime(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
         entity.setClues(cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13));
         entity.setVerificResult(cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14));
         entity.setTakingResult(cursor.isNull(offset + 15) ? null : cursor.getInt(offset + 15));
@@ -440,12 +440,12 @@ public class VerificationsDao extends AbstractDao<Verifications, byte[]> {
         entity.setNote(cursor.isNull(offset + 17) ? null : cursor.getString(offset + 17));
         entity.setAnnexIDStr(cursor.isNull(offset + 18) ? null : cursor.getBlob(offset + 18));
         entity.setIsDelete(cursor.isNull(offset + 19) ? null : cursor.getInt(offset + 19));
-        entity.setAddDate(cursor.isNull(offset + 20) ? null : new java.util.Date(cursor.getLong(offset + 20)));
+        entity.setAddDate(cursor.isNull(offset + 20) ? null : cursor.getString(offset + 20));
         entity.setAddUser(cursor.isNull(offset + 21) ? null : cursor.getString(offset + 21));
-        entity.setUpdateDate(cursor.isNull(offset + 22) ? null : new java.util.Date(cursor.getLong(offset + 22)));
+        entity.setUpdateDate(cursor.isNull(offset + 22) ? null : cursor.getString(offset + 22));
         entity.setUpdateUser(cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23));
         entity.setObjectSource(cursor.isNull(offset + 24) ? null : cursor.getInt(offset + 24));
-        entity.setProcessTime(cursor.isNull(offset + 25) ? null : new java.util.Date(cursor.getLong(offset + 25)));
+        entity.setProcessTime(cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25));
         entity.setTrail(cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26));
      }
     

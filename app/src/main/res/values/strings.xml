@@ -22,15 +22,29 @@
 
     <string name="txt_caseinves">处分类</string>
 
-    <string name="list_caseinves_title">处分(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_verifications_title">核实(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_letters_title">函询(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_endings_title">了结(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_zancuns_title">暂存(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <!--<string name="list_caseinves_title">处分(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_verifications_title">核实(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_letters_title">函询(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_endings_title">了结(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <!--<string name="list_zancuns_title">暂存(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <string name="txt_name">姓名： %s</string>
+    <string name="txt_zhiji">职级： %s</string>
+    <string name="txt_dang">党代表： %s</string>
+    <string name="txt_renda">人大代表： %s</string>
+    <string name="txt_zzmm">政治面貌： %s</string>
+    <string name="txt_jcdx">监察对象： %s</string>
+    <string name="txt_xsly">线索来源： %s</string>
+    <string name="txt_slsj">受理时间： %s</string>
+    <string name="txt_chsj">初核时间： %s</string>
+    <string name="txt_ljsj">了结时间： %s</string>
+    <string name="txt_bljg">办理机关： %s</string>
+    <string name="txt_zzcl">组织处理： %s</string>
+    <string name="txt_dncf">党内处分： %s</string>
+    <string name="txt_xzcf">行政处分： %s</string>
 
-    <!--<string name="list_caseinves_title">处分类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_verifications_title">初步核实类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_letters_title">谈话函询类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_endings_title">了结类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_zancuns_title">暂存类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
+    <string name="list_caseinves_title">处分类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_verifications_title">初步核实类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_letters_title">谈话函询类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_endings_title">了结类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_zancuns_title">暂存类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
 </resources>

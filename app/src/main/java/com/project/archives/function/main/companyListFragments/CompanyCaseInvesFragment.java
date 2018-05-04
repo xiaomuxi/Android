@@ -53,13 +53,6 @@ public class CompanyCaseInvesFragment extends BaseActivityFragment{
 
     }
 
-    @Override
-    protected void onVisible() {
-        super.onVisible();
-        System.out.println("------testonVisible------");
-        initData();
-    }
-
     private void initData() {
         LogUtils.i("TEST_COMpanycaseinves", "initDAta");
 

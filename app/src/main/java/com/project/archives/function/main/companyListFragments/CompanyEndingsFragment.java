@@ -49,11 +49,6 @@ public class CompanyEndingsFragment extends BaseActivityFragment {
 
         initData();
     }
-    @Override
-    protected void onVisible() {
-        super.onVisible();
-        initData();
-    }
 
     private void initData() {
         LogUtils.i("TEST_COMpanyendings", "initDAta");

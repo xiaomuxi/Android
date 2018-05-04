@@ -50,12 +50,6 @@ public class CompanyVerificationsFragment extends BaseActivityFragment{
         initData();
     }
 
-    @Override
-    protected void onVisible() {
-        super.onVisible();
-        initData();
-    }
-
     private void initData() {
         LogUtils.i("TEST_COMpanyverificationss", "initDAta");
         list = VerificationsManager.getInstance().getVerificationList(null, null, null, null);

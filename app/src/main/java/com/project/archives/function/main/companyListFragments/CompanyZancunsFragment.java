@@ -52,13 +52,6 @@ public class CompanyZancunsFragment extends BaseActivityFragment {
         initData();
     }
 
-    @Override
-    protected void onVisible() {
-        super.onVisible();
-
-        initData();
-    }
-
     private void initData() {
         LogUtils.i("TEST_COMpanyzancuns", "initDAta");
         list = ZancunsManager.getInstance().getZancunList(null, null, null, null);

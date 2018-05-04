@@ -16,12 +16,18 @@ import com.jayfang.dropdownmenu.DropDownMenu;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
+import com.project.archives.common.bean.MessageEvent;
+import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.listFragments.CaseInvesFragment;
-import com.project.archives.function.main.listFragments.EndingsFragment;
-import com.project.archives.function.main.listFragments.LettersFragment;
-import com.project.archives.function.main.listFragments.VerificationsFragment;
-import com.project.archives.function.main.listFragments.ZancunsFragment;
+import com.project.archives.function.main.typeListFragments.TypeCaseInvesFragment;
+import com.project.archives.function.main.typeListFragments.TypeEndingsFragment;
+import com.project.archives.function.main.typeListFragments.TypeLettersFragment;
+import com.project.archives.function.main.typeListFragments.TypeVerificationsFragment;
+import com.project.archives.function.main.typeListFragments.TypeZancunsFragment;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +58,7 @@ public class TypeFragment extends BaseActivityFragment {
 
     @Override
     protected View setContentView() {
-        return UIUtils.inflate(mContext, R.layout.fragment_list_parent);
+        return UIUtils.inflate(mContext, R.layout.fragment_list_type);
     }
 
     @Override
@@ -71,7 +77,7 @@ public class TypeFragment extends BaseActivityFragment {
 
     @Override
     protected void initCreated(Bundle savedInstanceState) {
-
+        EventBus.getDefault().register(this);
     }
 
     private void initViewPgaer(View view) {
@@ -133,23 +139,23 @@ public class TypeFragment extends BaseActivityFragment {
                 switch (index) {
                     //处分类
                     case TAB_CASEINVES:
-                        fragment = new CaseInvesFragment();
+                        fragment = new TypeCaseInvesFragment();
                         break;
                     //初步核实类
                     case TAB_VERIFICATIONS:
-                        fragment = new VerificationsFragment();
+                        fragment = new TypeVerificationsFragment();
                         break;
                     //谈话函询类
                     case TAB_LETTERS:
-                        fragment = new LettersFragment();
+                        fragment = new TypeLettersFragment();
                         break;
                     //了结类
                     case TAB_ENDINGS:
-                        fragment = new EndingsFragment();
+                        fragment = new TypeEndingsFragment();
                         break;
                     //暂存类
                     case TAB_ZANCUNS:
-                        fragment = new ZancunsFragment();
+                        fragment = new TypeZancunsFragment();
                         break;
                     default:
                         break;
@@ -240,5 +246,40 @@ public class TypeFragment extends BaseActivityFragment {
     public void onDestroy() {
         super.onDestroy();
         FragmentFactory.mFragmentMap.clear();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageEvent event) {
+        if (StringUtils.notNull(event)) {
+            switch (event.getTitle()) {
+                case "TYPE_CASEINVES":
+                    int count1 = (int) event.getContent();
+                    tv_caseinves.setText(Html.fromHtml(getResources()
+                            .getString(R.string.list_caseinves_title, count1+"")));
+                    break;
+                case "TYPE_VERIFICATIONS":
+
+                    int count2 = (int) event.getContent();
+                    tv_verifications.setText(Html.fromHtml(getResources()
+                            .getString(R.string.list_verifications_title, count2+"")));
+                    break;
+                case "TYPE_LETTERS":
+                    int count3 = (int) event.getContent();
+                    tv_letters.setText(Html.fromHtml(getResources()
+                            .getString(R.string.list_letters_title, count3+"")));
+                    break;
+                case "TYPE_ENDINGS":
+                    int count4 = (int) event.getContent();
+                    tv_endings.setText(Html.fromHtml(getResources()
+                            .getString(R.string.list_endings_title, count4+"")));
+                    break;
+                case "TYPE_ZANCUNS":
+
+                    int count5 = (int) event.getContent();
+                    tv_zancuns.setText(getResources()
+                            .getString(R.string.list_zancuns_title, count5+""));
+                    break;
+            }
+        }
     }
 }

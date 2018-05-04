@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.utils.UIUtils;
+import com.project.archives.function.main.fragment.AgeFragment;
 import com.project.archives.function.main.fragment.CompanyFragment;
 import com.project.archives.function.main.fragment.HomeFragment;
 import com.project.archives.function.main.fragment.PersonFragment;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     private PersonFragment personFragment;
     private CompanyFragment companyFragment;
     private TypeFragment typeFragment;
+    private AgeFragment ageFragment;
     private String currentFragment;
 
     @Override
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity
             if (!"HOME".equals(currentFragment)) {
                 fragmentManager.beginTransaction()
                         .replace(R.id.frame_home_content, getFragment("HOME"))
-                        .commit();
+                        .commitAllowingStateLoss();
                 currentFragment = "HOME";
             }
         } else if (id == R.id.nav_person) {
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity
 
                 fragmentManager.beginTransaction()
                         .replace(R.id.frame_home_content, getFragment("PERSON"))
-                        .commit();
+                        .commitAllowingStateLoss();
                 currentFragment = "PERSON";
             }
 
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity
             if (!"COMPANY".equals(currentFragment)) {
                 fragmentManager.beginTransaction()
                         .replace(R.id.frame_home_content, getFragment("COMPANY"))
-                        .commit();
+                        .commitAllowingStateLoss();
                 currentFragment = "COMPANY";
             }
 
@@ -123,8 +125,16 @@ public class MainActivity extends AppCompatActivity
             if (!"TYPE".equals(currentFragment)) {
                 fragmentManager.beginTransaction()
                         .replace(R.id.frame_home_content, getFragment("TYPE"))
-                        .commit();
+                        .commitAllowingStateLoss();
                 currentFragment = "TYPE";
+            }
+
+        } else if (id == R.id.nav_age) {
+            if (!"AGE".equals(currentFragment)) {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.frame_home_content, getFragment("AGE"))
+                        .commitAllowingStateLoss();
+                currentFragment = "AGE";
             }
 
         } else if (id == R.id.nav_setting) {
@@ -172,6 +182,11 @@ public class MainActivity extends AppCompatActivity
                     typeFragment = new TypeFragment();
                 }
                 return typeFragment;
+            case "AGE":
+                if (null == ageFragment) {
+                    ageFragment = new AgeFragment();
+                }
+                return ageFragment;
             default:
                 if (null == homeFragment) {
                     homeFragment = new HomeFragment();
@@ -193,6 +208,9 @@ public class MainActivity extends AppCompatActivity
         if (null != typeFragment) {
             transaction.hide(typeFragment);
         }
+        if (null != ageFragment) {
+            transaction.hide(ageFragment);
+        }
 
     }
 
@@ -212,6 +230,9 @@ public class MainActivity extends AppCompatActivity
             }
             if (typeFragment != null) {
                 transaction.remove(typeFragment);
+            }
+            if (ageFragment != null) {
+                transaction.remove(ageFragment);
             }
 
             transaction.commit();

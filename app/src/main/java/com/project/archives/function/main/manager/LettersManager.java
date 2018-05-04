@@ -7,6 +7,7 @@ import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 
 import org.greenrobot.greendao.query.QueryBuilder;
+import org.greenrobot.greendao.query.WhereCondition;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -82,5 +83,27 @@ public class LettersManager {
         queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
 
         return queryBuilder.list();
+    }
+
+    public List<Letters> getLettersListByAge(String startAge, String endAge) {
+        if (!StringUtils.isEmpty(startAge) && !StringUtils.isEmpty(endAge)) {
+            return lettersDao.queryBuilder().where(
+                    new WhereCondition.StringCondition("UserID in " +
+                            "(select ID from Users where Age>="+ startAge +" and Age<="+ endAge + ")")).build().list();
+        }
+
+        if (!StringUtils.isEmpty(startAge)) {
+            return lettersDao.queryBuilder().where(
+                    new WhereCondition.StringCondition("UserID in " +
+                            "(select ID from Users where Age>="+ startAge + ")")).build().list();
+        }
+
+        if (!StringUtils.isEmpty(endAge)) {
+            return lettersDao.queryBuilder().where(
+                    new WhereCondition.StringCondition("UserID in " +
+                            "(select ID from Users where Age<="+ endAge + ")")).build().list();
+        }
+
+        return lettersDao.loadAll();
     }
 }

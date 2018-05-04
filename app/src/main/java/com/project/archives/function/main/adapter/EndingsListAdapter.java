@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
 import com.project.archives.common.dao.Endings;
-import com.project.archives.function.main.activity.UserDetailActivity;
+import com.project.archives.function.main.activity.EndingsDetailActivity;
 
 /**
  * Created by inrokei on 2018/5/1.
@@ -49,8 +49,7 @@ public class EndingsListAdapter extends MyBaseAdapter<Endings> {
         ll_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, UserDetailActivity.class);
-                intent.putExtra("type", "Verifications");
+                Intent intent = new Intent(mContext, EndingsDetailActivity.class);
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);
             }

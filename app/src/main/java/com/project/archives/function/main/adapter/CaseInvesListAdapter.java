@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
 import com.project.archives.common.dao.CaseInves;
-import com.project.archives.function.main.activity.UserDetailActivity;
+import com.project.archives.function.main.activity.CaseInvesDetailActivity;
 
 /**
  * Created by inrokei on 2018/5/1.
@@ -51,8 +51,7 @@ public class CaseInvesListAdapter extends MyBaseAdapter<CaseInves> {
         ll_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, UserDetailActivity.class);
-                intent.putExtra("type", "CaseInves");
+                Intent intent = new Intent(mContext, CaseInvesDetailActivity.class);
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);
             }

@@ -52,6 +52,36 @@ public abstract class BaseActivityFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        LogUtils.i(TAG, "fragment on start");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LogUtils.i(TAG, "fragment on resume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        LogUtils.i(TAG, "fragment on pause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        LogUtils.i(TAG, "fragment on stop");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LogUtils.i(TAG, "fragment on destroy");
+    }
+
     /**
      * 创建可以被缓存的view；
      *

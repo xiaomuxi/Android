@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
 import com.project.archives.common.dao.Zancuns;
-import com.project.archives.function.main.activity.UserDetailActivity;
+import com.project.archives.function.main.activity.ZancunsDetailActivity;
 
 /**
  * Created by inrokei on 2018/5/1.
@@ -50,8 +50,7 @@ public class ZancunsListAdapter extends MyBaseAdapter<Zancuns> {
         ll_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, UserDetailActivity.class);
-                intent.putExtra("type", "Zancuns");
+                Intent intent = new Intent(mContext, ZancunsDetailActivity.class);
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);
             }

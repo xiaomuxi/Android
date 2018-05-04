@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
 import com.project.archives.common.dao.Letters;
-import com.project.archives.function.main.activity.UserDetailActivity;
+import com.project.archives.function.main.activity.LettersDetailActivity;
 
 /**
  * Created by inrokei on 2018/5/1.
@@ -50,7 +50,7 @@ public class LettersListAdapter extends MyBaseAdapter<Letters> {
         ll_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, UserDetailActivity.class);
+                Intent intent = new Intent(mContext, LettersDetailActivity.class);
                 intent.putExtra("type", "Letters");
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);

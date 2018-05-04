@@ -17,7 +17,23 @@
         </activity>
 
         <activity
-            android:name=".function.main.activity.UserDetailActivity"
+            android:name=".function.main.activity.CaseInvesDetailActivity"
+            android:label="信息详情"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".function.main.activity.ZancunsDetailActivity"
+            android:label="信息详情"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".function.main.activity.VerificationsDetailActivity"
+            android:label="信息详情"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".function.main.activity.LettersDetailActivity"
+            android:label="信息详情"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".function.main.activity.EndingsDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

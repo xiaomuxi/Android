@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="首页汇总" />
         <item
             android:id="@+id/nav_person"
@@ -17,7 +17,11 @@
         <item
             android:id="@+id/nav_type"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="问题类型" />
+            android:title="问题类型查询" />
+        <item
+            android:id="@+id/nav_age"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="年龄查询" />
     </group>
 
     <item android:title="配置信息">

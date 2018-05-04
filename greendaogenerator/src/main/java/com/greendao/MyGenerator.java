@@ -20,12 +20,62 @@ public class MyGenerator {
     }
 
     private static void addTables(final Schema schema) {
-        addCaseInvesEntities(schema);
-        addVerificationsEntities(schema);
-        addLettersEntities(schema);
-        addEndingsEntities(schema);
-        addZancunsEntities(schema);
-        addMultiDictionariesEntities(schema);
+        addUserEntities(schema);
+
+//        addCaseInvesEntities(schema);
+//        addVerificationsEntities(schema);
+//        addLettersEntities(schema);
+//        addEndingsEntities(schema);
+//        addZancunsEntities(schema);
+//        addMultiDictionariesEntities(schema);
+    }
+
+    private static void addUserEntities(Schema schema) {
+        Entity entity = schema.addEntity("Users");
+        entity.addByteArrayProperty("ID").primaryKey();
+        entity.addIntProperty("IsDelete");
+        entity.addStringProperty("RealName");
+        entity.addStringProperty("IDCard");
+        entity.addIntProperty("Sex");
+        entity.addIntProperty("Age");
+        entity.addStringProperty("National");
+        entity.addStringProperty("NativePlace");
+        entity.addStringProperty("HomePlace");
+        entity.addStringProperty("Health");
+        entity.addStringProperty("ZPosition");
+        entity.addStringProperty("Specialty");
+        entity.addStringProperty("QEducation");
+        entity.addStringProperty("QSchool");
+        entity.addStringProperty("Education");
+        entity.addStringProperty("School");
+        entity.addStringProperty("Resume");
+        entity.addStringProperty("BonusPenalty");
+        entity.addStringProperty("CheckResult");
+        entity.addStringProperty("Position");
+        entity.addStringProperty("Birth");
+        entity.addStringProperty("DataType");
+        entity.addStringProperty("AddDate");
+        entity.addStringProperty("AddUser");
+        entity.addStringProperty("UpdateDate");
+        entity.addStringProperty("UpdateUser");
+        entity.addStringProperty("ContactPhone");
+        entity.addStringProperty("HomeAddress");
+        entity.addStringProperty("BirthYear");
+        entity.addStringProperty("PictureUrl");
+        entity.addStringProperty("PictureName");
+        entity.addStringProperty("PartyTimeStr");
+        entity.addStringProperty("WorkTimeStr");
+        entity.addStringProperty("Init");
+        entity.addIntProperty("Rank");
+        entity.addStringProperty("IsCadre");
+        entity.addIntProperty("CbInit");
+        entity.addStringProperty("IsDone");
+        entity.addStringProperty("IsDoneW");
+        entity.addStringProperty("IsDoneJ");
+        entity.addStringProperty("IsRen");
+        entity.addStringProperty("IsZheng");
+        entity.addStringProperty("GerenID");
+
     }
 
     private static Entity addMultiDictionariesEntities(Schema schema) {

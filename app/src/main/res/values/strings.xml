@@ -39,12 +39,16 @@
     <string name="txt_ljsj">了结时间： %s</string>
     <string name="txt_bljg">办理机关： %s</string>
     <string name="txt_zzcl">组织处理： %s</string>
+    <string name="txt_zzclqk">组织处理情况： %s</string>
     <string name="txt_dncf">党内处分： %s</string>
     <string name="txt_xzcf">行政处分： %s</string>
+    <string name="txt_gwy">公务员： %s</string>
 
-    <string name="list_caseinves_title">处分类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_verifications_title">初步核实类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_letters_title">谈话函询类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_endings_title">了结类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
-    <string name="list_zancuns_title">暂存类(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>
+    <string name="list_caseinves_title">处分类(%s)</string>
+    <string name="list_verifications_title">核实类(%s)</string>
+    <string name="list_letters_title">函询类(%s)</string>
+    <string name="list_endings_title">了结类(%s)</string>
+    <string name="list_zancuns_title">暂存类(%s)</string>
+    <string name="text_clqk">处理情况： %s</string>
+
 </resources>

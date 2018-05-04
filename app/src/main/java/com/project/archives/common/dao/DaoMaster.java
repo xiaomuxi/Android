@@ -27,6 +27,7 @@ public class DaoMaster extends AbstractDaoMaster {
         EndingsDao.createTable(db, ifNotExists);
         ZancunsDao.createTable(db, ifNotExists);
         MultiDictionariesDao.createTable(db, ifNotExists);
+        UsersDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
@@ -37,6 +38,7 @@ public class DaoMaster extends AbstractDaoMaster {
         EndingsDao.dropTable(db, ifExists);
         ZancunsDao.dropTable(db, ifExists);
         MultiDictionariesDao.dropTable(db, ifExists);
+        UsersDao.dropTable(db, ifExists);
     }
 
     /**
@@ -61,6 +63,7 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(EndingsDao.class);
         registerDaoClass(ZancunsDao.class);
         registerDaoClass(MultiDictionariesDao.class);
+        registerDaoClass(UsersDao.class);
     }
 
     public DaoSession newSession() {

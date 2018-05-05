@@ -15,7 +15,7 @@ import org.greenrobot.greendao.database.DatabaseStatement;
 */
 public class UsersDao extends AbstractDao<Users, byte[]> {
 
-    public static final String TABLENAME = "USERS";
+    public static final String TABLENAME = "Users";
 
     /**
      * Properties of entity Users.<br/>
@@ -23,48 +23,48 @@ public class UsersDao extends AbstractDao<Users, byte[]> {
      */
     public static class Properties {
         public final static Property ID = new Property(0, byte[].class, "ID", true, "ID");
-        public final static Property IsDelete = new Property(1, Integer.class, "IsDelete", false, "IS_DELETE");
-        public final static Property RealName = new Property(2, String.class, "RealName", false, "REAL_NAME");
-        public final static Property IDCard = new Property(3, String.class, "IDCard", false, "IDCARD");
-        public final static Property Sex = new Property(4, Integer.class, "Sex", false, "SEX");
-        public final static Property Age = new Property(5, Integer.class, "Age", false, "AGE");
-        public final static Property National = new Property(6, String.class, "National", false, "NATIONAL");
-        public final static Property NativePlace = new Property(7, String.class, "NativePlace", false, "NATIVE_PLACE");
-        public final static Property HomePlace = new Property(8, String.class, "HomePlace", false, "HOME_PLACE");
-        public final static Property Health = new Property(9, String.class, "Health", false, "HEALTH");
-        public final static Property ZPosition = new Property(10, String.class, "ZPosition", false, "ZPOSITION");
-        public final static Property Specialty = new Property(11, String.class, "Specialty", false, "SPECIALTY");
-        public final static Property QEducation = new Property(12, String.class, "QEducation", false, "QEDUCATION");
-        public final static Property QSchool = new Property(13, String.class, "QSchool", false, "QSCHOOL");
-        public final static Property Education = new Property(14, String.class, "Education", false, "EDUCATION");
-        public final static Property School = new Property(15, String.class, "School", false, "SCHOOL");
-        public final static Property Resume = new Property(16, String.class, "Resume", false, "RESUME");
-        public final static Property BonusPenalty = new Property(17, String.class, "BonusPenalty", false, "BONUS_PENALTY");
-        public final static Property CheckResult = new Property(18, String.class, "CheckResult", false, "CHECK_RESULT");
-        public final static Property Position = new Property(19, String.class, "Position", false, "POSITION");
-        public final static Property Birth = new Property(20, String.class, "Birth", false, "BIRTH");
-        public final static Property DataType = new Property(21, String.class, "DataType", false, "DATA_TYPE");
-        public final static Property AddDate = new Property(22, String.class, "AddDate", false, "ADD_DATE");
-        public final static Property AddUser = new Property(23, String.class, "AddUser", false, "ADD_USER");
-        public final static Property UpdateDate = new Property(24, String.class, "UpdateDate", false, "UPDATE_DATE");
-        public final static Property UpdateUser = new Property(25, String.class, "UpdateUser", false, "UPDATE_USER");
-        public final static Property ContactPhone = new Property(26, String.class, "ContactPhone", false, "CONTACT_PHONE");
-        public final static Property HomeAddress = new Property(27, String.class, "HomeAddress", false, "HOME_ADDRESS");
-        public final static Property BirthYear = new Property(28, String.class, "BirthYear", false, "BIRTH_YEAR");
-        public final static Property PictureUrl = new Property(29, String.class, "PictureUrl", false, "PICTURE_URL");
-        public final static Property PictureName = new Property(30, String.class, "PictureName", false, "PICTURE_NAME");
-        public final static Property PartyTimeStr = new Property(31, String.class, "PartyTimeStr", false, "PARTY_TIME_STR");
-        public final static Property WorkTimeStr = new Property(32, String.class, "WorkTimeStr", false, "WORK_TIME_STR");
-        public final static Property Init = new Property(33, String.class, "Init", false, "INIT");
-        public final static Property Rank = new Property(34, Integer.class, "Rank", false, "RANK");
-        public final static Property IsCadre = new Property(35, String.class, "IsCadre", false, "IS_CADRE");
-        public final static Property CbInit = new Property(36, Integer.class, "CbInit", false, "CB_INIT");
-        public final static Property IsDone = new Property(37, String.class, "IsDone", false, "IS_DONE");
-        public final static Property IsDoneW = new Property(38, String.class, "IsDoneW", false, "IS_DONE_W");
-        public final static Property IsDoneJ = new Property(39, String.class, "IsDoneJ", false, "IS_DONE_J");
-        public final static Property IsRen = new Property(40, String.class, "IsRen", false, "IS_REN");
-        public final static Property IsZheng = new Property(41, String.class, "IsZheng", false, "IS_ZHENG");
-        public final static Property GerenID = new Property(42, String.class, "GerenID", false, "GEREN_ID");
+        public final static Property IsDelete = new Property(1, Integer.class, "IsDelete", false, "IsDelete");
+        public final static Property RealName = new Property(2, String.class, "RealName", false, "RealName");
+        public final static Property IDCard = new Property(3, String.class, "IDCard", false, "IDCard");
+        public final static Property Sex = new Property(4, Integer.class, "Sex", false, "Sex");
+        public final static Property Age = new Property(5, Integer.class, "Age", false, "Age");
+        public final static Property National = new Property(6, String.class, "National", false, "National");
+        public final static Property NativePlace = new Property(7, String.class, "NativePlace", false, "NativePlace");
+        public final static Property HomePlace = new Property(8, String.class, "HomePlace", false, "HomePlace");
+        public final static Property Health = new Property(9, String.class, "Health", false, "Health");
+        public final static Property ZPosition = new Property(10, String.class, "ZPosition", false, "ZPosition");
+        public final static Property Specialty = new Property(11, String.class, "Specialty", false, "Specialty");
+        public final static Property QEducation = new Property(12, String.class, "QEducation", false, "QEducation");
+        public final static Property QSchool = new Property(13, String.class, "QSchool", false, "QSchool");
+        public final static Property Education = new Property(14, String.class, "Education", false, "Education");
+        public final static Property School = new Property(15, String.class, "School", false, "School");
+        public final static Property Resume = new Property(16, String.class, "Resume", false, "Resume");
+        public final static Property BonusPenalty = new Property(17, String.class, "BonusPenalty", false, "BonusPenalty");
+        public final static Property CheckResult = new Property(18, String.class, "CheckResult", false, "CheckResult");
+        public final static Property Position = new Property(19, String.class, "Position", false, "Position");
+        public final static Property Birth = new Property(20, String.class, "Birth", false, "Birth");
+        public final static Property DataType = new Property(21, String.class, "DataType", false, "DataType");
+        public final static Property AddDate = new Property(22, String.class, "AddDate", false, "AddDate");
+        public final static Property AddUser = new Property(23, String.class, "AddUser", false, "AddUser");
+        public final static Property UpdateDate = new Property(24, String.class, "UpdateDate", false, "UpdateDate");
+        public final static Property UpdateUser = new Property(25, String.class, "UpdateUser", false, "UpdateUser");
+        public final static Property ContactPhone = new Property(26, String.class, "ContactPhone", false, "ContactPhone");
+        public final static Property HomeAddress = new Property(27, String.class, "HomeAddress", false, "HomeAddress");
+        public final static Property BirthYear = new Property(28, String.class, "BirthYear", false, "BirthYear");
+        public final static Property PictureUrl = new Property(29, String.class, "PictureUrl", false, "PictureUrl");
+        public final static Property PictureName = new Property(30, String.class, "PictureName", false, "PictureName");
+        public final static Property PartyTimeStr = new Property(31, String.class, "PartyTimeStr", false, "PartyTimeStr");
+        public final static Property WorkTimeStr = new Property(32, String.class, "WorkTimeStr", false, "WorkTimeStr");
+        public final static Property Init = new Property(33, String.class, "Init", false, "Init");
+        public final static Property Rank = new Property(34, Integer.class, "Rank", false, "Rank");
+        public final static Property IsCadre = new Property(35, String.class, "IsCadre", false, "IsCadre");
+        public final static Property CbInit = new Property(36, Integer.class, "CbInit", false, "CbInit");
+        public final static Property IsDang = new Property(37, String.class, "IsDang", false, "IsDang");
+        public final static Property IsDangW = new Property(38, String.class, "IsDangW", false, "IsDangW");
+        public final static Property IsDangJ = new Property(39, String.class, "IsDangJ", false, "IsDangJ");
+        public final static Property IsRen = new Property(40, String.class, "IsRen", false, "IsRen");
+        public final static Property IsZheng = new Property(41, String.class, "IsZheng", false, "IsZheng");
+        public final static Property GerenID = new Property(42, String.class, "GerenID", false, "GerenID");
     }
 
 
@@ -79,55 +79,55 @@ public class UsersDao extends AbstractDao<Users, byte[]> {
     /** Creates the underlying database table. */
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
-        db.execSQL("CREATE TABLE " + constraint + "\"USERS\" (" + //
+        db.execSQL("CREATE TABLE " + constraint + "\"Users\" (" + //
                 "\"ID\" BLOB PRIMARY KEY ," + // 0: ID
-                "\"IS_DELETE\" INTEGER," + // 1: IsDelete
-                "\"REAL_NAME\" TEXT," + // 2: RealName
-                "\"IDCARD\" TEXT," + // 3: IDCard
-                "\"SEX\" INTEGER," + // 4: Sex
-                "\"AGE\" INTEGER," + // 5: Age
-                "\"NATIONAL\" TEXT," + // 6: National
-                "\"NATIVE_PLACE\" TEXT," + // 7: NativePlace
-                "\"HOME_PLACE\" TEXT," + // 8: HomePlace
-                "\"HEALTH\" TEXT," + // 9: Health
-                "\"ZPOSITION\" TEXT," + // 10: ZPosition
-                "\"SPECIALTY\" TEXT," + // 11: Specialty
-                "\"QEDUCATION\" TEXT," + // 12: QEducation
-                "\"QSCHOOL\" TEXT," + // 13: QSchool
-                "\"EDUCATION\" TEXT," + // 14: Education
-                "\"SCHOOL\" TEXT," + // 15: School
-                "\"RESUME\" TEXT," + // 16: Resume
-                "\"BONUS_PENALTY\" TEXT," + // 17: BonusPenalty
-                "\"CHECK_RESULT\" TEXT," + // 18: CheckResult
-                "\"POSITION\" TEXT," + // 19: Position
-                "\"BIRTH\" TEXT," + // 20: Birth
-                "\"DATA_TYPE\" TEXT," + // 21: DataType
-                "\"ADD_DATE\" TEXT," + // 22: AddDate
-                "\"ADD_USER\" TEXT," + // 23: AddUser
-                "\"UPDATE_DATE\" TEXT," + // 24: UpdateDate
-                "\"UPDATE_USER\" TEXT," + // 25: UpdateUser
-                "\"CONTACT_PHONE\" TEXT," + // 26: ContactPhone
-                "\"HOME_ADDRESS\" TEXT," + // 27: HomeAddress
-                "\"BIRTH_YEAR\" TEXT," + // 28: BirthYear
-                "\"PICTURE_URL\" TEXT," + // 29: PictureUrl
-                "\"PICTURE_NAME\" TEXT," + // 30: PictureName
-                "\"PARTY_TIME_STR\" TEXT," + // 31: PartyTimeStr
-                "\"WORK_TIME_STR\" TEXT," + // 32: WorkTimeStr
-                "\"INIT\" TEXT," + // 33: Init
-                "\"RANK\" INTEGER," + // 34: Rank
-                "\"IS_CADRE\" TEXT," + // 35: IsCadre
-                "\"CB_INIT\" INTEGER," + // 36: CbInit
-                "\"IS_DONE\" TEXT," + // 37: IsDone
-                "\"IS_DONE_W\" TEXT," + // 38: IsDoneW
-                "\"IS_DONE_J\" TEXT," + // 39: IsDoneJ
-                "\"IS_REN\" TEXT," + // 40: IsRen
-                "\"IS_ZHENG\" TEXT," + // 41: IsZheng
-                "\"GEREN_ID\" TEXT);"); // 42: GerenID
+                "\"IsDelete\" INTEGER," + // 1: IsDelete
+                "\"RealName\" TEXT," + // 2: RealName
+                "\"IDCard\" TEXT," + // 3: IDCard
+                "\"Sex\" INTEGER," + // 4: Sex
+                "\"Age\" INTEGER," + // 5: Age
+                "\"National\" TEXT," + // 6: National
+                "\"NativePlace\" TEXT," + // 7: NativePlace
+                "\"HomePlace\" TEXT," + // 8: HomePlace
+                "\"Health\" TEXT," + // 9: Health
+                "\"ZPosition\" TEXT," + // 10: ZPosition
+                "\"Specialty\" TEXT," + // 11: Specialty
+                "\"QEducation\" TEXT," + // 12: QEducation
+                "\"QSchool\" TEXT," + // 13: QSchool
+                "\"Education\" TEXT," + // 14: Education
+                "\"School\" TEXT," + // 15: School
+                "\"Resume\" TEXT," + // 16: Resume
+                "\"BonusPenalty\" TEXT," + // 17: BonusPenalty
+                "\"CheckResult\" TEXT," + // 18: CheckResult
+                "\"Position\" TEXT," + // 19: Position
+                "\"Birth\" TEXT," + // 20: Birth
+                "\"DataType\" TEXT," + // 21: DataType
+                "\"AddDate\" TEXT," + // 22: AddDate
+                "\"AddUser\" TEXT," + // 23: AddUser
+                "\"UpdateDate\" TEXT," + // 24: UpdateDate
+                "\"UpdateUser\" TEXT," + // 25: UpdateUser
+                "\"ContactPhone\" TEXT," + // 26: ContactPhone
+                "\"HomeAddress\" TEXT," + // 27: HomeAddress
+                "\"BirthYear\" TEXT," + // 28: BirthYear
+                "\"PictureUrl\" TEXT," + // 29: PictureUrl
+                "\"PictureName\" TEXT," + // 30: PictureName
+                "\"PartyTimeStr\" TEXT," + // 31: PartyTimeStr
+                "\"WorkTimeStr\" TEXT," + // 32: WorkTimeStr
+                "\"Init\" TEXT," + // 33: Init
+                "\"Rank\" INTEGER," + // 34: Rank
+                "\"CbInit\" TEXT," + // 35: IsCadre
+                "\"CbInit\" INTEGER," + // 36: CbInit
+                "\"IsDang\" TEXT," + // 37: IsDang
+                "\"IsDangW\" TEXT," + // 38: IsDangW
+                "\"IsDangJ\" TEXT," + // 39: IsDangJ
+                "\"IsRen\" TEXT," + // 40: IsRen
+                "\"IsZheng\" TEXT," + // 41: IsZheng
+                "\"GerenID\" TEXT);"); // 42: GerenID
     }
 
     /** Drops the underlying database table. */
     public static void dropTable(Database db, boolean ifExists) {
-        String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"USERS\"";
+        String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"Users\"";
         db.execSQL(sql);
     }
 
@@ -320,19 +320,19 @@ public class UsersDao extends AbstractDao<Users, byte[]> {
             stmt.bindLong(37, CbInit);
         }
  
-        String IsDone = entity.getIsDone();
-        if (IsDone != null) {
-            stmt.bindString(38, IsDone);
+        String IsDang = entity.getIsDang();
+        if (IsDang != null) {
+            stmt.bindString(38, IsDang);
         }
  
-        String IsDoneW = entity.getIsDoneW();
-        if (IsDoneW != null) {
-            stmt.bindString(39, IsDoneW);
+        String IsDangW = entity.getIsDangW();
+        if (IsDangW != null) {
+            stmt.bindString(39, IsDangW);
         }
  
-        String IsDoneJ = entity.getIsDoneJ();
-        if (IsDoneJ != null) {
-            stmt.bindString(40, IsDoneJ);
+        String IsDangJ = entity.getIsDangJ();
+        if (IsDangJ != null) {
+            stmt.bindString(40, IsDangJ);
         }
  
         String IsRen = entity.getIsRen();
@@ -540,19 +540,19 @@ public class UsersDao extends AbstractDao<Users, byte[]> {
             stmt.bindLong(37, CbInit);
         }
  
-        String IsDone = entity.getIsDone();
-        if (IsDone != null) {
-            stmt.bindString(38, IsDone);
+        String IsDang = entity.getIsDang();
+        if (IsDang != null) {
+            stmt.bindString(38, IsDang);
         }
  
-        String IsDoneW = entity.getIsDoneW();
-        if (IsDoneW != null) {
-            stmt.bindString(39, IsDoneW);
+        String IsDangW = entity.getIsDangW();
+        if (IsDangW != null) {
+            stmt.bindString(39, IsDangW);
         }
  
-        String IsDoneJ = entity.getIsDoneJ();
-        if (IsDoneJ != null) {
-            stmt.bindString(40, IsDoneJ);
+        String IsDangJ = entity.getIsDangJ();
+        if (IsDangJ != null) {
+            stmt.bindString(40, IsDangJ);
         }
  
         String IsRen = entity.getIsRen();
@@ -616,9 +616,9 @@ public class UsersDao extends AbstractDao<Users, byte[]> {
             cursor.isNull(offset + 34) ? null : cursor.getInt(offset + 34), // Rank
             cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35), // IsCadre
             cursor.isNull(offset + 36) ? null : cursor.getInt(offset + 36), // CbInit
-            cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37), // IsDone
-            cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38), // IsDoneW
-            cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39), // IsDoneJ
+            cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37), // IsDang
+            cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38), // IsDangW
+            cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39), // IsDangJ
             cursor.isNull(offset + 40) ? null : cursor.getString(offset + 40), // IsRen
             cursor.isNull(offset + 41) ? null : cursor.getString(offset + 41), // IsZheng
             cursor.isNull(offset + 42) ? null : cursor.getString(offset + 42) // GerenID
@@ -665,9 +665,9 @@ public class UsersDao extends AbstractDao<Users, byte[]> {
         entity.setRank(cursor.isNull(offset + 34) ? null : cursor.getInt(offset + 34));
         entity.setIsCadre(cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35));
         entity.setCbInit(cursor.isNull(offset + 36) ? null : cursor.getInt(offset + 36));
-        entity.setIsDone(cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37));
-        entity.setIsDoneW(cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38));
-        entity.setIsDoneJ(cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39));
+        entity.setIsDang(cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37));
+        entity.setIsDangW(cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38));
+        entity.setIsDangJ(cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39));
         entity.setIsRen(cursor.isNull(offset + 40) ? null : cursor.getString(offset + 40));
         entity.setIsZheng(cursor.isNull(offset + 41) ? null : cursor.getString(offset + 41));
         entity.setGerenID(cursor.isNull(offset + 42) ? null : cursor.getString(offset + 42));

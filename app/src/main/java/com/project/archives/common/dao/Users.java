@@ -51,9 +51,9 @@ public class Users {
     private Integer Rank;
     private String IsCadre;
     private Integer CbInit;
-    private String IsDone;
-    private String IsDoneW;
-    private String IsDoneJ;
+    private String IsDang;
+    private String IsDangW;
+    private String IsDangJ;
     private String IsRen;
     private String IsZheng;
     private String GerenID;
@@ -70,7 +70,7 @@ public class Users {
     }
 
     @Generated
-    public Users(byte[] ID, Integer IsDelete, String RealName, String IDCard, Integer Sex, Integer Age, String National, String NativePlace, String HomePlace, String Health, String ZPosition, String Specialty, String QEducation, String QSchool, String Education, String School, String Resume, String BonusPenalty, String CheckResult, String Position, String Birth, String DataType, String AddDate, String AddUser, String UpdateDate, String UpdateUser, String ContactPhone, String HomeAddress, String BirthYear, String PictureUrl, String PictureName, String PartyTimeStr, String WorkTimeStr, String Init, Integer Rank, String IsCadre, Integer CbInit, String IsDone, String IsDoneW, String IsDoneJ, String IsRen, String IsZheng, String GerenID) {
+    public Users(byte[] ID, Integer IsDelete, String RealName, String IDCard, Integer Sex, Integer Age, String National, String NativePlace, String HomePlace, String Health, String ZPosition, String Specialty, String QEducation, String QSchool, String Education, String School, String Resume, String BonusPenalty, String CheckResult, String Position, String Birth, String DataType, String AddDate, String AddUser, String UpdateDate, String UpdateUser, String ContactPhone, String HomeAddress, String BirthYear, String PictureUrl, String PictureName, String PartyTimeStr, String WorkTimeStr, String Init, Integer Rank, String IsCadre, Integer CbInit, String IsDang, String IsDangW, String IsDangJ, String IsRen, String IsZheng, String GerenID) {
         this.ID = ID;
         this.IsDelete = IsDelete;
         this.RealName = RealName;
@@ -108,9 +108,9 @@ public class Users {
         this.Rank = Rank;
         this.IsCadre = IsCadre;
         this.CbInit = CbInit;
-        this.IsDone = IsDone;
-        this.IsDoneW = IsDoneW;
-        this.IsDoneJ = IsDoneJ;
+        this.IsDang = IsDang;
+        this.IsDangW = IsDangW;
+        this.IsDangJ = IsDangJ;
         this.IsRen = IsRen;
         this.IsZheng = IsZheng;
         this.GerenID = GerenID;
@@ -412,28 +412,28 @@ public class Users {
         this.CbInit = CbInit;
     }
 
-    public String getIsDone() {
-        return IsDone;
+    public String getIsDang() {
+        return IsDang;
     }
 
-    public void setIsDone(String IsDone) {
-        this.IsDone = IsDone;
+    public void setIsDang(String IsDang) {
+        this.IsDang = IsDang;
     }
 
-    public String getIsDoneW() {
-        return IsDoneW;
+    public String getIsDangW() {
+        return IsDangW;
     }
 
-    public void setIsDoneW(String IsDoneW) {
-        this.IsDoneW = IsDoneW;
+    public void setIsDangW(String IsDangW) {
+        this.IsDangW = IsDangW;
     }
 
-    public String getIsDoneJ() {
-        return IsDoneJ;
+    public String getIsDangJ() {
+        return IsDangJ;
     }
 
-    public void setIsDoneJ(String IsDoneJ) {
-        this.IsDoneJ = IsDoneJ;
+    public void setIsDangJ(String IsDangJ) {
+        this.IsDangJ = IsDangJ;
     }
 
     public String getIsRen() {

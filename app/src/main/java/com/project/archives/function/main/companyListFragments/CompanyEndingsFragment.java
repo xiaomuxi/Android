@@ -1,14 +1,14 @@
 package com.project.archives.function.main.companyListFragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
 import com.project.archives.R;
-import com.project.archives.common.base.fragment.BaseActivityFragment;
+import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Endings;
-import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.EndingsListAdapter;
 import com.project.archives.function.main.manager.EndingsManager;
@@ -22,7 +22,7 @@ import java.util.List;
  * Created by inrokei on 2018/5/1.
  */
 
-public class CompanyEndingsFragment extends BaseActivityFragment {
+public class CompanyEndingsFragment extends BaseLoadingFragment {
 
     private ListView listView;
     private List<Endings> list = new ArrayList<>();
@@ -51,10 +51,24 @@ public class CompanyEndingsFragment extends BaseActivityFragment {
     }
 
     private void initData() {
-        LogUtils.i("TEST_COMpanyendings", "initDAta");
         list = EndingsManager.getInstance().getEndingList(null, null, null, null);
-        adapter.setData(list);
-        MessageEvent messageEvent = new MessageEvent<Integer>("COMPANY_ENDINGS", list.size());
-        EventBus.getDefault().post(messageEvent);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                show(check(list));
+                adapter.setData(list);
+                MessageEvent messageEvent = new MessageEvent<Integer>("COMPANY_ENDINGS", list.size());
+                EventBus.getDefault().post(messageEvent);
+            }
+        }, 500);
+    }
+
+    @Override
+    protected View createLoadedView() {
+        return setContentView();
+    }
+
+    @Override
+    protected void load() {
+
     }
 }

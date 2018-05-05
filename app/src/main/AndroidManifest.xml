@@ -15,6 +15,20 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".function.main.fragment.PersonActivity"/>
+        <activity
+            android:name=".function.main.fragment.CompanyActivity"/>
+        <activity
+            android:name=".function.main.fragment.AgeActivity"/>
+        <activity
+            android:name=".function.main.fragment.TypeActivity"/>
+        <activity
+            android:name=".function.main.activity.HomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
 
         <activity
             android:name=".function.main.activity.CaseInvesDetailActivity"

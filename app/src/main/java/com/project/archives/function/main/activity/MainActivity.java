@@ -1,5 +1,6 @@
 package com.project.archives.function.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -15,11 +16,7 @@ import android.view.MenuItem;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.fragment.AgeFragment;
-import com.project.archives.function.main.fragment.CompanyFragment;
-import com.project.archives.function.main.fragment.HomeFragment;
-import com.project.archives.function.main.fragment.PersonFragment;
-import com.project.archives.function.main.fragment.TypeFragment;
+import com.project.archives.function.main.fragment.*;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -106,18 +103,19 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.nav_person) {
             if (!"PERSON".equals(currentFragment)) {
-
-                fragmentManager.beginTransaction()
-                        .replace(R.id.frame_home_content, getFragment("PERSON"))
-                        .commitAllowingStateLoss();
+                startActivity(new Intent(this, PersonActivity.class));
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.frame_home_content, getFragment("PERSON"))
+//                        .commitAllowingStateLoss();
                 currentFragment = "PERSON";
             }
 
         } else if (id == R.id.nav_company) {
             if (!"COMPANY".equals(currentFragment)) {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.frame_home_content, getFragment("COMPANY"))
-                        .commitAllowingStateLoss();
+                startActivity(new Intent(this, CompanyActivity.class));
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.frame_home_content, getFragment("COMPANY"))
+//                        .commitAllowingStateLoss();
                 currentFragment = "COMPANY";
             }
 

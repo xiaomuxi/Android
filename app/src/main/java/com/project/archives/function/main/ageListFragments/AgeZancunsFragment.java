@@ -1,11 +1,12 @@
 package com.project.archives.function.main.ageListFragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
 import com.project.archives.R;
-import com.project.archives.common.base.fragment.BaseActivityFragment;
+import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Zancuns;
 import com.project.archives.common.utils.UIUtils;
@@ -21,7 +22,7 @@ import java.util.List;
  * Created by inrokei on 2018/5/1.
  */
 
-public class AgeZancunsFragment extends BaseActivityFragment {
+public class AgeZancunsFragment extends BaseLoadingFragment {
 
     private ListView listView;
     private List<Zancuns> list = new ArrayList<>();
@@ -54,9 +55,14 @@ public class AgeZancunsFragment extends BaseActivityFragment {
     private void initData() {
 
         list = ZancunsManager.getInstance().getZancunList(null, null, null, null);
-        adapter.setData(list);
-        MessageEvent messageEvent = new MessageEvent<Integer>("AGE_ZANCUNS", list.size());
-        EventBus.getDefault().post(messageEvent);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                show(check(list));
+                adapter.setData(list);
+                MessageEvent messageEvent = new MessageEvent<Integer>("AGE_ZANCUNS", list.size());
+                EventBus.getDefault().post(messageEvent);
+            }
+        }, 500);
     }
 
     public void getDataByAge(String startAge, String endAge) {
@@ -65,5 +71,15 @@ public class AgeZancunsFragment extends BaseActivityFragment {
 
         MessageEvent messageEvent = new MessageEvent<Integer>("AGE_ZANCUNS", list.size());
         EventBus.getDefault().post(messageEvent);
+    }
+
+    @Override
+    protected View createLoadedView() {
+        return setContentView();
+    }
+
+    @Override
+    protected void load() {
+
     }
 }

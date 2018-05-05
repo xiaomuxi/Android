@@ -51,4 +51,9 @@
     <string name="list_zancuns_title">暂存类(%s)</string>
     <string name="text_clqk">处理情况： %s</string>
 
+    <string name="hint_input_account">请输入账号</string>
+    <string name="hint_input_password">请输入密码</string>
+    <string name="tab_account">账　号</string>
+    <string name="text_password">密　码</string>
+
 </resources>

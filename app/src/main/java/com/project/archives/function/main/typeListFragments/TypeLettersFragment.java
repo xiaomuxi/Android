@@ -1,11 +1,12 @@
 package com.project.archives.function.main.typeListFragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
 import com.project.archives.R;
-import com.project.archives.common.base.fragment.BaseActivityFragment;
+import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Letters;
 import com.project.archives.common.utils.UIUtils;
@@ -21,7 +22,7 @@ import java.util.List;
  * Created by inrokei on 2018/5/1.
  */
 
-public class TypeLettersFragment extends BaseActivityFragment {
+public class TypeLettersFragment extends BaseLoadingFragment {
 
     private ListView listView;
     private List<Letters> list = new ArrayList<>();
@@ -52,8 +53,23 @@ public class TypeLettersFragment extends BaseActivityFragment {
     private void initData() {
 
         list = LettersManager.getInstance().getLetterList(null, null, null, null);
-        adapter.setData(list);
-        MessageEvent messageEvent = new MessageEvent<Integer>("TYPE_LETTERS", list.size());
-        EventBus.getDefault().post(messageEvent);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                show(check(list));
+                adapter.setData(list);
+                MessageEvent messageEvent = new MessageEvent<Integer>("TYPE_LETTERS", list.size());
+                EventBus.getDefault().post(messageEvent);
+            }
+        }, 500);
+    }
+
+    @Override
+    protected View createLoadedView() {
+        return setContentView();
+    }
+
+    @Override
+    protected void load() {
+
     }
 }

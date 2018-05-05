@@ -1,14 +1,14 @@
 package com.project.archives.function.main.companyListFragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
 import com.project.archives.R;
-import com.project.archives.common.base.fragment.BaseActivityFragment;
+import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Zancuns;
-import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.ZancunsListAdapter;
 import com.project.archives.function.main.manager.ZancunsManager;
@@ -22,7 +22,7 @@ import java.util.List;
  * Created by inrokei on 2018/5/1.
  */
 
-public class CompanyZancunsFragment extends BaseActivityFragment {
+public class CompanyZancunsFragment extends BaseLoadingFragment {
 
     private ListView listView;
     private List<Zancuns> list = new ArrayList<>();
@@ -53,10 +53,23 @@ public class CompanyZancunsFragment extends BaseActivityFragment {
     }
 
     private void initData() {
-        LogUtils.i("TEST_COMpanyzancuns", "initDAta");
         list = ZancunsManager.getInstance().getZancunList(null, null, null, null);
-        adapter.setData(list);
-        MessageEvent messageEvent = new MessageEvent<Integer>("COMPANY_ZANCUNS", list.size());
-        EventBus.getDefault().post(messageEvent);
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                show(check(list));
+                adapter.setData(list);
+                MessageEvent messageEvent = new MessageEvent<Integer>("COMPANY_ZANCUNS", list.size());
+                EventBus.getDefault().post(messageEvent);
+            }
+        }, 500);
+    }
+
+    @Override
+    protected View createLoadedView() {
+        return setContentView();
+    }
+
+    @Override
+    protected void load() {
     }
 }

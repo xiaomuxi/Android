@@ -11,7 +11,7 @@ import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Letters;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.LettersListAdapter;
-import com.project.archives.function.main.manager.LettersManager;
+import com.project.archives.common.dao.manager.LettersManager;
 
 import org.greenrobot.eventbus.EventBus;
 

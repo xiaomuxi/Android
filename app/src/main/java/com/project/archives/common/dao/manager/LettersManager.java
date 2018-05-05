@@ -1,8 +1,8 @@
-package com.project.archives.function.main.manager;
+package com.project.archives.common.dao.manager;
 
-import com.project.archives.common.dao.CaseInves;
-import com.project.archives.common.dao.CaseInvesDao;
 import com.project.archives.common.dao.GreenDaoHelper;
+import com.project.archives.common.dao.Letters;
+import com.project.archives.common.dao.LettersDao;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 
@@ -18,34 +18,43 @@ import java.util.Locale;
  * Created by inrokei on 2018/4/30.
  */
 
-public class CaseInvesManager {
-    private static CaseInvesManager mInstance;
-    private CaseInvesDao caseInvesDao;
+public class LettersManager {
+    private static LettersManager mInstance;
+    private LettersDao lettersDao;
 
-    private CaseInvesManager() {
-        caseInvesDao = GreenDaoHelper.getInstance().getDaoSession().getCaseInvesDao();
+    private LettersManager() {
+        lettersDao = GreenDaoHelper.getInstance().getDaoSession().getLettersDao();
     }
 
-    public static CaseInvesManager getInstance() {
+    public static LettersManager getInstance() {
         if (mInstance == null) {
-            mInstance = new CaseInvesManager();
+            mInstance = new LettersManager();
         }
 
         return mInstance;
     }
 
     public long getCount() {
-        return caseInvesDao.count();
+        return lettersDao.count();
     }
 
     public long getCountByQuery(Date startTime, Date endTime) {
-        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
-        queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(startTime), CaseInvesDao.Properties.AddDate.le(endTime));
+        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
+        queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
 
         return queryBuilder.buildCount().count();
     }
 
-    public List<CaseInves> getCaseInvesList(String userName, String companyName, String startTime, String endTime) {
+    public long getCountByName(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return 0;
+        }
+
+        return lettersDao.queryBuilder().where(LettersDao.Properties.Name.eq(name)).buildCount().count();
+
+    }
+
+    public List<Letters> getLetterList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
@@ -61,50 +70,49 @@ public class CaseInvesManager {
             LogUtils.e(CaseInvesManager.class.getName(), e);
         }
 
-        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
+        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
         if (!StringUtils.isEmpty(userName)) {
-            queryBuilder.where(CaseInvesDao.Properties.Name.eq(userName));
+            queryBuilder.where(LettersDao.Properties.Name.eq(userName));
         }
 
         if (!StringUtils.isEmpty(companyName)) {
-            queryBuilder.where(CaseInvesDao.Properties.Init.like("%" + companyName + "%"));
+            queryBuilder.where(LettersDao.Properties.Init.like("%" + companyName + "%"));
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(start), CaseInvesDao.Properties.AddDate.le(end));
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(start), LettersDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
-            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(start));
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(start));
         }
         else if(!StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(CaseInvesDao.Properties.AddDate.le(end));
+            queryBuilder.where(LettersDao.Properties.AddDate.le(end));
         }
 
-        queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
 
         return queryBuilder.list();
     }
 
-    public List<CaseInves> getCaseInvesListByAge(String startAge, String endAge) {
+    public List<Letters> getLettersListByAge(String startAge, String endAge) {
         if (!StringUtils.isEmpty(startAge) && !StringUtils.isEmpty(endAge)) {
-            return caseInvesDao.queryBuilder().where(
+            return lettersDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age>="+ startAge +" and Age<="+ endAge + ")")).build().list();
         }
 
         if (!StringUtils.isEmpty(startAge)) {
-            return caseInvesDao.queryBuilder().where(
+            return lettersDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age>="+ startAge + ")")).build().list();
         }
 
         if (!StringUtils.isEmpty(endAge)) {
-            return caseInvesDao.queryBuilder().where(
+            return lettersDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age<="+ endAge + ")")).build().list();
         }
 
-        return caseInvesDao.loadAll();
+        return lettersDao.loadAll();
     }
-
 }

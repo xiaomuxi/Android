@@ -1,6 +1,5 @@
-package com.project.archives.function.main.fragment;
+package com.project.archives.function.age;
 
-import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
@@ -10,82 +9,70 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.jayfang.dropdownmenu.DropDownMenu;
-import com.jayfang.dropdownmenu.OnMenuSelectedListener;
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
-import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
-import com.project.archives.function.main.personlistFragments.PersonCaseInvesFragment;
-import com.project.archives.function.main.personlistFragments.PersonEndingsFragment;
-import com.project.archives.function.main.personlistFragments.PersonLettersFragment;
-import com.project.archives.function.main.personlistFragments.PersonVerificationsFragment;
-import com.project.archives.function.main.personlistFragments.PersonZancunsFragment;
+import com.project.archives.function.main.ageListFragments.AgeCaseInvesFragment;
+import com.project.archives.function.main.ageListFragments.AgeEndingsFragment;
+import com.project.archives.function.main.ageListFragments.AgeLettersFragment;
+import com.project.archives.function.main.ageListFragments.AgeVerificationsFragment;
+import com.project.archives.function.main.ageListFragments.AgeZancunsFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by inrokei on 2018/5/4.
  */
 
-public class PersonActivity extends BaseActivity {
-    final String TAG = getClass().getName();
-    private ListView listView;
-    private int type_index;
-    private int company_index;
-    final String[] arr1=new String[]{"全部单位类型","党群部门","行政部门","区管企业","区管事业单位", "人大政协办法"};
-    final String[] arr2=new String[]{"全部单位","闵行区1单位","松江区1单位","徐汇区2单位"};
-    final String[] strings=new String[]{"选择单位类型","选择单位"};
-    private DropDownMenu mMenu;
-
+public class AgeActivity extends BaseActivity {
 
     private ViewPager viewPager;
     private FragmentManager mFragmentManager;
     private int mPrePosition;
     private LinearLayout ll_list;
-    private EditText et_search;
-    private Button btn_search;
     private TextView tv_caseinves, tv_verifications,
             tv_letters, tv_endings, tv_zancuns;
+    private Button btn_search;
+    private EditText et_search_start;
+    private EditText et_search_end;
 
     @Override
     protected void init() {
         super.init();
+        setContentView(R.layout.fragment_list_age);
         EventBus.getDefault().register(this);
-        setContentView(R.layout.fragment_list_parent);
     }
 
     @Override
     protected void initActionBar() {
         super.initActionBar();
         setActionBar(R.layout.common_top_bar);
-        setTopTitleAndLeft("个人查询");
+        setTopTitleAndLeft("年龄查询");
     }
 
     @Override
     protected void initView() {
         super.initView();
         mFragmentManager = getSupportFragmentManager();
-        initTopMenu();
+
         initViewPgaer();
     }
 
+
     private void initViewPgaer() {
         btn_search = (Button) findViewById(R.id.btn_search);
-        et_search = (EditText) findViewById(R.id.et_search);
+        et_search_start = (EditText)findViewById(R.id.et_search_start);
+        et_search_end = (EditText) findViewById(R.id.et_search_end);
         ll_list = (LinearLayout) findViewById(R.id.ll_list);
         viewPager = (ViewPager) findViewById(R.id.vp_list);
         tv_caseinves = (TextView) findViewById(R.id.tv_caseinves);
@@ -125,51 +112,6 @@ public class PersonActivity extends BaseActivity {
         tv_caseinves.setSelected(true);
     }
 
-    private void initTopMenu() {
-        mMenu=(DropDownMenu) findViewById(R.id.menu);
-        mMenu.setmMenuCount(2);
-        mMenu.setmShowCount(6);
-        mMenu.setShowCheck(true);
-        mMenu.setmMenuTitleTextSize(16);
-        mMenu.setmMenuTitleTextColor(Color.parseColor("#777777"));
-        mMenu.setmMenuListTextSize(16);
-        mMenu.setmMenuListTextColor(Color.BLACK);
-        mMenu.setmMenuBackColor(Color.WHITE);
-        mMenu.setmMenuPressedBackColor(Color.WHITE);
-        mMenu.setmMenuPressedTitleTextColor(Color.BLACK);
-
-        mMenu.setmCheckIcon(R.drawable.ico_make);
-
-        mMenu.setmUpArrow(R.drawable.arrow_up);
-        mMenu.setmDownArrow(R.drawable.arrow_down);
-
-        mMenu.setDefaultMenuTitle(strings);
-
-
-        mMenu.setShowDivider(false);
-        mMenu.setmMenuListBackColor(getResources().getColor(R.color.white));
-        mMenu.setmMenuListSelectorRes(R.color.white);
-        mMenu.setmArrowMarginTitle(20);
-
-        mMenu.setMenuSelectedListener(new OnMenuSelectedListener() {
-            @Override
-            public void onSelected(View listview, int RowIndex, int ColumnIndex) {
-                if (ColumnIndex == 0) {
-                    type_index = RowIndex;
-                } else if (ColumnIndex == 1) {
-                    company_index = RowIndex;
-                }
-                //过滤筛选
-//                setFilter();
-            }
-        });
-        List<String[]> items = new ArrayList<>();
-        items.add(arr1);
-        items.add(arr2);
-        mMenu.setmMenuItems(items);
-        mMenu.setIsDebug(false);
-    }
-
     /**
      * 采用工厂类进行创建Fragment，便于扩展，已经创建的Fragment不再创建
      */
@@ -189,23 +131,23 @@ public class PersonActivity extends BaseActivity {
                 switch (index) {
                     //处分类
                     case TAB_CASEINVES:
-                        fragment = new PersonCaseInvesFragment();
+                        fragment = new AgeCaseInvesFragment();
                         break;
                     //初步核实类
                     case TAB_VERIFICATIONS:
-                        fragment = new PersonVerificationsFragment();
+                        fragment = new AgeVerificationsFragment();
                         break;
                     //谈话函询类
                     case TAB_LETTERS:
-                        fragment = new PersonLettersFragment();
+                        fragment = new AgeLettersFragment();
                         break;
                     //了结类
                     case TAB_ENDINGS:
-                        fragment = new PersonEndingsFragment();
+                        fragment = new AgeEndingsFragment();
                         break;
                     //暂存类
                     case TAB_ZANCUNS:
-                        fragment = new PersonZancunsFragment();
+                        fragment = new AgeZancunsFragment();
                         break;
                     default:
                         break;
@@ -286,77 +228,47 @@ public class PersonActivity extends BaseActivity {
                 case R.id.tv_zancuns:
                     viewPager.setCurrentItem(FragmentFactory.TAB_ZANCUNS);
                     break;
-
                 case R.id.btn_search:
-                    nameSearchClickEvent();
-                    break;
+                    searchBtnClickEvent();
                 default:
                     break;
             }
         }
     };
 
-    private void nameSearchClickEvent() {
-        String username = et_search.getText().toString().trim();
-//        if (StringUtils.isEmpty(username)) {
-//            UIUtils.showToastSafe("请输入姓名");
-//            return;
-//        }
+    private void searchBtnClickEvent() {
 
-//        if (FragmentFactory.mFragmentMap.get(0) != null) {
-//            PersonCaseInvesFragment caseInvesFragment = (PersonCaseInvesFragment) FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
-//            caseInvesFragment.getDatabyUserName(username);
-//        }
-//        if (FragmentFactory.mFragmentMap.get(1) != null) {
-//            PersonVerificationsFragment verificationsFragment = (PersonVerificationsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
-//            verificationsFragment.getDatabyUserName(username);
-//        }
-//        if (FragmentFactory.mFragmentMap.get(2) != null) {
-//            PersonLettersFragment lettersFragment = (PersonLettersFragment) FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
-//            lettersFragment.getDatabyUserName(username);
-//        }
-//        if (FragmentFactory.mFragmentMap.get(3) != null) {
-//            PersonEndingsFragment endingsFragment = (PersonEndingsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
-//            endingsFragment.getDatabyUserName(username);
-//        }
-//        if (FragmentFactory.mFragmentMap.get(4) != null) {
-//            PersonZancunsFragment zancunsFragment = (PersonZancunsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
-//            zancunsFragment.getDatabyUserName(username);
-//        }
+        String startAge = et_search_start.getText().toString().trim();
+        String endAge = et_search_end.getText().toString().trim();
 
         switch (viewPager.getCurrentItem()) {
             case 0:
-                PersonCaseInvesFragment caseInvesFragment = (PersonCaseInvesFragment) FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
-                caseInvesFragment.getDatabyUserName(username);
+                AgeCaseInvesFragment caseInvesFragment = (AgeCaseInvesFragment) FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
+                caseInvesFragment.getDataByAge(startAge, endAge);
                 break;
             case 1:
-                PersonVerificationsFragment verificationsFragment = (PersonVerificationsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
-                verificationsFragment.getDatabyUserName(username);
+                AgeVerificationsFragment verificationsFragment = (AgeVerificationsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
+                verificationsFragment.getDataByAge(startAge,endAge);
                 break;
             case 2:
-                PersonLettersFragment lettersFragment = (PersonLettersFragment) FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
-                lettersFragment.getDatabyUserName(username);
+                AgeLettersFragment lettersFragment = (AgeLettersFragment) FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
+                lettersFragment.getDataByAge(startAge, endAge);
                 break;
             case 3:
-                PersonEndingsFragment endingsFragment = (PersonEndingsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
-                endingsFragment.getDatabyUserName(username);
+                AgeEndingsFragment endingsFragment = (AgeEndingsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
+                endingsFragment.getDataByAge(startAge, endAge);
 
                 break;
             case 4:
-                PersonZancunsFragment zancunsFragment = (PersonZancunsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
-                zancunsFragment.getDatabyUserName(username);
+                AgeZancunsFragment zancunsFragment = (AgeZancunsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
+                zancunsFragment.getDataByAge(startAge,endAge);
                 break;
         }
-    }
-
-    public String getUserName() {
-        return et_search.getText().toString().trim();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
         FragmentFactory.mFragmentMap.clear();
     }
 
@@ -364,35 +276,30 @@ public class PersonActivity extends BaseActivity {
     public void onEvent(MessageEvent event) {
         if (StringUtils.notNull(event)) {
             switch (event.getTitle()) {
-                case "PERSON_CASEINVES":
+                case "AGE_CASEINVES":
                     int count1 = (int) event.getContent();
-                    LogUtils.i(TAG, count1+"----count1");
                     tv_caseinves.setText(getResources()
                             .getString(R.string.list_caseinves_title, count1+""));
                     break;
-                case "PERSON_VERIFICATIONS":
+                case "AGE_VERIFICATIONS":
 
                     int count2 = (int) event.getContent();
-                    LogUtils.i(TAG, count2+"----count2");
                     tv_verifications.setText(getResources()
                             .getString(R.string.list_verifications_title, count2+""));
                     break;
-                case "PERSON_LETTERS":
+                case "AGE_LETTERS":
                     int count3 = (int) event.getContent();
-                    LogUtils.i(TAG, count3+"----count3");
                     tv_letters.setText(getResources()
                             .getString(R.string.list_letters_title, count3+""));
                     break;
-                case "PERSON_ENDINGS":
+                case "AGE_ENDINGS":
                     int count4 = (int) event.getContent();
-                    LogUtils.i(TAG, count4+"----count4");
                     tv_endings.setText(getResources()
                             .getString(R.string.list_endings_title, count4+""));
                     break;
-                case "PERSON_ZANCUNS":
+                case "AGE_ZANCUNS":
 
                     int count5 = (int) event.getContent();
-                    LogUtils.i(TAG, count5+"----count5");
                     tv_zancuns.setText(getResources()
                             .getString(R.string.list_zancuns_title, count5+""));
                     break;

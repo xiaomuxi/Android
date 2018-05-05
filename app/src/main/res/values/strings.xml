@@ -55,5 +55,17 @@
     <string name="hint_input_password">请输入密码</string>
     <string name="tab_account">账　号</string>
     <string name="text_password">密　码</string>
+    <string name="txt_age">年龄：%s</string>
+    <string name="txt_birth">出生年月：%s</string>
+    <string name="txt_sex">性别：%s</string>
+    <string name="txt_minzu">民族：%s</string>
+    <string name="txt_jiguan">籍贯：%s</string>
+    <string name="txt_birth_place">出生地：%s</string>
+    <string name="txt_rudang_time">入党时间：%s</string>
+    <string name="txt_work_time">参加工作时间：%s</string>
+    <string name="txt_health">健康状况：%s</string>
+    <string name="txt_zhuanyejishuzhiwu">专业技\n术职务</string>
+    <string name="txt_shuxizhuanyezhuanchang">熟悉专业\n有何专长</string>
+    <string name="txt_xianrenzhiwu">现任职务：</string>
 
 </resources>

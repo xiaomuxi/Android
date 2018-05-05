@@ -11,7 +11,7 @@ import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Zancuns;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.ZancunsListAdapter;
-import com.project.archives.function.main.manager.ZancunsManager;
+import com.project.archives.common.dao.manager.ZancunsManager;
 
 import org.greenrobot.eventbus.EventBus;
 

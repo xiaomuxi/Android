@@ -16,11 +16,15 @@
 
         </activity>
         <activity
-            android:name=".function.main.fragment.PersonActivity"/>
+            android:name=".function.person.activity.PersonProblemListActivity"/>
+        <activity
+            android:name=".function.person.activity.PersonActivity"/>
+        <activity
+            android:name=".function.person.activity.PersonDetailActivity"/>
         <activity
             android:name=".function.main.fragment.CompanyActivity"/>
         <activity
-            android:name=".function.main.fragment.AgeActivity"/>
+            android:name=".function.age.AgeActivity"/>
         <activity
             android:name=".function.main.fragment.TypeActivity"/>
         <activity

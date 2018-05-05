@@ -1,5 +1,6 @@
-package com.project.archives.function.main.personlistFragments;
+package com.project.archives.function.person.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -9,10 +10,11 @@ import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Zancuns;
+import com.project.archives.common.dao.manager.ZancunsManager;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.ZancunsListAdapter;
-import com.project.archives.function.main.manager.ZancunsManager;
+import com.project.archives.function.person.activity.PersonProblemListActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -28,6 +30,15 @@ public class PersonZancunsFragment extends BaseLoadingFragment {
     private ListView listView;
     private List<Zancuns> list = new ArrayList<>();
     private ZancunsListAdapter adapter;
+
+    private String name = "";
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        PersonProblemListActivity personProblemListActivity = (PersonProblemListActivity) context;
+        name = personProblemListActivity.getName();
+    }
 
     @Override
     protected View setContentView() {
@@ -54,7 +65,7 @@ public class PersonZancunsFragment extends BaseLoadingFragment {
     }
 
     private void initData() {
-        list = ZancunsManager.getInstance().getZancunList(null, null, null, null);
+        list = ZancunsManager.getInstance().getZancunList(name, null, null, null);
 
         new Handler().postDelayed(new Runnable(){
             public void run() {

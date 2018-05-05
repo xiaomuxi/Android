@@ -1,4 +1,4 @@
-package com.project.archives.function.main.fragment;
+package com.project.archives.function.person.activity;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -6,8 +6,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,11 +15,11 @@ import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.utils.StringUtils;
-import com.project.archives.function.main.ageListFragments.AgeCaseInvesFragment;
-import com.project.archives.function.main.ageListFragments.AgeEndingsFragment;
-import com.project.archives.function.main.ageListFragments.AgeLettersFragment;
-import com.project.archives.function.main.ageListFragments.AgeVerificationsFragment;
-import com.project.archives.function.main.ageListFragments.AgeZancunsFragment;
+import com.project.archives.function.person.fragment.PersonCaseInvesFragment;
+import com.project.archives.function.person.fragment.PersonEndingsFragment;
+import com.project.archives.function.person.fragment.PersonLettersFragment;
+import com.project.archives.function.person.fragment.PersonVerificationsFragment;
+import com.project.archives.function.person.fragment.PersonZancunsFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -31,48 +29,53 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by inrokei on 2018/5/4.
+ * Created by inrokei on 2018/5/5.
  */
 
-public class AgeActivity extends BaseActivity {
-
+public class PersonProblemListActivity extends BaseActivity {
     private ViewPager viewPager;
     private FragmentManager mFragmentManager;
     private int mPrePosition;
     private LinearLayout ll_list;
     private TextView tv_caseinves, tv_verifications,
             tv_letters, tv_endings, tv_zancuns;
-    private Button btn_search;
-    private EditText et_search_start;
-    private EditText et_search_end;
-
+    private long caseinvesCount = 0;
+    private long verificationsCount = 0;
+    private long lettersCount = 0;
+    private long endingsCount = 0;
+    private long zancunsCount = 0;
+    private String name = "";
     @Override
     protected void init() {
         super.init();
-        setContentView(R.layout.fragment_list_age);
-        EventBus.getDefault().register(this);
+        setContentView(R.layout.activity_person_problem_list);
+        caseinvesCount = (long) getIntent().getLongExtra("caseinves_count", 0);
+        verificationsCount = (long) getIntent().getLongExtra("verifications_count", 0);
+        lettersCount = (long) getIntent().getLongExtra("letters_count", 0);
+        endingsCount = (long) getIntent().getLongExtra("endings_count", 0);
+        zancunsCount = (long) getIntent().getLongExtra("zancuns_count", 0);
+        name = (String) getIntent().getStringExtra("name");
     }
 
     @Override
     protected void initActionBar() {
         super.initActionBar();
         setActionBar(R.layout.common_top_bar);
-        setTopTitleAndLeft("年龄查询");
+        setTopTitleAndLeft("个人问题情况列表");
     }
 
     @Override
     protected void initView() {
         super.initView();
+
+        EventBus.getDefault().register(this);
         mFragmentManager = getSupportFragmentManager();
 
         initViewPgaer();
     }
 
-
     private void initViewPgaer() {
-        btn_search = (Button) findViewById(R.id.btn_search);
-        et_search_start = (EditText)findViewById(R.id.et_search_start);
-        et_search_end = (EditText) findViewById(R.id.et_search_end);
+
         ll_list = (LinearLayout) findViewById(R.id.ll_list);
         viewPager = (ViewPager) findViewById(R.id.vp_list);
         tv_caseinves = (TextView) findViewById(R.id.tv_caseinves);
@@ -82,15 +85,15 @@ public class AgeActivity extends BaseActivity {
         tv_zancuns = (TextView) findViewById(R.id.tv_zancuns);
 
         tv_caseinves.setText(getResources()
-                .getString(R.string.list_caseinves_title, "0"));
+                .getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
         tv_verifications.setText(getResources()
-                .getString(R.string.list_verifications_title, "0"));
+                .getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
         tv_letters.setText(getResources()
-                .getString(R.string.list_letters_title, "0"));
+                .getString(R.string.list_letters_title, String.valueOf(lettersCount)));
         tv_endings.setText(getResources()
-                .getString(R.string.list_endings_title, "0"));
+                .getString(R.string.list_endings_title, String.valueOf(endingsCount)));
         tv_zancuns.setText(getResources()
-                .getString(R.string.list_zancuns_title, "0"));
+                .getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
 
 
         tv_caseinves.setOnClickListener(mClickListener);
@@ -98,7 +101,6 @@ public class AgeActivity extends BaseActivity {
         tv_letters.setOnClickListener(mClickListener);
         tv_endings.setOnClickListener(mClickListener);
         tv_zancuns.setOnClickListener(mClickListener);
-        btn_search.setOnClickListener(mClickListener);
 
 
         FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
@@ -131,23 +133,23 @@ public class AgeActivity extends BaseActivity {
                 switch (index) {
                     //处分类
                     case TAB_CASEINVES:
-                        fragment = new AgeCaseInvesFragment();
+                        fragment = new PersonCaseInvesFragment();
                         break;
                     //初步核实类
                     case TAB_VERIFICATIONS:
-                        fragment = new AgeVerificationsFragment();
+                        fragment = new PersonVerificationsFragment();
                         break;
                     //谈话函询类
                     case TAB_LETTERS:
-                        fragment = new AgeLettersFragment();
+                        fragment = new PersonLettersFragment();
                         break;
                     //了结类
                     case TAB_ENDINGS:
-                        fragment = new AgeEndingsFragment();
+                        fragment = new PersonEndingsFragment();
                         break;
                     //暂存类
                     case TAB_ZANCUNS:
-                        fragment = new AgeZancunsFragment();
+                        fragment = new PersonZancunsFragment();
                         break;
                     default:
                         break;
@@ -228,42 +230,14 @@ public class AgeActivity extends BaseActivity {
                 case R.id.tv_zancuns:
                     viewPager.setCurrentItem(FragmentFactory.TAB_ZANCUNS);
                     break;
-                case R.id.btn_search:
-                    searchBtnClickEvent();
                 default:
                     break;
             }
         }
     };
 
-    private void searchBtnClickEvent() {
-
-        String startAge = et_search_start.getText().toString().trim();
-        String endAge = et_search_end.getText().toString().trim();
-
-        switch (viewPager.getCurrentItem()) {
-            case 0:
-                AgeCaseInvesFragment caseInvesFragment = (AgeCaseInvesFragment) FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
-                caseInvesFragment.getDataByAge(startAge, endAge);
-                break;
-            case 1:
-                AgeVerificationsFragment verificationsFragment = (AgeVerificationsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
-                verificationsFragment.getDataByAge(startAge,endAge);
-                break;
-            case 2:
-                AgeLettersFragment lettersFragment = (AgeLettersFragment) FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
-                lettersFragment.getDataByAge(startAge, endAge);
-                break;
-            case 3:
-                AgeEndingsFragment endingsFragment = (AgeEndingsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
-                endingsFragment.getDataByAge(startAge, endAge);
-
-                break;
-            case 4:
-                AgeZancunsFragment zancunsFragment = (AgeZancunsFragment) FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
-                zancunsFragment.getDataByAge(startAge,endAge);
-                break;
-        }
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -276,28 +250,28 @@ public class AgeActivity extends BaseActivity {
     public void onEvent(MessageEvent event) {
         if (StringUtils.notNull(event)) {
             switch (event.getTitle()) {
-                case "AGE_CASEINVES":
+                case "PERSON_CASEINVES":
                     int count1 = (int) event.getContent();
                     tv_caseinves.setText(getResources()
                             .getString(R.string.list_caseinves_title, count1+""));
                     break;
-                case "AGE_VERIFICATIONS":
+                case "PERSON_VERIFICATIONS":
 
                     int count2 = (int) event.getContent();
                     tv_verifications.setText(getResources()
                             .getString(R.string.list_verifications_title, count2+""));
                     break;
-                case "AGE_LETTERS":
+                case "PERSON_LETTERS":
                     int count3 = (int) event.getContent();
                     tv_letters.setText(getResources()
                             .getString(R.string.list_letters_title, count3+""));
                     break;
-                case "AGE_ENDINGS":
+                case "PERSON_ENDINGS":
                     int count4 = (int) event.getContent();
                     tv_endings.setText(getResources()
                             .getString(R.string.list_endings_title, count4+""));
                     break;
-                case "AGE_ZANCUNS":
+                case "PERSON_ZANCUNS":
 
                     int count5 = (int) event.getContent();
                     tv_zancuns.setText(getResources()

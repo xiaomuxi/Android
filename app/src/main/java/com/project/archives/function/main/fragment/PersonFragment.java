@@ -24,11 +24,11 @@ import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.personlistFragments.PersonCaseInvesFragment;
-import com.project.archives.function.main.personlistFragments.PersonEndingsFragment;
-import com.project.archives.function.main.personlistFragments.PersonLettersFragment;
-import com.project.archives.function.main.personlistFragments.PersonVerificationsFragment;
-import com.project.archives.function.main.personlistFragments.PersonZancunsFragment;
+import com.project.archives.function.person.fragment.PersonCaseInvesFragment;
+import com.project.archives.function.person.fragment.PersonEndingsFragment;
+import com.project.archives.function.person.fragment.PersonLettersFragment;
+import com.project.archives.function.person.fragment.PersonVerificationsFragment;
+import com.project.archives.function.person.fragment.PersonZancunsFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

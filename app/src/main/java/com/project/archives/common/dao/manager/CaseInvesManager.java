@@ -1,7 +1,7 @@
-package com.project.archives.function.main.manager;
+package com.project.archives.common.dao.manager;
 
-import com.project.archives.common.dao.Endings;
-import com.project.archives.common.dao.EndingsDao;
+import com.project.archives.common.dao.CaseInves;
+import com.project.archives.common.dao.CaseInvesDao;
 import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
@@ -18,34 +18,43 @@ import java.util.Locale;
  * Created by inrokei on 2018/4/30.
  */
 
-public class EndingsManager {
-    private static EndingsManager mInstance;
-    private EndingsDao endingsDao;
+public class CaseInvesManager {
+    private static CaseInvesManager mInstance;
+    private CaseInvesDao caseInvesDao;
 
-    private EndingsManager() {
-        endingsDao = GreenDaoHelper.getInstance().getDaoSession().getEndingsDao();
+    private CaseInvesManager() {
+        caseInvesDao = GreenDaoHelper.getInstance().getDaoSession().getCaseInvesDao();
     }
 
-    public static EndingsManager getInstance() {
+    public static CaseInvesManager getInstance() {
         if (mInstance == null) {
-            mInstance = new EndingsManager();
+            mInstance = new CaseInvesManager();
         }
 
         return mInstance;
     }
 
     public long getCount() {
-        return endingsDao.count();
+        return caseInvesDao.count();
+    }
+
+    public long getCountByName(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return 0;
+        }
+
+        return caseInvesDao.queryBuilder().where(CaseInvesDao.Properties.Name.eq(name)).buildCount().count();
+
     }
 
     public long getCountByQuery(Date startTime, Date endTime) {
-        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
-        queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime), EndingsDao.Properties.AddDate.le(endTime));
+        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
+        queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(startTime), CaseInvesDao.Properties.AddDate.le(endTime));
 
         return queryBuilder.buildCount().count();
     }
 
-    public List<Endings> getEndingList(String userName, String companyName, String startTime, String endTime) {
+    public List<CaseInves> getCaseInvesList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
@@ -61,49 +70,50 @@ public class EndingsManager {
             LogUtils.e(CaseInvesManager.class.getName(), e);
         }
 
-        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
+        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
         if (!StringUtils.isEmpty(userName)) {
-            queryBuilder.where(EndingsDao.Properties.Name.eq(userName));
+            queryBuilder.where(CaseInvesDao.Properties.Name.eq(userName));
         }
 
         if (!StringUtils.isEmpty(companyName)) {
-            queryBuilder.where(EndingsDao.Properties.Init.like("%" + companyName + "%"));
+            queryBuilder.where(CaseInvesDao.Properties.Init.like("%" + companyName + "%"));
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(EndingsDao.Properties.AddDate.ge(start), EndingsDao.Properties.AddDate.le(end));
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(start), CaseInvesDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
-            queryBuilder.where(EndingsDao.Properties.AddDate.ge(start));
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(start));
         }
         else if(!StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(EndingsDao.Properties.AddDate.le(end));
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.le(end));
         }
 
-        queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
 
         return queryBuilder.list();
     }
 
-    public List<Endings> getEndingsListByAge(String  startAge, String endAge) {
+    public List<CaseInves> getCaseInvesListByAge(String startAge, String endAge) {
         if (!StringUtils.isEmpty(startAge) && !StringUtils.isEmpty(endAge)) {
-            return endingsDao.queryBuilder().where(
+            return caseInvesDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age>="+ startAge +" and Age<="+ endAge + ")")).build().list();
         }
 
         if (!StringUtils.isEmpty(startAge)) {
-            return endingsDao.queryBuilder().where(
+            return caseInvesDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age>="+ startAge + ")")).build().list();
         }
 
         if (!StringUtils.isEmpty(endAge)) {
-            return endingsDao.queryBuilder().where(
+            return caseInvesDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age<="+ endAge + ")")).build().list();
         }
 
-        return endingsDao.loadAll();
+        return caseInvesDao.loadAll();
     }
+
 }

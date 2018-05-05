@@ -11,7 +11,7 @@ import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.CaseInves;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.CaseInvesListAdapter;
-import com.project.archives.function.main.manager.CaseInvesManager;
+import com.project.archives.common.dao.manager.CaseInvesManager;
 
 import org.greenrobot.eventbus.EventBus;
 

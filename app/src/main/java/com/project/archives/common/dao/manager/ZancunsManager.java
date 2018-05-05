@@ -1,4 +1,4 @@
-package com.project.archives.function.main.manager;
+package com.project.archives.common.dao.manager;
 
 import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.dao.Zancuns;
@@ -44,6 +44,15 @@ public class ZancunsManager {
         queryBuilder.where(ZancunsDao.Properties.AddDate.ge(startTime), ZancunsDao.Properties.AddDate.le(endTime));
 
         return queryBuilder.buildCount().count();
+    }
+
+    public long getCountByName(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return 0;
+        }
+
+        return zancunsDao.queryBuilder().where(ZancunsDao.Properties.Name.eq(name)).buildCount().count();
+
     }
 
     public List<Zancuns> getZancunList(String userName, String companyName, String startTime, String endTime) {

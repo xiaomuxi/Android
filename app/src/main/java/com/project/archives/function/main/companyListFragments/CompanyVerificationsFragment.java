@@ -12,7 +12,7 @@ import com.project.archives.common.dao.Verifications;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.VerificationsListAdapter;
-import com.project.archives.function.main.manager.VerificationsManager;
+import com.project.archives.common.dao.manager.VerificationsManager;
 
 import org.greenrobot.eventbus.EventBus;
 

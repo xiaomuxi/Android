@@ -1,5 +1,6 @@
-package com.project.archives.function.main.personlistFragments;
+package com.project.archives.function.person.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -9,10 +10,11 @@ import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Verifications;
+import com.project.archives.common.dao.manager.VerificationsManager;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.VerificationsListAdapter;
-import com.project.archives.function.main.manager.VerificationsManager;
+import com.project.archives.function.person.activity.PersonProblemListActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -27,6 +29,15 @@ public class PersonVerificationsFragment extends BaseLoadingFragment{
     private ListView listView;
     private List<Verifications> list = new ArrayList<>();
     private VerificationsListAdapter adapter;
+
+    private String name = "";
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        PersonProblemListActivity personProblemListActivity = (PersonProblemListActivity) context;
+        name = personProblemListActivity.getName();
+    }
 
     @Override
     protected View setContentView() {
@@ -53,7 +64,7 @@ public class PersonVerificationsFragment extends BaseLoadingFragment{
 
     private void initData() {
 
-        list = VerificationsManager.getInstance().getVerificationList(null, null, null, null);
+        list = VerificationsManager.getInstance().getVerificationList(name, null, null, null);
         new Handler().postDelayed(new Runnable(){
             public void run() {
                 show(check(list));

@@ -17,6 +17,7 @@ import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.fragment.*;
+import com.project.archives.function.person.activity.PersonActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

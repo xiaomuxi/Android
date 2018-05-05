@@ -11,7 +11,7 @@ import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Endings;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.EndingsListAdapter;
-import com.project.archives.function.main.manager.EndingsManager;
+import com.project.archives.common.dao.manager.EndingsManager;
 
 import org.greenrobot.eventbus.EventBus;
 

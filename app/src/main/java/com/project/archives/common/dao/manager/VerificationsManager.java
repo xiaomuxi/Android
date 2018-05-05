@@ -1,4 +1,4 @@
-package com.project.archives.function.main.manager;
+package com.project.archives.common.dao.manager;
 
 import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.dao.Verifications;
@@ -43,6 +43,15 @@ public class VerificationsManager {
         queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
 
         return queryBuilder.buildCount().count();
+    }
+
+    public long getCountByName(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return 0;
+        }
+
+        return verificationsDao.queryBuilder().where(VerificationsDao.Properties.Name.eq(name)).buildCount().count();
+
     }
 
     public List<Verifications> getVerificationList(String userName, String companyName, String startTime, String endTime) {

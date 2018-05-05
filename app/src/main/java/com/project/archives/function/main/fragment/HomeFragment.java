@@ -18,11 +18,11 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.manager.CaseInvesManager;
-import com.project.archives.function.main.manager.EndingsManager;
-import com.project.archives.function.main.manager.LettersManager;
-import com.project.archives.function.main.manager.VerificationsManager;
-import com.project.archives.function.main.manager.ZancunsManager;
+import com.project.archives.common.dao.manager.CaseInvesManager;
+import com.project.archives.common.dao.manager.EndingsManager;
+import com.project.archives.common.dao.manager.LettersManager;
+import com.project.archives.common.dao.manager.VerificationsManager;
+import com.project.archives.common.dao.manager.ZancunsManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;

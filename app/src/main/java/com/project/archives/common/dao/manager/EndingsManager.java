@@ -1,8 +1,8 @@
-package com.project.archives.function.main.manager;
+package com.project.archives.common.dao.manager;
 
+import com.project.archives.common.dao.Endings;
+import com.project.archives.common.dao.EndingsDao;
 import com.project.archives.common.dao.GreenDaoHelper;
-import com.project.archives.common.dao.Letters;
-import com.project.archives.common.dao.LettersDao;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 
@@ -18,34 +18,43 @@ import java.util.Locale;
  * Created by inrokei on 2018/4/30.
  */
 
-public class LettersManager {
-    private static LettersManager mInstance;
-    private LettersDao lettersDao;
+public class EndingsManager {
+    private static EndingsManager mInstance;
+    private EndingsDao endingsDao;
 
-    private LettersManager() {
-        lettersDao = GreenDaoHelper.getInstance().getDaoSession().getLettersDao();
+    private EndingsManager() {
+        endingsDao = GreenDaoHelper.getInstance().getDaoSession().getEndingsDao();
     }
 
-    public static LettersManager getInstance() {
+    public static EndingsManager getInstance() {
         if (mInstance == null) {
-            mInstance = new LettersManager();
+            mInstance = new EndingsManager();
         }
 
         return mInstance;
     }
 
     public long getCount() {
-        return lettersDao.count();
+        return endingsDao.count();
     }
 
     public long getCountByQuery(Date startTime, Date endTime) {
-        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
-        queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
+        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
+        queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime), EndingsDao.Properties.AddDate.le(endTime));
 
         return queryBuilder.buildCount().count();
     }
 
-    public List<Letters> getLetterList(String userName, String companyName, String startTime, String endTime) {
+    public long getCountByName(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return 0;
+        }
+
+        return endingsDao.queryBuilder().where(EndingsDao.Properties.Name.eq(name)).buildCount().count();
+
+    }
+
+    public List<Endings> getEndingList(String userName, String companyName, String startTime, String endTime) {
         Date start = null;
         Date end = null;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
@@ -61,49 +70,49 @@ public class LettersManager {
             LogUtils.e(CaseInvesManager.class.getName(), e);
         }
 
-        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
+        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
         if (!StringUtils.isEmpty(userName)) {
-            queryBuilder.where(LettersDao.Properties.Name.eq(userName));
+            queryBuilder.where(EndingsDao.Properties.Name.eq(userName));
         }
 
         if (!StringUtils.isEmpty(companyName)) {
-            queryBuilder.where(LettersDao.Properties.Init.like("%" + companyName + "%"));
+            queryBuilder.where(EndingsDao.Properties.Init.like("%" + companyName + "%"));
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(LettersDao.Properties.AddDate.ge(start), LettersDao.Properties.AddDate.le(end));
+            queryBuilder.where(EndingsDao.Properties.AddDate.ge(start), EndingsDao.Properties.AddDate.le(end));
         }
         else if(!StringUtils.isEmpty(startTime)) {
-            queryBuilder.where(LettersDao.Properties.AddDate.ge(start));
+            queryBuilder.where(EndingsDao.Properties.AddDate.ge(start));
         }
         else if(!StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(LettersDao.Properties.AddDate.le(end));
+            queryBuilder.where(EndingsDao.Properties.AddDate.le(end));
         }
 
-        queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
     }
 
-    public List<Letters> getLettersListByAge(String startAge, String endAge) {
+    public List<Endings> getEndingsListByAge(String  startAge, String endAge) {
         if (!StringUtils.isEmpty(startAge) && !StringUtils.isEmpty(endAge)) {
-            return lettersDao.queryBuilder().where(
+            return endingsDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age>="+ startAge +" and Age<="+ endAge + ")")).build().list();
         }
 
         if (!StringUtils.isEmpty(startAge)) {
-            return lettersDao.queryBuilder().where(
+            return endingsDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age>="+ startAge + ")")).build().list();
         }
 
         if (!StringUtils.isEmpty(endAge)) {
-            return lettersDao.queryBuilder().where(
+            return endingsDao.queryBuilder().where(
                     new WhereCondition.StringCondition("UserID in " +
                             "(select ID from Users where Age<="+ endAge + ")")).build().list();
         }
 
-        return lettersDao.loadAll();
+        return endingsDao.loadAll();
     }
 }

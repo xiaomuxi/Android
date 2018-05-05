@@ -1,7 +1,6 @@
-package com.project.archives.function.main.companyListFragments;
+package com.project.archives.function.company.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
@@ -9,9 +8,10 @@ import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.Letters;
-import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.adapter.LettersListAdapter;
 import com.project.archives.common.dao.manager.LettersManager;
+import com.project.archives.common.utils.UIUtils;
+import com.project.archives.function.company.activity.CompanyActivity;
+import com.project.archives.function.main.adapter.LettersListAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -51,8 +51,12 @@ public class CompanyLettersFragment extends BaseLoadingFragment {
     }
 
     private void initData() {
-        list = LettersManager.getInstance().getLetterList(null, null, null, null);
-        new Handler().postDelayed(new Runnable(){
+        CompanyActivity companyActivity = (CompanyActivity) mContext;
+        String company = companyActivity.getCompany();
+        String startTime = companyActivity.getStartDate();
+        String endTime = companyActivity.getEndDate();
+        list = LettersManager.getInstance().getLetterList(null, company, startTime, endTime);
+        UIUtils.postDelayed(new Runnable(){
             public void run() {
                 show(check(list));
                 adapter.setData(list);
@@ -66,9 +70,12 @@ public class CompanyLettersFragment extends BaseLoadingFragment {
     protected View createLoadedView() {
         return setContentView();
     }
-
+    @Override
+    protected boolean isNeedLoadEveryTime() {
+        return true;
+    }
     @Override
     protected void load() {
-
+        initData();
     }
 }

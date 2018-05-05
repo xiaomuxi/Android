@@ -20,7 +20,7 @@ import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.age.AgeActivity;
-import com.project.archives.function.main.fragment.CompanyActivity;
+import com.project.archives.function.company.activity.CompanyActivity;
 import com.project.archives.function.person.activity.PersonActivity;
 import com.project.archives.function.type.activity.TypeActivity;
 import com.project.archives.common.dao.manager.CaseInvesManager;
@@ -109,14 +109,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         for (int i = 0; i < 3; i ++) {
 
             xDataL2[i] = getMonty(-i + 1);
-            Date startTime =  getFirstDayOfMonth(-i + 1);
-            Date endTime =  getLastDayOfMonth(-i + 1);
+            String startTime =  getFirstDayOfMonth(-i + 1);
+            String endTime =  getLastDayOfMonth(-i + 1);
 
-            float caseInves = CaseInvesManager.getInstance().getCountByQuery(startTime, endTime);
-            float verifications = VerificationsManager.getInstance().getCountByQuery(startTime, endTime);
-            float letters = LettersManager.getInstance().getCountByQuery(startTime, endTime);
-            float endings = EndingsManager.getInstance().getCountByQuery(startTime, endTime);
-            float zancuns = ZancunsManager.getInstance().getCountByQuery(startTime, endTime);
+            float caseInves = CaseInvesManager.getInstance().getCountByQuery(null, startTime, endTime);
+            float verifications = VerificationsManager.getInstance().getCountByQuery(null, startTime, endTime);
+            float letters = LettersManager.getInstance().getCountByQuery(null, startTime, endTime);
+            float endings = EndingsManager.getInstance().getCountByQuery(null, startTime, endTime);
+            float zancuns = ZancunsManager.getInstance().getCountByQuery(null, startTime, endTime);
 
             yVals1.add(new BarEntry(i, caseInves));
             yVals2.add(new BarEntry(i, verifications));
@@ -133,18 +133,20 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         return gc.get(Calendar.YEAR) + "-" + gc.get(Calendar.MONTH);
     }
 
-    private Date getFirstDayOfMonth(int monthAmount) {
+    private String getFirstDayOfMonth(int monthAmount) {
         Calendar gc = new GregorianCalendar();
         gc.add(Calendar.MONTH, monthAmount);
         gc.set(Calendar.DAY_OF_MONTH, 1);
-        return gc.getTime();
+        String result = gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" +gc.get(Calendar.DAY_OF_MONTH);
+        return result;
     }
 
-    private Date getLastDayOfMonth(int monthAmount) {
+    private String getLastDayOfMonth(int monthAmount) {
         Calendar gc = new GregorianCalendar();
         gc.add(Calendar.MONTH, monthAmount);
         gc.set(Calendar.DAY_OF_MONTH, -1);
-        return gc.getTime();
+        String result = gc.get(Calendar.YEAR) + "-" + (gc.get(Calendar.MONTH) + 1) + "-" +gc.get(Calendar.DAY_OF_MONTH);
+        return result;
     }
 
     /*

@@ -1,7 +1,6 @@
-package com.project.archives.function.main.companyListFragments;
+package com.project.archives.function.company.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
@@ -9,9 +8,10 @@ import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.CaseInves;
-import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.adapter.CaseInvesListAdapter;
 import com.project.archives.common.dao.manager.CaseInvesManager;
+import com.project.archives.common.utils.UIUtils;
+import com.project.archives.function.company.activity.CompanyActivity;
+import com.project.archives.function.main.adapter.CaseInvesListAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -27,6 +27,7 @@ public class CompanyCaseInvesFragment extends BaseLoadingFragment{
     private ListView listView;
     private List<CaseInves> list = new ArrayList<>();
     private CaseInvesListAdapter adapter;
+
     @Override
     protected View setContentView() {
         return UIUtils.inflate(mContext, R.layout.fragment_list_caseinves);
@@ -50,9 +51,14 @@ public class CompanyCaseInvesFragment extends BaseLoadingFragment{
 
     }
 
-    private void initData() {
-        list = CaseInvesManager.getInstance().getCaseInvesList(null, null, null, null);
-        new Handler().postDelayed(new Runnable(){
+    public void initData() {
+        CompanyActivity companyActivity = (CompanyActivity) mContext;
+        String company = companyActivity.getCompany();
+        String startTime = companyActivity.getStartDate();
+        String endTime = companyActivity.getEndDate();
+
+        list = CaseInvesManager.getInstance().getCaseInvesList(null, company, startTime, endTime);
+        UIUtils.postDelayed(new Runnable(){
             public void run() {
                 show(check(list));
                 adapter.setData(list);
@@ -66,8 +72,12 @@ public class CompanyCaseInvesFragment extends BaseLoadingFragment{
     protected View createLoadedView() {
         return setContentView();
     }
-
+    @Override
+    protected boolean isNeedLoadEveryTime() {
+        return true;
+    }
     @Override
     protected void load() {
+        initData();
     }
 }

@@ -75,7 +75,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:hint="请选择开始时间"
-            android:textSize="@dimen/sp_18"
+            android:textSize="@dimen/sp_14"
             android:textColor="@color/text_black" />
 
         <TextView
@@ -97,7 +97,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:hint="请选择结束时间"
-            android:textSize="@dimen/sp_18"
+            android:textSize="@dimen/sp_14"
             android:textColor="@color/text_black" />
         <Button
             android:id="@+id/btn_search_time"

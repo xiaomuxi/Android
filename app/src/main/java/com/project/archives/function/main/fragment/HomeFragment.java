@@ -99,17 +99,17 @@ public class HomeFragment extends BaseActivityFragment {
             Date startTime =  getFirstDayOfMonth(-i + 1);
             Date endTime =  getLastDayOfMonth(-i + 1);
 
-            float caseInves = CaseInvesManager.getInstance().getCountByQuery(startTime, endTime);
-            float verifications = VerificationsManager.getInstance().getCountByQuery(startTime, endTime);
-            float letters = LettersManager.getInstance().getCountByQuery(startTime, endTime);
-            float endings = EndingsManager.getInstance().getCountByQuery(startTime, endTime);
-            float zancuns = ZancunsManager.getInstance().getCountByQuery(startTime, endTime);
-
-            yVals1.add(new BarEntry(i, caseInves));
-            yVals2.add(new BarEntry(i, verifications));
-            yVals3.add(new BarEntry(i, letters));
-            yVals4.add(new BarEntry(i, endings));
-            yVals5.add(new BarEntry(i, zancuns));
+//            float caseInves = CaseInvesManager.getInstance().getCountByQuery(startTime, endTime);
+//            float verifications = VerificationsManager.getInstance().getCountByQuery(startTime, endTime);
+//            float letters = LettersManager.getInstance().getCountByQuery(startTime, endTime);
+//            float endings = EndingsManager.getInstance().getCountByQuery(startTime, endTime);
+//            float zancuns = ZancunsManager.getInstance().getCountByQuery(startTime, endTime);
+//
+//            yVals1.add(new BarEntry(i, caseInves));
+//            yVals2.add(new BarEntry(i, verifications));
+//            yVals3.add(new BarEntry(i, letters));
+//            yVals4.add(new BarEntry(i, endings));
+//            yVals5.add(new BarEntry(i, zancuns));
         }
 
     }

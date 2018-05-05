@@ -3,16 +3,12 @@ package com.project.archives.common.dao.manager;
 import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.dao.Verifications;
 import com.project.archives.common.dao.VerificationsDao;
-import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 import org.greenrobot.greendao.query.WhereCondition;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by inrokei on 2018/4/30.
@@ -38,9 +34,27 @@ public class VerificationsManager {
         return verificationsDao.count();
     }
 
-    public long getCountByQuery(Date startTime, Date endTime) {
+//    public long getCountByQuery(Date startTime, Date endTime) {
+//        QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
+//        queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
+//
+//        return queryBuilder.buildCount().count();
+//    }
+    public long getCountByQuery(String company, String startTime, String endTime) {
         QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
-        queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
+
+        if (!StringUtils.isEmpty(company)) {
+            queryBuilder.where(VerificationsDao.Properties.Init.eq(company));
+        }
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
+        }
+        else if (!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime));
+        }
+        else if (!StringUtils.isEmpty(endTime)){
+            queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
+        }
 
         return queryBuilder.buildCount().count();
     }
@@ -55,20 +69,6 @@ public class VerificationsManager {
     }
 
     public List<Verifications> getVerificationList(String userName, String companyName, String startTime, String endTime) {
-        Date start = null;
-        Date end = null;
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
-        try {
-            if (!StringUtils.isEmpty(startTime)) {
-                start = format.parse(startTime);
-            }
-            if (!StringUtils.isEmpty(endTime)) {
-                end = format.parse(startTime);
-            }
-        }
-        catch (Exception e) {
-            LogUtils.e(CaseInvesManager.class.getName(), e);
-        }
 
         QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
         if (!StringUtils.isEmpty(userName)) {
@@ -80,13 +80,13 @@ public class VerificationsManager {
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(start), VerificationsDao.Properties.AddDate.le(end));
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
         }
         else if(!StringUtils.isEmpty(startTime)) {
-            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(start));
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime));
         }
         else if(!StringUtils.isEmpty(endTime)) {
-            queryBuilder.where(VerificationsDao.Properties.AddDate.le(end));
+            queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
         }
 
         queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);

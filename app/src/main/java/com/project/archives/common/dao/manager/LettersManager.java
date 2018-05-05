@@ -1,8 +1,8 @@
 package com.project.archives.common.dao.manager;
 
-import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.dao.Letters;
 import com.project.archives.common.dao.LettersDao;
+import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 
@@ -38,12 +38,31 @@ public class LettersManager {
         return lettersDao.count();
     }
 
-    public long getCountByQuery(Date startTime, Date endTime) {
+//    public long getCountByQuery(Date startTime, Date endTime) {
+//        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
+//        queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
+//
+//        return queryBuilder.buildCount().count();
+//    }
+    public long getCountByQuery(String company, String startTime, String endTime) {
         QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
-        queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
+
+        if (!StringUtils.isEmpty(company)) {
+            queryBuilder.where(LettersDao.Properties.Init.eq(company));
+        }
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
+        }
+        else if (!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime));
+        }
+        else if (!StringUtils.isEmpty(endTime)){
+            queryBuilder.where(LettersDao.Properties.AddDate.le(endTime));
+        }
 
         return queryBuilder.buildCount().count();
     }
+
 
     public long getCountByName(String name) {
         if (StringUtils.isEmpty(name)) {
@@ -63,11 +82,11 @@ public class LettersManager {
                 start = format.parse(startTime);
             }
             if (!StringUtils.isEmpty(endTime)) {
-                end = format.parse(startTime);
+                end = format.parse(endTime);
             }
         }
         catch (Exception e) {
-            LogUtils.e(CaseInvesManager.class.getName(), e);
+            LogUtils.e(LettersManager.class.getName(), e);
         }
 
         QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();

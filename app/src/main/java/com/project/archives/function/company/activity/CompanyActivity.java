@@ -1,4 +1,4 @@
-package com.project.archives.function.main.fragment;
+package com.project.archives.function.company.activity;
 
 import android.app.DatePickerDialog;
 import android.graphics.Color;
@@ -21,14 +21,20 @@ import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
+import com.project.archives.common.dao.manager.CaseInvesManager;
+import com.project.archives.common.dao.manager.EndingsManager;
+import com.project.archives.common.dao.manager.LettersManager;
+import com.project.archives.common.dao.manager.UsersManager;
+import com.project.archives.common.dao.manager.VerificationsManager;
+import com.project.archives.common.dao.manager.ZancunsManager;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.companyListFragments.CompanyCaseInvesFragment;
-import com.project.archives.function.main.companyListFragments.CompanyEndingsFragment;
-import com.project.archives.function.main.companyListFragments.CompanyLettersFragment;
-import com.project.archives.function.main.companyListFragments.CompanyVerificationsFragment;
-import com.project.archives.function.main.companyListFragments.CompanyZancunsFragment;
+import com.project.archives.function.company.fragment.CompanyCaseInvesFragment;
+import com.project.archives.function.company.fragment.CompanyEndingsFragment;
+import com.project.archives.function.company.fragment.CompanyLettersFragment;
+import com.project.archives.function.company.fragment.CompanyVerificationsFragment;
+import com.project.archives.function.company.fragment.CompanyZancunsFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -49,18 +55,16 @@ import java.util.Map;
 
 public class CompanyActivity extends BaseActivity implements OnMenuSelectedListener, View.OnClickListener{
 
-    final String TAG = getClass().getName();
-
-    private int company_type_index;
-    private int compay_index;
-    final String[] arr1=new String[]{"全部单位类型","党群部门","行政部门","区管企业","区管事业单位", "人大政协办法"};
-    final String[] arr3=new String[]{"全部单位","闵行区1单位","松江区1单位","徐汇区2单位"};
+    private int company_type_index = 0 ;
+    private int compay_index = 0;
+    private String[] companyTypeArr=new String[]{"全部单位类型", "党群部门", "行政部门", "街镇", "区管企业", "区管事业单位", "人大政协半、法院检察院"};
+    private String[] companyArr=new String[]{"全部单位"};
     final String[] strings=new String[]{"选择单位类型","选择单位"};
     private DropDownMenu mMenu;
 
     private EditText et_start;
     private EditText et_end;
-    private Button btn_reset;
+    private Button btn_reset, btn_search_time;
     private ViewPager viewPager;
     private FragmentManager mFragmentManager;
     private int mPrePosition;
@@ -75,6 +79,8 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
     private int endYear, endMonth, endDay;
     private String startDate, endDate;
     private DatePicker startDatePicker, endDatePicker;
+
+    private OrderPagerAdapter pagerAdapter;
 
     @Override
     protected void init() {
@@ -99,15 +105,18 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         et_start = (EditText) findViewById(R.id.et_start);
         et_end = (EditText) findViewById(R.id.et_end);
         btn_reset = (Button) findViewById(R.id.btn_reset);
+        btn_search_time = (Button) findViewById(R.id.btn_search_time);
 
         et_start.setOnClickListener(this);
         et_end.setOnClickListener(this);
         btn_reset.setOnClickListener(this);
+        btn_search_time.setOnClickListener(this);
 
         initSelectMenu();
         initDatePickerAndDialog();
         initViewPgaer();
     }
+
 
     private void initDatePickerAndDialog() {
         mCalendar = Calendar.getInstance();
@@ -155,7 +164,6 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
 
     public void initSelectMenu() {
         mMenu.setmMenuCount(2);
-        mMenu.setmShowCount(6);
         mMenu.setShowCheck(true);
         mMenu.setmMenuTitleTextSize(16);
         mMenu.setmMenuTitleTextColor(Color.parseColor("#777777"));
@@ -179,11 +187,25 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         mMenu.setmArrowMarginTitle(20);
 
         mMenu.setMenuSelectedListener(this);
+        initCompany();
         List<String[]> items = new ArrayList<>();
-        items.add(arr1);
-        items.add(arr3);
+        items.add(companyTypeArr);
+        items.add(companyArr);
         mMenu.setmMenuItems(items);
         mMenu.setIsDebug(false);
+    }
+
+    private void initCompany() {
+        List<String> companyList = UsersManager.getInstance().getAllCompany(company_type_index);
+        ArrayList<String> newCompanyList = new ArrayList<>();
+        newCompanyList.add("全部单位");
+        for (int i = 0; i < companyList.size(); i++) {
+            String companyName = companyList.get(i);
+            companyName = StringUtils.isEmpty(companyName) ? "未知单位" : companyName;
+            newCompanyList.add(companyName);
+        }
+
+        companyArr = newCompanyList.toArray(new String[0]);
     }
 
 
@@ -191,12 +213,34 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
     public void onSelected(View view, int RowIndex, int ColumnIndex) {
         if (ColumnIndex == 0) {
             company_type_index = RowIndex;
+//            mMenu.set
+//            initCompany();
+
         } else {
             compay_index = RowIndex;
+            initCount();
         }
+    }
 
-        //过滤筛选
-//                setFilter();
+    private void initCount() {
+        long caseinvesCount = CaseInvesManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
+        long verificationsCount = VerificationsManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
+        long lettersCount = LettersManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
+        long endingsCount = EndingsManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
+        long zancunsCount = ZancunsManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
+
+        tv_caseinves.setText(getResources().getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
+        tv_verifications.setText(getResources().getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
+        tv_letters.setText(getResources().getString(R.string.list_letters_title, String.valueOf(lettersCount)));
+        tv_endings.setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
+        tv_zancuns.setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
+
+        BaseLoadingFragment loadingFragment = (BaseLoadingFragment) pagerAdapter.getItem(viewPager.getCurrentItem());
+        loadingFragment.show();
+    }
+
+    private void initCurrentFragmentData() {
+
     }
 
     public void resetDate() {
@@ -205,6 +249,8 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         startDatePickerDialog.getDatePicker();
         et_start.setText(startDate);
         et_end.setText(endDate);
+
+        initCount();
     }
 
     public boolean checkStartAndEndTimeRight() {
@@ -255,10 +301,25 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
-        OrderPagerAdapter pagerAdapter = new OrderPagerAdapter(mFragmentManager);
+        pagerAdapter = new OrderPagerAdapter(mFragmentManager);
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(mPageChangeListener);
         tv_caseinves.setSelected(true);
+    }
+
+    public String getCompany() {
+        if (compay_index == 0) {
+            return null;
+        }
+        return companyArr[compay_index];
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
     }
 
     /**
@@ -400,6 +461,9 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
                 break;
             case R.id.btn_reset:
                 resetDate();
+                break;
+            case R.id.btn_search_time:
+                initCount();
                 break;
         }
     }

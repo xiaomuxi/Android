@@ -22,7 +22,7 @@
         <activity
             android:name=".function.person.activity.PersonDetailActivity"/>
         <activity
-            android:name=".function.main.fragment.CompanyActivity"/>
+            android:name=".function.company.activity.CompanyActivity"/>
         <activity
             android:name=".function.age.AgeActivity"/>
         <activity

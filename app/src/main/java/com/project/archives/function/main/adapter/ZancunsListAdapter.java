@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
 import com.project.archives.common.dao.Zancuns;
+import com.project.archives.common.utils.StringUtils;
 import com.project.archives.function.main.activity.ZancunsDetailActivity;
 
 /**
@@ -40,7 +41,11 @@ public class ZancunsListAdapter extends MyBaseAdapter<Zancuns> {
         TextView tv_company = (TextView) convertView.findViewById(R.id.tv_money);
 
         int rank = item.getRank() == null ? -1 : item.getRank();
-        tv_time.setText(item.getAddDate());
+        String addDate = item.getAddDate();
+        addDate = StringUtils.isEmpty(addDate) ? "--" : addDate;
+        addDate = addDate.length() > 10 ? addDate.substring(0, 10) : addDate;
+
+        tv_time.setText(addDate);
         tv_name.setText(item.getName());
         tv_level.setText(getLevelByNumber(rank));
         String init = item.getInit().length() > 13 ? item.getInit().substring(0,12) + "..." : item.getInit();

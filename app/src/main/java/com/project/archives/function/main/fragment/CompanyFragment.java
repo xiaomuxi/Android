@@ -25,11 +25,11 @@ import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.companyListFragments.CompanyCaseInvesFragment;
-import com.project.archives.function.main.companyListFragments.CompanyEndingsFragment;
-import com.project.archives.function.main.companyListFragments.CompanyLettersFragment;
-import com.project.archives.function.main.companyListFragments.CompanyVerificationsFragment;
-import com.project.archives.function.main.companyListFragments.CompanyZancunsFragment;
+import com.project.archives.function.company.fragment.CompanyCaseInvesFragment;
+import com.project.archives.function.company.fragment.CompanyEndingsFragment;
+import com.project.archives.function.company.fragment.CompanyLettersFragment;
+import com.project.archives.function.company.fragment.CompanyVerificationsFragment;
+import com.project.archives.function.company.fragment.CompanyZancunsFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

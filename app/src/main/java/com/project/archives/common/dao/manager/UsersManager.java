@@ -44,10 +44,10 @@ public class UsersManager {
             queryBuilder.where(UsersDao.Properties.Age.ge(startAge), UsersDao.Properties.Age.le(endAge));
         }
         else if(!StringUtils.isEmpty(startAge)) {
-            queryBuilder.where(UsersDao.Properties.AddDate.ge(startAge));
+            queryBuilder.where(UsersDao.Properties.Age.ge(startAge));
         }
         else if(!StringUtils.isEmpty(endAge)) {
-            queryBuilder.where(UsersDao.Properties.AddDate.le(endAge));
+            queryBuilder.where(UsersDao.Properties.Age.le(endAge));
         }
 
         queryBuilder.orderDesc(UsersDao.Properties.AddDate);

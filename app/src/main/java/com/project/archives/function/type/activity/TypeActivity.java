@@ -1,4 +1,4 @@
-package com.project.archives.function.main.fragment;
+package com.project.archives.function.type.activity;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -7,21 +7,19 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.jayfang.dropdownmenu.DropDownMenu;
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.utils.StringUtils;
-import com.project.archives.function.main.typeListFragments.TypeCaseInvesFragment;
-import com.project.archives.function.main.typeListFragments.TypeEndingsFragment;
-import com.project.archives.function.main.typeListFragments.TypeLettersFragment;
-import com.project.archives.function.main.typeListFragments.TypeVerificationsFragment;
-import com.project.archives.function.main.typeListFragments.TypeZancunsFragment;
+import com.project.archives.function.type.fragment.TypeCaseInvesFragment;
+import com.project.archives.function.type.fragment.TypeEndingsFragment;
+import com.project.archives.function.type.fragment.TypeLettersFragment;
+import com.project.archives.function.type.fragment.TypeVerificationsFragment;
+import com.project.archives.function.type.fragment.TypeZancunsFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -36,16 +34,6 @@ import java.util.Map;
 
 public class TypeActivity extends BaseActivity{
 
-    private ListView mList;
-
-    private int city_index;
-    private int sex_index;
-    private int age_index;
-    //    private List<PersonModel> data;
-    final String[] arr2=new String[]{"全部问题类型","处分类","初步核实类", "谈话函询类","了结类", "暂存类"};
-    final String[] strings=new String[]{"选择问题类型"};
-    private DropDownMenu mMenu;
-
     private ViewPager viewPager;
     private FragmentManager mFragmentManager;
     private int mPrePosition;
@@ -56,7 +44,7 @@ public class TypeActivity extends BaseActivity{
     @Override
     protected void init() {
         super.init();
-        setContentView(R.layout.fragment_list_type);
+        setContentView(R.layout.activity_type);
         EventBus.getDefault().register(this);
     }
 
@@ -71,8 +59,6 @@ public class TypeActivity extends BaseActivity{
     protected void initView() {
         super.initView();
         mFragmentManager = getSupportFragmentManager();
-        mMenu = (DropDownMenu) findViewById(R.id.menu);
-        mMenu.setVisibility(View.GONE);
 
         initViewPgaer();
     }

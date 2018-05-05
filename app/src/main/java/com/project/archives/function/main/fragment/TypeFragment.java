@@ -19,11 +19,11 @@ import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.typeListFragments.TypeCaseInvesFragment;
-import com.project.archives.function.main.typeListFragments.TypeEndingsFragment;
-import com.project.archives.function.main.typeListFragments.TypeLettersFragment;
-import com.project.archives.function.main.typeListFragments.TypeVerificationsFragment;
-import com.project.archives.function.main.typeListFragments.TypeZancunsFragment;
+import com.project.archives.function.type.fragment.TypeCaseInvesFragment;
+import com.project.archives.function.type.fragment.TypeEndingsFragment;
+import com.project.archives.function.type.fragment.TypeLettersFragment;
+import com.project.archives.function.type.fragment.TypeVerificationsFragment;
+import com.project.archives.function.type.fragment.TypeZancunsFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

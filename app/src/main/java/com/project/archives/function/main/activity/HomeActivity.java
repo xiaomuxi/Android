@@ -22,7 +22,7 @@ import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.age.AgeActivity;
 import com.project.archives.function.main.fragment.CompanyActivity;
 import com.project.archives.function.person.activity.PersonActivity;
-import com.project.archives.function.main.fragment.TypeActivity;
+import com.project.archives.function.type.activity.TypeActivity;
 import com.project.archives.common.dao.manager.CaseInvesManager;
 import com.project.archives.common.dao.manager.EndingsManager;
 import com.project.archives.common.dao.manager.LettersManager;

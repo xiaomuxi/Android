@@ -1,4 +1,4 @@
-package com.project.archives.function.main.typeListFragments;
+package com.project.archives.function.type.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;

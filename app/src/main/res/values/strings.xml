@@ -22,11 +22,6 @@
 
     <string name="txt_caseinves">处分类</string>
 
-    <!--<string name="list_caseinves_title">处分(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_verifications_title">核实(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_letters_title">函询(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_endings_title">了结(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
-    <!--<string name="list_zancuns_title">暂存(&#60;font&#62;%1$s&#60;/font&#62;)&#160;</string>-->
     <string name="txt_name">姓名： %s</string>
     <string name="txt_zhiji">职级： %s</string>
     <string name="txt_dang">党代表： %s</string>
@@ -45,7 +40,7 @@
     <string name="txt_gwy">公务员： %s</string>
 
     <string name="list_caseinves_title">处分类(%s)</string>
-    <string name="list_verifications_title">核实类(%s)</string>
+    <string name="list_verifications_title">初核类(%s)</string>
     <string name="list_letters_title">函询类(%s)</string>
     <string name="list_endings_title">了结类(%s)</string>
     <string name="list_zancuns_title">暂存类(%s)</string>

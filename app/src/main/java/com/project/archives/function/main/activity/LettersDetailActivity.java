@@ -50,8 +50,10 @@ public class LettersDetailActivity extends AppCompatActivity {
             return;
         }
 
+        int rank = item.getRank() == null ? -1 : item.getRank();
+
         tv_name.setText(getResources().getString(R.string.txt_name, item.getName()));
-        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, item.getRank() + ""));
+        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, getLevelByNumber(rank)));
         tv_danwei.setText(StringUtils.isEmpty(item.getInit())?"--":item.getInit());
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
         tv_xsly.setText(getResources().getString(R.string.txt_xsly, "--"));//Xiansuo
@@ -81,5 +83,30 @@ public class LettersDetailActivity extends AppCompatActivity {
         tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
         tv_cljg = (TextView) findViewById(R.id.tv_cljg);
         tv_note = (TextView) findViewById(R.id.tv_note);
+    }
+
+    private String getLevelByNumber(int number) {
+        String level = "--";
+        switch (number) {
+            case 1:
+                level = "正处";
+                break;
+            case 2:
+                level = "副处";
+                break;
+            case 3:
+                level = "正科";
+                break;
+            case 4:
+                level = "副科";
+                break;
+            case 5:
+                level = "科员";
+                break;
+            case 6:
+                level = "其他";
+                break;
+        }
+        return level;
     }
 }

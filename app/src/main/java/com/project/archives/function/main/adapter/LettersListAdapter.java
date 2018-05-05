@@ -39,9 +39,10 @@ public class LettersListAdapter extends MyBaseAdapter<Letters> {
         TextView tv_job = (TextView) convertView.findViewById(R.id.tv_address);
         TextView tv_company = (TextView) convertView.findViewById(R.id.tv_money);
 
+        int rank = item.getRank() == null ? -1 : item.getRank();
         tv_time.setText(item.getAddDate());
         tv_name.setText(item.getName());
-        tv_level.setText("正处");
+        tv_level.setText(getLevelByNumber(rank));
         String init = item.getInit().length() > 13 ? item.getInit().substring(0,12) + "..." : item.getInit();
         String itmePosition = item.getPosition().length() > 13 ? item.getPosition().substring(0,12) + "..." : item.getPosition();
         tv_company.setText(init);
@@ -58,5 +59,30 @@ public class LettersListAdapter extends MyBaseAdapter<Letters> {
         });
 
         return convertView;
+    }
+
+    private String getLevelByNumber(int number) {
+        String level = "--";
+        switch (number) {
+            case 1:
+                level = "正处";
+                break;
+            case 2:
+                level = "副处";
+                break;
+            case 3:
+                level = "正科";
+                break;
+            case 4:
+                level = "副科";
+                break;
+            case 5:
+                level = "科员";
+                break;
+            case 6:
+                level = "其他";
+                break;
+        }
+        return level;
     }
 }

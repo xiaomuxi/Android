@@ -3,6 +3,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.jayfang.dropdownmenu.DropDownMenu
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:id="@+id/menu"
+        android:background="@color/white"
+        android:layout_height="60dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -46,15 +57,15 @@
         android:id="@+id/tv_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:text="没有查到相关数据！"
         android:gravity="center"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/sp_18"/>
+        android:visibility="gone"
+        android:text="没有找到相关数据!"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/text_black"/>
 
     <ListView
-        android:id="@+id/lv_person"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent"
+        android:background="@color/bg_white"
+        android:id="@+id/list_view" />
 </LinearLayout>

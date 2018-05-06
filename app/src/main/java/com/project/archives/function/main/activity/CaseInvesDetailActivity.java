@@ -51,24 +51,27 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
             return;
         }
         int rank = item.getRank() == null ? -1 : item.getRank();
+        String shouTime = item.getShouTime().length() > 10 ? item.getShouTime().substring(0, 10) : item.getShouTime();
+        String chuheTime = item.getChuheTime().length() > 10 ? item.getChuheTime().substring(0, 10) : item.getChuheTime();
+        String liaojieTime = item.getLiaojieTime().length() > 10 ? item.getLiaojieTime().substring(0, 10) : item.getLiaojieTime();
 
         tv_name.setText(getResources().getString(R.string.txt_name, item.getName()));
-        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, getLevelByNumber(rank)));
+        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, StringUtils.getLevelByNumber(rank)));
         tv_danwei.setText(StringUtils.isEmpty(item.getInit())?"--":item.getInit());
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
         tv_dang.setText(getResources().getString(R.string.txt_dang, item.getIsPartyMember()==1?"是":"否"));
         tv_renda.setText(getResources().getString(R.string.txt_renda, item.getIsPcongress() == 1 ? "是" : "否"));
         tv_zzmm.setText(getResources().getString(R.string.txt_zzmm, StringUtils.isEmpty(item.getPoliticsStatus())?"--": item.getPoliticsStatus()));
         tv_jcdx.setText(getResources().getString(R.string.txt_jcdx, item.getIsObject() == 1?"是":"否"));
-        tv_xsly.setText(getResources().getString(R.string.txt_xsly, "--"));//Xiansuo
-        tv_slsj.setText(getResources().getString(R.string.txt_slsj, item.getShouTime()));
-        tv_chsj.setText(getResources().getString(R.string.txt_chsj, item.getChuheTime()));
-        tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, item.getLiaojieTime()));
+        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getXiansou())));//Xiansuo
+        tv_slsj.setText(getResources().getString(R.string.txt_slsj, shouTime));
+        tv_chsj.setText(getResources().getString(R.string.txt_chsj, chuheTime));
+        tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, liaojieTime));
         tv_wjxw.setText("--");
-        tv_bljg.setText(getResources().getString(R.string.txt_bljg, "--"));//Organ
-        tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, "--"));//Organization
-        tv_dncf.setText(getResources().getString(R.string.txt_dncf, "--"));//DisTypeD
-        tv_xzcf.setText(getResources().getString(R.string.txt_xzcf, "--"));//DisTypeX
+        tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan())));//Organ
+        tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, StringUtils.getResultSituationByNumber(item.getOrganization())));//Organization
+        tv_dncf.setText(getResources().getString(R.string.txt_dncf, StringUtils.getDangjiByNumber(item.getDisTypeD())));//DisTypeD
+        tv_xzcf.setText(getResources().getString(R.string.txt_xzcf, StringUtils.getZhengjiByNumber(item.getDisTypeX())));//DisTypeX
         tv_xsgs.setText(StringUtils.isEmpty(item.getTrail())?"--":item.getTrail());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getDescription())?"--": item.getDescription());
         tv_wjss.setText(StringUtils.isEmpty(item.getFacts())?"--": item.getFacts());
@@ -102,28 +105,4 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
         tv_note = (TextView) findViewById(R.id.tv_note);
     }
 
-    private String getLevelByNumber(int number) {
-        String level = "--";
-        switch (number) {
-            case 1:
-                level = "正处";
-                break;
-            case 2:
-                level = "副处";
-                break;
-            case 3:
-                level = "正科";
-                break;
-            case 4:
-                level = "副科";
-                break;
-            case 5:
-                level = "科员";
-                break;
-            case 6:
-                level = "其他";
-                break;
-        }
-        return level;
-    }
 }

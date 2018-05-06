@@ -77,7 +77,7 @@ public class ZancunsManager {
         }
 
         if (!StringUtils.isEmpty(companyName)) {
-            queryBuilder.where(ZancunsDao.Properties.Init.like("%" + companyName + "%"));
+            queryBuilder.where(ZancunsDao.Properties.Init.eq(companyName));
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
@@ -88,6 +88,17 @@ public class ZancunsManager {
         }
         else if(!StringUtils.isEmpty(endTime)) {
             queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
+        return queryBuilder.build().list();
+    }
+
+    public List<Zancuns> getZancunListByName(String name) {
+
+        QueryBuilder<Zancuns> queryBuilder = zancunsDao.queryBuilder();
+        if (!StringUtils.isEmpty(name)) {
+            queryBuilder.where(ZancunsDao.Properties.Name.like("%" + name + "%"));
         }
 
         queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);

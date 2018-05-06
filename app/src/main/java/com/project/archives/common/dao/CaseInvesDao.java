@@ -56,6 +56,7 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         public final static Property Description = new Property(31, String.class, "Description", false, "Description");
         public final static Property ChuheTime = new Property(32, String.class, "ChuheTime", false, "ChuheTime");
         public final static Property LiaojieTime = new Property(33, String.class, "LiaojieTime", false, "LiaojieTime");
+        public final static Property DisTypeX = new Property(34, Integer.class, "DisTypeX", false, "DisTypeX");
     }
 
 
@@ -104,7 +105,8 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
                 "\"Trail\" TEXT," + // 30: Trail
                 "\"Description\" TEXT," + // 31: Description
                 "\"ChuheTime\" INTEGER," + // 32: ChuheTime
-                "\"LiaojieTime\" INTEGER);"); // 33: LiaojieTime
+                "\"LiaojieTime\" INTEGER," + // 33: LiaojieTime
+                "\"DisTypeX\" INTEGER);"); // 34: DisTypeX
     }
 
     /** Drops the underlying database table. */
@@ -286,6 +288,11 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (LiaojieTime != null) {
             stmt.bindString(34, LiaojieTime);
         }
+
+        Integer DisTypeX = entity.getDisTypeX();
+        if (DisTypeX != null) {
+            stmt.bindLong(35, DisTypeX);
+        }
     }
 
     @Override
@@ -461,6 +468,11 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         if (LiaojieTime != null) {
             stmt.bindString(34, LiaojieTime);
         }
+
+        Integer DisTypeX = entity.getDisTypeX();
+        if (DisTypeX != null) {
+            stmt.bindLong(35, DisTypeX);
+        }
     }
 
     @Override
@@ -504,7 +516,8 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
             cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30), // Trail
             cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31), // Description
             cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32), // ChuheTime
-            cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33) // LiaojieTime
+            cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33), // LiaojieTime
+            cursor.isNull(offset + 34) ? null : cursor.getInt(offset + 34) // DisTypeX
         );
         return entity;
     }
@@ -545,6 +558,7 @@ public class CaseInvesDao extends AbstractDao<CaseInves, byte[]> {
         entity.setDescription(cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31));
         entity.setChuheTime(cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32));
         entity.setLiaojieTime(cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33));
+        entity.setDisTypeX(cursor.isNull(offset + 34) ? null : cursor.getInt(offset + 34));
      }
     
     @Override

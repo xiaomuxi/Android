@@ -51,20 +51,23 @@ public class VerificationsDetailActivity extends AppCompatActivity {
             return;
         }
         int rank = item.getRank() == null ? -1 : item.getRank();
+        String verificationTime = item.getVerificTime().length() > 10 ? item.getVerificTime().substring(0, 10) : item.getVerificTime();
+        String processTime = item.getProcessTime().length() > 10 ? item.getProcessTime().substring(0, 10) : item.getProcessTime();
+        String takingTime = item.getTakingTime().length() > 10 ? item.getTakingTime().substring(0, 10) : item.getTakingTime();
 
         tv_name.setText(getResources().getString(R.string.txt_name, item.getName()));
-        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, getLevelByNumber(rank)));
+        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, StringUtils.getLevelByNumber(rank)));
         tv_danwei.setText(StringUtils.isEmpty(item.getInit())?"--":item.getInit());
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
         tv_gwy.setText(getResources().getString(R.string.txt_gwy, item.getIsOfficer()==1?"是":"否"));
         tv_jcdx.setText(getResources().getString(R.string.txt_jcdx, item.getIsObject() == 1?"是":"否"));
-        tv_xsly.setText(getResources().getString(R.string.txt_xsly, "--"));//Xiansuo
-        tv_slsj.setText(getResources().getString(R.string.txt_slsj, item.getTakingTime()));
-        tv_chsj.setText(getResources().getString(R.string.txt_chsj, item.getVerificTime()));
-        tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, item.getProcessTime()));
-        tv_bljg.setText(getResources().getString(R.string.txt_bljg, "--"));//Organ
-        tv_ljjl.setText(getResources().getString(R.string.txt_zzcl, "--"));//Organization
-        tv_zzclqk.setText("--");
+        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource())));//Xiansuo
+        tv_slsj.setText(getResources().getString(R.string.txt_slsj, verificationTime));
+        tv_chsj.setText(getResources().getString(R.string.txt_chsj, processTime));
+        tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, takingTime));
+        tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan())));//Organ
+        tv_ljjl.setText(StringUtils.getLiaoJieResult(item.getTakingResult()));
+        tv_zzclqk.setText(getResources().getString(R.string.txt_zzclqk, StringUtils.getResultSituationByNumber(item.getResultSituation())));
         tv_xsgs.setText(StringUtils.isEmpty(item.getTrail())?"--":item.getTrail());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getClues())?"--": item.getClues());
         tv_note.setText(StringUtils.isEmpty(item.getNote())?"--": item.getNote());
@@ -90,28 +93,4 @@ public class VerificationsDetailActivity extends AppCompatActivity {
         tv_note = (TextView) findViewById(R.id.tv_note);
     }
 
-    private String getLevelByNumber(int number) {
-        String level = "--";
-        switch (number) {
-            case 1:
-                level = "正处";
-                break;
-            case 2:
-                level = "副处";
-                break;
-            case 3:
-                level = "正科";
-                break;
-            case 4:
-                level = "副科";
-                break;
-            case 5:
-                level = "科员";
-                break;
-            case 6:
-                level = "其他";
-                break;
-        }
-        return level;
-    }
 }

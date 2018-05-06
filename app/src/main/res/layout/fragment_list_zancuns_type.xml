@@ -46,15 +46,15 @@
         android:id="@+id/tv_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:text="没有查到相关数据！"
         android:gravity="center"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/sp_18"/>
+        android:visibility="gone"
+        android:text="没有找到相关数据!"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/text_black"/>
 
     <ListView
-        android:id="@+id/lv_person"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
+        android:layout_height="match_parent"
+        android:background="@color/bg_white"
+        android:id="@+id/list_view" />
 </LinearLayout>

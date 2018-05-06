@@ -51,16 +51,17 @@ public class LettersDetailActivity extends AppCompatActivity {
         }
 
         int rank = item.getRank() == null ? -1 : item.getRank();
+        String letterTime = item.getLetterTime().length() > 10 ? item.getLetterTime().substring(0, 10) : item.getLetterTime();
 
         tv_name.setText(getResources().getString(R.string.txt_name, item.getName()));
-        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, getLevelByNumber(rank)));
+        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, StringUtils.getLevelByNumber(rank)));
         tv_danwei.setText(StringUtils.isEmpty(item.getInit())?"--":item.getInit());
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
-        tv_xsly.setText(getResources().getString(R.string.txt_xsly, "--"));//Xiansuo
-        tv_slsj.setText(getResources().getString(R.string.txt_slsj, item.getLetterTime()));
+        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource())));//Xiansuo
+        tv_slsj.setText(getResources().getString(R.string.txt_slsj, letterTime));
         tv_wjxw.setText("--");
-        tv_bljg.setText(getResources().getString(R.string.txt_bljg, "--"));//Organ
-        tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, "--"));//Organization
+        tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan())));//Organ
+        tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, StringUtils.getTrueResultByNumber(item.getTrueDegree())));//Organization
         tv_xsgs.setText(StringUtils.isEmpty(item.getKeyWord())?"--":item.getKeyWord());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getLetterContent())?"--": item.getLetterContent());
         tv_cljg.setText(StringUtils.isEmpty(item.getResult())?"--": item.getResult());
@@ -83,30 +84,5 @@ public class LettersDetailActivity extends AppCompatActivity {
         tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
         tv_cljg = (TextView) findViewById(R.id.tv_cljg);
         tv_note = (TextView) findViewById(R.id.tv_note);
-    }
-
-    private String getLevelByNumber(int number) {
-        String level = "--";
-        switch (number) {
-            case 1:
-                level = "正处";
-                break;
-            case 2:
-                level = "副处";
-                break;
-            case 3:
-                level = "正科";
-                break;
-            case 4:
-                level = "副科";
-                break;
-            case 5:
-                level = "科员";
-                break;
-            case 6:
-                level = "其他";
-                break;
-        }
-        return level;
     }
 }

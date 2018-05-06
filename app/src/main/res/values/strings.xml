@@ -62,5 +62,6 @@
     <string name="txt_zhuanyejishuzhiwu">专业技\n术职务</string>
     <string name="txt_shuxizhuanyezhuanchang">熟悉专业\n有何专长</string>
     <string name="txt_xianrenzhiwu">现任职务：</string>
+    <string name="txt_liaojie_result">了结结论：%s</string>
 
 </resources>

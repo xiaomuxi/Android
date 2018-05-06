@@ -71,7 +71,7 @@ public class CaseInvesManager {
         }
 
         if (!StringUtils.isEmpty(companyName)) {
-            queryBuilder.where(CaseInvesDao.Properties.Init.like("%" + companyName + "%"));
+            queryBuilder.where(CaseInvesDao.Properties.Init.eq(companyName));
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
@@ -82,6 +82,26 @@ public class CaseInvesManager {
         }
         else if(!StringUtils.isEmpty(endTime)) {
             queryBuilder.where(CaseInvesDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
+
+        return queryBuilder.list();
+    }
+
+    public List<CaseInves> getCaseInvesListByNameAndDangZheng(String name, String dang, String zheng) {
+
+        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
+        if (!StringUtils.isEmpty(name)) {
+            queryBuilder.where(CaseInvesDao.Properties.Name.like("%" + name + "%"));
+        }
+
+        if (!StringUtils.isEmpty(dang)) {
+            queryBuilder.where(CaseInvesDao.Properties.DisTypeD.eq(dang));
+        }
+
+        if (!StringUtils.isEmpty(zheng)) {
+            queryBuilder.where(CaseInvesDao.Properties.DisTypeX.eq(zheng));
         }
 
         queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);

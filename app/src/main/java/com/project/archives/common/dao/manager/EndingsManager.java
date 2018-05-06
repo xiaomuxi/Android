@@ -78,7 +78,7 @@ public class EndingsManager {
         }
 
         if (!StringUtils.isEmpty(companyName)) {
-            queryBuilder.where(EndingsDao.Properties.Init.like("%" + companyName + "%"));
+            queryBuilder.where(EndingsDao.Properties.Init.eq(companyName));
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
@@ -89,6 +89,18 @@ public class EndingsManager {
         }
         else if(!StringUtils.isEmpty(endTime)) {
             queryBuilder.where(EndingsDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
+
+        return queryBuilder.list();
+    }
+
+    public List<Endings> getEndingListByName(String name) {
+
+        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
+        if (!StringUtils.isEmpty(name)) {
+            queryBuilder.where(EndingsDao.Properties.Name.like("%" + name + "%"));
         }
 
         queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);

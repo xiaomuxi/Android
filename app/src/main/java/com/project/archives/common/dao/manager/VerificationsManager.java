@@ -76,7 +76,7 @@ public class VerificationsManager {
         }
 
         if (!StringUtils.isEmpty(companyName)) {
-            queryBuilder.where(VerificationsDao.Properties.Init.like("%" + companyName + "%"));
+            queryBuilder.where(VerificationsDao.Properties.Init.eq(companyName));
         }
 
         if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
@@ -87,6 +87,22 @@ public class VerificationsManager {
         }
         else if(!StringUtils.isEmpty(endTime)) {
             queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
+
+        return queryBuilder.list();
+    }
+
+    public List<Verifications> getVerificationListByNameAndTakingResult(String name, String takingResult) {
+
+        QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
+        if (!StringUtils.isEmpty(name)) {
+            queryBuilder.where(VerificationsDao.Properties.Name.like("%" + name + "%"));
+        }
+
+        if (!StringUtils.isEmpty(takingResult)) {
+            queryBuilder.where(VerificationsDao.Properties.TakingResult.eq(takingResult));
         }
 
         queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);

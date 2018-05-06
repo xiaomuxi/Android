@@ -50,13 +50,14 @@ public class ZancunsDetailActivity extends AppCompatActivity {
         }
 
         int rank = item.getRank() == null ? -1 : item.getRank();
+        String zancunTime = item.getZancunTime().length() > 10 ? item.getZancunTime().substring(0, 10) : item.getZancunTime();
 
         tv_name.setText(getResources().getString(R.string.txt_name, item.getName()));
         tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, getLevelByNumber(rank)));
         tv_danwei.setText(StringUtils.isEmpty(item.getInit())?"--":item.getInit());
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
-        tv_xsly.setText(getResources().getString(R.string.txt_xsly, "--"));//Xiansuo
-        tv_slsj.setText(getResources().getString(R.string.txt_slsj, item.getZancunTime()));
+        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource())));//Xiansuo
+        tv_slsj.setText(getResources().getString(R.string.txt_slsj, zancunTime));
         tv_xsgs.setText(StringUtils.isEmpty(item.getKeyWord())?"--":item.getKeyWord());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getZancunContent())?"--": item.getZancunContent());
         tv_ypczyj.setText(StringUtils.isEmpty(item.getResult())?"--": item.getResult());

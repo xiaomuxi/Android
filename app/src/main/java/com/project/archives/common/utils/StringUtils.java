@@ -330,4 +330,267 @@ public class StringUtils {
         }
         return text;
     }
+
+    public static String getLevelByNumber(int number) {
+        String level = "--";
+        switch (number) {
+            case 1:
+                level = "正处";
+                break;
+            case 2:
+                level = "副处";
+                break;
+            case 3:
+                level = "正科";
+                break;
+            case 4:
+                level = "副科";
+                break;
+            case 5:
+                level = "科员";
+                break;
+            case 6:
+                level = "其他";
+                break;
+        }
+        return level;
+    }
+
+    public static String getLiaoJieResult(int takingResult) {
+        String result = "--";
+        switch (takingResult) {
+            case 1:
+                result = "失实";
+                break;
+            case 2:
+                result = "适当处理";
+                break;
+            case 3:
+                result = "转立案";
+                break;
+            case 4:
+                result = "其他";
+                break;
+        }
+
+        return result;
+    }
+
+    public static String getDangjiByNumber(int number) {
+
+        String result = "--";
+        switch (number) {
+            case 1:
+                result = "党内警告";
+                break;
+            case 2:
+                result = "党内严重警告";
+                break;
+            case 3:
+                result = "撤销党内职务";
+                break;
+            case 4:
+                result = "留党察看";
+                break;
+            case 5:
+                result = "开除党籍";
+                break;
+        }
+
+        return result;
+    }
+
+    public static String getZhengjiByNumber(int number) {
+
+        String result = "--";
+        switch (number) {
+            case 1:
+                result = "行政警告";
+                break;
+            case 2:
+                result = "记过";
+                break;
+            case 3:
+                result = "记大过";
+                break;
+            case 4:
+                result = "降级";
+                break;
+            case 5:
+                result = "撤职";
+                break;
+            case 6:
+                result = "开除";
+                break;
+            case 7:
+                result = "免予处分";
+                break;
+        }
+
+        return result;
+    }
+
+    /**
+     * 办理机关
+     * @param number
+     * @return
+     */
+    public static String getOrganByNumber(int number) {
+
+        String result = "--";
+        switch (number) {
+            case 1:
+                result = "第一纪检监察室";
+                break;
+            case 2:
+                result = "第二纪检监察室";
+                break;
+            case 3:
+                result = "第三纪检监察室";
+                break;
+            case 4:
+                result = "信访室";
+                break;
+            case 5:
+                result = "党风政风监督室";
+                break;
+            case 6:
+                result = "案件监察室";
+                break;
+            case 7:
+                result = "其他";
+                break;
+        }
+
+        return result;
+    }
+
+    /**
+     * 处理情况
+     * @param number
+     * @return
+     */
+    public static String getTrueResultByNumber(int number) {
+
+        String result = "--";
+        switch (number) {
+            case 1:
+                result = "属实";
+                break;
+            case 2:
+                result = "基本属实";
+                break;
+            case 3:
+                result = "部分属实";
+                break;
+            case 4:
+                result = "不实";
+                break;
+            case 5:
+                result = "存结无调查结论";
+                break;
+        }
+
+        return result;
+    }
+
+
+    /**
+     * 组织处理情况
+     * @param number
+     * @return
+     */
+    public static String getResultSituationByNumber(int number) {
+
+        String result = "--";
+        switch (number) {
+            case 1:
+                result = "通报批评";
+                break;
+            case 2:
+                result = "解聘";
+                break;
+            case 3:
+                result = "辞退";
+                break;
+            case 4:
+                result = "调整岗位";
+                break;
+            case 5:
+                result = "免职";
+                break;
+            case 6:
+                result = "取消预备党员资格";
+                break;
+            case 7:
+                result = "取消荣誉称号";
+                break;
+            case 8:
+                result = "诫勉谈话";
+                break;
+            case 9:
+                result = "停职";
+                break;
+            case 10:
+                result = "公开道歉";
+                break;
+            case 11:
+                result = "引咎辞职";
+                break;
+            case 12:
+                result = "责令辞职";
+                break;
+            case 13:
+                result = "其他组织处理";
+                break;
+            case 14:
+                result = "不实澄清";
+                break;
+            case 15:
+                result = "提醒谈话";
+                break;
+        }
+
+        return result;
+    }
+
+    /**
+     * 线索来源
+     * @param number
+     * @return
+     */
+    public static String getXiansuoByNumber(int number) {
+
+        String result = "--";
+        switch (number) {
+            case 1:
+                result = "信访举报";
+                break;
+            case 2:
+                result = "上级交办";
+                break;
+            case 3:
+                result = "公检法等机关移送";
+                break;
+            case 4:
+                result = "监督检查中发现";
+                break;
+            case 5:
+                result = "纪律审查中发现";
+                break;
+            case 6:
+                result = "审计中发现";
+                break;
+            case 7:
+                result = "巡视中发现";
+                break;
+            case 8:
+                result = "其他";
+                break;
+        }
+
+        return result;
+    }
+
+
 }

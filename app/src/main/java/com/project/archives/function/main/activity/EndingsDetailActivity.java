@@ -49,13 +49,14 @@ public class EndingsDetailActivity extends AppCompatActivity {
             return;
         }
         int rank = item.getRank() == null ? -1 : item.getRank();
+        String endingTime = item.getEndingTime().length() > 10 ? item.getEndingTime().substring(0, 10) : item.getEndingTime();
 
         tv_name.setText(getResources().getString(R.string.txt_name, item.getName()));
-        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, getLevelByNumber(rank)));
+        tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, StringUtils.getLevelByNumber(rank)));
         tv_danwei.setText(StringUtils.isEmpty(item.getInit())?"--":item.getInit());
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
-        tv_xsly.setText(getResources().getString(R.string.txt_xsly, "--"));//Xiansuo
-        tv_slsj.setText(getResources().getString(R.string.txt_slsj, item.getEndingTime()));
+        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource())));//Xiansuo
+        tv_slsj.setText(getResources().getString(R.string.txt_slsj, endingTime));
         tv_xsgs.setText(StringUtils.isEmpty(item.getKeyWord())?"--":item.getKeyWord());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getEndingContent())?"--": item.getEndingContent());
         tv_ypczyj.setText(StringUtils.isEmpty(item.getResult())?"--": item.getResult());
@@ -76,30 +77,5 @@ public class EndingsDetailActivity extends AppCompatActivity {
         tv_ypczyj = (TextView) findViewById(R.id.tv_ypczyj);
         tv_czyj = (TextView) findViewById(R.id.tv_czyj);
         tv_note = (TextView) findViewById(R.id.tv_note);
-    }
-
-    private String getLevelByNumber(int number) {
-        String level = "--";
-        switch (number) {
-            case 1:
-                level = "正处";
-                break;
-            case 2:
-                level = "副处";
-                break;
-            case 3:
-                level = "正科";
-                break;
-            case 4:
-                level = "副科";
-                break;
-            case 5:
-                level = "科员";
-                break;
-            case 6:
-                level = "其他";
-                break;
-        }
-        return level;
     }
 }

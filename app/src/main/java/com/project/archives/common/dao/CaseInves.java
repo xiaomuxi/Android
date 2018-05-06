@@ -38,6 +38,7 @@ public class CaseInves implements Serializable {
     private String OutTime;
     private String SurveyContent;
     private Integer DisTypeD;
+    private Integer DisTypeX;
     private String Note;
     private byte[] AnnexIDStr;
     private Integer isDelete;
@@ -66,7 +67,7 @@ public class CaseInves implements Serializable {
     }
 
     @Generated(hash = 24587135)
-    public CaseInves(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, Integer Coding, Integer IsPcongress, Integer IsMember, Integer IsObject, Integer IsOfficer, Integer IsPartyMember, String Facts, byte[] Discipline, Integer Organ, String PutTime, String OutTime, String SurveyContent, Integer DisTypeD, String Note, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, String PoliticsStatus, Integer Organization, Integer Xiansou, String ShouTime, String Trail, String Description, String ChuheTime, String LiaojieTime) {
+    public CaseInves(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, Integer Coding, Integer IsPcongress, Integer IsMember, Integer IsObject, Integer IsOfficer, Integer IsPartyMember, String Facts, byte[] Discipline, Integer Organ, String PutTime, String OutTime, String SurveyContent, Integer DisTypeD, String Note, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, String PoliticsStatus, Integer Organization, Integer Xiansou, String ShouTime, String Trail, String Description, String ChuheTime, String LiaojieTime, Integer DisTypeX) {
         this.ID = ID;
         this.UserID = UserID;
         this.Name = Name;
@@ -101,6 +102,7 @@ public class CaseInves implements Serializable {
         this.Description = Description;
         this.ChuheTime = ChuheTime;
         this.LiaojieTime = LiaojieTime;
+        this.DisTypeX = DisTypeX;
     }
 
     public byte[] getID() {
@@ -375,6 +377,14 @@ public class CaseInves implements Serializable {
         this.LiaojieTime = LiaojieTime;
     }
 
+    public Integer getDisTypeX() {
+        return DisTypeX;
+    }
+
+    public void setDisTypeX(Integer disTypeX) {
+        DisTypeX = disTypeX;
+    }
+
     // KEEP METHODS - put your custom methods here
     // KEEP METHODS END
 
@@ -415,6 +425,7 @@ public class CaseInves implements Serializable {
                 ", Description='" + Description + '\'' +
                 ", ChuheTime=" + ChuheTime +
                 ", LiaojieTime=" + LiaojieTime +
+                ", DisTypeX=" + DisTypeX +
                 '}';
     }
 }

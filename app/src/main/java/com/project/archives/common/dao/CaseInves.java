@@ -1,8 +1,10 @@
 package com.project.archives.common.dao;
 
+import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.ToOne;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -15,8 +17,8 @@ import java.util.Arrays;
 /**
  * Entity mapped to table "CASE_INVES".
  */
-@Entity
-public class CaseInves implements Serializable {
+@Entity(active = true)
+public class CaseInves implements Serializable{
 
     @Id
     private byte[] ID;
@@ -32,13 +34,11 @@ public class CaseInves implements Serializable {
     private Integer IsOfficer;
     private Integer IsPartyMember;
     private String Facts;
-    private byte[] Discipline;
     private Integer Organ;
     private String PutTime;
     private String OutTime;
     private String SurveyContent;
     private Integer DisTypeD;
-    private Integer DisTypeX;
     private String Note;
     private byte[] AnnexIDStr;
     private Integer isDelete;
@@ -54,11 +54,27 @@ public class CaseInves implements Serializable {
     private String Description;
     private String ChuheTime;
     private String LiaojieTime;
+    private Integer DisTypeX;
+    private byte[] Discipline;
+
+    /** Used to resolve relations */
+    @Generated
+    private transient DaoSession daoSession;
+
+    /** Used for active entity operations. */
+    @Generated
+    private transient CaseInvesDao myDao;
+
+    @ToOne(joinProperty = "Discipline")
+    private MultiDictionaries multiDictionaries;
+
+    @Generated
+    private transient byte[] multiDictionaries__resolvedKey;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
 
-    @Generated(hash = 1809359934)
+    @Generated
     public CaseInves() {
     }
 
@@ -81,7 +97,6 @@ public class CaseInves implements Serializable {
         this.IsOfficer = IsOfficer;
         this.IsPartyMember = IsPartyMember;
         this.Facts = Facts;
-        this.Discipline = Discipline;
         this.Organ = Organ;
         this.PutTime = PutTime;
         this.OutTime = OutTime;
@@ -103,6 +118,14 @@ public class CaseInves implements Serializable {
         this.ChuheTime = ChuheTime;
         this.LiaojieTime = LiaojieTime;
         this.DisTypeX = DisTypeX;
+        this.Discipline = Discipline;
+    }
+
+    /** called by internal mechanisms, do not call yourself. */
+    @Generated
+    public void __setDaoSession(DaoSession daoSession) {
+        this.daoSession = daoSession;
+        myDao = daoSession != null ? daoSession.getCaseInvesDao() : null;
     }
 
     public byte[] getID() {
@@ -207,14 +230,6 @@ public class CaseInves implements Serializable {
 
     public void setFacts(String Facts) {
         this.Facts = Facts;
-    }
-
-    public byte[] getDiscipline() {
-        return Discipline;
-    }
-
-    public void setDiscipline(byte[] Discipline) {
-        this.Discipline = Discipline;
     }
 
     public Integer getOrgan() {
@@ -381,8 +396,78 @@ public class CaseInves implements Serializable {
         return DisTypeX;
     }
 
-    public void setDisTypeX(Integer disTypeX) {
-        DisTypeX = disTypeX;
+    public void setDisTypeX(Integer DisTypeX) {
+        this.DisTypeX = DisTypeX;
+    }
+
+    public byte[] getDiscipline() {
+        return Discipline;
+    }
+
+    public void setDiscipline(byte[] Discipline) {
+        this.Discipline = Discipline;
+    }
+
+    /** To-one relationship, resolved on first access. */
+    @Generated
+    public MultiDictionaries getMultiDictionaries() {
+        byte[] __key = this.Discipline;
+        if (multiDictionaries__resolvedKey == null || multiDictionaries__resolvedKey != __key) {
+            __throwIfDetached();
+            MultiDictionariesDao targetDao = daoSession.getMultiDictionariesDao();
+            MultiDictionaries multiDictionariesNew = targetDao.load(__key);
+            synchronized (this) {
+                multiDictionaries = multiDictionariesNew;
+            	multiDictionaries__resolvedKey = __key;
+            }
+        }
+        return multiDictionaries;
+    }
+
+    @Generated
+    public void setMultiDictionaries(MultiDictionaries multiDictionaries) {
+        synchronized (this) {
+            this.multiDictionaries = multiDictionaries;
+            Discipline = multiDictionaries == null ? null : multiDictionaries.getID();
+            multiDictionaries__resolvedKey = Discipline;
+        }
+    }
+
+    /**
+    * Convenient call for {@link org.greenrobot.greendao.AbstractDao#delete(Object)}.
+    * Entity must attached to an entity context.
+    */
+    @Generated
+    public void delete() {
+        __throwIfDetached();
+        myDao.delete(this);
+    }
+
+    /**
+    * Convenient call for {@link org.greenrobot.greendao.AbstractDao#update(Object)}.
+    * Entity must attached to an entity context.
+    */
+    @Generated
+    public void update() {
+        __throwIfDetached();
+        myDao.update(this);
+    }
+
+    /**
+    * Convenient call for {@link org.greenrobot.greendao.AbstractDao#refresh(Object)}.
+    * Entity must attached to an entity context.
+    */
+    @Generated
+    public void refresh() {
+        __throwIfDetached();
+        myDao.refresh(this);
+    }
+
+    @Generated
+    private void __throwIfDetached() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
     }
 
     // KEEP METHODS - put your custom methods here
@@ -404,28 +489,32 @@ public class CaseInves implements Serializable {
                 ", IsOfficer=" + IsOfficer +
                 ", IsPartyMember=" + IsPartyMember +
                 ", Facts='" + Facts + '\'' +
-                ", Discipline=" + Arrays.toString(Discipline) +
                 ", Organ=" + Organ +
-                ", PutTime=" + PutTime +
-                ", OutTime=" + OutTime +
+                ", PutTime='" + PutTime + '\'' +
+                ", OutTime='" + OutTime + '\'' +
                 ", SurveyContent='" + SurveyContent + '\'' +
                 ", DisTypeD=" + DisTypeD +
                 ", Note='" + Note + '\'' +
                 ", AnnexIDStr=" + Arrays.toString(AnnexIDStr) +
                 ", isDelete=" + isDelete +
-                ", AddDate=" + AddDate +
+                ", AddDate='" + AddDate + '\'' +
                 ", AddUser='" + AddUser + '\'' +
-                ", UpdateDate=" + UpdateDate +
+                ", UpdateDate='" + UpdateDate + '\'' +
                 ", UpdateUser='" + UpdateUser + '\'' +
                 ", PoliticsStatus='" + PoliticsStatus + '\'' +
                 ", Organization=" + Organization +
                 ", Xiansou=" + Xiansou +
-                ", ShouTime=" + ShouTime +
+                ", ShouTime='" + ShouTime + '\'' +
                 ", Trail='" + Trail + '\'' +
                 ", Description='" + Description + '\'' +
-                ", ChuheTime=" + ChuheTime +
-                ", LiaojieTime=" + LiaojieTime +
+                ", ChuheTime='" + ChuheTime + '\'' +
+                ", LiaojieTime='" + LiaojieTime + '\'' +
                 ", DisTypeX=" + DisTypeX +
+                ", Discipline=" + Arrays.toString(Discipline) +
+                ", daoSession=" + daoSession +
+                ", myDao=" + myDao +
+                ", multiDictionaries=" + (multiDictionaries==null?"null":multiDictionaries.toString()) +
+                ", multiDictionaries__resolvedKey=" + Arrays.toString(multiDictionaries__resolvedKey) +
                 '}';
     }
 }

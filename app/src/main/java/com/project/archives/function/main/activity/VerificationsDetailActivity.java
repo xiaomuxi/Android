@@ -67,7 +67,7 @@ public class VerificationsDetailActivity extends AppCompatActivity {
         tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, takingTime));
         tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan())));//Organ
         tv_ljjl.setText(StringUtils.getLiaoJieResult(item.getTakingResult()));
-        tv_zzclqk.setText(getResources().getString(R.string.txt_zzclqk, StringUtils.getResultSituationByNumber(item.getResultSituation())));
+        tv_zzclqk.setText(getResources().getString(R.string.txt_zzclqk, StringUtils.getResultSituationByNumber(item.getResultSituation() == null ? -1 : item.getResultSituation())));
         tv_xsgs.setText(StringUtils.isEmpty(item.getTrail())?"--":item.getTrail());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getClues())?"--": item.getClues());
         tv_note.setText(StringUtils.isEmpty(item.getNote())?"--": item.getNote());

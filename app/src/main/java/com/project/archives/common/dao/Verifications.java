@@ -1,8 +1,10 @@
 package com.project.archives.common.dao;
 
+import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.ToOne;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -15,8 +17,8 @@ import java.util.Arrays;
 /**
  * Entity mapped to table "VERIFICATIONS".
  */
-@Entity
-public class Verifications implements Serializable {
+@Entity(active = true)
+public class Verifications implements Serializable{
 
     @Id
     private byte[] ID;
@@ -28,7 +30,6 @@ public class Verifications implements Serializable {
     private Integer Coding;
     private Integer IsObject;
     private Integer IsOfficer;
-    private byte[] Discipline;
     private Integer Organ;
     private String VerificTime;
     private String TakingTime;
@@ -46,11 +47,26 @@ public class Verifications implements Serializable {
     private Integer objectSource;
     private String ProcessTime;
     private String Trail;
+    private byte[] Discipline;
+
+    /** Used to resolve relations */
+    @Generated
+    private transient DaoSession daoSession;
+
+    /** Used for active entity operations. */
+    @Generated
+    private transient VerificationsDao myDao;
+
+    @ToOne(joinProperty = "Discipline")
+    private MultiDictionaries multiDictionaries;
+
+    @Generated
+    private transient byte[] multiDictionaries__resolvedKey;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
 
-    @Generated(hash = 485589158)
+    @Generated
     public Verifications() {
     }
 
@@ -58,7 +74,7 @@ public class Verifications implements Serializable {
         this.ID = ID;
     }
 
-    @Generated(hash = 1184866260)
+    @Generated
     public Verifications(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, Integer Coding, Integer IsObject, Integer IsOfficer, byte[] Discipline, Integer Organ, String VerificTime, String TakingTime, String Clues, String VerificResult, Integer TakingResult, Integer ResultSituation, String Note, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, Integer objectSource, String ProcessTime, String Trail) {
         this.ID = ID;
         this.UserID = UserID;
@@ -69,7 +85,6 @@ public class Verifications implements Serializable {
         this.Coding = Coding;
         this.IsObject = IsObject;
         this.IsOfficer = IsOfficer;
-        this.Discipline = Discipline;
         this.Organ = Organ;
         this.VerificTime = VerificTime;
         this.TakingTime = TakingTime;
@@ -87,6 +102,14 @@ public class Verifications implements Serializable {
         this.objectSource = objectSource;
         this.ProcessTime = ProcessTime;
         this.Trail = Trail;
+        this.Discipline = Discipline;
+    }
+
+    /** called by internal mechanisms, do not call yourself. */
+    @Generated
+    public void __setDaoSession(DaoSession daoSession) {
+        this.daoSession = daoSession;
+        myDao = daoSession != null ? daoSession.getVerificationsDao() : null;
     }
 
     public byte[] getID() {
@@ -159,14 +182,6 @@ public class Verifications implements Serializable {
 
     public void setIsOfficer(Integer IsOfficer) {
         this.IsOfficer = IsOfficer;
-    }
-
-    public byte[] getDiscipline() {
-        return Discipline;
-    }
-
-    public void setDiscipline(byte[] Discipline) {
-        this.Discipline = Discipline;
     }
 
     public Integer getOrgan() {
@@ -305,6 +320,76 @@ public class Verifications implements Serializable {
         this.Trail = Trail;
     }
 
+    public byte[] getDiscipline() {
+        return Discipline;
+    }
+
+    public void setDiscipline(byte[] Discipline) {
+        this.Discipline = Discipline;
+    }
+
+    /** To-one relationship, resolved on first access. */
+    @Generated
+    public MultiDictionaries getMultiDictionaries() {
+        byte[] __key = this.Discipline;
+        if (multiDictionaries__resolvedKey == null || multiDictionaries__resolvedKey != __key) {
+            __throwIfDetached();
+            MultiDictionariesDao targetDao = daoSession.getMultiDictionariesDao();
+            MultiDictionaries multiDictionariesNew = targetDao.load(__key);
+            synchronized (this) {
+                multiDictionaries = multiDictionariesNew;
+            	multiDictionaries__resolvedKey = __key;
+            }
+        }
+        return multiDictionaries;
+    }
+
+    @Generated
+    public void setMultiDictionaries(MultiDictionaries multiDictionaries) {
+        synchronized (this) {
+            this.multiDictionaries = multiDictionaries;
+            Discipline = multiDictionaries == null ? null : multiDictionaries.getID();
+            multiDictionaries__resolvedKey = Discipline;
+        }
+    }
+
+    /**
+    * Convenient call for {@link org.greenrobot.greendao.AbstractDao#delete(Object)}.
+    * Entity must attached to an entity context.
+    */
+    @Generated
+    public void delete() {
+        __throwIfDetached();
+        myDao.delete(this);
+    }
+
+    /**
+    * Convenient call for {@link org.greenrobot.greendao.AbstractDao#update(Object)}.
+    * Entity must attached to an entity context.
+    */
+    @Generated
+    public void update() {
+        __throwIfDetached();
+        myDao.update(this);
+    }
+
+    /**
+    * Convenient call for {@link org.greenrobot.greendao.AbstractDao#refresh(Object)}.
+    * Entity must attached to an entity context.
+    */
+    @Generated
+    public void refresh() {
+        __throwIfDetached();
+        myDao.refresh(this);
+    }
+
+    @Generated
+    private void __throwIfDetached() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
+    }
+
     // KEEP METHODS - put your custom methods here
     // KEEP METHODS END
 
@@ -320,10 +405,9 @@ public class Verifications implements Serializable {
                 ", Coding=" + Coding +
                 ", IsObject=" + IsObject +
                 ", IsOfficer=" + IsOfficer +
-                ", Discipline=" + Arrays.toString(Discipline) +
                 ", Organ=" + Organ +
-                ", VerificTime=" + VerificTime +
-                ", TakingTime=" + TakingTime +
+                ", VerificTime='" + VerificTime + '\'' +
+                ", TakingTime='" + TakingTime + '\'' +
                 ", Clues='" + Clues + '\'' +
                 ", VerificResult='" + VerificResult + '\'' +
                 ", TakingResult=" + TakingResult +
@@ -331,13 +415,18 @@ public class Verifications implements Serializable {
                 ", Note='" + Note + '\'' +
                 ", AnnexIDStr=" + Arrays.toString(AnnexIDStr) +
                 ", isDelete=" + isDelete +
-                ", AddDate=" + AddDate +
+                ", AddDate='" + AddDate + '\'' +
                 ", AddUser='" + AddUser + '\'' +
-                ", UpdateDate=" + UpdateDate +
+                ", UpdateDate='" + UpdateDate + '\'' +
                 ", UpdateUser='" + UpdateUser + '\'' +
                 ", objectSource=" + objectSource +
-                ", ProcessTime=" + ProcessTime +
+                ", ProcessTime='" + ProcessTime + '\'' +
                 ", Trail='" + Trail + '\'' +
+                ", Discipline=" + Arrays.toString(Discipline) +
+                ", daoSession=" + daoSession +
+                ", myDao=" + myDao +
+                ", multiDictionaries=" + multiDictionaries +
+                ", multiDictionaries__resolvedKey=" + Arrays.toString(multiDictionaries__resolvedKey) +
                 '}';
     }
 }

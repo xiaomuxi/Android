@@ -300,8 +300,6 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     }
 
     public String getCompany() {
-
-        System.out.println("----------"+company_index);
         if (company_index == 0) {
             return null;
         }

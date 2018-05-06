@@ -61,12 +61,12 @@ public class VerificationsDetailActivity extends AppCompatActivity {
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
         tv_gwy.setText(getResources().getString(R.string.txt_gwy, item.getIsOfficer()==1?"是":"否"));
         tv_jcdx.setText(getResources().getString(R.string.txt_jcdx, item.getIsObject() == 1?"是":"否"));
-        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource())));//Xiansuo
+        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource()==null?-1:item.getObjectSource())));//Xiansuo
         tv_slsj.setText(getResources().getString(R.string.txt_slsj, verificationTime));
         tv_chsj.setText(getResources().getString(R.string.txt_chsj, processTime));
         tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, takingTime));
-        tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan())));//Organ
-        tv_ljjl.setText(StringUtils.getLiaoJieResult(item.getTakingResult()));
+        tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan()==null?-1:item.getOrgan())));//Organ
+        tv_ljjl.setText(StringUtils.getLiaoJieResult(item.getTakingResult()==null?-1:item.getTakingResult()));
         tv_zzclqk.setText(getResources().getString(R.string.txt_zzclqk, StringUtils.getResultSituationByNumber(item.getResultSituation() == null ? -1 : item.getResultSituation())));
         tv_xsgs.setText(StringUtils.isEmpty(item.getTrail())?"--":item.getTrail());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getClues())?"--": item.getClues());

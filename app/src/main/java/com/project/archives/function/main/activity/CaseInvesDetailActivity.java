@@ -63,15 +63,15 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
         tv_renda.setText(getResources().getString(R.string.txt_renda, item.getIsPcongress() == 1 ? "是" : "否"));
         tv_zzmm.setText(getResources().getString(R.string.txt_zzmm, StringUtils.isEmpty(item.getPoliticsStatus())?"--": item.getPoliticsStatus()));
         tv_jcdx.setText(getResources().getString(R.string.txt_jcdx, item.getIsObject() == 1?"是":"否"));
-        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getXiansou())));//Xiansuo
+        tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getXiansou()==null?-1:item.getXiansou())));//Xiansuo
         tv_slsj.setText(getResources().getString(R.string.txt_slsj, shouTime));
         tv_chsj.setText(getResources().getString(R.string.txt_chsj, chuheTime));
         tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, liaojieTime));
         tv_wjxw.setText("--");
-        tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan())));//Organ
-        tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, StringUtils.getResultSituationByNumber(item.getOrganization())));//Organization
-        tv_dncf.setText(getResources().getString(R.string.txt_dncf, StringUtils.getDangjiByNumber(item.getDisTypeD())));//DisTypeD
-        tv_xzcf.setText(getResources().getString(R.string.txt_xzcf, StringUtils.getZhengjiByNumber(item.getDisTypeX())));//DisTypeX
+        tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan()==null?-1:item.getOrgan())));//Organ
+        tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, StringUtils.getResultSituationByNumber(item.getOrganization()==null?-1:item.getOrganization())));//Organization
+        tv_dncf.setText(getResources().getString(R.string.txt_dncf, StringUtils.getDangjiByNumber(item.getDisTypeD()==null?-1:item.getDisTypeD())));//DisTypeD
+        tv_xzcf.setText(getResources().getString(R.string.txt_xzcf, StringUtils.getZhengjiByNumber(item.getDisTypeX()==null?-1:item.getDisTypeX())));//DisTypeX
         tv_xsgs.setText(StringUtils.isEmpty(item.getTrail())?"--":item.getTrail());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getDescription())?"--": item.getDescription());
         tv_wjss.setText(StringUtils.isEmpty(item.getFacts())?"--": item.getFacts());

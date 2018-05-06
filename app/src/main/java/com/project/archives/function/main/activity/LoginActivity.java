@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
+import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
 
 /**
@@ -92,28 +93,28 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private void toLogin() {
 
-        startActivity(new Intent(mContext, HomeActivity.class));
-        finish();
+//        startActivity(new Intent(mContext, HomeActivity.class));
+//        finish();
 
-//        if (!checkInsert()) {
-//            return;
-//        }
-//
-//        showDialog("正在登录中...");
-//        new Handler().postDelayed(new Runnable(){
-//            public void run() {
-//                hideDialog();
-//                String account = et_account.getText().toString().trim();
-//                String password = et_password.getText().toString().trim();
-//                if ( StringUtils.equals(account, "admin") && StringUtils.equals(password, "123456")) {
-//                    startActivity(new Intent(mContext, HomeActivity.class));
-//                    finish();
-//                    return;
-//                }
-//
-//                UIUtils.showToastSafe("账号密码错误！");
-//            }
-//        }, 1000);
+        if (!checkInsert()) {
+            return;
+        }
+
+        showDialog("正在登录中...");
+        UIUtils.postDelayed(new Runnable(){
+            public void run() {
+                hideDialog();
+                String account = et_account.getText().toString().trim();
+                String password = et_password.getText().toString().trim();
+                if ( StringUtils.equals(account, "admin") && StringUtils.equals(password, "123456")) {
+                    startActivity(new Intent(mContext, HomeActivity.class));
+                    finish();
+                    return;
+                }
+
+                UIUtils.showToastSafe("账号密码错误！");
+            }
+        }, 1000);
     }
 }
 

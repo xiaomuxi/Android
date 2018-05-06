@@ -1,13 +1,13 @@
 package com.project.archives.function.company.activity;
 
 import android.app.DatePickerDialog;
-import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jayfang.dropdownmenu.DropDownMenu;
-import com.jayfang.dropdownmenu.OnMenuSelectedListener;
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
@@ -36,15 +35,18 @@ import com.project.archives.function.company.fragment.CompanyLettersFragment;
 import com.project.archives.function.company.fragment.CompanyVerificationsFragment;
 import com.project.archives.function.company.fragment.CompanyZancunsFragment;
 
+import org.angmarch.views.NiceSpinner;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -53,18 +55,17 @@ import java.util.Map;
  * Created by inrokei on 2018/5/4.
  */
 
-public class CompanyActivity extends BaseActivity implements OnMenuSelectedListener, View.OnClickListener{
+public class CompanyActivity extends BaseActivity implements View.OnClickListener{
 
     private int company_type_index = 0 ;
-    private int compay_index = 0;
+    private int company_index = 0;
     private String[] companyTypeArr=new String[]{"全部单位类型", "党群部门", "行政部门", "街镇", "区管企业", "区管事业单位", "人大政协半、法院检察院"};
     private String[] companyArr=new String[]{"全部单位"};
-    final String[] strings=new String[]{"选择单位类型","选择单位"};
     private DropDownMenu mMenu;
 
     private EditText et_start;
     private EditText et_end;
-    private Button btn_reset, btn_search_time;
+    private Button btn_reset;
     private ViewPager viewPager;
     private FragmentManager mFragmentManager;
     private int mPrePosition;
@@ -81,6 +82,8 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
     private DatePicker startDatePicker, endDatePicker;
 
     private OrderPagerAdapter pagerAdapter;
+
+    private NiceSpinner ns_company_type, ns_company;
 
     @Override
     protected void init() {
@@ -101,18 +104,53 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         EventBus.getDefault().register(this);
         mFragmentManager = getSupportFragmentManager();
 
-        mMenu = (DropDownMenu) findViewById(R.id.menu);
+        ns_company_type = (NiceSpinner) findViewById(R.id.ns_company_type);
+        ns_company = (NiceSpinner) findViewById(R.id.ns_company);
+
         et_start = (EditText) findViewById(R.id.et_start);
         et_end = (EditText) findViewById(R.id.et_end);
         btn_reset = (Button) findViewById(R.id.btn_reset);
-        btn_search_time = (Button) findViewById(R.id.btn_search_time);
 
         et_start.setOnClickListener(this);
         et_end.setOnClickListener(this);
         btn_reset.setOnClickListener(this);
-        btn_search_time.setOnClickListener(this);
+        ns_company_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                company_type_index = position;
+                company_index = 0;
+                initCompany();
+                initCount();
+                List<String> comapnys = new LinkedList<>(Arrays.asList(companyArr));
+                ns_company.attachDataSource(comapnys);
+            }
 
-        initSelectMenu();
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                LogUtils.i(TAG, "onNothingSelected--type-");
+            }
+        });
+        ns_company.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                company_index = position;
+                initCompany();
+
+                initCount();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                LogUtils.i(TAG, "onNothingSelected---");
+            }
+        });
+
+        initCompany();
+        List<String> comapnytypes = new LinkedList<>(Arrays.asList(companyTypeArr));
+        List<String> comapnys = new LinkedList<>(Arrays.asList(companyArr));
+        ns_company_type.attachDataSource(comapnytypes);
+        ns_company.attachDataSource(comapnys);
+
         initDatePickerAndDialog();
         initViewPgaer();
     }
@@ -138,6 +176,7 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
                 }
 
                 et_start.setText(startDate);
+                initCount();
             }
         }, startYear, startMonth, startDay);
 
@@ -151,8 +190,9 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
                 }
 
                 et_end.setText(endDate);
+                initCount();
             }
-        }, startYear, startMonth, startDay);
+        }, endYear, endMonth, endDay);
 
 
         startDatePicker = startDatePickerDialog.getDatePicker();
@@ -162,38 +202,6 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         endDatePicker.setMaxDate(new Date().getTime());
     }
 
-    public void initSelectMenu() {
-        mMenu.setmMenuCount(2);
-        mMenu.setShowCheck(true);
-        mMenu.setmMenuTitleTextSize(16);
-        mMenu.setmMenuTitleTextColor(Color.parseColor("#777777"));
-        mMenu.setmMenuListTextSize(16);
-        mMenu.setmMenuListTextColor(Color.BLACK);
-        mMenu.setmMenuBackColor(Color.WHITE);
-        mMenu.setmMenuPressedBackColor(Color.WHITE);
-        mMenu.setmMenuPressedTitleTextColor(Color.BLACK);
-
-        mMenu.setmCheckIcon(R.drawable.ico_make);
-
-        mMenu.setmUpArrow(R.drawable.arrow_up);
-        mMenu.setmDownArrow(R.drawable.arrow_down);
-
-        mMenu.setDefaultMenuTitle(strings);
-
-
-        mMenu.setShowDivider(false);
-        mMenu.setmMenuListBackColor(getResources().getColor(R.color.white));
-        mMenu.setmMenuListSelectorRes(R.color.white);
-        mMenu.setmArrowMarginTitle(20);
-
-        mMenu.setMenuSelectedListener(this);
-        initCompany();
-        List<String[]> items = new ArrayList<>();
-        items.add(companyTypeArr);
-        items.add(companyArr);
-        mMenu.setmMenuItems(items);
-        mMenu.setIsDebug(false);
-    }
 
     private void initCompany() {
         List<String> companyList = UsersManager.getInstance().getAllCompany(company_type_index);
@@ -206,20 +214,6 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         }
 
         companyArr = newCompanyList.toArray(new String[0]);
-    }
-
-
-    @Override
-    public void onSelected(View view, int RowIndex, int ColumnIndex) {
-        if (ColumnIndex == 0) {
-            company_type_index = RowIndex;
-//            mMenu.set
-//            initCompany();
-
-        } else {
-            compay_index = RowIndex;
-            initCount();
-        }
     }
 
     private void initCount() {
@@ -239,14 +233,12 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
         loadingFragment.show();
     }
 
-    private void initCurrentFragmentData() {
-
-    }
-
     public void resetDate() {
         startDate = "";
         endDate = "";
-        startDatePickerDialog.getDatePicker();
+        startDatePickerDialog.getDatePicker().updateDate(startYear, startMonth, startDay);
+        endDatePickerDialog.getDatePicker().updateDate(endYear, endMonth, endDay);
+
         et_start.setText(startDate);
         et_end.setText(endDate);
 
@@ -308,10 +300,12 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
     }
 
     public String getCompany() {
-        if (compay_index == 0) {
+
+        System.out.println("----------"+company_index);
+        if (company_index == 0) {
             return null;
         }
-        return companyArr[compay_index];
+        return companyArr[company_index];
     }
 
     public String getStartDate() {
@@ -461,9 +455,6 @@ public class CompanyActivity extends BaseActivity implements OnMenuSelectedListe
                 break;
             case R.id.btn_reset:
                 resetDate();
-                break;
-            case R.id.btn_search_time:
-                initCount();
                 break;
         }
     }

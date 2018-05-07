@@ -45,7 +45,8 @@
             android:id="@+id/et_start"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_15"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingRight="@dimen/dimen_15"
             android:editable="false"
             android:gravity="center"
             android:layout_weight="1"
@@ -67,7 +68,8 @@
             android:id="@+id/et_end"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_15"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingRight="@dimen/dimen_15"
             android:gravity="center"
             android:editable="false"
             android:layout_weight="1"
@@ -89,6 +91,19 @@
             android:textSize="@dimen/sp_14"/>
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_qingkuangshuoming1"
+        android:background="@color/bg_white"
+        android:paddingLeft="@dimen/dimen_8"
+        android:paddingRight="@dimen/dimen_8"
+        android:textSize="@dimen/sp_12"
+        android:textColor="@color/text_black"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.1dp"

@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:drawablePadding="@dimen/dimen_8"
-            android:drawableTop="@drawable/home_moneysearchbutton"
+            android:drawableTop="@drawable/person"
             android:text="个人查询"
             android:textSize="@dimen/sp_15"
             android:textColor="@color/text_black"/>
@@ -30,7 +30,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:drawablePadding="@dimen/dimen_8"
-            android:drawableTop="@drawable/home_moneysearchbutton"
+            android:drawableTop="@drawable/company"
             android:text="单位查询"
             android:textSize="@dimen/sp_15"
             android:textColor="@color/text_black"/>
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:drawablePadding="@dimen/dimen_8"
-            android:drawableTop="@drawable/home_moneysearchbutton"
+            android:drawableTop="@drawable/age"
             android:text="年龄查询"
             android:textSize="@dimen/sp_15"
             android:textColor="@color/text_black"/>
@@ -52,7 +52,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:drawablePadding="@dimen/dimen_8"
-            android:drawableTop="@drawable/home_moneysearchbutton"
+            android:drawableTop="@drawable/type"
             android:text="问题查询"
             android:textSize="@dimen/sp_15"
             android:textColor="@color/text_black"/>

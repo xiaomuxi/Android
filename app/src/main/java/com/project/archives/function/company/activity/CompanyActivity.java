@@ -80,6 +80,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     private int endYear, endMonth, endDay;
     private String startDate, endDate;
     private DatePicker startDatePicker, endDatePicker;
+    private TextView tv_qingkuangshuoming;
 
     private OrderPagerAdapter pagerAdapter;
 
@@ -111,6 +112,8 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         et_end = (EditText) findViewById(R.id.et_end);
         btn_reset = (Button) findViewById(R.id.btn_reset);
 
+        tv_qingkuangshuoming = (TextView) findViewById(R.id.tv_qingkuangshuoming);
+
         et_start.setOnClickListener(this);
         et_end.setOnClickListener(this);
         btn_reset.setOnClickListener(this);
@@ -121,6 +124,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
                 company_index = 0;
                 initCompany();
                 initCount();
+                initQKSM();
                 List<String> comapnys = new LinkedList<>(Arrays.asList(companyArr));
                 ns_company.attachDataSource(comapnys);
             }
@@ -137,6 +141,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
                 initCompany();
 
                 initCount();
+                initQKSM();
             }
 
             @Override
@@ -150,6 +155,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         List<String> comapnys = new LinkedList<>(Arrays.asList(companyArr));
         ns_company_type.attachDataSource(comapnytypes);
         ns_company.attachDataSource(comapnys);
+        initQKSM();
 
         initDatePickerAndDialog();
         initViewPgaer();
@@ -229,8 +235,27 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         tv_endings.setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
         tv_zancuns.setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
 
+
         BaseLoadingFragment loadingFragment = (BaseLoadingFragment) pagerAdapter.getItem(viewPager.getCurrentItem());
         loadingFragment.show();
+    }
+
+    private void initQKSM() {
+        String company = company_index == 0 ? "" : companyArr[company_index];
+        long ganbuCount = UsersManager.getInstance().getQuGuanGanBuCount(company, company_type_index);
+        long dangDaiBiaoCount = UsersManager.getInstance().getDangDaiBiaoCount(company, company_type_index);
+        long quweiCount = UsersManager.getInstance().getQuWeiWeiYuanCount(company, company_type_index);
+        long jiWeiCount = UsersManager.getInstance().getJiWeiCount(company, company_type_index);
+        long renDaCount = UsersManager.getInstance().getRenDaCount(company, company_type_index);
+        long zhengXieCount = UsersManager.getInstance().getZhengXieCount(company, company_type_index);
+        long nvRenCount = UsersManager.getInstance().getNvRenCount(company, company_type_index);
+        long notHanZuCount = UsersManager.getInstance().getNotHanZuCount(company, company_type_index);
+
+        String head = companyTypeArr[company_type_index] + "  " + company;
+
+        tv_qingkuangshuoming.setText(getResources().getString(R.string.txt_qingkuangshuoming1, head, String.valueOf(ganbuCount),
+                String.valueOf(dangDaiBiaoCount), String.valueOf(quweiCount), String.valueOf(jiWeiCount), String.valueOf(renDaCount),
+                String.valueOf(zhengXieCount), String.valueOf(nvRenCount), String.valueOf(notHanZuCount)));
     }
 
     public void resetDate() {

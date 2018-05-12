@@ -61,7 +61,7 @@ public class LettersDetailActivity extends AppCompatActivity {
         tv_slsj.setText(getResources().getString(R.string.txt_slsj, letterTime));
         tv_wjxw.setText("--");
         tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan()==null?-1:item.getOrgan())));//Organ
-        tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, StringUtils.getTrueResultByNumber(item.getTrueDegree()==null?-1:item.getTrueDegree())));//Organization
+        tv_zzcl.setText(getResources().getString(R.string.txt_zzclqk, StringUtils.getTrueResultByNumber(item.getTrueDegree()==null?-1:item.getTrueDegree())));//Organization
         tv_xsgs.setText(StringUtils.isEmpty(item.getKeyWord())?"--":item.getKeyWord());
         tv_wtxsms.setText(StringUtils.isEmpty(item.getLetterContent())?"--": item.getLetterContent());
         tv_cljg.setText(StringUtils.isEmpty(item.getResult())?"--": item.getResult());

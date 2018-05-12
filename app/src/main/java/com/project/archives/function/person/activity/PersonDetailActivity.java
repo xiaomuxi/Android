@@ -19,7 +19,7 @@ import com.project.archives.common.utils.StringUtils;
  * Created by inrokei on 2018/5/5.
  */
 
-public class PersonDetailActivity extends BaseActivity{
+public class PersonDetailActivity extends BaseActivity implements View.OnClickListener{
 
     private TextView tv_caseinves, tv_verifications, tv_letters, tv_endings, tv_zancuns;
 
@@ -92,19 +92,11 @@ public class PersonDetailActivity extends BaseActivity{
         tv_nimianzhiwu = (TextView) findViewById(R.id.tv_nimianzhiwu);
         tv_jianli = (TextView) findViewById(R.id.tv_jianli);
 
-        ll_problem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, PersonProblemListActivity.class);
-                intent.putExtra("caseinves_count", caseinvesCount);
-                intent.putExtra("verifications_count", verificationsCount);
-                intent.putExtra("letters_count", lettersCount);
-                intent.putExtra("endings_count", endingsCount);
-                intent.putExtra("zancuns_count", zancunsCount);
-                intent.putExtra("name", item.getRealName());
-                startActivity(intent);
-            }
-        });
+        tv_caseinves.setOnClickListener(this);
+        tv_verifications.setOnClickListener(this);
+        tv_letters.setOnClickListener(this);
+        tv_endings.setOnClickListener(this);
+        tv_zancuns.setOnClickListener(this);
 
         initData();
         initCount();
@@ -161,5 +153,38 @@ public class PersonDetailActivity extends BaseActivity{
         tv_school2.setText(school2);
         tv_xianrenzhiwu.setText(xianrenzhiwu);
         tv_jianli.setText(jianli);
+    }
+
+    public void goToProblemListActivity(int currentIndex) {
+        Intent intent = new Intent(mContext, PersonProblemListActivity.class);
+        intent.putExtra("caseinves_count", caseinvesCount);
+        intent.putExtra("verifications_count", verificationsCount);
+        intent.putExtra("letters_count", lettersCount);
+        intent.putExtra("endings_count", endingsCount);
+        intent.putExtra("zancuns_count", zancunsCount);
+        intent.putExtra("name", item.getRealName());
+        intent.putExtra("currentIndex", currentIndex);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_caseinves:
+                goToProblemListActivity(0);
+                break;
+            case R.id.tv_verifications:
+                goToProblemListActivity(1);
+                break;
+            case R.id.tv_letters:
+                goToProblemListActivity(2);
+                break;
+            case R.id.tv_endings:
+                goToProblemListActivity(3);
+                break;
+            case R.id.tv_zancuns:
+                goToProblemListActivity(4);
+                break;
+        }
     }
 }

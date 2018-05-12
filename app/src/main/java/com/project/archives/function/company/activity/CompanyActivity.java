@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.jayfang.dropdownmenu.DropDownMenu;
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
@@ -61,7 +60,6 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     private int company_index = 0;
     private String[] companyTypeArr=new String[]{"全部单位类型", "党群部门", "行政部门", "街镇", "区管企业", "区管事业单位", "人大政协半、法院检察院"};
     private String[] companyArr=new String[]{"全部单位"};
-    private DropDownMenu mMenu;
 
     private EditText et_start;
     private EditText et_end;

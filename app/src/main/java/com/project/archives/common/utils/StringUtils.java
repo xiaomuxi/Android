@@ -475,19 +475,19 @@ public class StringUtils {
         String result = "--";
         switch (number) {
             case 1:
-                result = "属实";
+                result = "失时";
                 break;
             case 2:
-                result = "基本属实";
+                result = "部分属实适当处理";
                 break;
             case 3:
-                result = "部分属实";
+                result = "转初核";
                 break;
             case 4:
-                result = "不实";
+                result = "转立案";
                 break;
             case 5:
-                result = "存结无调查结论";
+                result = "其他";
                 break;
         }
 

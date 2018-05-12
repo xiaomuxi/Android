@@ -45,6 +45,7 @@ public class PersonProblemListActivity extends BaseActivity {
     private long endingsCount = 0;
     private long zancunsCount = 0;
     private String name = "";
+    private int initIndex = 0;
     @Override
     protected void init() {
         super.init();
@@ -55,6 +56,7 @@ public class PersonProblemListActivity extends BaseActivity {
         endingsCount = (long) getIntent().getLongExtra("endings_count", 0);
         zancunsCount = (long) getIntent().getLongExtra("zancuns_count", 0);
         name = (String) getIntent().getStringExtra("name");
+        initIndex = (int) getIntent().getIntExtra("currentIndex", 0);
     }
 
     @Override
@@ -111,7 +113,25 @@ public class PersonProblemListActivity extends BaseActivity {
         OrderPagerAdapter pagerAdapter = new OrderPagerAdapter(mFragmentManager);
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(mPageChangeListener);
-        tv_caseinves.setSelected(true);
+        viewPager.setCurrentItem(initIndex);
+//        switch (initIndex) {
+//            case 0:
+//                viewPager.setCurrentItem();
+////                tv_caseinves.setSelected(true);
+//                break;
+//            case 1:
+//                tv_verifications.setSelected(true);
+//                break;
+//            case 2:
+//                tv_letters.setSelected(true);
+//                break;
+//            case 3:
+//                tv_endings.setSelected(true);
+//                break;
+//            case 4:
+//                tv_zancuns.setSelected(true);
+//                break;
+//        }
     }
 
     /**

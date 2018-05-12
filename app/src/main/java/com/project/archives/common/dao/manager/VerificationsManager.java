@@ -34,12 +34,6 @@ public class VerificationsManager {
         return verificationsDao.count();
     }
 
-//    public long getCountByQuery(Date startTime, Date endTime) {
-//        QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
-//        queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
-//
-//        return queryBuilder.buildCount().count();
-//    }
     public long getCountByQuery(String company, String startTime, String endTime) {
         QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
 
@@ -94,7 +88,7 @@ public class VerificationsManager {
         return queryBuilder.list();
     }
 
-    public List<Verifications> getVerificationListByNameAndTakingResult(String name, String takingResult) {
+    public List<Verifications> getVerificationListByNameTakingResultAndResultSituation(String name, String takingResult, int resultSituation) {
 
         QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
         if (!StringUtils.isEmpty(name)) {
@@ -103,6 +97,10 @@ public class VerificationsManager {
 
         if (!StringUtils.isEmpty(takingResult)) {
             queryBuilder.where(VerificationsDao.Properties.TakingResult.eq(takingResult));
+        }
+
+        if (resultSituation != 0) {
+            queryBuilder.where(VerificationsDao.Properties.ResultSituation.eq(resultSituation));
         }
 
         queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);

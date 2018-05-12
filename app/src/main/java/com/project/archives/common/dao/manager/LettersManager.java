@@ -89,7 +89,7 @@ public class LettersManager {
         return queryBuilder.list();
     }
 
-    public List<Letters> getLetterListByNameAndTrueDegree(String userName, String trueDegree) {
+    public List<Letters> getLetterListByNameTrueDegreeAndResultSituation(String userName, String trueDegree, int resultSituation) {
 
         QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
         if (!StringUtils.isEmpty(userName)) {
@@ -98,6 +98,10 @@ public class LettersManager {
 
         if (!StringUtils.isEmpty(trueDegree)) {
             queryBuilder.where(LettersDao.Properties.TrueDegree.eq(trueDegree));
+        }
+
+        if (resultSituation != 0) {
+            queryBuilder.where(LettersDao.Properties.ResultSituation.eq(resultSituation));
         }
 
         queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);

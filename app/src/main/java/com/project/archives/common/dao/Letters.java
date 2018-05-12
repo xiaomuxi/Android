@@ -34,7 +34,7 @@ public class Letters implements Serializable {
     private String SurveyContent;
     private Integer TrueDegree;
     private String Result;
-    private byte[] ResultSituation;
+    private Integer ResultSituation;
     private String Note;
     private Integer Organ;
     private byte[] AnnexIDStr;
@@ -57,7 +57,7 @@ public class Letters implements Serializable {
     }
 
     @Generated(hash = 1473081817)
-    public Letters(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, String IdCard, String Number, String LetterTime, String KeyWord, byte[] Problem, String LetterContent, String SurveyContent, Integer TrueDegree, String Result, byte[] ResultSituation, String Note, Integer Organ, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, Integer objectSource) {
+    public Letters(byte[] ID, byte[] UserID, String Name, String Init, String Position, Integer Rank, String IdCard, String Number, String LetterTime, String KeyWord, byte[] Problem, String LetterContent, String SurveyContent, Integer TrueDegree, String Result, Integer ResultSituation, String Note, Integer Organ, byte[] AnnexIDStr, Integer isDelete, String AddDate, String AddUser, String UpdateDate, String UpdateUser, Integer objectSource) {
         this.ID = ID;
         this.UserID = UserID;
         this.Name = Name;
@@ -205,11 +205,11 @@ public class Letters implements Serializable {
         this.Result = Result;
     }
 
-    public byte[] getResultSituation() {
+    public Integer getResultSituation() {
         return ResultSituation;
     }
 
-    public void setResultSituation(byte[] ResultSituation) {
+    public void setResultSituation(Integer ResultSituation) {
         this.ResultSituation = ResultSituation;
     }
 
@@ -306,7 +306,7 @@ public class Letters implements Serializable {
                 ", SurveyContent='" + SurveyContent + '\'' +
                 ", TrueDegree=" + TrueDegree +
                 ", Result='" + Result + '\'' +
-                ", ResultSituation=" + Arrays.toString(ResultSituation) +
+                ", ResultSituation=" + ResultSituation +
                 ", Note='" + Note + '\'' +
                 ", Organ=" + Organ +
                 ", AnnexIDStr=" + Arrays.toString(AnnexIDStr) +

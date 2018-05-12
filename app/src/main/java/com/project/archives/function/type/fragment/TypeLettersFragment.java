@@ -1,14 +1,13 @@
 package com.project.archives.function.type.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.jayfang.dropdownmenu.DropDownMenu;
 import com.jayfang.dropdownmenu.OnMenuSelectedListener;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
@@ -18,9 +17,12 @@ import com.project.archives.common.dao.manager.LettersManager;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.main.adapter.LettersListAdapter;
 
+import org.angmarch.views.NiceSpinner;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -37,11 +39,15 @@ public class TypeLettersFragment extends BaseActivityFragment implements OnMenuS
     private EditText et_search;
     private TextView tv_empty;
 
-    private String[] trueDegreeArr = new String[]{"全部类型", "属实", "基本属实", "部分属实", "不实", "存结无调查结论"};
-    final String[] strings = new String[]{"请选择处理情况类型"};
-    private DropDownMenu mMenu;
+    private String[] trueDegreeArr = new String[]{"全部处理情况", "失实", "部分属实适当处理", "转初核", "转立案", "其他"};
+    private String[] situationArr = new String[]{"全部组织处理类型", "通报批评", "解聘", "辞退", "调整岗位", "免职",
+            "取消预备党员资格", "取消荣誉称号", "诫勉谈话", "停职", "公开道歉", "引咎辞职", "责令辞职",
+            "其他组织处理", "不实澄清", "提醒谈话"};
+    private String[] situationEmptyArr = new String[]{"全部组织处理类型"};
+    private NiceSpinner ns_true_degree, ns_handle_situation;
 
     private int trueDegreeIndex = 0;
+    private int resultSituationIndex = 0;
 
     @Override
     protected View setContentView() {
@@ -59,12 +65,43 @@ public class TypeLettersFragment extends BaseActivityFragment implements OnMenuS
         btn_search = (Button) view.findViewById(R.id.btn_search);
         et_search = (EditText) view.findViewById(R.id.et_search);
         tv_empty = (TextView) view.findViewById(R.id.tv_empty);
-        mMenu = (DropDownMenu) view.findViewById(R.id.menu);
+        ns_true_degree = (NiceSpinner) view.findViewById(R.id.ns_true_degree);
+        ns_handle_situation = (NiceSpinner) view.findViewById(R.id.ns_handle_situation);
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 initData();
+            }
+        });
+
+        ns_true_degree.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                trueDegreeIndex = position;
+                resultSituationIndex = 0;
+
+                List<String> situations = new LinkedList<>(Arrays.asList(position == 2 ? situationArr : situationEmptyArr));
+                ns_handle_situation.attachDataSource(situations);
+
+                initData();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        ns_handle_situation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                resultSituationIndex = position;
+                initData();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -80,34 +117,10 @@ public class TypeLettersFragment extends BaseActivityFragment implements OnMenuS
     }
 
     public void initSelectMenu() {
-        mMenu.setmMenuCount(1);
-        mMenu.setShowCheck(true);
-        mMenu.setmMenuTitleTextSize(16);
-        mMenu.setmMenuTitleTextColor(Color.parseColor("#777777"));
-        mMenu.setmMenuListTextSize(16);
-        mMenu.setmMenuListTextColor(Color.BLACK);
-        mMenu.setmMenuBackColor(Color.WHITE);
-        mMenu.setmMenuPressedBackColor(Color.WHITE);
-        mMenu.setmMenuPressedTitleTextColor(Color.BLACK);
-
-        mMenu.setmCheckIcon(R.drawable.ico_make);
-
-        mMenu.setmUpArrow(R.drawable.arrow_up);
-        mMenu.setmDownArrow(R.drawable.arrow_down);
-
-        mMenu.setDefaultMenuTitle(strings);
-
-
-        mMenu.setShowDivider(false);
-        mMenu.setmMenuListBackColor(getResources().getColor(R.color.white));
-        mMenu.setmMenuListSelectorRes(R.color.white);
-        mMenu.setmArrowMarginTitle(20);
-
-        mMenu.setMenuSelectedListener(this);
-        List<String[]> items = new ArrayList<>();
-        items.add(trueDegreeArr);
-        mMenu.setmMenuItems(items);
-        mMenu.setIsDebug(false);
+        List<String> takingResult = new LinkedList<>(Arrays.asList(trueDegreeArr));
+        List<String> situation = new LinkedList<>(Arrays.asList(situationEmptyArr));
+        ns_true_degree.attachDataSource(takingResult);
+        ns_handle_situation.attachDataSource(situation);
     }
 
 
@@ -116,7 +129,7 @@ public class TypeLettersFragment extends BaseActivityFragment implements OnMenuS
         String name = et_search.getText().toString().trim();
         String trueDegreeResult = trueDegreeIndex == 0 ? null : String.valueOf(trueDegreeIndex);
 
-        list = LettersManager.getInstance().getLetterListByNameAndTrueDegree(name, trueDegreeResult);
+        list = LettersManager.getInstance().getLetterListByNameTrueDegreeAndResultSituation(name, trueDegreeResult, resultSituationIndex);
         UIUtils.postDelayed(new Runnable(){
             public void run() {
                 checkData();

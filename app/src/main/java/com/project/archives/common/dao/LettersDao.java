@@ -37,7 +37,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         public final static Property SurveyContent = new Property(12, String.class, "SurveyContent", false, "SurveyContent");
         public final static Property TrueDegree = new Property(13, Integer.class, "TrueDegree", false, "TrueDegree");
         public final static Property Result = new Property(14, String.class, "Result", false, "Result");
-        public final static Property ResultSituation = new Property(15, byte[].class, "ResultSituation", false, "ResultSituation");
+        public final static Property ResultSituation = new Property(15, Integer.class, "ResultSituation", false, "ResultSituation");
         public final static Property Note = new Property(16, String.class, "Note", false, "Note");
         public final static Property Organ = new Property(17, Integer.class, "Organ", false, "Organ");
         public final static Property AnnexIDStr = new Property(18, byte[].class, "AnnexIDStr", false, "AnnexIDStr");
@@ -77,7 +77,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
                 "\"SurveyContent\" TEXT," + // 12: SurveyContent
                 "\"TrueDegree\" INTEGER," + // 13: TrueDegree
                 "\"Result\" TEXT," + // 14: Result
-                "\"ResultSituation\" BLOB," + // 15: ResultSituation
+                "\"ResultSituation\" INTEGER," + // 15: ResultSituation
                 "\"Note\" TEXT," + // 16: Note
                 "\"Organ\" INTEGER," + // 17: Organ
                 "\"AnnexIDStr\" BLOB," + // 18: AnnexIDStr
@@ -173,10 +173,10 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         if (Result != null) {
             stmt.bindString(15, Result);
         }
- 
-        byte[] ResultSituation = entity.getResultSituation();
+
+        Integer ResultSituation = entity.getResultSituation();
         if (ResultSituation != null) {
-            stmt.bindBlob(16, ResultSituation);
+            stmt.bindLong(16, ResultSituation);
         }
  
         String Note = entity.getNote();
@@ -303,10 +303,10 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         if (Result != null) {
             stmt.bindString(15, Result);
         }
- 
-        byte[] ResultSituation = entity.getResultSituation();
+
+        Integer ResultSituation = entity.getResultSituation();
         if (ResultSituation != null) {
-            stmt.bindBlob(16, ResultSituation);
+            stmt.bindLong(16, ResultSituation);
         }
  
         String Note = entity.getNote();
@@ -378,7 +378,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
             cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), // SurveyContent
             cursor.isNull(offset + 13) ? null : cursor.getInt(offset + 13), // TrueDegree
             cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14), // Result
-            cursor.isNull(offset + 15) ? null : cursor.getBlob(offset + 15), // ResultSituation
+            cursor.isNull(offset + 15) ? null : cursor.getInt(offset + 15), // ResultSituation
             cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16), // Note
             cursor.isNull(offset + 17) ? null : cursor.getInt(offset + 17), // Organ
             cursor.isNull(offset + 18) ? null : cursor.getBlob(offset + 18), // AnnexIDStr
@@ -409,7 +409,7 @@ public class LettersDao extends AbstractDao<Letters, byte[]> {
         entity.setSurveyContent(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
         entity.setTrueDegree(cursor.isNull(offset + 13) ? null : cursor.getInt(offset + 13));
         entity.setResult(cursor.isNull(offset + 14) ? null : cursor.getString(offset + 14));
-        entity.setResultSituation(cursor.isNull(offset + 15) ? null : cursor.getBlob(offset + 15));
+        entity.setResultSituation(cursor.isNull(offset + 15) ? null : cursor.getInt(offset + 15));
         entity.setNote(cursor.isNull(offset + 16) ? null : cursor.getString(offset + 16));
         entity.setOrgan(cursor.isNull(offset + 17) ? null : cursor.getInt(offset + 17));
         entity.setAnnexIDStr(cursor.isNull(offset + 18) ? null : cursor.getBlob(offset + 18));

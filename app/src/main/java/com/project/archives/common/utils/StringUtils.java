@@ -475,7 +475,7 @@ public class StringUtils {
         String result = "--";
         switch (number) {
             case 1:
-                result = "失时";
+                result = "失实";
                 break;
             case 2:
                 result = "部分属实适当处理";

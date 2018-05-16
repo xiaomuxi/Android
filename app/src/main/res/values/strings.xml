@@ -65,5 +65,8 @@
     <string name="txt_liaojie_result">了结结论：%s</string>
     <string name="txt_qingkuangshuoming1">情况说明：截止2018年5月07日，%1$s （单位／系统） 共有区管干部（在职）%2$s人，其中党代表%3$s人，区委委员%4$s人，纪委%5$s人，人大代表%6$s人，政协委员%7$s人，女干部%8$s人，少数民族%9$s人</string>
     <string name="txt_qingkuangshuoming2">该单位人员中，未收到问题线索4人；目前，处分类0人；初步核实0人；谈话函询0人，了结1人；暂存0人；廉政意见0人</string>
+    <string name="txt_jys">建议书：%s</string>
+    <string name="txt_yjsf">移交司法：%s</string>
+    <string name="txt_bxgd">八项规定：%s</string>
 
 </resources>

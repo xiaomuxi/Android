@@ -21,7 +21,7 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
     TextView tv_name, tv_zhiji, tv_danwei, tv_zhiwu, tv_dang, tv_renda,
             tv_zzmm, tv_jcdx, tv_xsly, tv_slsj, tv_chsj,tv_ljsj,
             tv_wjxw, tv_bljg, tv_zzcl, tv_dncf, tv_xzcf, tv_xsgs,
-            tv_wtxsms, tv_wjss, tv_dxclyj, tv_note;
+            tv_wtxsms, tv_wjss, tv_dxclyj, tv_note, tv_jys, tv_bxgd, tv_yjsf;
 
 
     @Override
@@ -67,6 +67,9 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
         tv_slsj.setText(getResources().getString(R.string.txt_slsj, shouTime));
         tv_chsj.setText(getResources().getString(R.string.txt_chsj, chuheTime));
         tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, liaojieTime));
+        tv_jys.setText(getResources().getString(R.string.txt_jys, "是"));
+        tv_bxgd.setText(getResources().getString(R.string.txt_bxgd, "否"));
+        tv_yjsf.setText(getResources().getString(R.string.txt_yjsf, "否"));
         tv_wjxw.setText("--");
         tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan()==null?-1:item.getOrgan())));//Organ
         tv_zzcl.setText(getResources().getString(R.string.txt_zzcl, StringUtils.getResultSituationByNumber(item.getOrganization()==null?-1:item.getOrganization())));//Organization
@@ -103,6 +106,9 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
         tv_wjss = (TextView) findViewById(R.id.tv_wjss);
         tv_dxclyj = (TextView) findViewById(R.id.tv_dxclyj);
         tv_note = (TextView) findViewById(R.id.tv_note);
+        tv_jys = (TextView) findViewById(R.id.tv_jys);
+        tv_bxgd = (TextView) findViewById(R.id.tv_bxgd);
+        tv_yjsf = (TextView) findViewById(R.id.tv_yjsf);
     }
 
 }

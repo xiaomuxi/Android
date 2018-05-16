@@ -20,7 +20,7 @@ public class LettersDetailActivity extends AppCompatActivity {
     Letters item;
     TextView tv_name, tv_zhiji, tv_danwei, tv_zhiwu, tv_xsly, tv_slsj,
             tv_wjxw, tv_bljg, tv_zzcl, tv_xsgs, tv_ljsj,
-            tv_wtxsms, tv_cljg, tv_note;
+            tv_wtxsms, tv_cljg, tv_note, tv_jys, tv_bxgd;
 
 
     @Override
@@ -57,6 +57,8 @@ public class LettersDetailActivity extends AppCompatActivity {
         tv_zhiji.setText(getResources().getString(R.string.txt_zhiji, StringUtils.getLevelByNumber(rank)));
         tv_danwei.setText(StringUtils.isEmpty(item.getInit())?"--":item.getInit());
         tv_zhiwu.setText(StringUtils.isEmpty(item.getPosition())?"--":item.getPosition());
+        tv_jys.setText(getResources().getString(R.string.txt_jys, "是"));
+        tv_bxgd.setText(getResources().getString(R.string.txt_bxgd, "否"));
         tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource()==null?-1:item.getObjectSource())));//Xiansuo
         tv_slsj.setText(getResources().getString(R.string.txt_slsj, letterTime));
         tv_wjxw.setText("--");
@@ -84,5 +86,7 @@ public class LettersDetailActivity extends AppCompatActivity {
         tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
         tv_cljg = (TextView) findViewById(R.id.tv_cljg);
         tv_note = (TextView) findViewById(R.id.tv_note);
+        tv_jys = (TextView) findViewById(R.id.tv_jys);
+        tv_bxgd = (TextView) findViewById(R.id.tv_bxgd);
     }
 }

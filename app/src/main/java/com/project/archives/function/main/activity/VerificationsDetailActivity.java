@@ -21,7 +21,7 @@ public class VerificationsDetailActivity extends AppCompatActivity {
     Verifications item;
     TextView tv_name, tv_zhiji, tv_danwei, tv_zhiwu, tv_gwy, tv_jcdx,
           tv_xsly, tv_slsj, tv_chsj, tv_ljsj, tv_ljjl, tv_bljg, tv_zzclqk,
-            tv_xsgs, tv_wtxsms, tv_note;
+            tv_xsgs, tv_wtxsms, tv_note, tv_jys, tv_bxgd;
 
 
     @Override
@@ -65,6 +65,8 @@ public class VerificationsDetailActivity extends AppCompatActivity {
         tv_slsj.setText(getResources().getString(R.string.txt_slsj, verificationTime));
         tv_chsj.setText(getResources().getString(R.string.txt_chsj, processTime));
         tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, takingTime));
+        tv_jys.setText(getResources().getString(R.string.txt_jys, "是"));
+        tv_bxgd.setText(getResources().getString(R.string.txt_bxgd, "否"));
         tv_bljg.setText(getResources().getString(R.string.txt_bljg, StringUtils.getOrganByNumber(item.getOrgan()==null?-1:item.getOrgan())));//Organ
         tv_ljjl.setText(StringUtils.getLiaoJieResult(item.getTakingResult()==null?-1:item.getTakingResult()));
         tv_zzclqk.setText(getResources().getString(R.string.txt_zzclqk, StringUtils.getResultSituationByNumber(item.getResultSituation() == null ? -1 : item.getResultSituation())));
@@ -91,6 +93,8 @@ public class VerificationsDetailActivity extends AppCompatActivity {
         tv_xsgs = (TextView) findViewById(R.id.tv_xsgs);
         tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
         tv_note = (TextView) findViewById(R.id.tv_note);
+        tv_jys = (TextView) findViewById(R.id.tv_jys);
+        tv_bxgd = (TextView) findViewById(R.id.tv_bxgd);
     }
 
 }

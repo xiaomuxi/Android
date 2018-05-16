@@ -34,12 +34,24 @@ public class EndingsManager {
         return endingsDao.count();
     }
 
-//    public long getCountByQuery(Date startTime, Date endTime) {
-//        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
-//        queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime), EndingsDao.Properties.AddDate.le(endTime));
-//
-//        return queryBuilder.buildCount().count();
-//    }
+    public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
+        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
+
+        if (companys != null) {
+            queryBuilder.where(EndingsDao.Properties.Init.in(companys));
+        }
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime), EndingsDao.Properties.AddDate.le(endTime));
+        }
+        else if (!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime));
+        }
+        else if (!StringUtils.isEmpty(endTime)){
+            queryBuilder.where(EndingsDao.Properties.AddDate.le(endTime));
+        }
+
+        return queryBuilder.buildCount().count();
+    }
 
     public long getCountByQuery(String company, String startTime, String endTime) {
         QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
@@ -68,6 +80,32 @@ public class EndingsManager {
 
         return endingsDao.queryBuilder().where(EndingsDao.Properties.Name.eq(name)).buildCount().count();
 
+    }
+
+    public List<Endings> getEndingListWithCompanys(String userName, List<String> companyNames, String startTime, String endTime) {
+
+        QueryBuilder<Endings> queryBuilder = endingsDao.queryBuilder();
+        if (!StringUtils.isEmpty(userName)) {
+            queryBuilder.where(EndingsDao.Properties.Name.eq(userName));
+        }
+
+        if (companyNames != null) {
+            queryBuilder.where(EndingsDao.Properties.Init.in(companyNames));
+        }
+
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime), EndingsDao.Properties.AddDate.le(endTime));
+        }
+        else if(!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(EndingsDao.Properties.AddDate.ge(startTime));
+        }
+        else if(!StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(EndingsDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
+
+        return queryBuilder.list();
     }
 
     public List<Endings> getEndingList(String userName, String companyName, String startTime, String endTime) {

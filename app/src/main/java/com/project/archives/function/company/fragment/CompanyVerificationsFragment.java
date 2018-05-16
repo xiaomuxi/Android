@@ -53,11 +53,11 @@ public class CompanyVerificationsFragment extends BaseLoadingFragment{
     private void initData() {
 
         CompanyActivity companyActivity = (CompanyActivity) mContext;
-        String company = companyActivity.getCompany();
+        List<String> companys = companyActivity.getCompany();
         String startTime = companyActivity.getStartDate();
         String endTime = companyActivity.getEndDate();
 
-        list = VerificationsManager.getInstance().getVerificationList(null, company, startTime, endTime);
+        list = VerificationsManager.getInstance().getVerificationListWithCompanys(null, companys, startTime, endTime);
 
         UIUtils.postDelayed(new Runnable(){
             public void run() {

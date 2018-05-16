@@ -52,10 +52,10 @@ public class CompanyLettersFragment extends BaseLoadingFragment {
 
     private void initData() {
         CompanyActivity companyActivity = (CompanyActivity) mContext;
-        String company = companyActivity.getCompany();
+        List<String> companys = companyActivity.getCompany();
         String startTime = companyActivity.getStartDate();
         String endTime = companyActivity.getEndDate();
-        list = LettersManager.getInstance().getLetterList(null, company, startTime, endTime);
+        list = LettersManager.getInstance().getLetterListWithCompanys(null, companys, startTime, endTime);
         UIUtils.postDelayed(new Runnable(){
             public void run() {
                 show(check(list));

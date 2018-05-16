@@ -18,6 +18,8 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.project.archives.R.drawable.company;
+
 /**
  * Created by inrokei on 2018/5/1.
  */
@@ -52,11 +54,11 @@ public class CompanyEndingsFragment extends BaseLoadingFragment {
 
     private void initData() {
         CompanyActivity companyActivity = (CompanyActivity) mContext;
-        String company = companyActivity.getCompany();
+        List<String> companys = companyActivity.getCompany();
         String startTime = companyActivity.getStartDate();
         String endTime = companyActivity.getEndDate();
 
-        list = EndingsManager.getInstance().getEndingList(null, company, startTime, endTime);
+        list = EndingsManager.getInstance().getEndingListWithCompanys(null, companys, startTime, endTime);
         UIUtils.postDelayed(new Runnable(){
             public void run() {
                 show(check(list));

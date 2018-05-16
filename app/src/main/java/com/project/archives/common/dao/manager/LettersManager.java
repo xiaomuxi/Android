@@ -34,6 +34,25 @@ public class LettersManager {
         return lettersDao.count();
     }
 
+    public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
+        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
+
+        if (companys != null) {
+            queryBuilder.where(LettersDao.Properties.Init.in(companys));
+        }
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
+        }
+        else if (!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime));
+        }
+        else if (!StringUtils.isEmpty(endTime)){
+            queryBuilder.where(LettersDao.Properties.AddDate.le(endTime));
+        }
+
+        return queryBuilder.buildCount().count();
+    }
+
     public long getCountByQuery(String company, String startTime, String endTime) {
         QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
 
@@ -61,6 +80,32 @@ public class LettersManager {
 
         return lettersDao.queryBuilder().where(LettersDao.Properties.Name.eq(name)).buildCount().count();
 
+    }
+
+    public List<Letters> getLetterListWithCompanys(String userName, List<String> companyNames, String startTime, String endTime) {
+
+        QueryBuilder<Letters> queryBuilder = lettersDao.queryBuilder();
+        if (!StringUtils.isEmpty(userName)) {
+            queryBuilder.where(LettersDao.Properties.Name.eq(userName));
+        }
+
+        if (companyNames != null) {
+            queryBuilder.where(LettersDao.Properties.Init.in(companyNames));
+        }
+
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime), LettersDao.Properties.AddDate.le(endTime));
+        }
+        else if(!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(LettersDao.Properties.AddDate.ge(startTime));
+        }
+        else if(!StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(LettersDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
+
+        return queryBuilder.list();
     }
 
     public List<Letters> getLetterList(String userName, String companyName, String startTime, String endTime) {

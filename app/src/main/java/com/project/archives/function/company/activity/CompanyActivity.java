@@ -123,8 +123,8 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
                 initCompany();
                 initCount();
                 initQKSM();
-                List<String> comapnys = new LinkedList<>(Arrays.asList(companyArr));
-                ns_company.attachDataSource(comapnys);
+                List<String> companys = new LinkedList<>(Arrays.asList(companyArr));
+                ns_company.attachDataSource(companys);
             }
 
             @Override
@@ -150,9 +150,9 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
 
         initCompany();
         List<String> comapnytypes = new LinkedList<>(Arrays.asList(companyTypeArr));
-        List<String> comapnys = new LinkedList<>(Arrays.asList(companyArr));
+        List<String> companys = new LinkedList<>(Arrays.asList(companyArr));
         ns_company_type.attachDataSource(comapnytypes);
-        ns_company.attachDataSource(comapnys);
+        ns_company.attachDataSource(companys);
         initQKSM();
 
         initDatePickerAndDialog();
@@ -221,11 +221,11 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void initCount() {
-        long caseinvesCount = CaseInvesManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
-        long verificationsCount = VerificationsManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
-        long lettersCount = LettersManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
-        long endingsCount = EndingsManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
-        long zancunsCount = ZancunsManager.getInstance().getCountByQuery(getCompany(), startDate, endDate);
+        long caseinvesCount = CaseInvesManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
+        long verificationsCount = VerificationsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
+        long lettersCount = LettersManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
+        long endingsCount = EndingsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
+        long zancunsCount = ZancunsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
 
         tv_caseinves.setText(getResources().getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
         tv_verifications.setText(getResources().getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
@@ -322,11 +322,20 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         tv_caseinves.setSelected(true);
     }
 
-    public String getCompany() {
-        if (company_index == 0) {
+    public List<String> getCompany() {
+        if (company_type_index == 0 && company_index == 0) {
             return null;
         }
-        return companyArr[company_index];
+        List<String> companys = new ArrayList<>();
+        if (company_index != 0) {
+            companys.add(companyArr[company_index]);
+        }
+        else {
+            companys = new ArrayList<>(Arrays.asList(companyArr));
+            companys.remove(0);
+        }
+
+        return companys;
     }
 
     public String getStartDate() {

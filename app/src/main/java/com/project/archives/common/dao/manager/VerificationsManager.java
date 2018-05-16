@@ -34,6 +34,25 @@ public class VerificationsManager {
         return verificationsDao.count();
     }
 
+    public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
+        QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
+
+        if (companys != null) {
+            queryBuilder.where(VerificationsDao.Properties.Init.in(companys));
+        }
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
+        }
+        else if (!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime));
+        }
+        else if (!StringUtils.isEmpty(endTime)){
+            queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
+        }
+
+        return queryBuilder.buildCount().count();
+    }
+
     public long getCountByQuery(String company, String startTime, String endTime) {
         QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
 
@@ -53,6 +72,7 @@ public class VerificationsManager {
         return queryBuilder.buildCount().count();
     }
 
+
     public long getCountByName(String name) {
         if (StringUtils.isEmpty(name)) {
             return 0;
@@ -60,6 +80,32 @@ public class VerificationsManager {
 
         return verificationsDao.queryBuilder().where(VerificationsDao.Properties.Name.eq(name)).buildCount().count();
 
+    }
+
+    public List<Verifications> getVerificationListWithCompanys(String userName, List<String> companyNames, String startTime, String endTime) {
+
+        QueryBuilder<Verifications> queryBuilder = verificationsDao.queryBuilder();
+        if (!StringUtils.isEmpty(userName)) {
+            queryBuilder.where(VerificationsDao.Properties.Name.eq(userName));
+        }
+
+        if (companyNames != null) {
+            queryBuilder.where(VerificationsDao.Properties.Init.in(companyNames));
+        }
+
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime), VerificationsDao.Properties.AddDate.le(endTime));
+        }
+        else if(!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(VerificationsDao.Properties.AddDate.ge(startTime));
+        }
+        else if(!StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
+
+        return queryBuilder.list();
     }
 
     public List<Verifications> getVerificationList(String userName, String companyName, String startTime, String endTime) {

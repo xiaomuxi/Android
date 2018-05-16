@@ -53,11 +53,12 @@ public class CompanyCaseInvesFragment extends BaseLoadingFragment{
 
     public void initData() {
         CompanyActivity companyActivity = (CompanyActivity) mContext;
-        String company = companyActivity.getCompany();
+        List<String> companys = companyActivity.getCompany();
+
         String startTime = companyActivity.getStartDate();
         String endTime = companyActivity.getEndDate();
 
-        list = CaseInvesManager.getInstance().getCaseInvesList(null, company, startTime, endTime);
+        list = CaseInvesManager.getInstance().getCaseInvesListWithCompanys(null, companys, startTime, endTime);
         UIUtils.postDelayed(new Runnable(){
             public void run() {
                 show(check(list));

@@ -43,6 +43,26 @@ public class CaseInvesManager {
 
     }
 
+    public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
+
+        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
+
+        if (companys != null) {
+            queryBuilder.where(CaseInvesDao.Properties.Init.in(companys));
+        }
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(startTime), CaseInvesDao.Properties.AddDate.le(endTime));
+        }
+        else if (!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(startTime));
+        }
+        else if (!StringUtils.isEmpty(endTime)){
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.le(endTime));
+        }
+
+        return queryBuilder.buildCount().count();
+    }
+
     public long getCountByQuery(String company, String startTime, String endTime) {
 
         QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
@@ -61,6 +81,32 @@ public class CaseInvesManager {
         }
 
         return queryBuilder.buildCount().count();
+    }
+
+    public List<CaseInves> getCaseInvesListWithCompanys(String userName, List<String> companyNames, String startTime, String endTime) {
+
+        QueryBuilder<CaseInves> queryBuilder = caseInvesDao.queryBuilder();
+        if (!StringUtils.isEmpty(userName)) {
+            queryBuilder.where(CaseInvesDao.Properties.Name.eq(userName));
+        }
+
+        if (companyNames != null) {
+            queryBuilder.where(CaseInvesDao.Properties.Init.in(companyNames));
+        }
+
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(startTime), CaseInvesDao.Properties.AddDate.le(endTime));
+        }
+        else if(!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.ge(startTime));
+        }
+        else if(!StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(CaseInvesDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
+
+        return queryBuilder.list();
     }
 
     public List<CaseInves> getCaseInvesList(String userName, String companyName, String startTime, String endTime) {

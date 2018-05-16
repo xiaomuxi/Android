@@ -35,12 +35,25 @@ public class ZancunsManager {
         return zancunsDao.count();
     }
 
-//    public long getCountByQuery(Date startTime, Date endTime) {
-//        QueryBuilder<Zancuns> queryBuilder = zancunsDao.queryBuilder();
-//        queryBuilder.where(ZancunsDao.Properties.AddDate.ge(startTime), ZancunsDao.Properties.AddDate.le(endTime));
-//
-//        return queryBuilder.buildCount().count();
-//    }
+    public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
+        QueryBuilder<Zancuns> queryBuilder = zancunsDao.queryBuilder();
+
+        if (companys != null) {
+            queryBuilder.where(ZancunsDao.Properties.Init.in(companys));
+        }
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(ZancunsDao.Properties.AddDate.ge(startTime), ZancunsDao.Properties.AddDate.le(endTime));
+        }
+        else if (!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(ZancunsDao.Properties.AddDate.ge(startTime));
+        }
+        else if (!StringUtils.isEmpty(endTime)){
+            queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
+        }
+
+        return queryBuilder.buildCount().count();
+    }
+
     public long getCountByQuery(String company, String startTime, String endTime) {
         QueryBuilder<Zancuns> queryBuilder = zancunsDao.queryBuilder();
 
@@ -67,6 +80,31 @@ public class ZancunsManager {
 
         return zancunsDao.queryBuilder().where(ZancunsDao.Properties.Name.eq(name)).buildCount().count();
 
+    }
+
+    public List<Zancuns> getZancunListWithCompanys(String userName, List<String> companyNames, String startTime, String endTime) {
+
+        QueryBuilder<Zancuns> queryBuilder = zancunsDao.queryBuilder();
+        if (!StringUtils.isEmpty(userName)) {
+            queryBuilder.where(ZancunsDao.Properties.Name.eq(userName));
+        }
+
+        if (companyNames != null) {
+            queryBuilder.where(ZancunsDao.Properties.Init.in(companyNames));
+        }
+
+        if (!StringUtils.isEmpty(startTime) && !StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(ZancunsDao.Properties.AddDate.ge(startTime), ZancunsDao.Properties.AddDate.le(endTime));
+        }
+        else if(!StringUtils.isEmpty(startTime)) {
+            queryBuilder.where(ZancunsDao.Properties.AddDate.ge(startTime));
+        }
+        else if(!StringUtils.isEmpty(endTime)) {
+            queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
+        }
+
+        queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
+        return queryBuilder.build().list();
     }
 
     public List<Zancuns> getZancunList(String userName, String companyName, String startTime, String endTime) {

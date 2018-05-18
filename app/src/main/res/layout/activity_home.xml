@@ -63,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_10"
-        android:text="近3个月各案件审理量"
+        android:text="近3个月数据量"
         android:textSize="@dimen/dimen_15"
         android:textColor="@color/text_black"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:background="@color/bg_main_white"
         android:padding="@dimen/dimen_10"
-        android:text="年度各案件审理量"
+        android:text="年度数据量"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/text_black"
         android:textSize="@dimen/dimen_15" />

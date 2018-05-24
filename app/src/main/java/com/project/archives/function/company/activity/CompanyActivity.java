@@ -1,17 +1,17 @@
 package com.project.archives.function.company.activity;
 
 import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.project.archives.R;
@@ -21,6 +21,7 @@ import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.manager.CaseInvesManager;
 import com.project.archives.common.dao.manager.EndingsManager;
+import com.project.archives.common.dao.manager.GiftsHandsManager;
 import com.project.archives.common.dao.manager.LettersManager;
 import com.project.archives.common.dao.manager.UsersManager;
 import com.project.archives.common.dao.manager.VerificationsManager;
@@ -30,6 +31,7 @@ import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.company.fragment.CompanyCaseInvesFragment;
 import com.project.archives.function.company.fragment.CompanyEndingsFragment;
+import com.project.archives.function.company.fragment.CompanyGiftsFragment;
 import com.project.archives.function.company.fragment.CompanyLettersFragment;
 import com.project.archives.function.company.fragment.CompanyVerificationsFragment;
 import com.project.archives.function.company.fragment.CompanyZancunsFragment;
@@ -65,11 +67,6 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     private EditText et_end;
     private Button btn_reset;
     private ViewPager viewPager;
-    private FragmentManager mFragmentManager;
-    private int mPrePosition;
-    private LinearLayout ll_list;
-    private TextView tv_caseinves, tv_verifications,
-            tv_letters, tv_endings, tv_zancuns;
 
     private Calendar mCalendar;
     private DatePickerDialog startDatePickerDialog;
@@ -80,9 +77,11 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     private DatePicker startDatePicker, endDatePicker;
     private TextView tv_qingkuangshuoming;
 
-    private OrderPagerAdapter pagerAdapter;
-
     private NiceSpinner ns_company_type, ns_company;
+    private TabLayout tl_bar;
+    private List<String> tabIndicators;
+    private final String[] indicators = new String[]{"处分类", "初核类", "函询类", "了结类", "暂存类", "三礼上交"};
+    private ContentPagerAdapter contentAdapter;
 
     @Override
     protected void init() {
@@ -101,7 +100,6 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     protected void initView() {
         super.initView();
         EventBus.getDefault().register(this);
-        mFragmentManager = getSupportFragmentManager();
 
         ns_company_type = (NiceSpinner) findViewById(R.id.ns_company_type);
         ns_company = (NiceSpinner) findViewById(R.id.ns_company);
@@ -156,9 +154,22 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         initQKSM();
 
         initDatePickerAndDialog();
-        initViewPgaer();
+        initViewPager();
+        initTab();
     }
 
+    private void initTab(){
+        tabIndicators = Arrays.asList(indicators);
+        tl_bar = (TabLayout) findViewById(R.id.tl_bar);
+        tl_bar.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tl_bar.setTabTextColors(Color.parseColor("#999999"), Color.parseColor("#267cfc"));
+        tl_bar.setSelectedTabIndicatorColor(Color.parseColor("#267cfc"));
+        ViewCompat.setElevation(tl_bar, 10);
+        tl_bar.setupWithViewPager(viewPager);
+
+        contentAdapter = new ContentPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(contentAdapter);
+    }
 
     private void initDatePickerAndDialog() {
         mCalendar = Calendar.getInstance();
@@ -226,15 +237,17 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         long lettersCount = LettersManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
         long endingsCount = EndingsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
         long zancunsCount = ZancunsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
+        long giftHandsCount = GiftsHandsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
 
-        tv_caseinves.setText(getResources().getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
-        tv_verifications.setText(getResources().getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
-        tv_letters.setText(getResources().getString(R.string.list_letters_title, String.valueOf(lettersCount)));
-        tv_endings.setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
-        tv_zancuns.setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
+        tl_bar.getTabAt(0).setText(getResources().getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
+        tl_bar.getTabAt(1).setText(getResources().getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
+        tl_bar.getTabAt(2).setText(getResources().getString(R.string.list_letters_title, String.valueOf(lettersCount)));
+        tl_bar.getTabAt(3).setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
+        tl_bar.getTabAt(4).setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
+        tl_bar.getTabAt(5).setText(getResources().getString(R.string.list_gift_title, String.valueOf(giftHandsCount)));
 
 
-        BaseLoadingFragment loadingFragment = (BaseLoadingFragment) pagerAdapter.getItem(viewPager.getCurrentItem());
+        BaseLoadingFragment loadingFragment = (BaseLoadingFragment) contentAdapter.getItem(viewPager.getCurrentItem());
         loadingFragment.show();
     }
 
@@ -282,44 +295,17 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         return true;
     }
 
-    private void initViewPgaer() {
+    private void initViewPager() {
 
-        ll_list = (LinearLayout) findViewById(R.id.ll_list);
         viewPager = (ViewPager) findViewById(R.id.vp_list);
-        tv_caseinves = (TextView) findViewById(R.id.tv_caseinves);
-        tv_verifications = (TextView) findViewById(R.id.tv_verifications);
-        tv_letters = (TextView) findViewById(R.id.tv_letters);
-        tv_endings = (TextView) findViewById(R.id.tv_endings);
-        tv_zancuns = (TextView) findViewById(R.id.tv_zancuns);
-
-        tv_caseinves.setText(getResources()
-                .getString(R.string.list_caseinves_title, "0"));
-        tv_verifications.setText(getResources()
-                .getString(R.string.list_verifications_title, "0"));
-        tv_letters.setText(getResources()
-                .getString(R.string.list_letters_title, "0"));
-        tv_endings.setText(getResources()
-                .getString(R.string.list_endings_title, "0"));
-        tv_zancuns.setText(getResources()
-                .getString(R.string.list_zancuns_title, "0"));
-
-
-        tv_caseinves.setOnClickListener(mClickListener);
-        tv_verifications.setOnClickListener(mClickListener);
-        tv_letters.setOnClickListener(mClickListener);
-        tv_endings.setOnClickListener(mClickListener);
-        tv_zancuns.setOnClickListener(mClickListener);
-
 
         FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
         FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
         FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
-        pagerAdapter = new OrderPagerAdapter(mFragmentManager);
-        viewPager.setAdapter(pagerAdapter);
+        FragmentFactory.createFragment(FragmentFactory.TAB_GIFT);
         viewPager.addOnPageChangeListener(mPageChangeListener);
-        tv_caseinves.setSelected(true);
     }
 
     public List<String> getCompany() {
@@ -354,7 +340,8 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         public static final int TAB_VERIFICATIONS = 1; // 初步核实
         public static final int TAB_LETTERS = 2; // 函询
         public static final int TAB_ENDINGS = 3;// 了结
-        public static final int TAB_ZANCUNS = 4 ;
+        public static final int TAB_ZANCUNS = 4 ;// 暂存
+        public static final int TAB_GIFT = 5; // 三礼上交
 
         //记录所有的fragment，防止重复创建
         public static final Map<Integer, BaseActivityFragment> mFragmentMap = new HashMap<>();
@@ -383,37 +370,16 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
                     case TAB_ZANCUNS:
                         fragment = new CompanyZancunsFragment();
                         break;
+                    //三礼上交
+                    case TAB_GIFT:
+                        fragment = new CompanyGiftsFragment();
+                        break;
                     default:
                         break;
                 }
                 mFragmentMap.put(index, fragment);
             }
             return fragment;
-        }
-    }
-
-    /**
-     * ViewPager的适配器
-     */
-    public class OrderPagerAdapter extends FragmentPagerAdapter {
-
-        public OrderPagerAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-        }
-
-        @Override
-        public int getCount() {
-            return 5;
-        }
-
-        @Override
-        public BaseActivityFragment getItem(int position) {
-            return FragmentFactory.createFragment(position);
-        }
-
-        @Override
-        public int getItemPosition(Object object) {
-            return PagerAdapter.POSITION_NONE;
         }
     }
 
@@ -430,43 +396,34 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
 
         @Override
         public void onPageSelected(int position) {
-            ViewGroup preView = (ViewGroup) ll_list.getChildAt(mPrePosition);
-            ViewGroup curView = (ViewGroup) ll_list.getChildAt(position);
-            curView.getChildAt(0).setSelected(true);
-            preView.getChildAt(0).setSelected(false);
             BaseActivityFragment fragment = FragmentFactory.createFragment(position);
             if (fragment instanceof BaseLoadingFragment) {
                 ((BaseLoadingFragment) fragment).show();
             }
-            mPrePosition = position;
         }
     };
 
-    private final View.OnClickListener mClickListener = new View.OnClickListener() {
+    class ContentPagerAdapter extends FragmentPagerAdapter{
+
+        public ContentPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
         @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.tv_caseinves:
-                    viewPager.setCurrentItem(FragmentFactory.TAB_CASEINVES);
-                    break;
-                case R.id.tv_verifications:
-                    viewPager.setCurrentItem(FragmentFactory.TAB_VERIFICATIONS);
-                    break;
-                case R.id.tv_letters:
-                    viewPager.setCurrentItem(FragmentFactory.TAB_LETTERS);
-                    break;
-                case R.id.tv_endings:
-                    viewPager.setCurrentItem(FragmentFactory.TAB_ENDINGS);
-                    break;
-                case R.id.tv_zancuns:
-                    viewPager.setCurrentItem(FragmentFactory.TAB_ZANCUNS);
-                    break;
-                default:
-                    break;
-            }
+        public BaseActivityFragment getItem(int position) {
+            return FragmentFactory.createFragment(position);
         }
-    };
+
+        @Override
+        public int getCount() {
+            return tabIndicators.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return tabIndicators.get(position);
+        }
+    }
 
     @Override
     public void onDestroy() {
@@ -495,30 +452,36 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
             switch (event.getTitle()) {
                 case "COMPANY_CASEINVES":
                     int count1 = (int) event.getContent();
-                    tv_caseinves.setText(getResources()
+                    tl_bar.getTabAt(0).setText(getResources()
                             .getString(R.string.list_caseinves_title, count1+""));
                     break;
                 case "COMPANY_VERIFICATIONS":
 
                     int count2 = (int) event.getContent();
-                    tv_verifications.setText(getResources()
+                    tl_bar.getTabAt(1).setText(getResources()
                             .getString(R.string.list_verifications_title, count2+""));
                     break;
                 case "COMPANY_LETTERS":
                     int count3 = (int) event.getContent();
-                    tv_letters.setText(getResources()
+                    tl_bar.getTabAt(2).setText(getResources()
                             .getString(R.string.list_letters_title, count3+""));
                     break;
                 case "COMPANY_ENDINGS":
                     int count4 = (int) event.getContent();
-                    tv_endings.setText(getResources()
+                    tl_bar.getTabAt(3).setText(getResources()
                             .getString(R.string.list_endings_title, count4+""));
                     break;
                 case "COMPANY_ZANCUNS":
 
                     int count5 = (int) event.getContent();
-                    tv_zancuns.setText(getResources()
+                    tl_bar.getTabAt(4).setText(getResources()
                             .getString(R.string.list_zancuns_title, count5+""));
+                    break;
+                case "COMPANY_GIFTS":
+
+                    int count6 = (int) event.getContent();
+                    tl_bar.getTabAt(5).setText(getResources()
+                            .getString(R.string.list_gift_title, count6+""));
                     break;
             }
         }

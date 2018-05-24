@@ -1,13 +1,9 @@
 package com.project.archives.function.detail;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.project.archives.R;
+import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.dao.CaseInves;
 import com.project.archives.common.utils.StringUtils;
 
@@ -15,7 +11,7 @@ import com.project.archives.common.utils.StringUtils;
  * Created by XX on 2018/4/30.
  */
 
-public class CaseInvesDetailActivity extends AppCompatActivity {
+public class CaseInvesDetailActivity extends BaseActivity {
 
     CaseInves item;
     TextView tv_name, tv_zhiji, tv_danwei, tv_zhiwu, tv_dang, tv_renda,
@@ -23,28 +19,53 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
             tv_wjxw, tv_bljg, tv_zzcl, tv_dncf, tv_xzcf, tv_xsgs,
             tv_wtxsms, tv_wjss, tv_dxclyj, tv_note, tv_jys, tv_bxgd, tv_yjsf;
 
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void init() {
+        super.init();
         setContentView(R.layout.activity_caseinves_detail);
 
         item = (CaseInves) getIntent().getSerializableExtra("item");
+    }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();//返回
-            }
-        });
+    @Override
+    protected void initActionBar() {
+        super.initActionBar();
+        setActionBar(R.layout.common_top_bar);
+        setTopTitleAndLeft("信息详情");
+    }
 
-        initView();
+    @Override
+    protected void initView() {
+        super.initView();
+        tv_name = (TextView) findViewById(R.id.tv_name);
+        tv_zhiji = (TextView) findViewById(R.id.tv_zhiji);
+        tv_danwei = (TextView) findViewById(R.id.tv_danwei);
+        tv_zhiwu = (TextView) findViewById(R.id.tv_zhiwu);
+        tv_dang = (TextView) findViewById(R.id.tv_dang);
+        tv_renda = (TextView) findViewById(R.id.tv_renda);
+        tv_zzmm = (TextView) findViewById(R.id.tv_zzmm);
+        tv_jcdx = (TextView) findViewById(R.id.tv_jcdx);
+        tv_xsly = (TextView) findViewById(R.id.tv_xsly);
+        tv_slsj = (TextView) findViewById(R.id.tv_slsj);
+        tv_chsj = (TextView) findViewById(R.id.tv_chsj);
+        tv_ljsj = (TextView) findViewById(R.id.tv_ljsj);
+        tv_wjxw = (TextView) findViewById(R.id.tv_wjxw);
+        tv_bljg = (TextView) findViewById(R.id.tv_bljg);
+        tv_zzcl = (TextView) findViewById(R.id.tv_zzcl);
+        tv_dncf = (TextView) findViewById(R.id.tv_dncf);
+        tv_xzcf = (TextView) findViewById(R.id.tv_xzcf);
+        tv_xsgs = (TextView) findViewById(R.id.tv_xsgs);
+        tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
+        tv_wjss = (TextView) findViewById(R.id.tv_wjss);
+        tv_dxclyj = (TextView) findViewById(R.id.tv_dxclyj);
+        tv_note = (TextView) findViewById(R.id.tv_note);
+        tv_jys = (TextView) findViewById(R.id.tv_jys);
+        tv_bxgd = (TextView) findViewById(R.id.tv_bxgd);
+        tv_yjsf = (TextView) findViewById(R.id.tv_yjsf);
+
         initData();
     }
+
 
     private void initData() {
         if (item == null) {
@@ -82,33 +103,4 @@ public class CaseInvesDetailActivity extends AppCompatActivity {
         tv_note.setText(StringUtils.isEmpty(item.getNote())?"--": item.getNote());
 
     }
-
-    private void initView() {
-        tv_name = (TextView) findViewById(R.id.tv_name);
-        tv_zhiji = (TextView) findViewById(R.id.tv_zhiji);
-        tv_danwei = (TextView) findViewById(R.id.tv_danwei);
-        tv_zhiwu = (TextView) findViewById(R.id.tv_zhiwu);
-        tv_dang = (TextView) findViewById(R.id.tv_dang);
-        tv_renda = (TextView) findViewById(R.id.tv_renda);
-        tv_zzmm = (TextView) findViewById(R.id.tv_zzmm);
-        tv_jcdx = (TextView) findViewById(R.id.tv_jcdx);
-        tv_xsly = (TextView) findViewById(R.id.tv_xsly);
-        tv_slsj = (TextView) findViewById(R.id.tv_slsj);
-        tv_chsj = (TextView) findViewById(R.id.tv_chsj);
-        tv_ljsj = (TextView) findViewById(R.id.tv_ljsj);
-        tv_wjxw = (TextView) findViewById(R.id.tv_wjxw);
-        tv_bljg = (TextView) findViewById(R.id.tv_bljg);
-        tv_zzcl = (TextView) findViewById(R.id.tv_zzcl);
-        tv_dncf = (TextView) findViewById(R.id.tv_dncf);
-        tv_xzcf = (TextView) findViewById(R.id.tv_xzcf);
-        tv_xsgs = (TextView) findViewById(R.id.tv_xsgs);
-        tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
-        tv_wjss = (TextView) findViewById(R.id.tv_wjss);
-        tv_dxclyj = (TextView) findViewById(R.id.tv_dxclyj);
-        tv_note = (TextView) findViewById(R.id.tv_note);
-        tv_jys = (TextView) findViewById(R.id.tv_jys);
-        tv_bxgd = (TextView) findViewById(R.id.tv_bxgd);
-        tv_yjsf = (TextView) findViewById(R.id.tv_yjsf);
-    }
-
 }

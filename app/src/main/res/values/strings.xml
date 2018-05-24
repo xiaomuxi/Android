@@ -44,6 +44,7 @@
     <string name="list_letters_title">函询类(%s)</string>
     <string name="list_endings_title">了结类(%s)</string>
     <string name="list_zancuns_title">暂存类(%s)</string>
+    <string name="list_gift_title">三礼上交(%s)</string>
     <string name="text_clqk">处理情况： %s</string>
 
     <string name="hint_input_account">请输入账号</string>
@@ -68,5 +69,12 @@
     <string name="txt_jys">建议书：%s</string>
     <string name="txt_yjsf">移交司法：%s</string>
     <string name="txt_bxgd">八项规定：%s</string>
+    <string name="txt_time">时间：%s</string>
+    <string name="txt_amount">金额：%s</string>
+    <string name="txt_gift_number">号码：%s</string>
+    <string name="txt_money_number">面值：%s</string>
+    <string name="txt_worth">价值：%s</string>
+    <string name="txt_name_mc">名称：%s</string>
+    <string name="txt_gift_name">礼品名：%s</string>
 
 </resources>

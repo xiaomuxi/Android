@@ -9,38 +9,36 @@ import android.widget.TextView;
 
 import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
-import com.project.archives.common.dao.Endings;
+import com.project.archives.common.dao.GiftHands;
 import com.project.archives.common.utils.StringUtils;
-import com.project.archives.function.detail.EndingsDetailActivity;
-
-import static com.project.archives.common.utils.StringUtils.getLevelByNumber;
+import com.project.archives.function.detail.GiftsDetailActivity;
 
 /**
  * Created by inrokei on 2018/5/1.
  */
 
-public class EndingsListAdapter extends MyBaseAdapter<Endings> {
+public class GiftsListAdapter extends MyBaseAdapter<GiftHands> {
     private Context context;
 
-    public EndingsListAdapter(Context c) {
+    public GiftsListAdapter(Context c) {
         super(c);
         context = c;
     }
 
     @Override
     protected int setLayoutRes() {
-        return R.layout.item_list_endings;
+        return R.layout.item_list_gifts;
     }
 
     @Override
     protected View getView(int position, View convertView, ViewGroup parent, ViewHolder holder) {
-        final Endings item = getItem(position);
+        final GiftHands item = getItem(position);
         LinearLayout ll_item = (LinearLayout) convertView.findViewById(R.id.ll_item);
         TextView tv_time = (TextView) convertView.findViewById(R.id.tv_time);
         TextView tv_name = (TextView) convertView.findViewById(R.id.tv_name);
-        TextView tv_level = (TextView) convertView.findViewById(R.id.tv_type);
-        TextView tv_job = (TextView) convertView.findViewById(R.id.tv_address);
-        TextView tv_company = (TextView) convertView.findViewById(R.id.tv_money);
+        TextView tv_level = (TextView) convertView.findViewById(R.id.tv_rank);
+        TextView tv_job = (TextView) convertView.findViewById(R.id.tv_position);
+        TextView tv_company = (TextView) convertView.findViewById(R.id.tv_init);
 
         int rank = item.getRank() == null ? -1 : item.getRank();
         String addDate = item.getAddDate();
@@ -57,7 +55,7 @@ public class EndingsListAdapter extends MyBaseAdapter<Endings> {
         ll_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, EndingsDetailActivity.class);
+                Intent intent = new Intent(mContext, GiftsDetailActivity.class);
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);
             }
@@ -65,5 +63,4 @@ public class EndingsListAdapter extends MyBaseAdapter<Endings> {
 
         return convertView;
     }
-
 }

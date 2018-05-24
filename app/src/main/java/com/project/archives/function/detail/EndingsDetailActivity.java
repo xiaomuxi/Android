@@ -1,13 +1,9 @@
 package com.project.archives.function.detail;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.project.archives.R;
+import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.dao.Endings;
 import com.project.archives.common.utils.StringUtils;
 
@@ -15,32 +11,42 @@ import com.project.archives.common.utils.StringUtils;
  * Created by XX on 2018/4/30.
  */
 
-public class EndingsDetailActivity extends AppCompatActivity {
+public class EndingsDetailActivity extends BaseActivity {
 
     Endings item;
     TextView tv_name, tv_zhiji, tv_danwei, tv_zhiwu, tv_xsly, tv_slsj,
             tv_xsgs, tv_wtxsms, tv_ypczyj, tv_czyj, tv_note;
 
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void init() {
+        super.init();
         setContentView(R.layout.activity_endings_detail);
 
         item = (Endings) getIntent().getSerializableExtra("item");
+    }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();//返回
-            }
-        });
+    @Override
+    protected void initActionBar() {
+        super.initActionBar();
+        setActionBar(R.layout.common_top_bar);
+        setTopTitleAndLeft("信息详情");
+    }
 
-        initView();
+    @Override
+    protected void initView() {
+        super.initView();
+        tv_name = (TextView) findViewById(R.id.tv_name);
+        tv_zhiji = (TextView) findViewById(R.id.tv_zhiji);
+        tv_danwei = (TextView) findViewById(R.id.tv_danwei);
+        tv_zhiwu = (TextView) findViewById(R.id.tv_zhiwu);
+        tv_xsly = (TextView) findViewById(R.id.tv_xsly);
+        tv_slsj = (TextView) findViewById(R.id.tv_slsj);
+        tv_xsgs = (TextView) findViewById(R.id.tv_xsgs);
+        tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
+        tv_ypczyj = (TextView) findViewById(R.id.tv_ypczyj);
+        tv_czyj = (TextView) findViewById(R.id.tv_czyj);
+        tv_note = (TextView) findViewById(R.id.tv_note);
+
         initData();
     }
 
@@ -65,17 +71,4 @@ public class EndingsDetailActivity extends AppCompatActivity {
 
     }
 
-    private void initView() {
-        tv_name = (TextView) findViewById(R.id.tv_name);
-        tv_zhiji = (TextView) findViewById(R.id.tv_zhiji);
-        tv_danwei = (TextView) findViewById(R.id.tv_danwei);
-        tv_zhiwu = (TextView) findViewById(R.id.tv_zhiwu);
-        tv_xsly = (TextView) findViewById(R.id.tv_xsly);
-        tv_slsj = (TextView) findViewById(R.id.tv_slsj);
-        tv_xsgs = (TextView) findViewById(R.id.tv_xsgs);
-        tv_wtxsms = (TextView) findViewById(R.id.tv_wtxsms);
-        tv_ypczyj = (TextView) findViewById(R.id.tv_ypczyj);
-        tv_czyj = (TextView) findViewById(R.id.tv_czyj);
-        tv_note = (TextView) findViewById(R.id.tv_note);
-    }
 }

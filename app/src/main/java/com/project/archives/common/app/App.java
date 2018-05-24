@@ -1,14 +1,18 @@
 package com.project.archives.common.app;
 
+import android.app.ActivityManager;
 import android.app.Application;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.project.archives.common.config.GlobalConfig;
 import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.utils.FileUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * Created by inrokei on 2018/4/24.
@@ -54,6 +58,17 @@ public class App extends Application{
         mMainLooper = getMainLooper();
         mInstance = this;
 
+        String processName = getProcessName(this, android.os.Process.myPid());
+        if (null == processName || processName.equals(getApplication().getPackageName())) {
+            GlobalConfig.init(this);
+        }
+
+
+//        DB_PATH = this.getDatabasePath("jw.db").getParent() + "/jw";
+//        String dbPath = GlobalConfig.getInstance().dataPath + "jw.db";
+//        if (new File(dbPath).canRead()) {
+//           Boolean result = FileUtils.copyFile(dbPath, DB_PATH, true);
+//        }
         DB_PATH = this.getDatabasePath("jw.db").getParent() + "/";
 
         try {
@@ -96,6 +111,31 @@ public class App extends Application{
      */
     public static Looper getMainThreadLooper() {
         return mMainLooper;
+    }
+
+    /**
+     * 获取进程名称
+     *
+     * @param
+     * @return
+     * @author Ahwind
+     * modify at 2016/10/25 14:54
+     */
+    public String getProcessName(Context cxt, int pid) {
+        try {
+            ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
+            List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
+            if (null != runningApps) {
+                for (ActivityManager.RunningAppProcessInfo procInfo : runningApps) {
+                    if (procInfo.pid == pid) {
+                        return procInfo.processName;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

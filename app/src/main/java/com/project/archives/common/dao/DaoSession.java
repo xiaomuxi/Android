@@ -33,6 +33,16 @@ public class DaoSession extends AbstractDaoSession {
     private final MultiDictionariesDao multiDictionariesDao;
     private final UsersDao usersDao;
 
+    private final DaoConfig giftsDaoConfig;
+    private final DaoConfig giftHandDetailsDaoConfig;
+    private final DaoConfig giftCardsDaoConfig;
+    private final DaoConfig giftHandsDaoConfig;
+
+    private final GiftsDao giftsDao;
+    private final GiftHandDetailsDao giftHandDetailsDao;
+    private final GiftCardsDao giftCardsDao;
+    private final GiftHandsDao giftHandsDao;
+
     public DaoSession(Database db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
         super(db);
@@ -65,6 +75,27 @@ public class DaoSession extends AbstractDaoSession {
         zancunsDao = new ZancunsDao(zancunsDaoConfig, this);
         multiDictionariesDao = new MultiDictionariesDao(multiDictionariesDaoConfig, this);
 
+        giftsDaoConfig = daoConfigMap.get(GiftsDao.class).clone();
+        giftsDaoConfig.initIdentityScope(type);
+
+        giftHandDetailsDaoConfig = daoConfigMap.get(GiftHandDetailsDao.class).clone();
+        giftHandDetailsDaoConfig.initIdentityScope(type);
+
+        giftCardsDaoConfig = daoConfigMap.get(GiftCardsDao.class).clone();
+        giftCardsDaoConfig.initIdentityScope(type);
+
+        giftHandsDaoConfig = daoConfigMap.get(GiftHandsDao.class).clone();
+        giftHandsDaoConfig.initIdentityScope(type);
+
+        giftsDao = new GiftsDao(giftsDaoConfig, this);
+        giftHandDetailsDao = new GiftHandDetailsDao(giftHandDetailsDaoConfig, this);
+        giftCardsDao = new GiftCardsDao(giftCardsDaoConfig, this);
+        giftHandsDao = new GiftHandsDao(giftHandsDaoConfig, this);
+
+        registerDao(Gifts.class, giftsDao);
+        registerDao(GiftHandDetails.class, giftHandDetailsDao);
+        registerDao(GiftCards.class, giftCardsDao);
+        registerDao(GiftHands.class, giftHandsDao);
         registerDao(CaseInves.class, caseInvesDao);
         registerDao(Verifications.class, verificationsDao);
         registerDao(Letters.class, lettersDao);
@@ -82,6 +113,10 @@ public class DaoSession extends AbstractDaoSession {
         zancunsDaoConfig.clearIdentityScope();
         multiDictionariesDaoConfig.clearIdentityScope();
         usersDaoConfig.clearIdentityScope();
+        giftsDaoConfig.clearIdentityScope();
+        giftHandDetailsDaoConfig.clearIdentityScope();
+        giftCardsDaoConfig.clearIdentityScope();
+        giftHandsDaoConfig.clearIdentityScope();
     }
 
     public CaseInvesDao getCaseInvesDao() {
@@ -110,6 +145,22 @@ public class DaoSession extends AbstractDaoSession {
 
     public UsersDao getUsersDao() {
         return usersDao;
+    }
+
+    public GiftsDao getGiftsDao() {
+        return giftsDao;
+    }
+
+    public GiftHandDetailsDao getGiftHandDetailsDao() {
+        return giftHandDetailsDao;
+    }
+
+    public GiftCardsDao getGiftCardsDao() {
+        return giftCardsDao;
+    }
+
+    public GiftHandsDao getGiftHandsDao() {
+        return giftHandsDao;
     }
 
 }

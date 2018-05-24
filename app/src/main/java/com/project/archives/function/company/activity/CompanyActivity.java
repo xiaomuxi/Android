@@ -87,7 +87,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void init() {
         super.init();
-        setContentView(R.layout.fragment_company);
+        setContentView(R.layout.activity_company);
     }
 
     @Override

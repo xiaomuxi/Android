@@ -1,4 +1,4 @@
-package com.project.archives.function.main.activity;
+package com.project.archives.function.detail;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

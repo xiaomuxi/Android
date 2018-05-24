@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".function.main.activity.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
             android:name=".function.person.activity.PersonProblemListActivity"/>
         <activity
             android:name=".function.person.activity.PersonActivity"/>
@@ -35,23 +29,23 @@
         </activity>
 
         <activity
-            android:name=".function.main.activity.CaseInvesDetailActivity"
+            android:name=".function.detail.CaseInvesDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.main.activity.ZancunsDetailActivity"
+            android:name=".function.detail.ZancunsDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.main.activity.VerificationsDetailActivity"
+            android:name=".function.detail.VerificationsDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.main.activity.LettersDetailActivity"
+            android:name=".function.detail.LettersDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.main.activity.EndingsDetailActivity"
+            android:name=".function.detail.EndingsDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

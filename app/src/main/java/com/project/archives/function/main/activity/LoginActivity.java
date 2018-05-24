@@ -93,8 +93,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private void toLogin() {
 
-//        startActivity(new Intent(mContext, HomeActivity.class));
-//        finish();
+        startActivity(new Intent(mContext, HomeActivity.class));
+        finish();
 
         if (!checkInsert()) {
             return;

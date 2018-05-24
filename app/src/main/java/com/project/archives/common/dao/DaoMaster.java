@@ -28,6 +28,10 @@ public class DaoMaster extends AbstractDaoMaster {
         ZancunsDao.createTable(db, ifNotExists);
         MultiDictionariesDao.createTable(db, ifNotExists);
         UsersDao.createTable(db, ifNotExists);
+        GiftsDao.createTable(db, ifNotExists);
+        GiftHandDetailsDao.createTable(db, ifNotExists);
+        GiftCardsDao.createTable(db, ifNotExists);
+        GiftHandsDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
@@ -39,6 +43,10 @@ public class DaoMaster extends AbstractDaoMaster {
         ZancunsDao.dropTable(db, ifExists);
         MultiDictionariesDao.dropTable(db, ifExists);
         UsersDao.dropTable(db, ifExists);
+        GiftsDao.dropTable(db, ifExists);
+        GiftHandDetailsDao.dropTable(db, ifExists);
+        GiftCardsDao.dropTable(db, ifExists);
+        GiftHandsDao.dropTable(db, ifExists);
     }
 
     /**
@@ -64,6 +72,10 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(ZancunsDao.class);
         registerDaoClass(MultiDictionariesDao.class);
         registerDaoClass(UsersDao.class);
+        registerDaoClass(GiftsDao.class);
+        registerDaoClass(GiftHandDetailsDao.class);
+        registerDaoClass(GiftCardsDao.class);
+        registerDaoClass(GiftHandsDao.class);
     }
 
     public DaoSession newSession() {

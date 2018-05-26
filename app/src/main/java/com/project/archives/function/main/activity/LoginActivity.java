@@ -1,7 +1,12 @@
 package com.project.archives.function.main.activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -23,11 +28,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     private EditText et_password;
     private Button btn_go;
 
+    private String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
     @Override
     protected void init() {
         super.init();
         mContext = this;
         setContentView(R.layout.activity_login);
+        requestPermission();
     }
 
     @Override
@@ -44,6 +52,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         btn_go = (Button) findViewById(R.id.btn_go);
 
         btn_go.setOnClickListener(this);
+    }
+
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int i = ContextCompat.checkSelfPermission(this, permissions[0]);
+            if (i != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, permissions, 1001);
+            }
+        }
     }
 
     /**

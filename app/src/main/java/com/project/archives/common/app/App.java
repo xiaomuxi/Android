@@ -8,6 +8,7 @@ import android.os.Looper;
 
 import com.project.archives.common.config.GlobalConfig;
 import com.project.archives.common.dao.GreenDaoHelper;
+import com.project.archives.common.userdao.GreenDaoUserHelper;
 import com.project.archives.common.utils.FileUtils;
 import com.project.archives.common.utils.LogUtils;
 
@@ -47,6 +48,7 @@ public class App extends Application{
     public static String appId;
 
     private GreenDaoHelper dbHelper;
+    private GreenDaoUserHelper dbUserHelper;
     private static String DB_PATH = "";
 
     @Override
@@ -85,6 +87,7 @@ public class App extends Application{
         }
 
         dbHelper = GreenDaoHelper.getInstance();
+        dbUserHelper = GreenDaoUserHelper.getInstance();
     }
 
     public static App getApplication() {

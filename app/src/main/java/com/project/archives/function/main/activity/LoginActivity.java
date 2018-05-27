@@ -14,7 +14,10 @@ import android.widget.EditText;
 
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
-import com.project.archives.common.utils.StringUtils;
+import com.project.archives.common.manager.SPManager;
+import com.project.archives.common.userdao.User;
+import com.project.archives.common.userdao.manager.UserManager;
+import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.UIUtils;
 
 /**
@@ -36,6 +39,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         mContext = this;
         setContentView(R.layout.activity_login);
         requestPermission();
+
+        initFirstInstall();
     }
 
     @Override
@@ -99,25 +104,23 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         return false;
     }
 
+    private void initFirstInstall() {
+        boolean isFirstInstall = SPManager.getPublicSP().getBoolean(SPManager.PUBLIC_FIRST_INSTALL, true);
+        if (isFirstInstall) {
+            SPManager.getPublicSP().putBoolean(SPManager.PUBLIC_FIRST_INSTALL, false);
+            User user = new User();
+            user.setUserName("admin");
+            user.setPassword("123456");
+            long result = UserManager.getInstance().insertUserInfo(user);
+            LogUtils.i(TAG, "Insert user success : " +result);
+            return;
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_go:
-//                List<GiftHands> giftHandsList = GiftsHandsManager.getInstance().getGiftHandsListByName("俞中华");
-//                LogUtils.i(TAG, giftHandsList.size()+"");
-//                if (giftHandsList.size() > 0){
-//                    LogUtils.i(TAG, giftHandsList.get(0).toString());
-//
-//                    String handId = StringUtils.byteArrayToHexStr(giftHandsList.get(0).getId());
-////                    String handId = new String(giftHandsList.get(0).getId());
-////                    UUID uuid = UUID.nameUUIDFromBytes(giftHandsList.get(0).getId());
-////                    String handId = uuid.toString();
-//                    LogUtils.i(TAG, handId);
-////                    "A8F38320-89EC-444E-98E4-56F8EF6D8920"
-//                    List<Gifts> gifts = GiftsManager.getInstance().getGiftByGiftHandID(handId);
-//                    LogUtils.i(TAG, gifts==null?"null":gifts.toString());
-//                }
-
 
                 toLogin();
                 break;
@@ -126,28 +129,28 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private void toLogin() {
 
-//        startActivity(new Intent(mContext, HomeActivity.class));
-//        finish();
-
         if (!checkInsert()) {
             return;
         }
 
         showDialog("正在登录中...");
+
         UIUtils.postDelayed(new Runnable(){
             public void run() {
                 hideDialog();
                 String account = et_account.getText().toString().trim();
                 String password = et_password.getText().toString().trim();
-                if ( StringUtils.equals(account, "admin") && StringUtils.equals(password, "123456")) {
-                    startActivity(new Intent(mContext, HomeActivity.class));
-                    finish();
+                User user = UserManager.getInstance().getUserByNameAndPassword(account, password);
+                hideDialog();
+                if (user == null) {
+                    UIUtils.showToastSafe("账号密码错误！");
                     return;
                 }
 
-                UIUtils.showToastSafe("账号密码错误！");
+                startActivity(new Intent(mContext, HomeActivity.class));
+                finish();
             }
-        }, 1000);
+        }, 8000);
     }
 }
 

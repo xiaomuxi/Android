@@ -7,20 +7,23 @@ import org.greenrobot.greendao.generator.Schema;
 public class MyGenerator {
 
     public static void main(String[] args) {
-        Schema schema = new Schema(1, "com.project.archives.common.dao");
-        schema.enableKeepSectionsByDefault();
+//        Schema schema = new Schema(1, "com.project.archives.common.dao");
+//        schema.enableKeepSectionsByDefault();
 
-        addTables(schema);
+        Schema userSchema = new Schema(1, "com.project.archives.common.userdao");
+
+        addTables(userSchema);
 
         try {
-            new DaoGenerator().generateAll(schema,"./app/src/main/java");
+            new DaoGenerator().generateAll(userSchema,"./app/src/main/java");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private static void addTables(final Schema schema) {
-        addDutyReportsEntities(schema);
+        addUsers(schema);
+//        addDutyReportsEntities(schema);
 //        addGiftEntities(schema);
 //        addUserEntities(schema);
 
@@ -112,6 +115,13 @@ public class MyGenerator {
 //
 //        caseInves.addToOne(entity, property1);
 //        verifications.addToOne(entity, property2);
+    }
+
+    private static void addUsers(Schema schema) {
+        Entity user = schema.addEntity("User");
+        user.addIdProperty().primaryKey();
+        user.addStringProperty("userName").unique();
+        user.addStringProperty("password");
     }
 
     private static void addDutyReportsEntities(Schema schema) {

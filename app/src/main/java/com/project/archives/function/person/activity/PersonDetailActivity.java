@@ -187,19 +187,19 @@ public class PersonDetailActivity extends BaseActivity implements View.OnClickLi
             case R.id.tv_verifications:
                 goToProblemListActivity(1);
                 break;
-            case R.id.tv_duty_report:
+            case R.id.tv_letters:
                 goToProblemListActivity(2);
                 break;
-            case R.id.tv_letters:
+            case R.id.tv_endings:
                 goToProblemListActivity(3);
                 break;
-            case R.id.tv_endings:
+            case R.id.tv_zancuns:
                 goToProblemListActivity(4);
                 break;
-            case R.id.tv_zancuns:
+            case R.id.tv_gift:
                 goToProblemListActivity(5);
                 break;
-            case R.id.tv_gift:
+            case R.id.tv_duty_report:
                 goToProblemListActivity(6);
                 break;
         }

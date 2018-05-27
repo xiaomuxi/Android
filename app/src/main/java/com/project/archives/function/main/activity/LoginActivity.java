@@ -103,6 +103,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_go:
+//                List<GiftHands> giftHandsList = GiftsHandsManager.getInstance().getGiftHandsListByName("俞中华");
+//                LogUtils.i(TAG, giftHandsList.size()+"");
+//                if (giftHandsList.size() > 0){
+//                    LogUtils.i(TAG, giftHandsList.get(0).toString());
+//
+//                    String handId = StringUtils.byteArrayToHexStr(giftHandsList.get(0).getId());
+////                    String handId = new String(giftHandsList.get(0).getId());
+////                    UUID uuid = UUID.nameUUIDFromBytes(giftHandsList.get(0).getId());
+////                    String handId = uuid.toString();
+//                    LogUtils.i(TAG, handId);
+////                    "A8F38320-89EC-444E-98E4-56F8EF6D8920"
+//                    List<Gifts> gifts = GiftsManager.getInstance().getGiftByGiftHandID(handId);
+//                    LogUtils.i(TAG, gifts==null?"null":gifts.toString());
+//                }
+
+
                 toLogin();
                 break;
         }

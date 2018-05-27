@@ -20,7 +20,7 @@
         <activity
             android:name=".function.company.activity.CompanyActivity"/>
         <activity
-            android:name=".function.detail.GiftsDetailActivity"/>
+            android:name=".function.detail.activity.GiftsDetailActivity"/>
         <activity
             android:name=".function.age.AgeActivity"/>
         <activity
@@ -33,23 +33,23 @@
         </activity>
 
         <activity
-            android:name=".function.detail.CaseInvesDetailActivity"
+            android:name=".function.detail.activity.CaseInvesDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.detail.ZancunsDetailActivity"
+            android:name=".function.detail.activity.ZancunsDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.detail.VerificationsDetailActivity"
+            android:name=".function.detail.activity.VerificationsDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.detail.LettersDetailActivity"
+            android:name=".function.detail.activity.LettersDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".function.detail.EndingsDetailActivity"
+            android:name=".function.detail.activity.EndingsDetailActivity"
             android:label="信息详情"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

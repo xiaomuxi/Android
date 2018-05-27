@@ -1,4 +1,4 @@
-package com.project.archives.function.detail;
+package com.project.archives.function.detail.activity;
 
 import android.widget.TextView;
 

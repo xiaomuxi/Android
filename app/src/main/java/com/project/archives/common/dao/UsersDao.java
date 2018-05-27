@@ -115,7 +115,7 @@ public class UsersDao extends AbstractDao<Users, byte[]> {
                 "\"WorkTimeStr\" TEXT," + // 32: WorkTimeStr
                 "\"Init\" TEXT," + // 33: Init
                 "\"Rank\" INTEGER," + // 34: Rank
-                "\"CbInit\" TEXT," + // 35: IsCadre
+                "\"IsCadre\" TEXT," + // 35: IsCadre
                 "\"CbInit\" INTEGER," + // 36: CbInit
                 "\"IsDang\" TEXT," + // 37: IsDang
                 "\"IsDangW\" TEXT," + // 38: IsDangW

@@ -11,7 +11,7 @@ import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
 import com.project.archives.common.dao.Zancuns;
 import com.project.archives.common.utils.StringUtils;
-import com.project.archives.function.detail.ZancunsDetailActivity;
+import com.project.archives.function.detail.activity.ZancunsDetailActivity;
 
 /**
  * Created by inrokei on 2018/5/1.

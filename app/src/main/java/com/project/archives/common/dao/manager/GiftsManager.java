@@ -3,8 +3,12 @@ package com.project.archives.common.dao.manager;
 import com.project.archives.common.dao.Gifts;
 import com.project.archives.common.dao.GiftsDao;
 import com.project.archives.common.dao.GreenDaoHelper;
+import com.project.archives.common.utils.StringUtils;
 
 import org.greenrobot.greendao.query.QueryBuilder;
+import org.greenrobot.greendao.query.WhereCondition;
+
+import java.util.List;
 
 /**
  * Created by inrokei on 2018/4/30.
@@ -31,14 +35,19 @@ public class GiftsManager {
     }
 
 
-    public Gifts getGiftByGiftHandID(byte[] giftHandId) {
+    public List<Gifts> getGiftByGiftHandID(byte[] giftHandId) {
 
         QueryBuilder<Gifts> queryBuilder = giftsDao.queryBuilder();
+
+
+
         if (giftHandId == null) {
             return null;
         }
-        queryBuilder.where(GiftsDao.Properties.GiftHandID.eq(giftHandId));
 
-        return queryBuilder.build().unique();
+        String handId = StringUtils.byteArrayToHexStr(giftHandId);
+        queryBuilder.where(new WhereCondition.StringCondition("GiftHandID=" +"X'" + handId+"'"));
+
+        return queryBuilder.build().list();
     }
 }

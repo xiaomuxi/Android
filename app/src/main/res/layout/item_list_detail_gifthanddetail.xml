@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/dimen_8"
+    android:paddingRight="@dimen/dimen_8"
+    android:paddingBottom="@dimen/dimen_8"
+    android:id="@+id/ll_item"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/txt_time"
+            android:textSize="@dimen/sp_15"
+            android:textColor="@color/text_black"/>
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/txt_amount"
+            android:textSize="@dimen/sp_15"
+            android:textColor="@color/text_black"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:text="备注："
+        android:textSize="@dimen/sp_15"
+        android:textColor="@color/text_black"/>
+    <TextView
+        android:id="@+id/tv_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_new_normal"
+        android:lineSpacingExtra="3dp"
+        android:padding="@dimen/dimen_5"
+        android:singleLine="false"
+        android:text="--"
+        android:textColor="@color/bg_black"
+        android:textSize="15sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/divide_main_gray" />
+
+</LinearLayout>

@@ -11,9 +11,7 @@ import com.project.archives.R;
 import com.project.archives.common.base.adapter.MyBaseAdapter;
 import com.project.archives.common.dao.Endings;
 import com.project.archives.common.utils.StringUtils;
-import com.project.archives.function.detail.EndingsDetailActivity;
-
-import static com.project.archives.common.utils.StringUtils.getLevelByNumber;
+import com.project.archives.function.detail.activity.EndingsDetailActivity;
 
 /**
  * Created by inrokei on 2018/5/1.

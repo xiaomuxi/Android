@@ -9,10 +9,7 @@ import android.os.Looper;
 import com.project.archives.common.config.GlobalConfig;
 import com.project.archives.common.dao.GreenDaoHelper;
 import com.project.archives.common.utils.FileUtils;
-import com.project.archives.common.utils.LogUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -66,18 +63,20 @@ public class App extends Application{
         DB_PATH = this.getDatabasePath("jw.db").getParent() + "/";
 
         try {
-            String dbPath = GlobalConfig.getInstance().dataPath + "jw.db";
-            File file = new File(dbPath);
-
-            if (file.exists()) {
-                InputStream inputStream = new FileInputStream(file);
-                Boolean result = FileUtils.copyFile(inputStream, DB_PATH, "jw");
-                LogUtils.i("Archives", "Copy db file result:"+result);
-                if (result) {
-                    Boolean deleteResult = file.delete();
-                    LogUtils.i("Archives", "Delete db file result:"+deleteResult);
-                }
-            }
+            InputStream inputStream = this.getAssets().open("jw.db");
+            Boolean result = FileUtils.copyFile(inputStream, DB_PATH, "jw");
+//            String dbPath = GlobalConfig.getInstance().dataPath + "jw.db";
+//            File file = new File(dbPath);
+//
+//            if (file.exists()) {
+//                InputStream inputStream = new FileInputStream(file);
+//                Boolean result = FileUtils.copyFile(inputStream, DB_PATH, "jw");
+//                LogUtils.i("Archives", "Copy db file result:"+result);
+//                if (result) {
+//                    Boolean deleteResult = file.delete();
+//                    LogUtils.i("Archives", "Delete db file result:"+deleteResult);
+//                }
+//            }
         } catch (IOException e) {
             e.printStackTrace();
         }

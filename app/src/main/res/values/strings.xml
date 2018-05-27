@@ -72,9 +72,13 @@
     <string name="txt_time">时间：%s</string>
     <string name="txt_amount">金额：%s</string>
     <string name="txt_gift_number">号码：%s</string>
+    <string name="txt_mount">数量：%s</string>
     <string name="txt_money_number">面值：%s</string>
     <string name="txt_worth">价值：%s</string>
     <string name="txt_name_mc">名称：%s</string>
     <string name="txt_gift_name">礼品名：%s</string>
+    <string name="txt_money_hand">礼金上交(%s)</string>
+    <string name="txt_card_hand">礼卡／证劵上交(%s)</string>
+    <string name="txt_gift_hand">礼品上交(%s)</string>
 
 </resources>

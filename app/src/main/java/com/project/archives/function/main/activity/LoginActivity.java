@@ -150,7 +150,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(new Intent(mContext, HomeActivity.class));
                 finish();
             }
-        }, 8000);
+        }, 300);
     }
 }
 

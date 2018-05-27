@@ -20,6 +20,7 @@ import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.dao.manager.CaseInvesManager;
+import com.project.archives.common.dao.manager.DutyReportsManager;
 import com.project.archives.common.dao.manager.EndingsManager;
 import com.project.archives.common.dao.manager.GiftsHandsManager;
 import com.project.archives.common.dao.manager.LettersManager;
@@ -30,6 +31,7 @@ import com.project.archives.common.utils.LogUtils;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
 import com.project.archives.function.company.fragment.CompanyCaseInvesFragment;
+import com.project.archives.function.company.fragment.CompanyDutyReportFragment;
 import com.project.archives.function.company.fragment.CompanyEndingsFragment;
 import com.project.archives.function.company.fragment.CompanyGiftsFragment;
 import com.project.archives.function.company.fragment.CompanyLettersFragment;
@@ -80,7 +82,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     private NiceSpinner ns_company_type, ns_company;
     private TabLayout tl_bar;
     private List<String> tabIndicators;
-    private final String[] indicators = new String[]{"处分类", "初核类", "函询类", "了结类", "暂存类", "三礼上交"};
+    private final String[] indicators = new String[]{"处分类", "初核类", "述责述廉", "函询类", "了结类", "暂存类", "三礼上交"};
     private ContentPagerAdapter contentAdapter;
 
     @Override
@@ -113,6 +115,8 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         et_start.setOnClickListener(this);
         et_end.setOnClickListener(this);
         btn_reset.setOnClickListener(this);
+//        ns_company_type.setTextColor(getResources().getColor(R.color.text_black));
+//        ns_company.setTextColor(getResources().getColor(R.color.text_black));
         ns_company_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -156,6 +160,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         initDatePickerAndDialog();
         initViewPager();
         initTab();
+        initCount();
     }
 
     private void initTab(){
@@ -234,6 +239,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     private void initCount() {
         long caseinvesCount = CaseInvesManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
         long verificationsCount = VerificationsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
+        long dutyReportCount = DutyReportsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
         long lettersCount = LettersManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
         long endingsCount = EndingsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
         long zancunsCount = ZancunsManager.getInstance().getCountByQueryWithCompanys(getCompany(), startDate, endDate);
@@ -241,10 +247,11 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
 
         tl_bar.getTabAt(0).setText(getResources().getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
         tl_bar.getTabAt(1).setText(getResources().getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
-        tl_bar.getTabAt(2).setText(getResources().getString(R.string.list_letters_title, String.valueOf(lettersCount)));
-        tl_bar.getTabAt(3).setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
-        tl_bar.getTabAt(4).setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
-        tl_bar.getTabAt(5).setText(getResources().getString(R.string.list_gift_title, String.valueOf(giftHandsCount)));
+        tl_bar.getTabAt(2).setText(getResources().getString(R.string.list_duty_report_title, String.valueOf(dutyReportCount)));
+        tl_bar.getTabAt(3).setText(getResources().getString(R.string.list_letters_title, String.valueOf(lettersCount)));
+        tl_bar.getTabAt(4).setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
+        tl_bar.getTabAt(5).setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
+        tl_bar.getTabAt(6).setText(getResources().getString(R.string.list_gift_title, String.valueOf(giftHandsCount)));
 
 
         BaseLoadingFragment loadingFragment = (BaseLoadingFragment) contentAdapter.getItem(viewPager.getCurrentItem());
@@ -301,6 +308,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
 
         FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
         FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
+        FragmentFactory.createFragment(FragmentFactory.TAB_DUTY_REPORT);
         FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
@@ -338,10 +346,11 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
     public static class FragmentFactory {
         public static final int TAB_CASEINVES = 0; // 处分
         public static final int TAB_VERIFICATIONS = 1; // 初步核实
-        public static final int TAB_LETTERS = 2; // 函询
-        public static final int TAB_ENDINGS = 3;// 了结
-        public static final int TAB_ZANCUNS = 4 ;// 暂存
-        public static final int TAB_GIFT = 5; // 三礼上交
+        public static final int TAB_DUTY_REPORT = 2; // 述责述廉
+        public static final int TAB_LETTERS = 3; // 函询
+        public static final int TAB_ENDINGS = 4;// 了结
+        public static final int TAB_ZANCUNS = 5 ;// 暂存
+        public static final int TAB_GIFT = 6; // 三礼上交
 
         //记录所有的fragment，防止重复创建
         public static final Map<Integer, BaseActivityFragment> mFragmentMap = new HashMap<>();
@@ -357,6 +366,10 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
                     //初步核实类
                     case TAB_VERIFICATIONS:
                         fragment = new CompanyVerificationsFragment();
+                        break;
+                    //述责述廉
+                    case TAB_DUTY_REPORT:
+                        fragment = new CompanyDutyReportFragment();
                         break;
                     //谈话函询类
                     case TAB_LETTERS:
@@ -461,27 +474,33 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
                     tl_bar.getTabAt(1).setText(getResources()
                             .getString(R.string.list_verifications_title, count2+""));
                     break;
-                case "COMPANY_LETTERS":
+                case "COMPANY_DUTY_REPORT":
+
                     int count3 = (int) event.getContent();
                     tl_bar.getTabAt(2).setText(getResources()
-                            .getString(R.string.list_letters_title, count3+""));
+                            .getString(R.string.list_duty_report_title, count3+""));
                     break;
-                case "COMPANY_ENDINGS":
+                case "COMPANY_LETTERS":
                     int count4 = (int) event.getContent();
                     tl_bar.getTabAt(3).setText(getResources()
-                            .getString(R.string.list_endings_title, count4+""));
+                            .getString(R.string.list_letters_title, count4+""));
+                    break;
+                case "COMPANY_ENDINGS":
+                    int count5 = (int) event.getContent();
+                    tl_bar.getTabAt(4).setText(getResources()
+                            .getString(R.string.list_endings_title, count5+""));
                     break;
                 case "COMPANY_ZANCUNS":
 
-                    int count5 = (int) event.getContent();
-                    tl_bar.getTabAt(4).setText(getResources()
-                            .getString(R.string.list_zancuns_title, count5+""));
+                    int count6 = (int) event.getContent();
+                    tl_bar.getTabAt(5).setText(getResources()
+                            .getString(R.string.list_zancuns_title, count6+""));
                     break;
                 case "COMPANY_GIFTS":
 
-                    int count6 = (int) event.getContent();
-                    tl_bar.getTabAt(5).setText(getResources()
-                            .getString(R.string.list_gift_title, count6+""));
+                    int count7 = (int) event.getContent();
+                    tl_bar.getTabAt(6).setText(getResources()
+                            .getString(R.string.list_gift_title, count7+""));
                     break;
             }
         }

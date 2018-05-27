@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.project.archives.R;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.bean.MessageEvent;
-import com.project.archives.common.dao.GiftHands;
-import com.project.archives.common.dao.manager.GiftsHandsManager;
+import com.project.archives.common.dao.DutyReports;
+import com.project.archives.common.dao.manager.DutyReportsManager;
 import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.main.adapter.GiftsListAdapter;
+import com.project.archives.function.main.adapter.DutyReportListAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -24,26 +24,24 @@ import java.util.List;
  * Created by inrokei on 2018/5/1.
  */
 
-public class TypeGiftsFragment extends BaseActivityFragment {
+public class TypeDutyReportFragment extends BaseActivityFragment {
 
     private ListView listView;
-    private List<GiftHands> list = new ArrayList<>();
-    private GiftsListAdapter adapter;
+    private List<DutyReports> list = new ArrayList<>();
+    private DutyReportListAdapter adapter;
 
     private Button btn_search;
     private EditText et_search;
     private TextView tv_empty;
-
     @Override
     protected View setContentView() {
-        return UIUtils.inflate(mContext, R.layout.fragment_list_gift_type);
+        return UIUtils.inflate(mContext, R.layout.fragment_list_duty_report_type);
     }
 
     @Override
     protected void init() {
 
     }
-
 
     @Override
     protected void initView(View view) {
@@ -62,7 +60,7 @@ public class TypeGiftsFragment extends BaseActivityFragment {
 
     @Override
     protected void initCreated(Bundle savedInstanceState) {
-        adapter = new GiftsListAdapter(mContext);
+        adapter = new DutyReportListAdapter(mContext);
         listView.setAdapter(adapter);
 
         initData();
@@ -71,12 +69,12 @@ public class TypeGiftsFragment extends BaseActivityFragment {
     private void initData() {
         String name = et_search.getText().toString().trim();
 
-        list = GiftsHandsManager.getInstance().getGiftHandsListByName(name);
+        list = DutyReportsManager.getInstance().getDutyReportListByName(name);
         UIUtils.postDelayed(new Runnable(){
             public void run() {
                 checkData();
                 adapter.setData(list);
-                MessageEvent messageEvent = new MessageEvent<Integer>("TYPE_GIFTS", list.size());
+                MessageEvent messageEvent = new MessageEvent<Integer>("TYPE_DUTY_REPORT", list.size());
                 EventBus.getDefault().post(messageEvent);
             }
         }, 500);

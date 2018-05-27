@@ -12,8 +12,16 @@ import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.base.fragment.BaseActivityFragment;
 import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
+import com.project.archives.common.dao.manager.CaseInvesManager;
+import com.project.archives.common.dao.manager.DutyReportsManager;
+import com.project.archives.common.dao.manager.EndingsManager;
+import com.project.archives.common.dao.manager.GiftsHandsManager;
+import com.project.archives.common.dao.manager.LettersManager;
+import com.project.archives.common.dao.manager.VerificationsManager;
+import com.project.archives.common.dao.manager.ZancunsManager;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.function.type.fragment.TypeCaseInvesFragment;
+import com.project.archives.function.type.fragment.TypeDutyReportFragment;
 import com.project.archives.function.type.fragment.TypeEndingsFragment;
 import com.project.archives.function.type.fragment.TypeGiftsFragment;
 import com.project.archives.function.type.fragment.TypeLettersFragment;
@@ -38,7 +46,7 @@ public class TypeActivity extends BaseActivity{
     private ViewPager viewPager;
     private TabLayout tl_bar;
     private List<String> tabIndicators;
-    private final String[] indicators = new String[]{"处分类", "初核类", "函询类", "了结类", "暂存类", "三礼上交"};
+    private final String[] indicators = new String[]{"处分类", "初核类", "述责述廉", "函询类", "了结类", "暂存类", "三礼上交"};
     private ContentPagerAdapter contentAdapter;
 
     @Override
@@ -68,9 +76,11 @@ public class TypeActivity extends BaseActivity{
 
         FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
         FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
+        FragmentFactory.createFragment(FragmentFactory.TAB_DUTY_REPORT);
         FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
+        FragmentFactory.createFragment(FragmentFactory.TAB_GIFT);
         viewPager.addOnPageChangeListener(mPageChangeListener);
     }
 
@@ -85,6 +95,22 @@ public class TypeActivity extends BaseActivity{
 
         contentAdapter = new ContentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(contentAdapter);
+
+        long caseinvesCount = CaseInvesManager.getInstance().getCount();
+        long verificationsCount = VerificationsManager.getInstance().getCount();
+        long dutyReportCount = DutyReportsManager.getInstance().getCount();
+        long lettersCount = LettersManager.getInstance().getCount();
+        long endingsCount = EndingsManager.getInstance().getCount();
+        long zancunsCount = ZancunsManager.getInstance().getCount();
+        long giftHandsCount = GiftsHandsManager.getInstance().getCount();
+
+        tl_bar.getTabAt(0).setText(getResources().getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
+        tl_bar.getTabAt(1).setText(getResources().getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
+        tl_bar.getTabAt(2).setText(getResources().getString(R.string.list_duty_report_title, String.valueOf(dutyReportCount)));
+        tl_bar.getTabAt(3).setText(getResources().getString(R.string.list_letters_title, String.valueOf(lettersCount)));
+        tl_bar.getTabAt(4).setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
+        tl_bar.getTabAt(5).setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
+        tl_bar.getTabAt(6).setText(getResources().getString(R.string.list_gift_title, String.valueOf(giftHandsCount)));
     }
 
     /**
@@ -93,10 +119,11 @@ public class TypeActivity extends BaseActivity{
     public static class FragmentFactory {
         public static final int TAB_CASEINVES = 0; // 处分
         public static final int TAB_VERIFICATIONS = 1; // 初步核实
-        public static final int TAB_LETTERS = 2; // 函询
-        public static final int TAB_ENDINGS = 3;// 了结
-        public static final int TAB_ZANCUNS = 4 ;
-        public static final int TAB_GIFT = 5 ;
+        public static final int TAB_DUTY_REPORT = 2; // 初步核实
+        public static final int TAB_LETTERS = 3; // 函询
+        public static final int TAB_ENDINGS = 4;// 了结
+        public static final int TAB_ZANCUNS = 5 ;
+        public static final int TAB_GIFT = 6;
 
         //记录所有的fragment，防止重复创建
         public static final Map<Integer, BaseActivityFragment> mFragmentMap = new HashMap<>();
@@ -112,6 +139,10 @@ public class TypeActivity extends BaseActivity{
                     //初步核实类
                     case TAB_VERIFICATIONS:
                         fragment = new TypeVerificationsFragment();
+                        break;
+                    //述责述廉
+                    case TAB_DUTY_REPORT:
+                        fragment = new TypeDutyReportFragment();
                         break;
                     //谈话函询类
                     case TAB_LETTERS:
@@ -205,26 +236,32 @@ public class TypeActivity extends BaseActivity{
                     tl_bar.getTabAt(1).setText(getResources()
                             .getString(R.string.list_verifications_title, count2+""));
                     break;
+                case "TYPE_DUTY_REPORT":
+
+                    int reportCount = (int) event.getContent();
+                    tl_bar.getTabAt(2).setText(getResources()
+                            .getString(R.string.list_duty_report_title, reportCount+""));
+                    break;
                 case "TYPE_LETTERS":
                     int count3 = (int) event.getContent();
-                    tl_bar.getTabAt(2).setText(getResources()
+                    tl_bar.getTabAt(3).setText(getResources()
                             .getString(R.string.list_letters_title, count3+""));
                     break;
                 case "TYPE_ENDINGS":
                     int count4 = (int) event.getContent();
-                    tl_bar.getTabAt(3).setText(getResources()
+                    tl_bar.getTabAt(4).setText(getResources()
                             .getString(R.string.list_endings_title, count4+""));
                     break;
                 case "TYPE_ZANCUNS":
 
                     int count5 = (int) event.getContent();
-                    tl_bar.getTabAt(4).setText(getResources()
+                    tl_bar.getTabAt(5).setText(getResources()
                             .getString(R.string.list_zancuns_title, count5+""));
                     break;
                 case "TYPE_GIFTS":
 
                     int count6 = (int) event.getContent();
-                    tl_bar.getTabAt(5).setText(getResources()
+                    tl_bar.getTabAt(6).setText(getResources()
                             .getString(R.string.list_gift_title, count6+""));
                     break;
             }

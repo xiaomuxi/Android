@@ -2,14 +2,15 @@ package com.project.archives.function.person.activity;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
 import com.project.archives.common.dao.Users;
 import com.project.archives.common.dao.manager.CaseInvesManager;
+import com.project.archives.common.dao.manager.DutyReportsManager;
 import com.project.archives.common.dao.manager.EndingsManager;
+import com.project.archives.common.dao.manager.GiftsHandsManager;
 import com.project.archives.common.dao.manager.LettersManager;
 import com.project.archives.common.dao.manager.VerificationsManager;
 import com.project.archives.common.dao.manager.ZancunsManager;
@@ -21,7 +22,7 @@ import com.project.archives.common.utils.StringUtils;
 
 public class PersonDetailActivity extends BaseActivity implements View.OnClickListener{
 
-    private TextView tv_caseinves, tv_verifications, tv_letters, tv_endings, tv_zancuns;
+    private TextView tv_caseinves, tv_verifications, tv_duty_report, tv_letters, tv_endings, tv_zancuns, tv_gift;
 
     private TextView tv_name, tv_sex, tv_birth;
     private TextView tv_age, tv_minzu, tv_jiguan;
@@ -32,15 +33,16 @@ public class PersonDetailActivity extends BaseActivity implements View.OnClickLi
     private TextView tv_xianrenzhiwu, tv_nirenzhiwu, tv_nimianzhiwu;
     private TextView tv_jianli;
 
-    private LinearLayout ll_problem;
-
     private Users item;
 
     private long caseinvesCount = 0;
     private long verificationsCount = 0;
+    private long dutyReportCount = 0;
     private long lettersCount = 0;
     private long endingsCount = 0;
     private long zancunsCount = 0;
+    private long giftsCount = 0;
+
 
     @Override
     protected void init() {
@@ -60,12 +62,13 @@ public class PersonDetailActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void initView() {
         super.initView();
-        ll_problem = (LinearLayout) findViewById(R.id.ll_problem);
         tv_caseinves = (TextView) findViewById(R.id.tv_caseinves);
         tv_verifications = (TextView) findViewById(R.id.tv_verifications);
+        tv_duty_report = (TextView) findViewById(R.id.tv_duty_report);
         tv_letters = (TextView) findViewById(R.id.tv_letters);
         tv_endings = (TextView) findViewById(R.id.tv_endings);
         tv_zancuns = (TextView) findViewById(R.id.tv_zancuns);
+        tv_gift = (TextView) findViewById(R.id.tv_gift);
 
         tv_name = (TextView) findViewById(R.id.tv_name);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
@@ -94,9 +97,11 @@ public class PersonDetailActivity extends BaseActivity implements View.OnClickLi
 
         tv_caseinves.setOnClickListener(this);
         tv_verifications.setOnClickListener(this);
+        tv_duty_report.setOnClickListener(this);
         tv_letters.setOnClickListener(this);
         tv_endings.setOnClickListener(this);
         tv_zancuns.setOnClickListener(this);
+        tv_gift.setOnClickListener(this);
 
         initData();
         initCount();
@@ -105,15 +110,19 @@ public class PersonDetailActivity extends BaseActivity implements View.OnClickLi
     private void initCount() {
         caseinvesCount = CaseInvesManager.getInstance().getCountByName(item.getRealName());
         verificationsCount = VerificationsManager.getInstance().getCountByName(item.getRealName());
+        dutyReportCount = DutyReportsManager.getInstance().getCountByName(item.getRealName());
         lettersCount = LettersManager.getInstance().getCountByName(item.getRealName());
         endingsCount = EndingsManager.getInstance().getCountByName(item.getRealName());
         zancunsCount = ZancunsManager.getInstance().getCountByName(item.getRealName());
+        giftsCount = GiftsHandsManager.getInstance().getCountByName(item.getRealName());
 
         tv_caseinves.setText(getResources().getString(R.string.list_caseinves_title, String.valueOf(caseinvesCount)));
         tv_verifications.setText(getResources().getString(R.string.list_verifications_title, String.valueOf(verificationsCount)));
+        tv_duty_report.setText(getResources().getString(R.string.list_duty_report_title, String.valueOf(dutyReportCount)));
         tv_letters.setText(getResources().getString(R.string.list_letters_title, String.valueOf(lettersCount)));
         tv_endings.setText(getResources().getString(R.string.list_endings_title, String.valueOf(endingsCount)));
         tv_zancuns.setText(getResources().getString(R.string.list_zancuns_title, String.valueOf(zancunsCount)));
+        tv_gift.setText(getResources().getString(R.string.list_gift_title, String.valueOf(giftsCount)));
     }
 
     private void initData() {
@@ -157,11 +166,13 @@ public class PersonDetailActivity extends BaseActivity implements View.OnClickLi
 
     public void goToProblemListActivity(int currentIndex) {
         Intent intent = new Intent(mContext, PersonProblemListActivity.class);
-        intent.putExtra("caseinves_count", caseinvesCount);
-        intent.putExtra("verifications_count", verificationsCount);
-        intent.putExtra("letters_count", lettersCount);
-        intent.putExtra("endings_count", endingsCount);
-        intent.putExtra("zancuns_count", zancunsCount);
+        intent.putExtra("caseinves_count", caseinvesCount+"");
+        intent.putExtra("verifications_count", verificationsCount+"");
+        intent.putExtra("dutyreport_count", dutyReportCount+"");
+        intent.putExtra("letters_count", lettersCount+"");
+        intent.putExtra("endings_count", endingsCount+"");
+        intent.putExtra("zancuns_count", zancunsCount+"");
+        intent.putExtra("gifts_count", giftsCount+"");
         intent.putExtra("name", item.getRealName());
         intent.putExtra("currentIndex", currentIndex);
         startActivity(intent);
@@ -176,14 +187,20 @@ public class PersonDetailActivity extends BaseActivity implements View.OnClickLi
             case R.id.tv_verifications:
                 goToProblemListActivity(1);
                 break;
-            case R.id.tv_letters:
+            case R.id.tv_duty_report:
                 goToProblemListActivity(2);
                 break;
-            case R.id.tv_endings:
+            case R.id.tv_letters:
                 goToProblemListActivity(3);
                 break;
-            case R.id.tv_zancuns:
+            case R.id.tv_endings:
                 goToProblemListActivity(4);
+                break;
+            case R.id.tv_zancuns:
+                goToProblemListActivity(5);
+                break;
+            case R.id.tv_gift:
+                goToProblemListActivity(6);
                 break;
         }
     }

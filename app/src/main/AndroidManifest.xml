@@ -22,6 +22,8 @@
         <activity
             android:name=".function.detail.activity.GiftsDetailActivity"/>
         <activity
+            android:name=".function.detail.activity.DutyReportDetailActivity"/>
+        <activity
             android:name=".function.age.AgeActivity"/>
         <activity
             android:name=".function.type.activity.TypeActivity"/>

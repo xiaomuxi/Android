@@ -1,5 +1,6 @@
 package com.project.archives.function.person.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +15,7 @@ import com.project.archives.common.base.fragment.BaseLoadingFragment;
 import com.project.archives.common.bean.MessageEvent;
 import com.project.archives.common.utils.StringUtils;
 import com.project.archives.function.person.fragment.PersonCaseInvesFragment;
+import com.project.archives.function.person.fragment.PersonDutyReportFragment;
 import com.project.archives.function.person.fragment.PersonEndingsFragment;
 import com.project.archives.function.person.fragment.PersonGiftsFragment;
 import com.project.archives.function.person.fragment.PersonLettersFragment;
@@ -40,7 +42,7 @@ public class PersonProblemListActivity extends BaseActivity {
 
     private TabLayout tl_bar;
     private List<String> tabIndicators;
-    private final String[] indicators = new String[]{"处分类", "初核类", "函询类", "了结类", "暂存类", "三礼上交"};
+    private final String[] indicators = new String[]{"处分类", "初核类", "述责述廉", "函询类", "了结类", "暂存类", "三礼上交"};
     private ContentPagerAdapter contentAdapter;
 
     @Override
@@ -74,6 +76,7 @@ public class PersonProblemListActivity extends BaseActivity {
 
         FragmentFactory.createFragment(FragmentFactory.TAB_CASEINVES);
         FragmentFactory.createFragment(FragmentFactory.TAB_VERIFICATIONS);
+        FragmentFactory.createFragment(FragmentFactory.TAB_DUTY_REPORT);
         FragmentFactory.createFragment(FragmentFactory.TAB_LETTERS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ENDINGS);
         FragmentFactory.createFragment(FragmentFactory.TAB_ZANCUNS);
@@ -94,6 +97,22 @@ public class PersonProblemListActivity extends BaseActivity {
         viewPager.setAdapter(contentAdapter);
 
         viewPager.setCurrentItem(initIndex);
+        Intent intent = getIntent();
+        String caseinvesCount = intent.getStringExtra("caseinves_count");
+        String verificationsCount = intent.getStringExtra("verifications_count");
+        String dutyreportCount = intent.getStringExtra("dutyreport_count");
+        String lettersCount = intent.getStringExtra("letters_count");
+        String endingsCount = intent.getStringExtra("endings_count");
+        String zancunsCount = intent.getStringExtra("zancuns_count");
+        String giftsCount = intent.getStringExtra("gifts_count");
+
+        tl_bar.getTabAt(0).setText(getResources().getString(R.string.list_caseinves_title, caseinvesCount));
+        tl_bar.getTabAt(1).setText(getResources().getString(R.string.list_verifications_title, verificationsCount));
+        tl_bar.getTabAt(2).setText(getResources().getString(R.string.list_duty_report_title, dutyreportCount));
+        tl_bar.getTabAt(3).setText(getResources().getString(R.string.list_letters_title, lettersCount));
+        tl_bar.getTabAt(4).setText(getResources().getString(R.string.list_endings_title, endingsCount));
+        tl_bar.getTabAt(5).setText(getResources().getString(R.string.list_zancuns_title, zancunsCount));
+        tl_bar.getTabAt(6).setText(getResources().getString(R.string.list_gift_title, giftsCount));
     }
 
     /**
@@ -102,10 +121,11 @@ public class PersonProblemListActivity extends BaseActivity {
     public static class FragmentFactory {
         public static final int TAB_CASEINVES = 0; // 处分
         public static final int TAB_VERIFICATIONS = 1; // 初步核实
-        public static final int TAB_LETTERS = 2; // 函询
-        public static final int TAB_ENDINGS = 3;// 了结
-        public static final int TAB_ZANCUNS = 4 ;
-        public static final int TAB_GIFT = 5 ;
+        public static final int TAB_DUTY_REPORT = 2; // 述责述廉
+        public static final int TAB_LETTERS = 3; // 函询
+        public static final int TAB_ENDINGS = 4;// 了结
+        public static final int TAB_ZANCUNS = 5 ;
+        public static final int TAB_GIFT = 6 ;
 
         //记录所有的fragment，防止重复创建
         public static final Map<Integer, BaseActivityFragment> mFragmentMap = new HashMap<>();
@@ -125,6 +145,10 @@ public class PersonProblemListActivity extends BaseActivity {
                     //谈话函询类
                     case TAB_LETTERS:
                         fragment = new PersonLettersFragment();
+                        break;
+                    //述责述廉
+                    case TAB_DUTY_REPORT:
+                        fragment = new PersonDutyReportFragment();
                         break;
                     //了结类
                     case TAB_ENDINGS:
@@ -214,26 +238,32 @@ public class PersonProblemListActivity extends BaseActivity {
                     tl_bar.getTabAt(1).setText(getResources()
                             .getString(R.string.list_verifications_title, count2+""));
                     break;
+                case "PERSON_DUTY_REPORT":
+
+                    int reportCount = (int) event.getContent();
+                    tl_bar.getTabAt(2).setText(getResources()
+                            .getString(R.string.list_duty_report_title, reportCount+""));
+                    break;
                 case "PERSON_LETTERS":
                     int count3 = (int) event.getContent();
-                    tl_bar.getTabAt(2).setText(getResources()
+                    tl_bar.getTabAt(3).setText(getResources()
                             .getString(R.string.list_letters_title, count3+""));
                     break;
                 case "PERSON_ENDINGS":
                     int count4 = (int) event.getContent();
-                    tl_bar.getTabAt(3).setText(getResources()
+                    tl_bar.getTabAt(4).setText(getResources()
                             .getString(R.string.list_endings_title, count4+""));
                     break;
                 case "PERSON_ZANCUNS":
 
                     int count5 = (int) event.getContent();
-                    tl_bar.getTabAt(4).setText(getResources()
+                    tl_bar.getTabAt(5).setText(getResources()
                             .getString(R.string.list_zancuns_title, count5+""));
                     break;
                 case "PERSON_GIFTS":
 
                     int count6 = (int) event.getContent();
-                    tl_bar.getTabAt(5).setText(getResources()
+                    tl_bar.getTabAt(6).setText(getResources()
                             .getString(R.string.list_gift_title, count6+""));
                     break;
             }

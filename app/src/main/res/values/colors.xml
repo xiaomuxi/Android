@@ -21,7 +21,7 @@
 <color name="text_gray">#999999</color>
 <color name="text_gray_6">#666666</color>
 <color name="text_gray_5">#555555</color>
-<color name="text_black">#333333</color>
+<color name="text_black">#666666</color>
 <color name="bg_black">#000000</color>
 <color name="bg_white">#ffffff</color>
 <color name="line_gray">#f5f5f5</color>

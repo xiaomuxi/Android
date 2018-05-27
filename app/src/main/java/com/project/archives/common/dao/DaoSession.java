@@ -24,6 +24,7 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig zancunsDaoConfig;
     private final DaoConfig multiDictionariesDaoConfig;
     private final DaoConfig usersDaoConfig;
+    private final DaoConfig dutyReportsDaoConfig;
 
     private final CaseInvesDao caseInvesDao;
     private final VerificationsDao verificationsDao;
@@ -42,6 +43,7 @@ public class DaoSession extends AbstractDaoSession {
     private final GiftHandDetailsDao giftHandDetailsDao;
     private final GiftCardsDao giftCardsDao;
     private final GiftHandsDao giftHandsDao;
+    private final DutyReportsDao dutyReportsDao;
 
     public DaoSession(Database db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -52,6 +54,9 @@ public class DaoSession extends AbstractDaoSession {
         usersDaoConfig = daoConfigMap.get(UsersDao.class).clone();
         usersDaoConfig.initIdentityScope(type);
         usersDao = new UsersDao(usersDaoConfig, this);
+        dutyReportsDaoConfig = daoConfigMap.get(DutyReportsDao.class).clone();
+        dutyReportsDaoConfig.initIdentityScope(type);
+        dutyReportsDao = new DutyReportsDao(dutyReportsDaoConfig, this);
 
         verificationsDaoConfig = daoConfigMap.get(VerificationsDao.class).clone();
         verificationsDaoConfig.initIdentityScope(type);
@@ -103,6 +108,7 @@ public class DaoSession extends AbstractDaoSession {
         registerDao(Zancuns.class, zancunsDao);
         registerDao(MultiDictionaries.class, multiDictionariesDao);
         registerDao(Users.class, usersDao);
+        registerDao(DutyReports.class, dutyReportsDao);
     }
     
     public void clear() {
@@ -117,6 +123,7 @@ public class DaoSession extends AbstractDaoSession {
         giftHandDetailsDaoConfig.clearIdentityScope();
         giftCardsDaoConfig.clearIdentityScope();
         giftHandsDaoConfig.clearIdentityScope();
+        dutyReportsDaoConfig.clearIdentityScope();
     }
 
     public CaseInvesDao getCaseInvesDao() {
@@ -161,6 +168,10 @@ public class DaoSession extends AbstractDaoSession {
 
     public GiftHandsDao getGiftHandsDao() {
         return giftHandsDao;
+    }
+
+    public DutyReportsDao getDutyReportsDao() {
+        return dutyReportsDao;
     }
 
 }

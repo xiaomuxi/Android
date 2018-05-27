@@ -41,6 +41,7 @@
 
     <string name="list_caseinves_title">处分类(%s)</string>
     <string name="list_verifications_title">初核类(%s)</string>
+    <string name="list_duty_report_title">述责述廉(%s)</string>
     <string name="list_letters_title">函询类(%s)</string>
     <string name="list_endings_title">了结类(%s)</string>
     <string name="list_zancuns_title">暂存类(%s)</string>
@@ -80,5 +81,7 @@
     <string name="txt_money_hand">礼金上交(%s)</string>
     <string name="txt_card_hand">礼卡／证劵上交(%s)</string>
     <string name="txt_gift_hand">礼品上交(%s)</string>
+    <string name="txt_report_year">述责述廉年份：%s</string>
+    <string name="txt_report_date">具体日期：%s</string>
 
 </resources>

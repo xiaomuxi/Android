@@ -26,7 +26,7 @@
                 android:drawableTop="@drawable/home_sendorderbutton"
                 android:drawablePadding="@dimen/dimen_8"
                 android:text="@string/list_caseinves_title"
-                android:textSize="@dimen/sp_15"
+                android:textSize="@dimen/sp_14"
                 android:textColor="@color/text_black"/>
             <TextView
                 android:id="@+id/tv_verifications"
@@ -37,7 +37,19 @@
                 android:drawableTop="@drawable/home_sendorderbutton"
                 android:drawablePadding="@dimen/dimen_8"
                 android:text="@string/list_verifications_title"
-                android:textSize="@dimen/sp_15"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/text_black"/>
+
+            <TextView
+                android:id="@+id/tv_duty_report"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:drawableTop="@drawable/home_sendorderbutton"
+                android:drawablePadding="@dimen/dimen_8"
+                android:text="@string/list_duty_report_title"
+                android:textSize="@dimen/sp_14"
                 android:textColor="@color/text_black"/>
             <TextView
                 android:id="@+id/tv_letters"
@@ -48,7 +60,7 @@
                 android:drawableTop="@drawable/home_sendorderbutton"
                 android:drawablePadding="@dimen/dimen_8"
                 android:text="@string/list_letters_title"
-                android:textSize="@dimen/sp_15"
+                android:textSize="@dimen/sp_14"
                 android:textColor="@color/text_black"/>
             <TextView
                 android:id="@+id/tv_endings"
@@ -59,7 +71,7 @@
                 android:drawableTop="@drawable/home_sendorderbutton"
                 android:drawablePadding="@dimen/dimen_8"
                 android:text="@string/list_endings_title"
-                android:textSize="@dimen/sp_15"
+                android:textSize="@dimen/sp_14"
                 android:textColor="@color/text_black"/>
             <TextView
                 android:id="@+id/tv_zancuns"
@@ -70,7 +82,19 @@
                 android:drawableTop="@drawable/home_sendorderbutton"
                 android:drawablePadding="@dimen/dimen_8"
                 android:text="@string/list_zancuns_title"
-                android:textSize="@dimen/sp_15"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/text_black"/>
+
+            <TextView
+                android:id="@+id/tv_gift"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:drawableTop="@drawable/home_sendorderbutton"
+                android:drawablePadding="@dimen/dimen_8"
+                android:text="@string/list_gift_title"
+                android:textSize="@dimen/sp_14"
                 android:textColor="@color/text_black"/>
         </LinearLayout>
 

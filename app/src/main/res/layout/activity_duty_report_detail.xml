@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -19,40 +20,22 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_20"
+                android:text="领导干部党风廉政建设述责述廉情况表"
+                android:textSize="@dimen/sp_18"
                 android:gravity="center"
-                android:text="处分类问题线索情况表"
-                android:textColor="@color/text_black"
-                android:textSize="@dimen/sp_18" />
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:textColor="@color/text_black"/>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_name"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_zhiji"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_zhiji"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/dimen_5"
+                android:singleLine="true"
+                android:text="@string/txt_name"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -62,6 +45,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_5"
                 android:orientation="vertical">
 
                 <TextView
@@ -92,6 +77,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_5"
+                android:paddingBottom="@dimen/dimen_5"
                 android:orientation="vertical">
 
                 <TextView
@@ -125,57 +112,24 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_dang"
+                    android:id="@+id/tv_year"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:text="@string/txt_dang"
+                    android:text="@string/txt_report_year"
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_renda"
+                    android:id="@+id/tv_report_date"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:text="@string/txt_renda"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_gray_b" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_zzmm"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_zzmm"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_jcdx"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_jcdx"
+                    android:text="@string/txt_report_date"
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
@@ -187,155 +141,177 @@
                 android:background="@color/bg_gray_b" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_xsly"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_xsly"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_slsj"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_slsj"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_gray_b" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_chsj"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_chsj"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_ljsj"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_ljsj"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_gray_b" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_jys"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_jys"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_bxgd"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:text="@string/txt_bxgd"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_gray_b" />
-
-            <TextView
-                android:id="@+id/tv_yjsf"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:paddingTop="@dimen/dimen_8"
-                android:paddingBottom="@dimen/dimen_8"
-                android:text="@string/txt_yjsf"
-                android:textColor="@color/text_black"
-                android:textSize="15sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_gray_b" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_5"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingTop="@dimen/dimen_8"
-                    android:paddingBottom="@dimen/dimen_8"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/dimen_5"
                     android:singleLine="true"
-                    android:text="违纪行为："
+                    android:text="述职述廉报告情况："
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_wjxw"
+                    android:id="@+id/tv_situation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/dimen_8"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/btn_new_normal"
+                    android:lineSpacingExtra="3dp"
+                    android:padding="@dimen/dimen_5"
+                    android:singleLine="false"
                     android:text="--"
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
 
-            <View
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/bg_gray_b" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:text="其中：对分管范围日常监督管理、落实抄告情况成果概述"
+                android:textColor="@color/text_black"
+                android:textSize="15sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_circle_line_gray"
+                android:paddingTop="@dimen/dimen_8"
+                android:paddingBottom="@dimen/dimen_8"
+                android:paddingLeft="@dimen/dimen_5"
+                android:paddingRight="@dimen/dimen_5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="false"
+                    android:text="带队开展执行纪律制度等专项检查次数："
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_special_inspect_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:singleLine="false"
+                    android:text="发现问题个数："
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_problem_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:singleLine="false"
+                    android:text="开展问题约谈人次："
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_interview_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:singleLine="false"
+                    android:text="完善新建制度个数："
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_new_system_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:singleLine="false"
+                    android:text="移送纪检监察部门问题线索个数："
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_clue_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:singleLine="false"
+                    android:text="对发现问题整改督办次数："
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_rectification_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="--"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -343,59 +319,16 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_bljg"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/txt_bljg"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/tv_zzcl"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/txt_zzcl"
-                    android:textColor="@color/text_black"
-                    android:textSize="15sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tv_dncf"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/txt_dncf"
-                        android:textColor="@color/text_black"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/tv_xzcf"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/txt_xzcf"
-                        android:textColor="@color/text_black"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="线索概述:"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:text="单位主要领导点评内容:"
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_xsgs"
+                    android:id="@+id/tv_evaluation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
@@ -408,14 +341,16 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="问题线索描述:"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:singleLine="false"
+                    android:text="年底是否参加区党（工）委书记履行党风廉政建设第一责任现场述职评议会："
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_wtxsms"
+                    android:id="@+id/tv_join_meeting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
@@ -428,14 +363,15 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5"
                     android:gravity="center_vertical"
-                    android:text="违纪事实:"
+                    android:text="区委书记点评内容:"
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_wjss"
+                    android:id="@+id/tv_qwevaluation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
@@ -448,14 +384,15 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5"
                     android:gravity="center_vertical"
-                    android:text="定性处理意见:"
+                    android:text="个人年度履责评议等级:"
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_dxclyj"
+                    android:id="@+id/tv_review_level"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
@@ -468,17 +405,38 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5"
                     android:gravity="center_vertical"
-                    android:text="备注:"
+                    android:text="主要不足说明:"
                     android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/tv_note"
+                    android:id="@+id/tv_insufficient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/btn_new_normal"
+                    android:lineSpacingExtra="3dp"
+                    android:padding="@dimen/dimen_5"
+                    android:singleLine="false"
+                    android:text="--"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5"
+                    android:gravity="center_vertical"
+                    android:text="其他需要说明的事项:"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_other_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/btn_new_normal"
                     android:lineSpacingExtra="3dp"
                     android:padding="@dimen/dimen_5"

@@ -49,7 +49,7 @@ public class UserListAdapter extends MyBaseAdapter<Users>{
         String age = StringUtils.isEmpty(String.valueOf(user.getAge()))? "--": String.valueOf(user.getAge());
         String zhiwu = StringUtils.isEmpty(user.getPosition())? "--": user.getPosition();
         String company = StringUtils.isEmpty(user.getInit())? "--": user.getInit();
-        String zhiji = getLevelByNumber(user.getRank() == null ? -1 : user.getRank());
+        String zhiji = StringUtils.getLevelByNumber(user.getRank() == null ? -1 : user.getRank());
 
         zhiwu = zhiwu.length()>13?zhiwu.substring(0,13) + "..." :zhiwu;
         company = company.length()>16?company.substring(0,16) + "..." :company;
@@ -72,30 +72,5 @@ public class UserListAdapter extends MyBaseAdapter<Users>{
         });
 
         return convertView;
-    }
-
-    private String getLevelByNumber(int number) {
-        String level = "--";
-        switch (number) {
-            case 1:
-                level = "正处";
-                break;
-            case 2:
-                level = "副处";
-                break;
-            case 3:
-                level = "正科";
-                break;
-            case 4:
-                level = "副科";
-                break;
-            case 5:
-                level = "科员";
-                break;
-            case 6:
-                level = "其他";
-                break;
-        }
-        return level;
     }
 }

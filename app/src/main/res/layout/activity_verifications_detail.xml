@@ -39,7 +39,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_name"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -50,7 +50,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_zhiji"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -71,7 +71,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="单位："
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:text="--"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -101,7 +101,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="职务："
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:text="--"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -133,7 +133,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_gwy"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -144,7 +144,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_jcdx"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -168,7 +168,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_xsly"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -179,7 +179,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_slsj"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -202,7 +202,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_chsj"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -213,7 +213,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_ljsj"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -236,7 +236,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_jys"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -247,7 +247,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/txt_bxgd"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -269,7 +269,7 @@
                     android:gravity="center"
                     android:singleLine="true"
                     android:text="了结结论："
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -277,7 +277,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="--"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -298,7 +298,7 @@
                     android:layout_height="50dp"
                     android:gravity="center_vertical"
                     android:text="@string/txt_bljg"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -307,7 +307,7 @@
                     android:layout_height="50dp"
                     android:gravity="center_vertical"
                     android:text="@string/txt_zzclqk"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
 
@@ -316,7 +316,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:text="线索概述:"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -328,7 +328,7 @@
                     android:padding="@dimen/dimen_5"
                     android:singleLine="false"
                     android:text="--"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -336,7 +336,7 @@
                     android:layout_height="50dp"
                     android:gravity="center_vertical"
                     android:text="问题线索描述:"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -348,7 +348,7 @@
                     android:padding="@dimen/dimen_5"
                     android:singleLine="false"
                     android:text="--"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -356,7 +356,7 @@
                     android:layout_height="50dp"
                     android:gravity="center_vertical"
                     android:text="备注:"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
                 <TextView
@@ -369,7 +369,7 @@
                     android:padding="@dimen/dimen_5"
                     android:singleLine="false"
                     android:text="--"
-                    android:textColor="@color/bg_black"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
             </LinearLayout>

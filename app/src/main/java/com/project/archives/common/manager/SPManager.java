@@ -3,7 +3,9 @@ package com.project.archives.common.manager;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.project.archives.common.userdao.User;
 import com.project.archives.common.utils.SpUtils;
+import com.project.archives.common.utils.StringUtils;
 import com.project.archives.common.utils.UIUtils;
 
 /**
@@ -18,6 +20,8 @@ public class SPManager {
     private static SPManager mInstance;
     private static SharedPreferences mPublicSP;
 
+
+    public static final String USER_NAME = "user_name";
 
     public static final String PUBLIC_OPTION = "public_option";
     public static final String PUBLIC_FIRST_INSTALL = "public_first_install"; // 首次安装
@@ -47,5 +51,29 @@ public class SPManager {
 
     }
 
+    /**
+     * 获取用户信息
+     *
+     * @return User
+     */
+    public static User getUser() {
+        User info = new User();
+        info.setUserName(getPublicSP().getString(USER_NAME, ""));
+        return info;
+    }
 
+    /**
+     * 保存用户信息
+     */
+    public void saveUser(User info) {
+        if (null == info) return;
+        getPublicSP().putString(USER_NAME, StringUtils.checkString(info.getUserName()));
+    }
+
+    /**
+     * 清除用户信息
+     */
+    public void clearUser() {
+        getPublicSP().putString(USER_NAME, "");
+    }
 }

@@ -16,6 +16,8 @@
     <string name="txt_username_can_not_empty">用户名不能为空</string>
     <string name="txt_password_can_not_empty">密码不能为空</string>
     <string name="invalid_username_password">用户名或密码不正确</string>
+    <string name="hint_input_new_password">请输入新密码</string>
+    <string name="hint_input_new_password_again">请再次输入新密码</string>
 
     <string name="not_find_search_result">没有找到结果</string>
     <string name="click_reload">点击重新加载</string>

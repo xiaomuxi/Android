@@ -18,16 +18,16 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.project.archives.R;
 import com.project.archives.common.base.activity.BaseActivity;
-import com.project.archives.common.utils.UIUtils;
-import com.project.archives.function.age.AgeActivity;
-import com.project.archives.function.company.activity.CompanyActivity;
-import com.project.archives.function.person.activity.PersonActivity;
-import com.project.archives.function.type.activity.TypeActivity;
 import com.project.archives.common.dao.manager.CaseInvesManager;
 import com.project.archives.common.dao.manager.EndingsManager;
 import com.project.archives.common.dao.manager.LettersManager;
 import com.project.archives.common.dao.manager.VerificationsManager;
 import com.project.archives.common.dao.manager.ZancunsManager;
+import com.project.archives.common.utils.UIUtils;
+import com.project.archives.function.age.AgeActivity;
+import com.project.archives.function.company.activity.CompanyActivity;
+import com.project.archives.function.person.activity.PersonActivity;
+import com.project.archives.function.type.activity.TypeActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,7 +65,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     protected void initActionBar() {
         super.initActionBar();
         setActionBar(R.layout.common_top_bar);
-        setTopTitle("首页");
+        setTopTitleAndRight("首页");
+        setTopRightText("修改密码");
     }
 
     @Override
@@ -82,6 +83,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         tv_company.setOnClickListener(this);
         tv_age.setOnClickListener(this);
         tv_type.setOnClickListener(this);
+        mTopRight.setOnClickListener(this);
 
         mChart.getDescription().setEnabled(false);
         mBarChart.getDescription().setEnabled(false);
@@ -276,6 +278,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.tv_type:
                 startActivity(new Intent(this, TypeActivity.class));
+                break;
+            case R.id.right:
+                startActivity(new Intent(this, ResetPasswordActivity.class));
                 break;
         }
     }

@@ -28,4 +28,9 @@
         <item name="android:indeterminateDuration">3500</item>
     </style>
 
+    <style name="btn_theme_blue" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorButtonNormal">#1ba0f9</item><!--正常状态下的颜色  -->
+        <item name="colorControlHighlight">#2053f0</item><!--覆盖色，按下的颜色  -->
+    </style>
+
 </resources>

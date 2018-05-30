@@ -146,7 +146,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                     UIUtils.showToastSafe("账号密码错误！");
                     return;
                 }
-
+                SPManager.getInstance().saveUser(user);
                 startActivity(new Intent(mContext, HomeActivity.class));
                 finish();
             }

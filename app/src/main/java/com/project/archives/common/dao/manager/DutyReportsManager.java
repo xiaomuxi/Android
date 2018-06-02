@@ -31,7 +31,7 @@ public class DutyReportsManager {
     }
 
     public long getCount() {
-        return dutyReportsDao.count();
+        return dutyReportsDao.queryBuilder().where(DutyReportsDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
     public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
@@ -50,7 +50,7 @@ public class DutyReportsManager {
             queryBuilder.where(DutyReportsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(DutyReportsDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
     public long getCountByQuery(String company, String startTime, String endTime) {
@@ -69,7 +69,7 @@ public class DutyReportsManager {
             queryBuilder.where(DutyReportsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(DutyReportsDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
 
@@ -78,7 +78,7 @@ public class DutyReportsManager {
             return 0;
         }
 
-        return dutyReportsDao.queryBuilder().where(DutyReportsDao.Properties.Name.eq(name)).buildCount().count();
+        return dutyReportsDao.queryBuilder().where(DutyReportsDao.Properties.Name.eq(name), DutyReportsDao.Properties.IsDelete.eq("1")).buildCount().count();
 
     }
 
@@ -129,6 +129,7 @@ public class DutyReportsManager {
             queryBuilder.where(DutyReportsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(DutyReportsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(DutyReportsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -141,6 +142,7 @@ public class DutyReportsManager {
             queryBuilder.where(DutyReportsDao.Properties.Name.like("%" + name + "%"));
         }
 
+        queryBuilder.where(DutyReportsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(DutyReportsDao.Properties.UpdateDate);
 
         return queryBuilder.list();

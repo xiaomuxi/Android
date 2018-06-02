@@ -50,7 +50,7 @@ public class EndingsManager {
             queryBuilder.where(EndingsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
     public long getCountByQuery(String company, String startTime, String endTime) {
@@ -69,7 +69,7 @@ public class EndingsManager {
             queryBuilder.where(EndingsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
 
@@ -78,7 +78,7 @@ public class EndingsManager {
             return 0;
         }
 
-        return endingsDao.queryBuilder().where(EndingsDao.Properties.Name.eq(name)).buildCount().count();
+        return endingsDao.queryBuilder().where(EndingsDao.Properties.Name.eq(name), EndingsDao.Properties.IsDelete.eq("1")).buildCount().count();
 
     }
 
@@ -103,6 +103,7 @@ public class EndingsManager {
             queryBuilder.where(EndingsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -129,6 +130,7 @@ public class EndingsManager {
             queryBuilder.where(EndingsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -141,6 +143,7 @@ public class EndingsManager {
             queryBuilder.where(EndingsDao.Properties.Name.like("%" + name + "%"));
         }
 
+        queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
 
         return queryBuilder.list();

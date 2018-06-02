@@ -33,101 +33,101 @@ public class UsersManager {
     }
 
     public long getCount() {
-        return usersDao.count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getQuGuanGanBuCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getDangDaiBiaoCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsDang.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsDang.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsDang.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsDang.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.queryBuilder().where(UsersDao.Properties.IsDang.eq(1)).buildCount().count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.IsDang.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getQuWeiWeiYuanCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsDangW.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsDangW.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsDangW.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsDangW.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.queryBuilder().where(UsersDao.Properties.IsDangW.eq(1)).buildCount().count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.IsDangW.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getJiWeiCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsDangJ.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsDangJ.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsDangJ.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsDangJ.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.queryBuilder().where(UsersDao.Properties.IsDangJ.eq(1)).buildCount().count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.IsDangJ.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getRenDaCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsRen.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsRen.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsRen.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsRen.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.queryBuilder().where(UsersDao.Properties.IsRen.eq(1)).buildCount().count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.IsRen.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getZhengXieCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsZheng.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.IsZheng.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsZheng.eq(1)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.IsZheng.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.queryBuilder().where(UsersDao.Properties.IsZheng.eq(1)).buildCount().count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.IsZheng.eq(1), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getNvRenCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.Sex.eq(2)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.Sex.eq(2), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.Sex.eq(2)).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.Sex.eq(2), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.queryBuilder().where(UsersDao.Properties.Sex.eq(2)).buildCount().count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.Sex.eq(2), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getNotHanZuCount(String init, int type) {
         if (!StringUtils.isEmpty(init)) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.National.notEq("汉族")).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.Init.eq(init), UsersDao.Properties.National.notEq("汉族"), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
         if (type != 0) {
-            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.National.notEq("汉族")).buildCount().count();
+            return usersDao.queryBuilder().where(UsersDao.Properties.CbInit.eq(type), UsersDao.Properties.National.notEq("汉族"), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
         }
 
-        return usersDao.queryBuilder().where(UsersDao.Properties.National.notEq("汉族")).buildCount().count();
+        return usersDao.queryBuilder().where(UsersDao.Properties.National.notEq("汉族"), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public List<Users> getUserList(String userName, String startAge, String endAge) {
@@ -147,7 +147,8 @@ public class UsersManager {
             queryBuilder.where(UsersDao.Properties.Age.le(endAge));
         }
 
-        queryBuilder.orderDesc(UsersDao.Properties.AddDate);
+        queryBuilder.where(UsersDao.Properties.IsDelete.eq(1));
+        queryBuilder.orderAsc(UsersDao.Properties.GerenID);
 
         return queryBuilder.list();
     }

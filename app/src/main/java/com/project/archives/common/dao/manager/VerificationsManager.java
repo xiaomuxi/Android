@@ -31,7 +31,7 @@ public class VerificationsManager {
     }
 
     public long getCount() {
-        return verificationsDao.count();
+        return verificationsDao.queryBuilder().where(VerificationsDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
@@ -50,7 +50,7 @@ public class VerificationsManager {
             queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getCountByQuery(String company, String startTime, String endTime) {
@@ -69,7 +69,7 @@ public class VerificationsManager {
             queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
 
@@ -78,7 +78,7 @@ public class VerificationsManager {
             return 0;
         }
 
-        return verificationsDao.queryBuilder().where(VerificationsDao.Properties.Name.eq(name)).buildCount().count();
+        return verificationsDao.queryBuilder().where(VerificationsDao.Properties.Name.eq(name), VerificationsDao.Properties.IsDelete.eq(1)).buildCount().count();
 
     }
 
@@ -103,6 +103,7 @@ public class VerificationsManager {
             queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -129,6 +130,7 @@ public class VerificationsManager {
             queryBuilder.where(VerificationsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -149,6 +151,7 @@ public class VerificationsManager {
             queryBuilder.where(VerificationsDao.Properties.ResultSituation.eq(resultSituation));
         }
 
+        queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
 
         return queryBuilder.list();

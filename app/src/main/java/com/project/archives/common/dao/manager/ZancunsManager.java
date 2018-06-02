@@ -32,7 +32,7 @@ public class ZancunsManager {
     }
 
     public long getCount() {
-        return zancunsDao.count();
+        return zancunsDao.queryBuilder().where(ZancunsDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
@@ -51,7 +51,7 @@ public class ZancunsManager {
             queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getCountByQuery(String company, String startTime, String endTime) {
@@ -70,7 +70,7 @@ public class ZancunsManager {
             queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getCountByName(String name) {
@@ -78,7 +78,7 @@ public class ZancunsManager {
             return 0;
         }
 
-        return zancunsDao.queryBuilder().where(ZancunsDao.Properties.Name.eq(name)).buildCount().count();
+        return zancunsDao.queryBuilder().where(ZancunsDao.Properties.Name.eq(name), ZancunsDao.Properties.IsDelete.eq(1)).buildCount().count();
 
     }
 
@@ -102,7 +102,7 @@ public class ZancunsManager {
         else if(!StringUtils.isEmpty(endTime)) {
             queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
         }
-
+        queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
         return queryBuilder.build().list();
     }
@@ -128,6 +128,7 @@ public class ZancunsManager {
             queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
         return queryBuilder.build().list();
     }
@@ -139,6 +140,7 @@ public class ZancunsManager {
             queryBuilder.where(ZancunsDao.Properties.Name.like("%" + name + "%"));
         }
 
+        queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
         return queryBuilder.build().list();
     }

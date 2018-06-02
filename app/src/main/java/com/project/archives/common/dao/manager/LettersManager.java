@@ -31,7 +31,7 @@ public class LettersManager {
     }
 
     public long getCount() {
-        return lettersDao.count();
+        return lettersDao.queryBuilder().where(LettersDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
     public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
@@ -50,7 +50,7 @@ public class LettersManager {
             queryBuilder.where(LettersDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(LettersDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
     public long getCountByQuery(String company, String startTime, String endTime) {
@@ -69,7 +69,7 @@ public class LettersManager {
             queryBuilder.where(LettersDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(LettersDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
 
@@ -78,7 +78,7 @@ public class LettersManager {
             return 0;
         }
 
-        return lettersDao.queryBuilder().where(LettersDao.Properties.Name.eq(name)).buildCount().count();
+        return lettersDao.queryBuilder().where(LettersDao.Properties.Name.eq(name), LettersDao.Properties.IsDelete.eq("1")).buildCount().count();
 
     }
 
@@ -103,6 +103,7 @@ public class LettersManager {
             queryBuilder.where(LettersDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(LettersDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -129,6 +130,7 @@ public class LettersManager {
             queryBuilder.where(LettersDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(LettersDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -149,6 +151,7 @@ public class LettersManager {
             queryBuilder.where(LettersDao.Properties.ResultSituation.eq(resultSituation));
         }
 
+        queryBuilder.where(LettersDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
 
         return queryBuilder.list();

@@ -31,7 +31,7 @@ public class CaseInvesManager {
     }
 
     public long getCount() {
-        return caseInvesDao.count();
+        return caseInvesDao.queryBuilder().where(CaseInvesDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getCountByName(String name) {
@@ -39,7 +39,7 @@ public class CaseInvesManager {
             return 0;
         }
 
-        return caseInvesDao.queryBuilder().where(CaseInvesDao.Properties.Name.eq(name)).buildCount().count();
+        return caseInvesDao.queryBuilder().where(CaseInvesDao.Properties.Name.eq(name), CaseInvesDao.Properties.IsDelete.eq(1)).buildCount().count();
 
     }
 
@@ -60,7 +60,7 @@ public class CaseInvesManager {
             queryBuilder.where(CaseInvesDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public long getCountByQuery(String company, String startTime, String endTime) {
@@ -80,7 +80,7 @@ public class CaseInvesManager {
             queryBuilder.where(CaseInvesDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
     public List<CaseInves> getCaseInvesListWithCompanys(String userName, List<String> companyNames, String startTime, String endTime) {
@@ -104,6 +104,7 @@ public class CaseInvesManager {
             queryBuilder.where(CaseInvesDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -130,6 +131,7 @@ public class CaseInvesManager {
             queryBuilder.where(CaseInvesDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -150,6 +152,7 @@ public class CaseInvesManager {
             queryBuilder.where(CaseInvesDao.Properties.DisTypeX.eq(zheng));
         }
 
+        queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1));
         queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
 
         return queryBuilder.list();

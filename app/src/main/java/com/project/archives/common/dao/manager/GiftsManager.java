@@ -39,14 +39,12 @@ public class GiftsManager {
 
         QueryBuilder<Gifts> queryBuilder = giftsDao.queryBuilder();
 
-
-
         if (giftHandId == null) {
             return null;
         }
 
         String handId = StringUtils.byteArrayToHexStr(giftHandId);
-        queryBuilder.where(new WhereCondition.StringCondition("GiftHandID=" +"X'" + handId+"'"));
+        queryBuilder.where(new WhereCondition.StringCondition("GiftHandID=" +"X'" + handId+"'"), GiftsDao.Properties.IsDelete.eq("1"));
 
         return queryBuilder.build().list();
     }

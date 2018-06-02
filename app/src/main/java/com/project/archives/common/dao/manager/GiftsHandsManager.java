@@ -33,7 +33,7 @@ public class GiftsHandsManager {
     }
 
     public long getCount() {
-        return giftHandsDao.count();
+        return giftHandsDao.queryBuilder().where(GiftHandsDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
     public long getCountByQueryWithCompanys(List<String> companys, String startTime, String endTime) {
@@ -61,7 +61,7 @@ public class GiftsHandsManager {
             queryBuilder.where(GiftHandsDao.Properties.AddDate.le(endTime));
         }
 
-        return queryBuilder.buildCount().count();
+        return queryBuilder.where(GiftHandsDao.Properties.IsDelete.eq("1")).buildCount().count();
     }
 
 
@@ -70,7 +70,7 @@ public class GiftsHandsManager {
             return 0;
         }
 
-        return giftHandsDao.queryBuilder().where(GiftHandsDao.Properties.Name.eq(name)).buildCount().count();
+        return giftHandsDao.queryBuilder().where(GiftHandsDao.Properties.Name.eq(name), GiftHandsDao.Properties.IsDelete.eq("1")).buildCount().count();
 
     }
 
@@ -95,6 +95,7 @@ public class GiftsHandsManager {
             queryBuilder.where(GiftHandsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(GiftHandsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(GiftHandsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -111,6 +112,7 @@ public class GiftsHandsManager {
             queryBuilder.where(GiftHandsDao.Properties.AddDate.le(endTime));
         }
 
+        queryBuilder.where(GiftHandsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(GiftHandsDao.Properties.UpdateDate);
 
         return queryBuilder.list();
@@ -123,6 +125,7 @@ public class GiftsHandsManager {
             queryBuilder.where(GiftHandsDao.Properties.Name.like("%" + name + "%"));
         }
 
+        queryBuilder.where(GiftHandsDao.Properties.IsDelete.eq("1"));
         queryBuilder.orderDesc(GiftHandsDao.Properties.UpdateDate);
 
         return queryBuilder.list();

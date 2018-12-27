@@ -104,7 +104,7 @@ public class LettersManager {
         }
 
         queryBuilder.where(LettersDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(LettersDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -131,7 +131,7 @@ public class LettersManager {
         }
 
         queryBuilder.where(LettersDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(LettersDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -152,7 +152,7 @@ public class LettersManager {
         }
 
         queryBuilder.where(LettersDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(LettersDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(LettersDao.Properties.AddDate);
 
         return queryBuilder.list();
     }

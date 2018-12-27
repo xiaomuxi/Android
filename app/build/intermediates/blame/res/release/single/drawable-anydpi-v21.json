@@ -1,10 +1,18 @@
 [
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/drawable-anydpi-v21/design_ic_visibility.xml",
         "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/drawable-anydpi-v21/design_ic_visibility.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/drawable-anydpi-v21/design_ic_visibility_off.xml",
         "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/drawable-anydpi-v21/design_ic_visibility.xml"
     }
 ]

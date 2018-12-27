@@ -104,7 +104,7 @@ public class VerificationsManager {
         }
 
         queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(VerificationsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -131,7 +131,7 @@ public class VerificationsManager {
         }
 
         queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(VerificationsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -152,7 +152,7 @@ public class VerificationsManager {
         }
 
         queryBuilder.where(VerificationsDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(VerificationsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(VerificationsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }

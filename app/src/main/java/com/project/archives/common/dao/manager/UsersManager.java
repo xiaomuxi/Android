@@ -130,7 +130,7 @@ public class UsersManager {
         return usersDao.queryBuilder().where(UsersDao.Properties.National.notEq("汉族"), UsersDao.Properties.IsDelete.eq(1)).buildCount().count();
     }
 
-    public List<Users> getUserList(String userName, String startAge, String endAge) {
+    public List<Users> getUserList(String userName, String startAge, String endAge, List<String> companys) {
 
         QueryBuilder<Users> queryBuilder = usersDao.queryBuilder();
         if (!StringUtils.isEmpty(userName)) {
@@ -145,6 +145,9 @@ public class UsersManager {
         }
         else if(!StringUtils.isEmpty(endAge)) {
             queryBuilder.where(UsersDao.Properties.Age.le(endAge));
+        }
+        if (companys != null) {
+            queryBuilder.where(UsersDao.Properties.Init.in(companys));
         }
 
         queryBuilder.where(UsersDao.Properties.IsDelete.eq(1));

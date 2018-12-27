@@ -75,8 +75,8 @@ public class VerificationsDetailActivity extends BaseActivity {
         tv_gwy.setText(getResources().getString(R.string.txt_gwy, item.getIsOfficer()==1?"是":"否"));
         tv_jcdx.setText(getResources().getString(R.string.txt_jcdx, item.getIsObject() == 1?"是":"否"));
         tv_xsly.setText(getResources().getString(R.string.txt_xsly, StringUtils.getXiansuoByNumber(item.getObjectSource()==null?-1:item.getObjectSource())));//Xiansuo
-        tv_slsj.setText(getResources().getString(R.string.txt_slsj, verificationTime));
-        tv_chsj.setText(getResources().getString(R.string.txt_chsj, processTime));
+        tv_slsj.setText(getResources().getString(R.string.txt_slsj, processTime));
+        tv_chsj.setText(getResources().getString(R.string.txt_chsj, verificationTime));
         tv_ljsj.setText(getResources().getString(R.string.txt_ljsj, takingTime));
         tv_jys.setText(getResources().getString(R.string.txt_jys, "是"));
         tv_bxgd.setText(getResources().getString(R.string.txt_bxgd, "否"));

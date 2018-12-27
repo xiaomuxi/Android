@@ -104,7 +104,7 @@ public class EndingsManager {
         }
 
         queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(EndingsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -131,7 +131,7 @@ public class EndingsManager {
         }
 
         queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(EndingsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -144,7 +144,7 @@ public class EndingsManager {
         }
 
         queryBuilder.where(EndingsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(EndingsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(EndingsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }

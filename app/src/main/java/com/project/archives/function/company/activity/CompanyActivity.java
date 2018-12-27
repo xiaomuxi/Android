@@ -189,7 +189,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         startDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                startDate = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                startDate = year + (monthOfYear < 9 ? "-0" : "-") + (monthOfYear + 1) + (dayOfMonth < 10 ? "-0" : "-") + dayOfMonth;
                 if (!checkStartAndEndTimeRight()) {
                     UIUtils.showToastSafe("起始时间不能小于结束时间！");
                     return;
@@ -203,7 +203,7 @@ public class CompanyActivity extends BaseActivity implements View.OnClickListene
         endDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                endDate = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                endDate = year + (monthOfYear < 9 ? "-0" : "-") + (monthOfYear + 1) + (dayOfMonth < 10 ? "-0" : "-") + dayOfMonth;
                 if (!checkStartAndEndTimeRight()) {
                     UIUtils.showToastSafe("结束时间不能小于起始时间！");
                     return;

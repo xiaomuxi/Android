@@ -2,5 +2,9 @@
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/layout-sw600dp-v13/design_layout_snackbar.xml",
         "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout-sw600dp-v13/design_layout_snackbar.xml"
     }
 ]

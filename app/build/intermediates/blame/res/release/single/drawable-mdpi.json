@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/drawable-mdpi/ic_launcher_round.png",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/drawable-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/drawable-mdpi/ic_launcher.png",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/drawable-mdpi/ic_launcher.png",
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/drawable-mdpi/ic_launcher.png"
     },

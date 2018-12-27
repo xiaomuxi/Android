@@ -103,7 +103,7 @@ public class ZancunsManager {
             queryBuilder.where(ZancunsDao.Properties.AddDate.le(endTime));
         }
         queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(ZancunsDao.Properties.AddDate);
         return queryBuilder.build().list();
     }
 
@@ -129,7 +129,7 @@ public class ZancunsManager {
         }
 
         queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(ZancunsDao.Properties.AddDate);
         return queryBuilder.build().list();
     }
 
@@ -141,7 +141,7 @@ public class ZancunsManager {
         }
 
         queryBuilder.where(ZancunsDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(ZancunsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(ZancunsDao.Properties.AddDate);
         return queryBuilder.build().list();
     }
 

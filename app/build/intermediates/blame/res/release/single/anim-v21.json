@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/anim-v21/design_bottom_sheet_slide_out.xml",
         "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
     },

@@ -59,13 +59,13 @@ public class AgeActivity extends BaseActivity {
     }
 
     private void initData() {
-        list = UsersManager.getInstance().getUserList(null, null, null);
+        list = UsersManager.getInstance().getUserList(null, null, null, null);
         checkData(list);
         adapter.setData(list);
     }
 
     private void getDataByAge(String startAge, String endAge) {
-        list = UsersManager.getInstance().getUserList(null, startAge, endAge);
+        list = UsersManager.getInstance().getUserList(null, startAge, endAge, null);
         checkData(list);
         adapter.setData(list);
     }

@@ -96,7 +96,7 @@ public class GiftsHandsManager {
         }
 
         queryBuilder.where(GiftHandsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(GiftHandsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(GiftHandsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -113,7 +113,7 @@ public class GiftsHandsManager {
         }
 
         queryBuilder.where(GiftHandsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(GiftHandsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(GiftHandsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -126,7 +126,7 @@ public class GiftsHandsManager {
         }
 
         queryBuilder.where(GiftHandsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(GiftHandsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(GiftHandsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }

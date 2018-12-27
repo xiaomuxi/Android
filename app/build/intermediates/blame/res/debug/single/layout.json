@@ -8,60 +8,68 @@
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_bar_title_item.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_popup_menu_header_item_layout.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_type.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
         "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_bottom_sheet_dialog.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_caseinves.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_caseinves.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/fragment_base.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragment_base.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/spinner_list_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/7d31a9bcb50c7abbb9370cd2f0d353eb8f076b6c/output/res/layout/spinner_list_item.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_radio.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_letters.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_letters.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_parent.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_parent.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_alert_dialog_title_material.xml"
     },
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_detail_gift.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_detail_gift.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_gifts.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_gifts.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_media_custom.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_subheader.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_endings_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_endings_detail.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/common_top_bar.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/common_top_bar.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/theme_acitity_normal.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/theme_acitity_normal.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_bar_up_container.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_text_input_password_icon.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/select_dialog_singlechoice_material.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_separator.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_part_chronometer.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
@@ -76,6 +84,10 @@
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_dialog_title_material.xml"
     },
@@ -84,88 +96,108 @@
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/layout_materialdialog.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_tab_icon.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/select_dialog_item_material.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
         "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_menu.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/content_main.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/content_main.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_caseinves.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_caseinves.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/item_list.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/item_list.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_login.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_part_chronometer.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_list_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_list_detail.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/fragment_second.xml",
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragment_second.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/theme_acitity_normal.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/theme_acitity_normal.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_bar_title_item.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_layout.xml"
     },
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_zancuns.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_zancuns.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_part_time.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_menu_item.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_letters_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_letters_detail.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/content_base.xml",
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/content_base.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_lines_media.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/fragment_chart.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragment_chart.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_snackbar.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_select_dialog_material.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/popupwindow_menu.xml",
+        "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/layout/popupwindow_menu.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_menu_item_action_area.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_verifications.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_verifications.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_age.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_age.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/item_self_list.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/item_self_list.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_user.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_user.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/nav_header_main.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/nav_header_main.xml"
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/item_self_list.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/item_self_list.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/item_person_list.xml",
@@ -176,36 +208,28 @@
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fifth_fragment.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/activity_base.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/activity_base.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/loading_page_error.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/loading_page_error.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/app_bar_main.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/app_bar_main.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_gifts.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_gifts.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_part_time.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_action.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/menu_item.xml",
-        "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/layout/menu_item.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_icon_group.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_alert_dialog_button_bar_material.xml"
-    },
-    {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_bar_up_container.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
@@ -216,8 +240,12 @@
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_header.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_alert_dialog_material.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
@@ -232,8 +260,8 @@
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragmennt_third.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/activity_login.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_menu_layout.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
@@ -244,8 +272,8 @@
         "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/layout/menu_list_item.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/fragment_forth.xml",
-        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragment_forth.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_duty_report_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_duty_report_type.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
@@ -256,12 +284,12 @@
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_search_view.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_simple.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_bottom_navigation_item.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_detail_list_giftcard.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_detail_list_giftcard.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
@@ -272,8 +300,416 @@
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_content_include.xml"
     },
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_detail_list_gift.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_detail_list_gift.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_horizontal_title.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_horizontal_title.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_duty_report.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_duty_report.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_caseinves_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_caseinves_type.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_verifications_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_verifications_detail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_duty_report_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_duty_report_detail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_endings_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_endings_type.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_person_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_person_detail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_verifications_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_verifications_type.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/menu_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/layout/menu_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/fragment_base.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragment_base.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/layout_materialdialog.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/layout_materialdialog.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/common_top_bar.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/common_top_bar.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_menu.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_user_info.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_user_info.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/theme_acitity_normal.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/theme_acitity_normal.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_gifts_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_gifts_detail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_detail_giftcard.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_detail_giftcard.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_zancuns_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_zancuns_detail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/content_main.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/content_main.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/item_list.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/item_list.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_company.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_company.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/menu_list_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/layout/menu_list_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_home.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_home.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/loading_page_empty.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/loading_page_empty.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/fragment_chart.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragment_chart.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_endings.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_endings.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_detail_gifthanddetail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_detail_gifthanddetail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_letters_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_letters_type.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/nav_header_main.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_gift_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_gift_type.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_person_problem_list.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_person_problem_list.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/activity_base.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/activity_base.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/app_bar_main.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/app_bar_main.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/menu_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/layout/menu_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_person.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_person.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_detail_list_gifthanddetail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_detail_list_gifthanddetail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_dutyreport.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_dutyreport.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/loading_page_loading.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/loading_page_loading.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_letters.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_letters.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_zancuns_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_zancuns_type.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/fragment_forth.xml",
+        "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/layout/fragment_forth.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_caseinves_detail.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_caseinves_detail.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_bottom_navigation_item.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_reset_password.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_reset_password.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/item_list_endings.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/item_list_endings.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_verifications.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_verifications.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/common_top_bar.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/common_top_bar.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
@@ -284,19 +720,31 @@
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_icon.xml"
     },
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/activity_type.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/activity_type.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
-        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/select_dialog_item_material.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_alert_dialog_material.xml"
     },
     {
-        "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
-        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_layout_snackbar.xml"
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/inrokei/.android/build-cache/dd3c65ec950040b5b5fa3f13a83599906efbc1f4/output/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/layout/fragment_list_zancuns.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/layout/fragment_list_zancuns.xml"
     }
 ]

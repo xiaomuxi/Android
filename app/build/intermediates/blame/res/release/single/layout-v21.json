@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout-v21/notification_template_custom_big.xml"
     },
@@ -10,6 +18,14 @@
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
         "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/Users/inrokei/.android/build-cache/43f2c1720e5f0c933640f23c9df35d08e5b1e5af/output/res/layout-v21/notification_action.xml"
     },
     {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",

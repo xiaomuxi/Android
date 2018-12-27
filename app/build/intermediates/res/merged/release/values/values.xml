@@ -25,6 +25,7 @@
     <color name="bg_btn_delete">#F81C1C</color>
     <color name="bg_gray">#b4afac</color>
     <color name="bg_gray_b">#BBBBBB</color>
+    <color name="bg_gray_e">#eeeeee</color>
     <color name="bg_main_white">#f5f5f5</color>
     <color name="bg_main_yellow">#F6D85F</color>
     <color name="bg_transparent">#00000000</color>
@@ -71,6 +72,7 @@
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="item_bg">#F3F4F9</color>
+    <color name="light_gray">#fff5f5f5</color>
     <color name="line_gray">#f5f5f5</color>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
@@ -108,7 +110,7 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <color name="text_black">#333333</color>
+    <color name="text_black">#666666</color>
     <color name="text_blue">#267cfc</color>
     <color name="text_gray">#999999</color>
     <color name="text_gray_5">#555555</color>
@@ -200,6 +202,7 @@
             <enum name="auto" value="-1"/>
         </attr><attr format="boolean" name="behavior_hideable"/><attr format="boolean" name="behavior_skipCollapsed"/></declare-styleable>
     <declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable>
+    <declare-styleable name="CircleImageView"><attr format="dimension" name="circle_border_width"/><attr format="color" name="circle_border_color"/><attr format="boolean" name="circle_border_overlay"/><attr format="color" name="circle_fill_color"/></declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout"><attr format="dimension" name="expandedTitleMargin"/><attr format="dimension" name="expandedTitleMarginStart"/><attr format="dimension" name="expandedTitleMarginTop"/><attr format="dimension" name="expandedTitleMarginEnd"/><attr format="dimension" name="expandedTitleMarginBottom"/><attr format="reference" name="expandedTitleTextAppearance"/><attr format="reference" name="collapsedTitleTextAppearance"/><attr format="color" name="contentScrim"/><attr format="color" name="statusBarScrim"/><attr format="reference" name="toolbarId"/><attr format="dimension" name="scrimVisibleHeightTrigger"/><attr format="integer" name="scrimAnimationDuration"/><attr name="collapsedTitleGravity">
             
             <flag name="top" value="0x30"/>
@@ -339,7 +342,13 @@
             <enum name="mini" value="1"/>
         </attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/><attr format="boolean" name="useCompatPadding"/></declare-styleable>
     <declare-styleable name="FloatingActionButton_Behavior_Layout"><attr format="boolean" name="behavior_autoHide"/></declare-styleable>
+    <declare-styleable name="FlowLayout"><attr format="dimension" name="horizontalSpacing"/><attr format="dimension" name="verticalSpacing"/><attr format="enum" name="orientation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr><attr format="boolean" name="debugDraw"/></declare-styleable>
+    <declare-styleable name="FlowLayout_LayoutParams"><attr format="boolean" name="layout_newLine"/><attr format="dimension" name="layout_horizontalSpacing"/><attr format="dimension" name="layout_verticalSpacing"/></declare-styleable>
     <declare-styleable name="ForegroundLinearLayout"><attr name="android:foreground"/><attr name="android:foregroundGravity"/><attr format="boolean" name="foregroundInsidePadding"/></declare-styleable>
+    <declare-styleable name="HorizontalListView"><attr format="dimension" name="dividerwidth"/><attr name="android:divider"/><attr name="android:requiresFadingEdge"/><attr name="android:fadingEdgeLength"/></declare-styleable>
     <declare-styleable name="LinearConstraintLayout"><attr name="android:orientation"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers">
             <flag name="none" value="0"/>
@@ -364,13 +373,22 @@
         </attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/><attr format="string" name="contentDescription"/><attr format="string" name="tooltipText"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/><attr format="reference" name="subMenuArrow"/></declare-styleable>
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="itemTextAppearance"/><attr format="reference" name="headerLayout"/></declare-styleable>
+    <declare-styleable name="NiceSpinner"><attr format="color" name="arrowTint"/><attr format="boolean" name="hideArrow"/><attr format="reference|color" name="arrowDrawable"/><attr format="dimension" name="dropDownListPaddingBottom"/><attr format="integer" name="backgroundSelector"/><attr format="color" name="textTint"/></declare-styleable>
+    <declare-styleable name="NumberPicker"><attr format="color" name="normalTextColor"/><attr format="dimension" name="normalTextSize"/><attr format="color" name="selecredTextColor"/><attr format="dimension" name="selecredTextSize"/><attr format="dimension" name="unitHight"/><attr format="integer" name="itemNumber"/><attr format="color" name="lineColor"/><attr format="dimension" name="maskHight"/><attr format="boolean" name="noEmpty"/><attr format="boolean" name="isEnable"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/><attr name="android:popupAnimationStyle"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
+    <declare-styleable name="PreviewBorderView"><attr format="string" name="tipText"/><attr format="color|reference" name="tipTextColor"/><attr format="dimension" name="tipTextSize"/></declare-styleable>
     <declare-styleable name="RecycleListView"><attr format="dimension" name="paddingBottomNoButtons"/><attr format="dimension" name="paddingTopNoTitle"/></declare-styleable>
     <declare-styleable name="RecyclerView"><attr format="string" name="layoutManager"/><attr name="android:orientation"/><attr name="android:descendantFocusability"/><attr format="integer" name="spanCount"/><attr format="boolean" name="reverseLayout"/><attr format="boolean" name="stackFromEnd"/><attr format="boolean" name="fastScrollEnabled"/><attr format="reference" name="fastScrollVerticalThumbDrawable"/><attr format="reference" name="fastScrollVerticalTrackDrawable"/><attr format="reference" name="fastScrollHorizontalThumbDrawable"/><attr format="reference" name="fastScrollHorizontalTrackDrawable"/></declare-styleable>
+    <declare-styleable name="Rotate3dAnimation"><attr format="enum" name="rollType">
+            <enum name="x" value="0"/>
+            <enum name="y" value="1"/>
+            <enum name="z" value="2"/>
+        </attr><attr format="float" name="fromDeg"/><attr format="float" name="toDeg"/><attr format="fraction" name="pivotX"/><attr format="fraction" name="pivotY"/></declare-styleable>
     <declare-styleable name="ScrimInsetsFrameLayout"><attr format="color|reference" name="insetForeground"/></declare-styleable>
     <declare-styleable name="ScrollingViewBehavior_Layout"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="SlidingMenuLayout"><attr format="dimension" name="right_padding"/></declare-styleable>
     <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="color" name="thumbTint"/><attr name="thumbTintMode">
@@ -612,6 +630,7 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">12dp</dimen>
     <dimen name="sp_12">12.0sp</dimen>
     <dimen name="sp_13">13.0sp</dimen>
     <dimen name="sp_14">14.0sp</dimen>
@@ -635,6 +654,7 @@
     <dimen name="textSize_19">19.0sp</dimen>
     <dimen name="textSize_20">20.0sp</dimen>
     <dimen name="textSize_30">30.0sp</dimen>
+    <dimen name="three_grid_unit">24dp</dimen>
     <item name="ic_menu_camera" type="drawable">@android:drawable/ic_menu_camera</item>
     <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
     <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
@@ -647,6 +667,7 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="cb_item_tag" type="id"/>
     <item name="home" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="progress_circular" type="id"/>
@@ -707,10 +728,23 @@
     <string name="btn_cancel">取消</string>
     <string name="btn_true">确定</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="click_reload">点击重新加载</string>
     <string name="hello_world">Hello world!</string>
+    <string name="hint_input_account">请输入账号</string>
+    <string name="hint_input_new_password">请输入新密码</string>
+    <string name="hint_input_new_password_again">请再次输入新密码</string>
+    <string name="hint_input_password">请输入密码</string>
     <string name="invalid_username_password">用户名或密码不正确</string>
+    <string name="list_caseinves_title">处分类(%s)</string>
+    <string name="list_duty_report_title">述责述廉(%s)</string>
+    <string name="list_endings_title">了结类(%s)</string>
+    <string name="list_gift_title">三礼上交(%s)</string>
+    <string name="list_letters_title">函询类(%s)</string>
+    <string name="list_verifications_title">初核类(%s)</string>
+    <string name="list_zancuns_title">暂存类(%s)</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="not_find_search_result">没有找到结果</string>
     <string name="password_toggle_content_description">Toggle password visibility</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
@@ -720,10 +754,61 @@
     <string name="prompt_password">请输入密码</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="tab_account">账　号</string>
+    <string name="text_clqk">处理情况： %s</string>
+    <string name="text_password">密　码</string>
     <string name="title_activity_login">登录</string>
     <string name="title_activity_main">首页</string>
+    <string name="txt_age">年龄：%s</string>
+    <string name="txt_amount">金额：%s</string>
+    <string name="txt_birth">出生年月：%s</string>
+    <string name="txt_birth_place">出生地：%s</string>
+    <string name="txt_bljg">办理机关： %s</string>
+    <string name="txt_bxgd">八项规定：%s</string>
+    <string name="txt_card_hand">礼卡／证劵上交(%s)</string>
+    <string name="txt_caseinves">处分类</string>
+    <string name="txt_chsj">初核时间： %s</string>
+    <string name="txt_dang">党代表： %s</string>
+    <string name="txt_dncf">党内处分： %s</string>
+    <string name="txt_gift_hand">礼品上交(%s)</string>
+    <string name="txt_gift_name">礼品名：%s</string>
+    <string name="txt_gift_number">号码：%s</string>
+    <string name="txt_gwy">公务员： %s</string>
+    <string name="txt_health">健康状况：%s</string>
+    <string name="txt_jcdx">监察对象： %s</string>
+    <string name="txt_jiguan">籍贯：%s</string>
+    <string name="txt_jys">建议书：%s</string>
+    <string name="txt_liaojie_result">了结结论：%s</string>
+    <string name="txt_ljsj">了结时间： %s</string>
+    <string name="txt_minzu">民族：%s</string>
+    <string name="txt_money_hand">礼金上交(%s)</string>
+    <string name="txt_money_number">面值：%s</string>
+    <string name="txt_mount">数量：%s</string>
+    <string name="txt_name">姓名： %s</string>
+    <string name="txt_name_mc">名称：%s</string>
     <string name="txt_password_can_not_empty">密码不能为空</string>
+    <string name="txt_qingkuangshuoming1">情况说明：截止2018年5月07日，%1$s （单位／系统） 共有区管干部（在职）%2$s人，其中党代表%3$s人，区委委员%4$s人，纪委%5$s人，人大代表%6$s人，政协委员%7$s人，女干部%8$s人，少数民族%9$s人</string>
+    <string name="txt_qingkuangshuoming2">该单位人员中，未收到问题线索4人；目前，处分类0人；初步核实0人；谈话函询0人，了结1人；暂存0人；廉政意见0人</string>
+    <string name="txt_renda">人大代表： %s</string>
+    <string name="txt_report_date">具体日期：%s</string>
+    <string name="txt_report_year">述责述廉年份：%s</string>
+    <string name="txt_rudang_time">入党时间：%s</string>
+    <string name="txt_sex">性别：%s</string>
+    <string name="txt_shuxizhuanyezhuanchang">熟悉专业\n有何专长</string>
+    <string name="txt_slsj">受理时间： %s</string>
+    <string name="txt_time">时间：%s</string>
     <string name="txt_username_can_not_empty">用户名不能为空</string>
+    <string name="txt_work_time">参加工作时间：%s</string>
+    <string name="txt_worth">价值：%s</string>
+    <string name="txt_xianrenzhiwu">现任职务：</string>
+    <string name="txt_xsly">线索来源： %s</string>
+    <string name="txt_xzcf">行政处分： %s</string>
+    <string name="txt_yjsf">移交司法：%s</string>
+    <string name="txt_zhiji">职级： %s</string>
+    <string name="txt_zhuanyejishuzhiwu">专业技\n术职务</string>
+    <string name="txt_zzcl">组织处理： %s</string>
+    <string name="txt_zzclqk">组织处理情况： %s</string>
+    <string name="txt_zzmm">政治面貌： %s</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -732,7 +817,7 @@
         <item name="android:windowEnterAnimation">@anim/design_bottom_sheet_slide_in</item>
         <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
     </style>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -1873,6 +1958,16 @@
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
     </style>
     <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Spinner"/>
+    <style name="ProgressBarBig">
+        <item name="android:indeterminateDrawable">@drawable/progress_loading</item>
+        <item name="android:minWidth">48dip</item>
+        <item name="android:maxWidth">48dip</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:maxHeight">48dip</item>
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">3500</item>
+    </style>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
     <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">
@@ -2244,5 +2339,9 @@
         <item name="passwordToggleDrawable">@drawable/design_password_eye</item>
         <item name="passwordToggleTint">@color/design_tint_password_toggle</item>
         <item name="passwordToggleContentDescription">@string/password_toggle_content_description</item>
+    </style>
+    <style name="btn_theme_blue" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorButtonNormal">#1ba0f9</item><!--正常状态下的颜色  -->
+        <item name="colorControlHighlight">#2053f0</item><!--覆盖色，按下的颜色  -->
     </style>
 </resources>

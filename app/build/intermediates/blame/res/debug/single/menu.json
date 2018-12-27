@@ -8,11 +8,27 @@
         "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/menu/menu_main.xml"
     },
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/menu/activity_main_drawer.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/menu/activity_main_drawer.xml"
     },
     {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/menu/menu_base.xml",
+        "source": "/Users/inrokei/WORKSPACE/project/android/archives/app/src/main/res/menu/menu_base.xml"
+    },
+    {
         "merged": "/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/res/merged/debug/menu/main.xml",
         "source": "/Users/inrokei/WORKSPACE/research/archives/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
+        "source": "/Users/inrokei/.android/build-cache/f4b083e6e34681106a90b75fe59aab4f16238c9d/output/res/menu/menu_main.xml"
     }
 ]

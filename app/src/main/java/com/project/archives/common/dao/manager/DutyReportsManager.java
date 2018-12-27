@@ -103,7 +103,7 @@ public class DutyReportsManager {
             queryBuilder.where(DutyReportsDao.Properties.AddDate.le(endTime));
         }
 
-        queryBuilder.orderDesc(DutyReportsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(DutyReportsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -130,7 +130,7 @@ public class DutyReportsManager {
         }
 
         queryBuilder.where(DutyReportsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(DutyReportsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(DutyReportsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -143,7 +143,7 @@ public class DutyReportsManager {
         }
 
         queryBuilder.where(DutyReportsDao.Properties.IsDelete.eq("1"));
-        queryBuilder.orderDesc(DutyReportsDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(DutyReportsDao.Properties.AddDate);
 
         return queryBuilder.list();
     }

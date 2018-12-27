@@ -105,7 +105,7 @@ public class CaseInvesManager {
         }
 
         queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(CaseInvesDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -132,7 +132,7 @@ public class CaseInvesManager {
         }
 
         queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(CaseInvesDao.Properties.AddDate);
 
         return queryBuilder.list();
     }
@@ -153,7 +153,7 @@ public class CaseInvesManager {
         }
 
         queryBuilder.where(CaseInvesDao.Properties.IsDelete.eq(1));
-        queryBuilder.orderDesc(CaseInvesDao.Properties.UpdateDate);
+        queryBuilder.orderDesc(CaseInvesDao.Properties.AddDate);
 
         return queryBuilder.list();
     }

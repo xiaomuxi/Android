@@ -1,7 +1,4 @@
-#Fri Apr 27 20:21:19 CST 2018
-base.0=/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_24845766c29f95fb1b69d70006c3d543725edca0
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4a450bdf2005b8c592724afc486b318285eefe42/classes.dex
-base.1=/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4a450bdf2005b8c592724afc486b318285eefe42
-file.0=/Users/inrokei/WORKSPACE/research/archives/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_24845766c29f95fb1b69d70006c3d543725edca0/classes.dex
+#Thu Dec 27 20:08:01 CST 2018
+base.0=/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/inrokei/WORKSPACE/project/android/archives/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

@@ -3,21 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="首页汇总" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_person"
             android:icon="@drawable/ic_menu_gallery"
             android:title="个人查询" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_company"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="单位查询" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_type"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="问题类型" />
+            android:title="问题类型查询" />
         <item
             android:id="@+id/nav_age"
             android:icon="@drawable/ic_menu_slideshow"
@@ -27,7 +27,7 @@
     <item android:title="配置信息">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_setting"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="设置" />
         </menu>

@@ -41,6 +41,7 @@ public class UserListAdapter extends MyBaseAdapter<Users>{
         TextView tv_zhiwu = (TextView) convertView.findViewById(R.id.tv_zhiwu);
         TextView tv_company = (TextView) convertView.findViewById(R.id.tv_company);
         TextView tv_zhiji = (TextView) convertView.findViewById(R.id.tv_zhiji);
+        TextView tv_type = (TextView) convertView.findViewById(R.id.tv_type);
 
         final Users user = getItem(position);
         String code = StringUtils.isEmpty(user.getGerenID())? "--": user.getGerenID();
@@ -50,6 +51,23 @@ public class UserListAdapter extends MyBaseAdapter<Users>{
         String zhiwu = StringUtils.isEmpty(user.getPosition())? "--": user.getPosition();
         String company = StringUtils.isEmpty(user.getInit())? "--": user.getInit();
         String zhiji = StringUtils.getLevelByNumber(user.getRank() == null ? -1 : user.getRank());
+
+        String type = "";
+        if (user.getCaseInvesList().size() > 0) {
+            type += "处分";
+        }
+        if (user.getVerificationsList().size() > 0) {
+            if (!StringUtils.isEmpty(type)) {
+                type += "|";
+            }
+            type += "初核";
+        }
+        if (user.getLettersList().size() > 0) {
+            if (!StringUtils.isEmpty(type)) {
+                type += "|";
+            }
+            type += "函询";
+        }
 
         zhiwu = zhiwu.length()>13?zhiwu.substring(0,13) + "..." :zhiwu;
         company = company.length()>16?company.substring(0,16) + "..." :company;
@@ -61,6 +79,7 @@ public class UserListAdapter extends MyBaseAdapter<Users>{
         tv_company.setText(company);
         tv_zhiji.setText(zhiji);
         tv_zhiwu.setText(zhiwu);
+        tv_type.setText(type);
 
         ll_item.setOnClickListener(new View.OnClickListener() {
             @Override
